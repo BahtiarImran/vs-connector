@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<projects_members type="array">
+  <projects_member>
+    <id>proj12_30</id>
+    <admin type="boolean">false</admin>
+    <readonly_member type="boolean">false</readonly_member>
+    <user url="http://localhost:8080/api/v2/users/30.xml">
+      <id type="integer">30</id>
+      <name>mingleuser</name>
+      <login>mingleuser</login>
+      <email nil="true"></email>
+      <light type="boolean">false</light>
+      <icon_path nil="true"></icon_path>
+      <last_login_at type="datetime">2011-12-07T16:03:04Z</last_login_at>
+      <activated type="boolean">true</activated>
+      <admin type="boolean">false</admin>
+      <version_control_user_name nil="true"></version_control_user_name>
+      <jabber_user_name nil="true"></jabber_user_name>
+    </user>
+    <project url="http://localhost:8080/api/v2/projects/test.xml">
+      <name>test</name>
+      <identifier>test</identifier>
+    </project>
+  </projects_member>
+  <projects_member>
+    <id>proj12_115</id>
+    <admin type="boolean">true</admin>
+    <readonly_member type="boolean">false</readonly_member>
+    <user url="http://localhost:8080/api/v2/users/115.xml">
+      <id type="integer">115</id>
+      <name>administrator</name>
+      <login>administrator</login>
+      <email nil="true"></email>
+      <light type="boolean">false</light>
+      <icon_path nil="true"></icon_path>
+      <last_login_at nil="true"></last_login_at>
+      <activated type="boolean">true</activated>
+      <admin type="boolean">false</admin>
+      <version_control_user_name nil="true"></version_control_user_name>
+      <jabber_user_name nil="true"></jabber_user_name>
+    </user>
+    <project url="http://localhost:8080/api/v2/projects/test.xml">
+      <name>test</name>
+      <identifier>test</identifier>
+    </project>
+  </projects_member>
+</projects_members>

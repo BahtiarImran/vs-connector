@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <!-- 
+   Copyright 2011 ThoughtWorks, Inc.
+  
+   Licensed under the Apache License, Version 2.0 (the "License"); 
+   you may not use this file except in compliance with the License. 
+   You may obtain a copy of the License at:
+  
+   http:  www.apache.org/licenses/LICENSE-2.0
+  
+   Unless required by applicable law or agreed to in writing, software 
+   distributed under the License is distributed on an "AS IS" BASIS, 
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+   See the License for the specific language governing permissions and 
+   limitations under the License.
+   -->
+  <!--This is the file that defines the IDs for all the commands exposed by VisualStudio.-->
+  <Extern href="stdidcmd.h" />
+
+  <!--This header contains the command ids for the menus provided by the shell.-->
+  <Extern href="vsshlids.h"/>
+
+  <!--Definition of some VSCT specific constants. In this sample we use it for the IDs
+      inside the guidOfficeIcon group.-->
+  <Extern href="msobtnid.h"/>
+
+  <!--
+  The first section of this file is the Commands section. This is where we define
+  the commands, menus and menu groups. This section uses a Guid to identify the
+  package that provides the command defined inside it.
+  Note that the package's GUID is expressed as a symbol that the compiler will
+  translate in an actual GUID at compile time. It is not allow to use an actual
+  GUID for the package attribute.
+  -->
+  <Commands package="guidTwVscPackage">
+    <Menus>
+      <Menu guid="guidTwVscCmdSet" id="TwToolbar" priority="0x000" type="Toolbar">
+        <Parent guid="guidTwVscCmdSet" id="TwToolbar" />
+        <Strings>
+          <ButtonText>ThoughtWorks Toolbar</ButtonText>
+          <CommandName>ThoughtWorksToolbar</CommandName>
+        </Strings>
+        </Menu>
+    </Menus>
+<!--
+    In this section we define new menu groups. A menu group is a container for other menus or
+    buttons (commands); from a visual point of view you can see the group as the part of a menu
+    contained between two lines. The parent of a group must be a menu.
+    -->
+    <Groups>
+        <Group guid="guidTwVscCmdSet" id="ToolbarGroup" priority="0x100">
+            <Parent guid="guidTwVscCmdSet" id="TwToolbar"/>
+        </Group>
+    </Groups>
+
+    <!--
+    This section defines the elements the user can interact with, like a menu command or a button
+    or combo box in a toolbar.
+    An element inside this section is defined by its ID and must specify a parent group, a display
+    priority, an image, a type, some visibility flags (optional) and a default text.
+    -->
+    <Buttons>
+      <!--
+      These buttons appear on the Toolbar
+      -->
+      <!--<Button guid="guidTwVscCmdSet" id="cmdidTwSettingsCommand" priority="0x100" type="Button">
+          <Parent guid="guidTwVscCmdSet" id="ToolbarGroup"/>
+          <Icon guid="guidSettingsCommandBmp" id="bmpSettings"/>
+          <Strings>
+              <ButtonText>Mingle/Go Settings...</ButtonText>
+          </Strings>
+      </Button>-->
+      <!--<Button guid="guidTwVscCmdSet" id="cmdidTwCardsAllCommand" priority="0x101" type="Button">
+        <Parent guid="guidTwVscCmdSet" id="ToolbarGroup"/>
+        <Icon guid="guidMingleCardCommandBmp" id="bmpAllCards"/>
+        <Strings>
+          <ButtonText>All Mingle Cards...</ButtonText>
+        </Strings>
+      </Button>-->
+      <!--<Button guid="guidTwVscCmdSet" id="cmdidTwBuildNoticeCommand" priority="0x103" type="Button">
+          <Parent guid="guidTwVscCmdSet" id="ToolbarGroup"/>
+          <Icon guid="guidGoCommandBmp" id="bmpArrow"/>
+          <Strings>
+              <ButtonText>Go Builds...</ButtonText>
+          </Strings>
+      </Button>-->
+      <!--<Button guid="guidTwVscCmdSet" id="cmdidTwNewCardCommand" priority="0x105" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ERRORLIST"/>
+        <Strings>
+          <ButtonText>&amp;New Card</ButtonText>
+        </Strings>
+      </Button>-->
+      <!-- 
+      This button will appear as an item under View -> Other Windows...
+      -->
+      <Button guid="guidTwVscCmdSet" id="cmdidTwExplorerCommand" priority="0x104" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWSEXPLORERS"/>
+        <!--        <Parent guid="guidTwVscCmdSet" id="ToolbarGroup"/>-->
+        <Icon guid="guidMingleCardCommandBmp" id="bmpAllCards"/>
+        <Strings>
+          <ButtonText>&amp;ThoughtWorks Explorer</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+    <!--
+    The bitmaps section is used to define the bitmaps that are used for the commands.
+    -->
+    <!--
+    <Bitmaps>
+      The Bitmap id is defined in a way that is a little bit different from the others:
+      the definition must provide a GUID (guid attribute) for the bitmap strip, a resource id (resID attribute)
+      of the bitmap strip containing the bitmaps and then the numeric ids of the elements used
+      inside a button definition (usedList attribute). An important aspect of this declaration is that 
+      the element id must be the actual index (1-based) of the bitmap inside the bitmap strip.
+      In this example we have a bitmap strip with resource id 300 and that contains only one
+      element; we want to define as ID for this element guidTwVscCmdSet:bmpGrid, so we
+      have to define bmpGrid as 1 and is the delaration of the bitmap:
+    </Bitmaps>
+      -->
+  </Commands>
+
+  <!--
+  In this example we have always used descriptive names for the GUIDs and numeric IDs inside the definition
+  of the elements. The VSCT compiler actually enforces the usage of these names instead of hard-coding
+  the numbers in the definitions.
+  We have also seen that the compiler can read some of these constants from the files imported with the
+  "Extern" tag at the beginning of the file. The problem is then how to define the other constants.
+  
+  The "Symbols" section is where this association between descriptive names and actual values happen.
+  -->
+  <Symbols>
+    <!--
+    The definition of symbols in a VSCT file derives from the way the IDs of the elements are defined
+    by the command table. We have seen that the ID is a GUID/Number pair, where the GUID is also called
+    Command Set and it provides the context in which the numeric ID is evaluated.
+    It makes then sense for the VSCT schema to define the GuidSymbl tag as top level element containig
+    the definiton of the numeric IDs.
+    -->
+    
+    <!--The first GUID defined here is the one for the package. It does not contains numeric IDs.-->
+    <GuidSymbol name="guidTwVscPackage" value="{D00EB40D-F709-49C6-B43F-D7910D730883}" />
+    
+    <!--The GUID for the command set is the one that contains the numeric IDs used in this sample
+        with the only exception of the one used for the bitmap.-->
+    <GuidSymbol name="guidTwVscCmdSet" value="{927BC402-45CF-43E5-BD57-B3A2A5B4D343}">
+      <!--Menus-->
+      <IDSymbol name="TwToolbar" value="0x101"/>
+      <!--Groups-->
+      <IDSymbol name="TwMenuGroup" value="0x1010" />
+      <IDSymbol name="ToolbarGroup" value="0x1011"/>
+      <!--Commands-->
+      <IDSymbol name="cmdidTwSettingsCommand" value="0x2001"/>
+      <IDSymbol name="cmdidTwCardsAllCommand" value="0x2002" />
+      <IDSymbol name="cmdidTwCardsThisUserCommand" value="0x2003" />
+      <IDSymbol name="cmdidTwBuildNoticeCommand" value="0x2004"/>
+      <IDSymbol name="cmdidTwExplorerCommand" value="0x2005"/>
+      <IDSymbol name="cmdidTwNewCardCommand" value="0x2006"/>
+    </GuidSymbol>
+    
+    <!--Last is the definition of the GUID used for the Bitmap and the ID of its used slots.-->
+    <GuidSymbol name="guidMingleCardCommandBmp" value="{C9E4E92C-34DD-4F0F-9B93-2D620E067858}">
+      <IDSymbol name="bmpAllCards" value="1" />
+    </GuidSymbol>
+      <GuidSymbol name="guidMyMingleCardCommandBmp" value="{0CF9BD82-FC2A-4B39-958B-EFB5B3129087}">
+        <IDSymbol name="bmpMyCards" value="1" />
+      </GuidSymbol>
+      <GuidSymbol name="guidGoCommandBmp" value="{FEA7112C-3920-4599-BBAE-6A292CCE3150}">
+        <IDSymbol name="bmpArrow" value="1"/>
+      </GuidSymbol>
+      <GuidSymbol name="guidSettingsCommandBmp" value="{AF90BD1B-F9AA-4300-BDAE-ED43F6B308EB}">
+        <IDSymbol name="bmpSettings" value="1"/>
+      </GuidSymbol>
+  </Symbols>
+</CommandTable>

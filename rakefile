@@ -1,0 +1,61 @@
+require 'rspec/core/rake_task'
+
+sln = "vsc.sln"
+cfg = "Release"
+msbuild = "C:/Windows/Microsoft.NET/Framework/v4.0.30319/msbuild.exe"
+mstest = "C:/Program Files (x86)/Microsoft Visual Studio 10.0/Common7/IDE/mstest.exe"
+testContainer = "/testcontainer:build/tests/vsconnectortests.dll"
+resultsFile = "build/tests/testresults.trx"
+xslt = "tools/MSBuild-to-NUnit.xslt"
+xslutil = "tools/msxsl.exe"
+
+task :build => [:clean, :compile, :test]
+
+task :compile do
+	puts "Building '#{sln}' using '#{cfg}' configuration."
+	sh "#{msbuild} /t:Rebuild /p:configuration=#{cfg} #{sln}"
+end
+
+task :clean do
+	clean './VSIX/obj'
+	clean './tests/obj'
+	clean './build'
+end
+
+task :quick_compile do
+	puts "Building '#{sln}' using '#{cfg}' configuration."
+	sh "#{msbuild} /p:configuration=#{cfg} #{sln}"
+end
+
+task :compilenoconfig do
+	puts "Building '#{sln}'."
+	sh "#{msbuild} /t:Rebuild #{sln}"
+end
+
+task :test do
+	puts "Running tests for test container: '#{testContainer}'"
+	clean "#{resultsFile}"
+	sh "\"#{mstest}\" #{testContainer} /resultsFile:#{resultsFile}"
+	sh "#{xslutil} #{resultsFile} #{xslt} -o #{resultsFile}.xml" 
+end
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.skip_bundler = true
+end
+
+task :gems do
+	clean '.bundle'
+	mkdir 'vendor' unless File.exists? 'vendor'
+	sh 'bundle install --path vendor'
+end
+
+task :install do
+	clean '.bundle'
+	mkdir 'vendor' unless File.exists? 'vendor'
+	sh 'bundle install --path vendor'
+end
+
+def clean path
+	puts path
+	rm_r path if File.exists? path
+end

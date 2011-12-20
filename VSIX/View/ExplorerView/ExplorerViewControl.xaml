@@ -1,0 +1,114 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 mc:Ignorable="d Anno" 
+			 xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" 
+			 x:Class="ThoughtWorks.VisualStudio.ExplorerViewControl" 
+			 d:DesignHeight="300" d:DesignWidth="300" Initialized="OnExplorerViewControlInitialized"
+			 VerticalAlignment="Stretch">
+	<DockPanel LastChildFill="True">
+		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
+			<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
+                <ComboBox Name="comboProjects" 
+                          Margin="2,2,0,2" 
+                          FontSize="11" 
+                          ToolTip="Select a project" 
+                          Height="20" SelectionChanged="OnProjectSelectionChanged" Width="90" />
+				<Button Name="buttonRefresh" 
+						Content="Refresh" 
+						Click="ButtonClick" 
+						ToolTip="Refresh Explorer from Mingle and Go" 
+						Margin="2,2,0,2"  
+						FontSize="11" 
+						Height="20"/>
+				<Button Name="buttonSettings" 
+						Content="Settings..." 
+						Click="ButtonClick" 
+						ToolTip="Specify Mingle host URL, user name, etc." 
+						Margin="2,2,0,2"  
+						FontSize="11" 
+						Height="20"/>
+				<StackPanel Orientation="Horizontal">
+					<Button Name="buttonNewCard" 
+							ToolTip="Create a new card" 
+							Content="New Card->" 
+							Click="ButtonClick" 
+							Margin="2,2,0,2"  
+							FontSize="11" 
+							Height="20" />
+					<ComboBox x:Name="cardTypes" FontSize="11" Height="20" Margin="2,2,2,2" Width="90"></ComboBox>
+				</StackPanel>
+				<Button Name="buttonFeedback" 
+						ToolTip="Send feedback" 
+						Content="Feedback..." 
+						Click="ButtonClick" 
+						Margin="2,2,0,2" 
+						FontSize="11" 
+						Height="20"/>
+				<StackPanel Orientation="Horizontal">
+					<TextBox x:Name="card" 
+							 Margin="4,2,2,2"  
+							 FontSize="11" 
+							 Height="20" 
+							 Width="36" />
+					<Button Name="buttonGetCard" 
+							Margin="2,2,0,2" 
+							Content="Go To Card" 
+							FontSize="11" 
+							Height="20" 
+							Click="ButtonClick" />
+				</StackPanel>
+			</WrapPanel>
+			<Grid x:Name="MingleExplorer" DockPanel.Dock="Top" Grid.Row="0" VerticalAlignment="Stretch">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="Auto"></RowDefinition>
+				</Grid.RowDefinitions>
+				<ScrollViewer x:Name="treeScroller" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" CanContentScroll="True">
+					<TreeView x:Name ="explorerTree" BorderThickness="0">
+                        <TreeViewItem Header="Favorites" IsExpanded="False" x:Name="favoritesTree"></TreeViewItem>
+						<TreeViewItem Header="Pipelines" IsExpanded="False" x:Name="pipelinesTree"></TreeViewItem>
+						<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
+					</TreeView>
+				</ScrollViewer>
+				<GridSplitter Grid.Row="1" 
+							  Background="DarkGray" 
+							  VerticalAlignment="Center" 
+							  ShowsPreview="True"
+							  Height="2"
+							  HorizontalAlignment="Stretch" />
+				<Grid Grid.Row="2" Grid.Column="0" VerticalAlignment="Stretch">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50*"></RowDefinition>
+						<RowDefinition Height="28"></RowDefinition>
+						<RowDefinition></RowDefinition>
+					</Grid.RowDefinitions>
+					<TextBox x:Name="murmurText" 
+							 VerticalAlignment="Stretch" 
+							 HorizontalAlignment="Stretch" 
+							 Grid.Row="0" 
+							 BorderThickness="2" 
+							 BorderBrush="LightGray"
+							 AcceptsReturn="True" 
+							 AutoWordSelection="True" 
+							 TextWrapping="WrapWithOverflow" 
+							 TextChanged="OnMurmurTextChanged"
+							 MinHeight="50"/>
+					<Button x:Name="buttonMurmur" 
+							Grid.Row="1" 
+							HorizontalAlignment="Center" 
+							VerticalAlignment="Center" 
+							Content="Murmur This" 
+							FontSize="11" 
+							Height="20" Click="OnClickButtonMurmur" />
+					<TextBlock x:Name="committed"
+							   Grid.Row="2"
+							   HorizontalAlignment="Center"
+							   FontSize="11" />
+				</Grid>
+			</Grid>
+		</StackPanel>
+	</DockPanel>
+</UserControl>

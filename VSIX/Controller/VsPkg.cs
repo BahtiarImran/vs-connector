@@ -1,0 +1,243 @@
+//
+// Copyright © 2010, 2011 ThoughtWorks, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); 
+// you may not use this file except in compliance with the License. 
+// You may obtain a copy of the License at:
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software 
+// distributed under the License is distributed on an "AS IS" BASIS, 
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+// See the License for the specific language governing permissions and 
+// limitations under the License.
+//
+
+using System;
+using System.ComponentModel.Design;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
+using System.Security.Permissions;
+using System.Windows;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
+using ThoughtWorks.VisualStudio.Properties;
+using ThoughtWorksCoreLib;
+using ThoughtWorksMingleLib;
+
+namespace ThoughtWorks.VisualStudio
+{
+    /// <summary>
+    /// This is the class that implements the package. This is the class that Visual Studio will create
+    /// when one of the commands will be selected by the user, and so it can be considered the main
+    /// entry point for the integration with the IDE.
+    /// Notice that this implementation derives from Microsoft.VisualStudio.Shell.Package that is the
+    /// basic implementation of a package provided by the Managed Package Framework (MPF).
+    /// </summary>
+    [ProvideToolWindow(typeof (CardSetViewWindowPane), Transient = true)]
+    [ProvideToolWindow(typeof (CardViewWindowPane), Transient = true)]
+    [ProvideToolWindow(typeof (ExplorerViewWindowPane))]
+//    [ProvideToolWindow(typeof (PipelinePropertiesViewWindowPane), Transient = true)]
+    [ProvideToolWindowVisibility(typeof (CardSetViewWindowPane), /*UICONTEXT_SolutionExists*/
+        "E3FCA72F-B3A4-406E-A4AA-1051594D2367")]
+    [ProvideToolWindowVisibility(typeof (CardViewWindowPane), /*UICONTEXT_SolutionExists*/
+        "59373D4C-3F6C-4031-AF08-D11D4CCFC45B")]
+    [ProvideToolWindowVisibility(typeof (ExplorerViewWindowPane), /*UICONTEXT_SolutionExists*/
+        "E03D0A03-6B80-48D4-9A61-220CD2033698")]
+//    [ProvideToolWindowVisibility(typeof (PipelinePropertiesViewWindowPane), /*UICONTEXT_SolutionExists*/
+//        "5ED0510F-9C57-4041-AE09-08962F0753A2")]
+    [ProvideMenuResource(1000, 1)]
+    [PackageRegistration(UseManagedResourcesOnly = true)]
+    [InstalledProductRegistration("Mingle/GO Visual Studio Extension", "Context-relevant connections to Mingle and GO.",
+        "0.8.9")]
+    [Guid("D00EB40D-F709-49C6-B43F-D7910D730883")]
+    //[ComVisible(true)]
+    public sealed class TwVscCommandsPackage : Package
+    {
+        // Cache the Menu Command Service since we will use it multiple times
+        private OleMenuCommandService _menuService;
+
+        /// <summary>
+        /// Default constructor of the package. This is the constructor that will be used by VS
+        /// to create an instance of your package. Inside the constructor you should do only the
+        /// more basic initializazion like setting the initial value for some member variable. But
+        /// you should never try to use any VS service because this object is not part of VS
+        /// environment yet; you should wait and perform this kind of initialization inside the
+        /// Initialize method.
+        /// </summary>
+        public TwVscCommandsPackage()
+        {
+            TraceLog.Initialize("VsAddIn");
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "****** LAUNCHING THE EXTENSION ******");
+        }
+
+        /// <summary>
+        /// Initialization of the package; this is the place where you can put all the initialization
+        /// code that relies on services provided by Visual Studio.
+        /// </summary>
+        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters",
+            MessageId =
+                "ThoughtWorksCoreLib.TraceLog.WriteLine(new StackFrame().GetMethod().Name,System.Object,System.string)"
+            ),
+         SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+        protected override void Initialize()
+        {
+            // Trace the beginning of this method and call the base implementation.
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
+            base.Initialize();
+
+            // Now get the OleCommandService object provided by the MPF; this object is the one
+            // responsible for handling the collection of commands implemented by the package.
+            var mcs = GetService(typeof (IMenuCommandService)) as OleMenuCommandService;
+            if (null == mcs) return;
+
+            // Now create one object derived from MenuCommand for each command defined in
+            // the VSCT file and add it to the command service.
+
+            // For each command we have to define its id that is a unique Guid/integer pair.
+            var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.CardListWindow);
+            DefineCommandHandler(ShowListOfCards, id);
+
+            id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.SettingsWindow);
+            DefineCommandHandler(ShowSettingsWindow, id);
+
+            id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.MingleExplorer);
+            DefineCommandHandler(ShowMingleExplorer, id);
+
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
+        }
+
+        /// <summary>
+        /// Define a command handler.
+        /// When the user presses the button corresponding to the CommandID
+        /// the EventHandler is called.
+        /// </summary>
+        /// <param name="id">The CommandID (Guid/ID pair) as defined in the .vsct file</param>
+        /// <param name="handler">Method that should be called to implement the command</param>
+        /// <returns>The menu command. This can be used to set parameter such as the default visibility once the package is loaded</returns>
+        internal OleMenuCommand DefineCommandHandler(EventHandler handler, CommandID id)
+        {
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
+
+            // if the package is zombied, we don't want to add commands
+            if (Zombied)
+                return null;
+
+            // Make sure we have the service
+            if (_menuService == null)
+            {
+                // Get the OleCommandService object provided by the MPF; this object is the one
+                // responsible for handling the collection of commands implemented by the package.
+                _menuService = GetService(typeof (IMenuCommandService)) as OleMenuCommandService;
+            }
+            OleMenuCommand command = null;
+            if (null != _menuService)
+            {
+                // Add the command handler
+                command = new OleMenuCommand(handler, id);
+                _menuService.AddCommand(command);
+            }
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
+            return command;
+        }
+
+        /// <summary>
+        /// This method loads a localized string based on the specified resource.
+        /// </summary>
+        /// <param name="resourceName">Resource to load</param>
+        /// <returns>string loaded for the specified resource</returns>
+        internal string GetResourceString(string resourceName)
+        {
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
+            string resourceValue;
+            var resourceManager = (IVsResourceManager) GetService(typeof (SVsResourceManager));
+            if (resourceManager == null)
+            {
+                throw new InvalidOperationException(
+                    "Could not get SVsResourceManager service. Make sure the package is Sited before calling this method");
+            }
+            Guid packageGuid = GetType().GUID;
+            int hr = resourceManager.LoadResourceString(ref packageGuid, -1, resourceName, out resourceValue);
+            ErrorHandler.ThrowOnFailure(hr);
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
+            return resourceValue;
+        }
+
+        #region Commands Actions
+
+        /// <summary>
+        /// Event handler called when the user selects the Card Set View command.
+        /// </summary>
+        /// <param name="caller"></param>
+        /// <param name="args"></param>
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+        internal void ShowListOfCards(object caller, EventArgs args)
+        {
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
+            try
+            {
+                var pane = (CardSetViewWindowPane) FindToolWindow(typeof (CardSetViewWindowPane), 0, true);
+
+                if (null == pane || null == pane.Frame)
+                    throw new NotSupportedException(Resources.CanNotCreateWindow);
+
+                var frame = (IVsWindowFrame) pane.Frame;
+
+                ErrorHandler.ThrowOnFailure(frame.Show());
+
+                TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
+            }
+            catch (Exception e)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, e);
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Event handler called when the user selects the settings command.
+        /// </summary>
+        /// <param name="caller"></param>
+        /// <param name="args"></param>
+        internal void ShowSettingsWindow(object caller, EventArgs args)
+        {
+            var ui = new SettingsViewControl();;
+            ui.Show();
+            ui.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Event handler called when the user selects the Explorer View command.
+        /// </summary>
+        /// <param name="caller"></param>
+        /// <param name="args"></param>
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+        internal void ShowMingleExplorer(object caller, EventArgs args)
+        {
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
+            try
+            {
+                ToolWindowPane window = FindToolWindow(typeof (ExplorerViewWindowPane), 0, true);
+
+                if ((null == window) || (null == window.Frame))
+                    throw new NotSupportedException(Resources.CanNotCreateWindow);
+
+                var frame = (IVsWindowFrame) window.Frame;
+
+                ErrorHandler.ThrowOnFailure(frame.Show());
+            }
+            catch (Exception e)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, e);
+                MessageBox.Show(e.Message);
+            }
+
+            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leavring...");
+        }
+
+        #endregion
+    }
+}

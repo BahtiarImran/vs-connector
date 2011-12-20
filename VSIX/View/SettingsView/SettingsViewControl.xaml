@@ -1,0 +1,228 @@
+﻿<Window x:Class="ThoughtWorks.VisualStudio.SettingsViewControl" 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+		mc:Ignorable="d" 
+		d:DesignHeight="275" 
+		d:DesignWidth="500" 
+		SizeToContent="WidthAndHeight" 
+		Title="Mingle/Go Settings" 
+		WindowStartupLocation="CenterScreen" 
+		WindowStyle="ToolWindow" 
+		ResizeMode="NoResize" 
+		FontSize="11" 
+		ShowInTaskbar="True" 
+		Background="WhiteSmoke"
+		Closing="OnWindowClosing" Initialized="OnWindowInitialized" >
+	<Window.Resources>
+		<Style TargetType="TabItem">
+			<Setter Property="Background" Value="WhiteSmoke"></Setter>
+			<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+			<Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+		</Style>
+		<Style TargetType="TextBox">
+			<Setter Property="Height" Value="24"></Setter>
+			<Setter Property="VerticalAlignment" Value="Center"></Setter>
+			<Setter Property="HorizontalAlignment" Value="Left"></Setter>
+			<Setter Property="Width" Value="120"></Setter>
+		</Style>
+		<Style TargetType="Label">
+			<Setter Property="Height" Value="24"></Setter>
+			<Setter Property="VerticalAlignment" Value="Center"></Setter>
+			<Setter Property="HorizontalAlignment" Value="Left"></Setter>
+			<Setter Property="Width" Value="100"></Setter>
+		</Style>
+		<Style TargetType="Grid">
+			<Setter Property="Background" Value="WhiteSmoke"></Setter>
+			<Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+			<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+			<Setter Property="Height" Value="Auto"></Setter>
+		</Style>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition Height="38"></RowDefinition>
+		</Grid.RowDefinitions>
+		<TabControl 
+			Grid.Row="0" 
+			MinHeight="270" 
+			MinWidth="490">
+			<TabItem Header="Mingle" Style="{StaticResource {x:Type TabItem}}">
+				<Grid 
+					Style="{StaticResource {x:Type Grid}}" 
+					VerticalAlignment="Stretch"
+					Background="WhiteSmoke" >
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="100"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="34"></RowDefinition>
+						<RowDefinition Height="34"></RowDefinition>
+						<RowDefinition Height="34"></RowDefinition>
+						<RowDefinition Height="34"></RowDefinition>
+					</Grid.RowDefinitions>
+					<Label 
+						Grid.Column="0" 
+						Grid.Row="0" 
+						Content="Mingle Host" 
+						Style="{StaticResource {x:Type Label}}" 
+						Name="MingleHostLabel" />
+					<TextBox 
+						Grid.Column="1" 
+						Grid.Row="0" 
+						Style="{StaticResource {x:Type TextBox}}" 
+						Name="mingleHostTextBox" 
+						Width="282" TextChanged="OnAnyTextChanged" />
+					<Label 
+						Grid.Column="0" 
+						Grid.Row="1" 
+						Content="Mingle User" 
+						Style="{StaticResource {x:Type Label}}" 
+						Name="MingleUserLabel" />
+					<TextBox 
+						Grid.Column="1" 
+						Grid.Row="1" 
+						Style="{StaticResource {x:Type TextBox}}" 
+						Name="mingleUserTextBox" />
+					<Label 
+						Grid.Column="0" 
+						Grid.Row="2" 
+						Content="Mingle Password" 
+						Style="{StaticResource {x:Type Label}}" 
+						Name="MinglePasswordLabel" />
+					<PasswordBox 
+						Grid.Column="1" 
+						Grid.Row="2" 
+						Height="24" 
+						HorizontalAlignment="Left" 
+						Name="minglePasswordBox" 
+						VerticalAlignment="Top" 
+						Width="120" />
+                </Grid>
+			</TabItem>
+
+			<TabItem 
+			Header="Go" 
+			Style="{StaticResource {x:Type TabItem}}">
+				<Grid Style="{StaticResource {x:Type Grid}}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="100"></ColumnDefinition>
+						<ColumnDefinition></ColumnDefinition>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="34"></RowDefinition>
+						<RowDefinition Height="34"></RowDefinition>
+						<RowDefinition Height="34"></RowDefinition>
+						<RowDefinition Height="34"></RowDefinition>
+					</Grid.RowDefinitions>
+					<Label  
+						Grid.Column="0" 
+						Grid.Row="0" 
+						Content="Go Version:" 
+						Style="{StaticResource {x:Type Label}}" 
+						Name="GoVersion" />
+					<StackPanel 
+						Grid.Column="1"
+						Grid.Row="0"
+						Orientation="Horizontal"
+						VerticalAlignment="Center">
+						<RadioButton 
+							GroupName="GoVersionGroup"
+							IsChecked="True"
+							x:Name="radio20"
+							Content="Go 2.0" />
+						<RadioButton
+							GroupName="GoVersionGroup"
+							x:Name="radio21"
+							IsChecked="False"
+							Content="Go 2.1"
+							Margin="24,0,0,0"
+							IsEnabled="False"/>
+						<RadioButton
+							GroupName="GoVersionGroup"
+							x:Name="radioNoGo"
+							IsChecked="False"
+							Content="Do not connect to Go"
+							Margin="24,0,0,0" 
+							IsEnabled="True"/>
+					</StackPanel>
+					<Label 
+						Grid.Column="0" 
+						Grid.Row="1" 
+						Content="Go Host" 
+						Style="{StaticResource {x:Type Label}}" 
+						Name="GoHostLabel"/>
+					<TextBox 
+						Grid.Column="1" 
+						Grid.Row="1" 
+						Style="{StaticResource {x:Type TextBox}}" 
+						Name="goHostTextBox" 
+						Width="282" />
+					<Label 
+						Grid.Column="0" 
+						Grid.Row="2" 
+						Content="Go User" 
+						Style="{StaticResource {x:Type Label}}" 
+						Name="GoUserLabel" />
+					<TextBox 
+						Grid.Column="1" 
+						Grid.Row="2" 
+						Style="{StaticResource {x:Type TextBox}}" 
+						Name="goUserTextBox" />
+					<Label 
+						Grid.Column="0" 
+						Grid.Row="3" 
+						Content="Go Password" 
+						Style="{StaticResource {x:Type Label}}" 
+						Name="GoPasswordLabel" />
+					<PasswordBox 
+						Grid.Column="1" 
+						Grid.Row="3" Height="24" 
+						HorizontalAlignment="Left" 
+						Name="goPasswordBox" 
+						VerticalAlignment="Center" 
+						Width="120" />
+				</Grid>
+			</TabItem>
+			<TabItem 
+			Header="Other" 
+			Style="{StaticResource {x:Type TabItem}}">
+				<Grid 
+				Style="{StaticResource {x:Type Grid}}">
+					<CheckBox 
+						Content="Enable Logging" 
+						Height="14" 
+						HorizontalAlignment="Left" 
+						Margin="4,8,0,0" 
+						Name="enableLogging" 
+						VerticalAlignment="Top" IsChecked="True" />
+                    <CheckBox Content="Enable Entry and Exit Logging" Height="14" HorizontalAlignment="Left" Margin="19,28,0,0" Name="enableEntryExitLogging" VerticalAlignment="Top" />
+                </Grid>
+			</TabItem>
+		</TabControl>
+		<StackPanel 
+			HorizontalAlignment="Center"
+			Grid.ColumnSpan="2"
+			Orientation="Horizontal"
+			Grid.Row="1">
+			<Button 
+				Height="24"
+				Width="50"
+				Content="Save"
+				x:Name="buttonSave"
+				HorizontalAlignment="Center" 
+				Click="ButtonSaveClick" MouseEnter="OnButtonSaveMouseEnter" MouseLeave="OnButtonSaveMouseLeave" IsDefault="True" />
+			<Button 
+				Height="24"
+				Width="50"
+				Content="Close"
+				Margin="12,0,0,0"
+				x:Name="buttonClose"
+				HorizontalAlignment="Center" 
+				MouseEnter="OnButtonSaveMouseEnter" MouseLeave="OnButtonSaveMouseLeave" Click="OnButtonCloseClick" />
+		</StackPanel>
+	</Grid>
+</Window>

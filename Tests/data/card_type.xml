@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+  <card_type>
+    <id type="integer">83</id>
+    <name>Story</name>
+    <color>#00c2f2</color>
+    <position type="integer">1</position>
+    <property_definitions type="array">
+
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/532.xml">
+        <name>Priority</name>
+        <position nil="true"></position>
+        <data_type>string</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/531.xml">
+
+        <name>Story Status</name>
+        <position nil="true"></position>
+        <data_type>string</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/537.xml">
+        <name>Owner</name>
+
+        <position nil="true"></position>
+        <data_type>user</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/533.xml">
+        <name>Planning Estimate</name>
+        <position nil="true"></position>
+
+        <data_type>numeric</data_type>
+        <is_numeric type="boolean">true</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/542.xml">
+        <name>Actual Effort</name>
+        <position nil="true"></position>
+        <data_type>numeric</data_type>
+
+        <is_numeric type="boolean">true</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/550.xml">
+        <name>Type of test</name>
+        <position nil="true"></position>
+        <data_type>string</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/556.xml">
+        <name>Testing Status</name>
+        <position nil="true"></position>
+        <data_type>string</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/548.xml">
+        <name>Build completed</name>
+        <position nil="true"></position>
+        <data_type>numeric</data_type>
+        <is_numeric type="boolean">true</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/567.xml">
+
+        <name>Story Time-To-Life</name>
+        <position nil="true"></position>
+        <data_type>numeric</data_type>
+        <is_numeric type="boolean">true</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/539.xml">
+        <name>Added to Scope On</name>
+
+        <position nil="true"></position>
+        <data_type>date</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/541.xml">
+        <name>Development Started On</name>
+        <position nil="true"></position>
+
+        <data_type>date</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/540.xml">
+        <name>Development Completed On</name>
+        <position nil="true"></position>
+        <data_type>date</data_type>
+
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/538.xml">
+        <name>Accepted On</name>
+        <position nil="true"></position>
+        <data_type>date</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/570.xml">
+        <name>Accepted in Iteration</name>
+        <position nil="true"></position>
+        <data_type>card</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/571.xml">
+        <name>Added to Scope in Iteration</name>
+        <position nil="true"></position>
+        <data_type>card</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/572.xml">
+
+        <name>Development Completed in Iteration</name>
+        <position nil="true"></position>
+        <data_type>card</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/573.xml">
+        <name>Development Started in Iteration</name>
+
+        <position nil="true"></position>
+        <data_type>card</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/574.xml">
+        <name>QA Completed in Iteration</name>
+        <position nil="true"></position>
+
+        <data_type>card</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/575.xml">
+        <name>Analysis Completed in Iteration</name>
+        <position nil="true"></position>
+        <data_type>card</data_type>
+
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/543.xml">
+        <name>Release</name>
+        <position type="integer">1</position>
+        <data_type>card</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+
+      </property_definition>
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/544.xml">
+        <name>Iteration</name>
+        <position type="integer">2</position>
+        <data_type>card</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+
+      <property_definition url="http://localhost:8080/api/v2/projects/test/property_definitions/549.xml">
+        <name>Feature - Story</name>
+        <position type="integer">1</position>
+        <data_type>card</data_type>
+        <is_numeric type="boolean">false</is_numeric>
+      </property_definition>
+    </property_definitions>
+
+  </card_type>

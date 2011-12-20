@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestLists xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestList name="Transition Set" id="035358c6-f7ff-4124-9789-8533414fa686" parentListId="d69992f6-f17f-494b-830e-d056dfc01acc" />
+  <TestList name="JobSetTest" id="0f6ad152-c08f-4895-b168-8f45d80a71a3" parentListId="94602183-1813-47f7-9ea9-0e9353942890" />
+  <TestList name="Property Set Tests" id="275cacda-2950-4781-9344-d9b456a52eb9" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+  <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <RunConfiguration id="ea404ab3-0079-4214-951f-7c973ac35e5f" name="Local" storage="local.testsettings" type="Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration, Microsoft.VisualStudio.QualityTools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestList>
+  <TestList name="Go Tests" id="94602183-1813-47f7-9ea9-0e9353942890" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <Description>Tests Go model objects</Description>
+  </TestList>
+  <TestList name="Transition" id="9a226dfb-71df-47f7-885e-fd20d73e0ca8" parentListId="d69992f6-f17f-494b-830e-d056dfc01acc" />
+  <TestList name="Card Tests" id="ceb447da-b3b7-48ea-b53c-229e76f8d7c4" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <Description>Tests the MingleCardSet and MingleCard model objects</Description>
+  </TestList>
+  <TestList name="Transition Tests" id="d69992f6-f17f-494b-830e-d056dfc01acc" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+  <TestList name="Project Tests" id="eec115c1-9e64-48f4-a423-08819201db80" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6" />
+</TestLists>

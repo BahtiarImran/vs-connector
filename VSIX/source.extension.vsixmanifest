@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="TwVsc">
+    <Name>ThoughtWorks Visual Studio Connector</Name>
+    <Author>ThoughtWorks, Inc.</Author>
+    <Version>0.8</Version>
+    <Description xml:space="preserve">ThoughtWorks Visual Studio Connector lets you interact directly with Mingle and Go from the IDE: create and edit cards, browse cards. You also have integration to Go for tracking build history and status.</Description>
+    <Locale>1033</Locale>
+    <License>tw-vs-connector-eval-license.rtf</License>
+    <PreviewImage>{1AC7734D-53DF-40D4-9B7A-32B47253B712}.jpg</PreviewImage>
+    <InstalledByMsi>false</InstalledByMsi>
+    <SupportedProducts>
+      <VisualStudio Version="10.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <Edition>IntegratedShell</Edition>
+      </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+  </Identifier>
+  <References />
+  <Content>
+    <VsPackage>
+      |%CurrentProject%;PkgdefProjectOutputGroup|
+    </VsPackage>
+  </Content>
+</Vsix>

@@ -1,0 +1,191 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" x:Class="ThoughtWorks.VisualStudio.CardViewControl" 
+			 FontSize="11" x:Name="CardViewControlXaml" 
+			 Initialized="OnInitialized" Background="LightGray">
+	
+	<!-- Static resources must precede any reference to them in the XAML source. -->	
+	<UserControl.Resources>
+		<!-- Defines a basic TextBox. This style is extended for specific uses -->
+		<!-- for read-only textboxes, varying width, etc. -->
+		<Style x:Key="RoTextBox" TargetType="TextBox">
+			<Setter Property="Height" Value="23" />
+			<Setter Property="IsReadOnly" Value="False" />
+			<Setter Property="IsTabStop" Value="True" />
+			<Setter Property="IsUndoEnabled" Value="True" />
+			<Setter Property="IsEnabled" Value="True" />
+		</Style>
+		<Style x:Key="TextBoxCardDescription" TargetType="TextBox">
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="AcceptsReturn" Value="True" />
+			<Setter Property="AutoWordSelection" Value="True" />
+			<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+			<Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+		</Style>
+		<Style x:Key ="Tab" TargetType="TabItem">
+			<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"></Setter>
+			<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+			<Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+		</Style>
+		<Style x:Key="CardViewGrid" TargetType="Grid">
+			<Setter Property="Background" Value="LightGray"></Setter>
+			<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+			<Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+		</Style>
+		<Style x:Key="PropertyStackPanel" TargetType="StackPanel" >
+			<Setter Property="Margin" Value="24,6,0,0" />
+			<Setter Property="Orientation" Value="Horizontal" />
+		</Style>
+		<Style x:Key="Tabs" TargetType="TabControl">
+			<Setter Property="Background" Value="LightGray" />
+		</Style>
+	</UserControl.Resources>
+
+		<StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			
+			<!-- Row of transition buttons -->
+			<ToolBarPanel x:Name="cardToolbar" DockPanel.Dock="Top" Background="DarkOrange" Margin="2,2,0,0" Orientation="Horizontal">
+				<WrapPanel x:Name="transitionButtons" Orientation="Horizontal" />
+			</ToolBarPanel>
+			
+			<!-- Details and Properties Tabs -->
+			<TabControl Style="{StaticResource Tabs}" Name="tabs">
+				
+				<!-- DETAILS AND "MANAGED PROPERTIES" TAB -->
+				
+				<TabItem x:Name="detailsTab" Header="Details" Style="{StaticResource Tab}" >
+					
+					<Grid Style="{StaticResource CardViewGrid}" Margin="0,0,0,6" x:Name="grid">
+						<Grid.RowDefinitions>
+							<RowDefinition />
+							<RowDefinition />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						
+						<!-- Grid Row 0 -->
+						<TextBox x:Name="cardName" Grid.Row="0" Style="{StaticResource RoTextBox}" Margin="6,6,6,0" 
+								 LostFocus="OnPropertyTextBoxLostFocus" TextChanged="OnCardNameTextChanged" GotFocus="OnCardNameGotFocus">
+						</TextBox>
+
+						<!-- Grid Row 1 -->
+						<TabControl Grid.Row="1" Style="{StaticResource Tabs}" Name="dsecriptionTabs" Margin="0,6,0,0">
+							<TabItem x:Name="markupTab" Header="Decription" Style="{StaticResource Tab}" >
+								<TextBox x:Name="cardDescription" 
+										 Style="{StaticResource TextBoxCardDescription}" 
+										 LostFocus="OnPropertyTextBoxLostFocus" 
+										 VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"></TextBox>
+							</TabItem>
+							<TabItem x:Name="renderedTab" Header="Preview" Style="{StaticResource Tab}">
+								<WebBrowser Name="descriptionBrowser" 
+											Source="http://localhost:8080/api/v2/projects/test/render?content_provider%5Bid%5D=2220&amp;content_provider%5Btype%5D=card"
+											/>
+							</TabItem>
+						</TabControl>
+
+						<!-- Grid Row 2 -->
+
+						<WrapPanel Orientation="Horizontal" Grid.Row="2">
+							<StackPanel Style="{StaticResource PropertyStackPanel}">
+								<Label Content="Type:"></Label>
+								<TextBox x:Name="cardType" Width="Auto" IsReadOnly="True" Background="LightGray"></TextBox>
+							</StackPanel>
+							<StackPanel Style="{StaticResource PropertyStackPanel}">
+								<Label Content="Project Name:"></Label>
+								<TextBox x:Name="cardProjectName" Width="Auto" IsReadOnly="True" Background="LightGray" ToolTip="Click here to open Mingle in a browser to this project."></TextBox>
+							</StackPanel>
+							<StackPanel Style="{StaticResource PropertyStackPanel}">
+								<Label Content="Version:"></Label>
+								<TextBox x:Name="cardVersion" Width="Auto" IsReadOnly="True" Background="LightGray"></TextBox>
+							</StackPanel>
+							<StackPanel Style="{StaticResource PropertyStackPanel}">
+								<Label Content="Rank:"></Label>
+								<TextBox x:Name="cardRank" Width="Auto" LostFocus="OnPropertyTextBoxLostFocus"></TextBox>
+							</StackPanel>
+							<StackPanel Style="{StaticResource PropertyStackPanel}">
+								<Label Content="Created On:"></Label>
+								<TextBox x:Name="cardCreatedOn" Width="Auto" IsReadOnly="True" Background="LightGray"></TextBox>
+							</StackPanel>
+							<StackPanel Style="{StaticResource PropertyStackPanel}">
+								<Label Content="Created By:"></Label>
+								<TextBox x:Name="cardCreatedBy" Width="Auto" IsReadOnly="True" Background="LightGray"></TextBox>
+							</StackPanel>
+							<StackPanel Style="{StaticResource PropertyStackPanel}">
+								<Label Content="Modified On:"></Label>
+								<TextBox x:Name="cardModifiedOn" Width="Auto" IsReadOnly="True" Background="LightGray"></TextBox>
+							</StackPanel>
+							<StackPanel Style="{StaticResource PropertyStackPanel}">
+								<Label Content="Modified By:"></Label>
+								<TextBox x:Name="cardModifiedBy" Width="Auto" IsReadOnly="True" Background="LightGray"></TextBox>
+							</StackPanel>
+						</WrapPanel>
+					</Grid>
+					
+				</TabItem>
+				
+				<!-- USER-DEFINED PROPERTIES TAB -->
+				
+				<TabItem Name="propertiesTab" Header="Properties" Style="{StaticResource Tab}" Background="LightGray">
+					<Grid Background="LightGray">
+						<Grid.RowDefinitions>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+							<RowDefinition></RowDefinition>
+						</Grid.RowDefinitions>
+						<WrapPanel x:Name="visiblePropertiesPanel" Orientation="Horizontal" Margin="0,0,0,6" Grid.Row="0">
+							<StackPanel Orientation="Horizontal" Margin="24,6,0,0" Visibility="Hidden">
+								<Label Content="Type:"></Label>
+								<ComboBox Width="Auto" Height="Auto" Background="WhiteSmoke" x:Name="cardListBoxCards" ItemsSource="{Binding Thoughtworks.VisualStudio.Model.MingleCardSet}">
+									<ComboBox.ItemTemplate>
+										<DataTemplate>
+											<StackPanel Orientation="Horizontal">
+												<TextBlock Text="{Binding Number}" Margin="2" />
+												<TextBlock Text=" - " />
+												<TextBlock Text="{Binding Name}" Margin="2" />
+											</StackPanel>
+										</DataTemplate>
+									</ComboBox.ItemTemplate>
+								</ComboBox>
+								<ComboBox Width="Auto" Height="Auto" Background="WhiteSmoke" x:Name="cardListBoxScaler" ItemsSource="{Binding Thoughtworks.VisualStudio.Model.MingleCardSet}">
+									<ComboBox.ItemTemplate>
+										<DataTemplate>
+											<StackPanel Orientation="Horizontal">
+												<TextBlock Text="{Binding Value}" Margin="2" />
+											</StackPanel>
+										</DataTemplate>
+									</ComboBox.ItemTemplate>
+								</ComboBox>
+								<ComboBox Width="Auto" Height="Auto" Background="WhiteSmoke" x:Name="cardListBoxTeam" ItemsSource="{Binding Thoughtworks.VisualStudio.Model.MingleCardSet}">
+									<ComboBox.ItemTemplate>
+										<DataTemplate>
+											<StackPanel Orientation="Horizontal">
+												<TextBlock Text="{Binding Name}" Margin="2" />
+											</StackPanel>
+										</DataTemplate>
+									</ComboBox.ItemTemplate>
+								</ComboBox>
+							</StackPanel>
+						</WrapPanel>
+						<WrapPanel x:Name="hiddenPropertiesPanel" Orientation="Horizontal" Margin="0,0,0,6" Grid.Row="1" />
+						<CheckBox x:Name="showHiddenProperties" Margin="6,0,0,6" Grid.Row="2" Content="Show Hidden Properties" Click="OnShowHiddenPropertiesClicked"></CheckBox>
+					</Grid>
+				</TabItem>
+				
+				<!--<TabItem Name="storiesTab" Header="Stories" Style="{StaticResource {x:Type TabItem}}" Background="LightGray" Visibility="Hidden">
+					<DataGrid x:Name="storiesGrid" Background="LightGray" />
+				</TabItem>
+				<TabItem Name="tasksTab" Header="Tasks" Style="{StaticResource {x:Type TabItem}}" Background="LightGray" Visibility="Hidden">
+					<DataGrid x:Name="tasksGrid" Background="LightGray" />
+				</TabItem>
+				<TabItem Name="defectsTab" Header="Defects" Style="{StaticResource {x:Type TabItem}}" Background="LightGray" Visibility="Hidden">
+					<DataGrid x:Name="defectsGrid" Background="LightGray" />
+				</TabItem>
+				<TabItem Name="testsTab" Header="Tests" Style="{StaticResource {x:Type TabItem}}" Background="LightGray" Visibility="Hidden">
+					<DataGrid x:Name="testsGrid" Background="LightGray" />
+				</TabItem>-->
+			</TabControl>
+
+		</StackPanel>
+
+</UserControl>

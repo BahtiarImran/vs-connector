@@ -1,0 +1,1683 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<card>
+  <name>Export my contacts to excel</name>
+  <description nil="true"></description>
+  <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+    <name>Story</name>
+  </card_type>
+  <id type="integer">2159</id>
+  <number type="integer">92</number>
+  <project url="http://localhost:8080/api/v2/projects/test.xml">
+    <name>test</name>
+    <identifier>test</identifier>
+  </project>
+  <version type="integer">1</version>
+  <project_card_rank type="integer">25</project_card_rank>
+  <created_on type="datetime">2011-11-29T22:52:49Z</created_on>
+  <modified_on type="datetime">2011-11-29T22:52:49Z</modified_on>
+  <modified_by url="http://localhost:8080/api/v2/users/30.xml">
+    <name>mingleuser</name>
+    <login>mingleuser</login>
+  </modified_by>
+  <created_by url="http://localhost:8080/api/v2/users/30.xml">
+    <name>mingleuser</name>
+    <login>mingleuser</login>
+  </created_by>
+  <properties type="array">
+    <property type_description="Managed text list" hidden="false">
+      <name>Priority</name>
+      <value>Essential</value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Story Status</name>
+      <value>Ready for Development</value>
+    </property>
+    <property type_description="Automatically generated from the team list" hidden="false">
+      <name>Owner</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed number list" hidden="false">
+      <name>Planning Estimate</name>
+      <value>2</value>
+    </property>
+    <property type_description="Formula" hidden="false">
+      <name>Actual Effort</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Type of test</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Managed text list" hidden="false">
+      <name>Testing Status</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Any number" hidden="false">
+      <name>Build completed</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Formula" hidden="false">
+      <name>Story Time-To-Life</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Date" hidden="true">
+      <name>Added to Scope On</name>
+      <value type="date">2008-01-02</value>
+    </property>
+    <property type_description="Date" hidden="true">
+      <name>Development Started On</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Date" hidden="true">
+      <name>Development Completed On</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Date" hidden="true">
+      <name>Accepted On</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Card" hidden="false">
+      <name>Accepted in Iteration</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Card" hidden="false">
+      <name>Added to Scope in Iteration</name>
+      <value url="http://localhost:8080/api/v2/projects/test/cards/44.xml">
+        <number type="integer">44</number>
+      </value>
+    </property>
+    <property type_description="Card" hidden="false">
+      <name>Development Completed in Iteration</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Card" hidden="false">
+      <name>Development Started in Iteration</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Card" hidden="false">
+      <name>QA Completed in Iteration</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Card" hidden="false">
+      <name>Analysis Completed in Iteration</name>
+      <value url="http://localhost:8080/api/v2/projects/test/cards/35.xml">
+        <number type="integer">35</number>
+      </value>
+    </property>
+    <property type_description="Any card used in tree" hidden="false">
+      <name>Release</name>
+      <value url="http://localhost:8080/api/v2/projects/test/cards/32.xml">
+        <number type="integer">32</number>
+      </value>
+    </property>
+    <property type_description="Any card used in tree" hidden="false">
+      <name>Feature - Story</name>
+      <value url="http://localhost:8080/api/v2/projects/test/cards/87.xml">
+        <number type="integer">87</number>
+      </value>
+    </property>
+    <property type_description="Any card used in tree" hidden="false">
+      <name>Iteration</name>
+      <value url="http://localhost:8080/api/v2/projects/test/cards/41.xml">
+        <number type="integer">41</number>
+      </value>
+    </property>
+  </properties>
+  <tags>
+  </tags>
+  <rendered_description url="http://localhost:8080/api/v2/projects/test/render?content_provider%5Bid%5D=2159&amp;content_provider%5Btype%5D=card">
+  </rendered_description>
+    <property_definition>
+      <id type="integer">515</id>
+      <name>Accepted in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_accepted_on84988f4d53396b77</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">483</id>
+      <name>Accepted On</name>
+      <description>Date that the story was accepted by the customer</description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">true</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_accepted_on</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">505</id>
+      <name>Action Due By</name>
+      <description nil="true"></description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_action_due_by</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/81.xml">
+          <name>Risk</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">487</id>
+      <name>Actual Effort</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_actual_effort</column_name>
+      <position nil="true"></position>
+      <property_values_description>Formula</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+      <formula>('Development Completed On' - 'Development Started On')</formula>
+      <null_is_zero nil="true"></null_is_zero>
+    </property_definition>
+    <property_definition>
+      <id type="integer">516</id>
+      <name>Added to Scope in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_added_to_scope_card_id</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">484</id>
+      <name>Added to Scope On</name>
+      <description nil="true"></description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">true</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_added_to_scope_on</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">520</id>
+      <name>Analysis Completed in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_analysis_co745cd7064465fccc</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">513</id>
+      <name>Avg Defect TTL</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_avg_defect_ttl</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">514</id>
+      <name>Avg Story TTL</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_avg_story_ttl</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">493</id>
+      <name>Build completed</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_build_completed</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any number</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+      <is_managed type="boolean">false</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">492</id>
+      <name>Build reported</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_build_reported</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any number</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+      <is_managed type="boolean">false</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">526</id>
+      <name>Closed</name>
+      <description nil="true"></description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">true</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_closed</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/78.xml">
+          <name>Iteration</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">502</id>
+          <value>No</value>
+          <color nil="true"></color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">501</id>
+          <value>Yes</value>
+          <color nil="true"></color>
+          <position type="integer">2</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">499</id>
+      <name>Defect Estimate</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_defect_estimate</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any number</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+      <is_managed type="boolean">false</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">522</id>
+      <name>Defect Fix Completed in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_defect_fix_fca40b628d578ad3</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">479</id>
+      <name>Defect Fix Completed On</name>
+      <description nil="true"></description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">true</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_date___end</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">523</id>
+      <name>Defect Fix Started in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_defect_fix_c1f8cb4a8c10fbfd</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">521</id>
+      <name>Defect Reported in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_reported_inc3dc6a8420b4f0fd</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">500</id>
+      <name>Defect Reported On</name>
+      <description>Date that a defect was discovered</description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">true</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_date_reported</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">481</id>
+      <name>Defect Status</name>
+      <description nil="true"></description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_defect_status</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">479</id>
+          <value>New</value>
+          <color>#ff8b33</color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">487</id>
+          <value>Open</value>
+          <color>#98ff8c</color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">480</id>
+          <value>In Progress</value>
+          <color>#ffff4d</color>
+          <position type="integer">3</position>
+        </property_value>
+        <property_value>
+          <id type="integer">481</id>
+          <value>Fixed</value>
+          <color>#00bf93</color>
+          <position type="integer">4</position>
+        </property_value>
+        <property_value>
+          <id type="integer">482</id>
+          <value>Closed</value>
+          <color>#0008f2</color>
+          <position type="integer">5</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">511</id>
+      <name>Defect Time-To-Life</name>
+      <description>Number of days elapsed between reporting a defect and it being fixed.</description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_defect_time_to_life</column_name>
+      <position nil="true"></position>
+      <property_values_description>Formula</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+      <formula>(('Defect Fix Completed On' - 'Defect Reported On'))</formula>
+      <null_is_zero nil="true"></null_is_zero>
+    </property_definition>
+    <property_definition>
+      <id type="integer">517</id>
+      <name>Development Completed in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_developmentdd361a3aad188137</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">485</id>
+      <name>Development Completed On</name>
+      <description>Date that development was completed for the story</description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">true</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_dev_complete_on</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">518</id>
+      <name>Development Started in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_developmenta4d4f4595e3b1965</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">486</id>
+      <name>Development Started On</name>
+      <description nil="true"></description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">true</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_development_started_on</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">509</id>
+      <name>End Date</name>
+      <description nil="true"></description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_end_date</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/78.xml">
+          <name>Iteration</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">494</id>
+      <name>Feature - Story</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_feature_card_id</column_name>
+      <position type="integer">1</position>
+      <property_values_description>Any card used in tree</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">489</id>
+      <name>Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_iteration_card_id</column_name>
+      <position type="integer">2</position>
+      <property_values_description>Any card used in tree</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">530</id>
+      <name>Number of Iterations Remaining</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_number_of_ia05ee55bb67bcbe9</column_name>
+      <position nil="true"></position>
+      <property_values_description>Formula</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+      <formula>(('Total Planning Estimate' - 'Total Points Accepted') / (('Total Points Accepted' / 'Total Closed Iterations')))</formula>
+      <null_is_zero nil="true"></null_is_zero>
+    </property_definition>
+    <property_definition>
+      <id type="integer">490</id>
+      <name>Number of stories</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_number_of_stories</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/78.xml">
+          <name>Iteration</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">482</id>
+      <name>Owner</name>
+      <description>Individual signed up to work on a card</description>
+      <data_type>user</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_owner_user_id</column_name>
+      <position nil="true"></position>
+      <property_values_description>Automatically generated from the team list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/81.xml">
+          <name>Risk</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">491</id>
+      <name>Planned size</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_planned_size</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/78.xml">
+          <name>Iteration</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">478</id>
+      <name>Planning Estimate</name>
+      <description>Estimate made for a story in the early phases of the project for planning purposes.</description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_planning_estimate</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed number list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">473</id>
+          <value>1</value>
+          <color nil="true"></color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">475</id>
+          <value>2</value>
+          <color nil="true"></color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">476</id>
+          <value>3</value>
+          <color nil="true"></color>
+          <position type="integer">3</position>
+        </property_value>
+        <property_value>
+          <id type="integer">477</id>
+          <value>4</value>
+          <color nil="true"></color>
+          <position type="integer">4</position>
+        </property_value>
+        <property_value>
+          <id type="integer">472</id>
+          <value>5</value>
+          <color nil="true"></color>
+          <position type="integer">5</position>
+        </property_value>
+        <property_value>
+          <id type="integer">470</id>
+          <value>6</value>
+          <color nil="true"></color>
+          <position type="integer">6</position>
+        </property_value>
+        <property_value>
+          <id type="integer">471</id>
+          <value>20</value>
+          <color nil="true"></color>
+          <position type="integer">7</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">497</id>
+      <name>Points Per Feature</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_points_per_feature</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/79.xml">
+          <name>Feature</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">477</id>
+      <name>Priority</name>
+      <description>Level of criticality assigned to a card. Common values include (critical, essential, non-essential)</description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_priority</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">469</id>
+          <value>Critical</value>
+          <color>#ff0022</color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">468</id>
+          <value>Essential</value>
+          <color>#ff760d</color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">478</id>
+          <value>Non-Essential</value>
+          <color>#e7ff0d</color>
+          <position type="integer">3</position>
+        </property_value>
+        <property_value>
+          <id type="integer">467</id>
+          <value>Nice to have</value>
+          <color>#80ff40</color>
+          <position type="integer">4</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">519</id>
+      <name>QA Completed in Iteration</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_qa_complete3b53459686475e87</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any card</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">488</id>
+      <name>Release</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_release_card_id</column_name>
+      <position type="integer">1</position>
+      <property_values_description>Any card used in tree</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/78.xml">
+          <name>Iteration</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">480</id>
+      <name>Reported By</name>
+      <description nil="true"></description>
+      <data_type>user</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_reported_by_user_id</column_name>
+      <position nil="true"></position>
+      <property_values_description>Automatically generated from the team list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">506</id>
+      <name>Risk group</name>
+      <description nil="true"></description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_risk_group</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/81.xml">
+          <name>Risk</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">497</id>
+          <value>Accreditation</value>
+          <color nil="true"></color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">498</id>
+          <value>Infrastructure</value>
+          <color nil="true"></color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">499</id>
+          <value>Resources</value>
+          <color nil="true"></color>
+          <position type="integer">3</position>
+        </property_value>
+        <property_value>
+          <id type="integer">500</id>
+          <value>Technical</value>
+          <color nil="true"></color>
+          <position type="integer">4</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">503</id>
+      <name>Risk Impact</name>
+      <description>Monetary impact of the risk occuring</description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_risk_impact</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any number</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/81.xml">
+          <name>Risk</name>
+        </card_type>
+      </card_types>
+      <is_managed type="boolean">false</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">502</id>
+      <name>Risk Likelihood</name>
+      <description nil="true"></description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_risk_liklihood</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/81.xml">
+          <name>Risk</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">496</id>
+          <value>High</value>
+          <color>#e873ff</color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">495</id>
+          <value>Medium</value>
+          <color>#ff19ba</color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">494</id>
+          <value>Low</value>
+          <color>#80002a</color>
+          <position type="integer">3</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">504</id>
+      <name>Risk Status</name>
+      <description nil="true"></description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_risk_status</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/81.xml">
+          <name>Risk</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">491</id>
+          <value>New</value>
+          <color>#b3ffd1</color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">492</id>
+          <value>In Progress</value>
+          <color>#a6c4ff</color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">493</id>
+          <value>Closed</value>
+          <color>#dba6ff</color>
+          <position type="integer">3</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">508</id>
+      <name>Start Date</name>
+      <description nil="true"></description>
+      <data_type>date</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_release_start_date</column_name>
+      <position nil="true"></position>
+      <property_values_description>Any date</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/78.xml">
+          <name>Iteration</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">496</id>
+      <name>Story</name>
+      <description nil="true"></description>
+      <data_type>card</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_story_card_id</column_name>
+      <position type="integer">3</position>
+      <property_values_description>Any card used in tree</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">507</id>
+      <name>Story Count</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_story_count</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">498</id>
+      <name>Story Count Per Feature</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_story_count_per_feature</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/79.xml">
+          <name>Feature</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">476</id>
+      <name>Story Status</name>
+      <description>The status of the story or task. Stories and tasks share the same lifecycle (state values and state transitions).</description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_status</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">466</id>
+          <value>New</value>
+          <color>#ff2626</color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">465</id>
+          <value>Open</value>
+          <color>#ffb340</color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">464</id>
+          <value>Analysis In Progress</value>
+          <color>#ffdf0d</color>
+          <position type="integer">3</position>
+        </property_value>
+        <property_value>
+          <id type="integer">463</id>
+          <value>Ready for Development</value>
+          <color>#76ff0d</color>
+          <position type="integer">4</position>
+        </property_value>
+        <property_value>
+          <id type="integer">474</id>
+          <value>Development In Progress</value>
+          <color>#40ff80</color>
+          <position type="integer">5</position>
+        </property_value>
+        <property_value>
+          <id type="integer">462</id>
+          <value>Ready for QA</value>
+          <color>#99fffc</color>
+          <position type="integer">6</position>
+        </property_value>
+        <property_value>
+          <id type="integer">461</id>
+          <value>Ready for Showcase</value>
+          <color>#2643ff</color>
+          <position type="integer">7</position>
+        </property_value>
+        <property_value>
+          <id type="integer">459</id>
+          <value>Accepted</value>
+          <color>#5f59ff</color>
+          <position type="integer">8</position>
+        </property_value>
+        <property_value>
+          <id type="integer">486</id>
+          <value>Blocked</value>
+          <color>#ff73fa</color>
+          <position type="integer">9</position>
+        </property_value>
+        <property_value>
+          <id type="integer">460</id>
+          <value>Deleted</value>
+          <color>#ff0df7</color>
+          <position type="integer">10</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">512</id>
+      <name>Story Time-To-Life</name>
+      <description>Number of days elapsed between moving a story into scope and it being accepted by the customer.</description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_story_time_to_life</column_name>
+      <position nil="true"></position>
+      <property_values_description>Formula</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+      </card_types>
+      <formula>(('Accepted On' - 'Added to Scope On'))</formula>
+      <null_is_zero nil="true"></null_is_zero>
+    </property_definition>
+    <property_definition>
+      <id type="integer">501</id>
+      <name>Testing Status</name>
+      <description nil="true"></description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">true</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_testing_status</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">488</id>
+          <value>Ready to Be Tested</value>
+          <color>#abff8c</color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">489</id>
+          <value>Testing In Progress</value>
+          <color>#bffff2</color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">490</id>
+          <value>Testing Complete</value>
+          <color>#e0ccff</color>
+          <position type="integer">3</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">528</id>
+      <name>Total Closed Iterations</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_total_closed_iterations</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">527</id>
+      <name>Total Iterations</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_total_iterations</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">529</id>
+      <name>Total Open Iterations</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_total_open_iterations</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">510</id>
+      <name>Total Planning Estimate</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_total_planning_estimate</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">525</id>
+      <name>Total Points Accepted</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_total_points_accepted</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/77.xml">
+          <name>Release</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+    <property_definition>
+      <id type="integer">495</id>
+      <name>Type of test</name>
+      <description nil="true"></description>
+      <data_type>string</data_type>
+      <is_numeric type="boolean">false</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">true</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_type_of_test</column_name>
+      <position nil="true"></position>
+      <property_values_description>Managed text list</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/76.xml">
+          <name>Story</name>
+        </card_type>
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/75.xml">
+          <name>Defect</name>
+        </card_type>
+      </card_types>
+      <property_value_details type="array">
+        <property_value>
+          <id type="integer">483</id>
+          <value>Automated</value>
+          <color>#f3a6ff</color>
+          <position type="integer">1</position>
+        </property_value>
+        <property_value>
+          <id type="integer">484</id>
+          <value>Manual</value>
+          <color>#d3ff99</color>
+          <position type="integer">2</position>
+        </property_value>
+        <property_value>
+          <id type="integer">485</id>
+          <value>None</value>
+          <color>#737373</color>
+          <position type="integer">3</position>
+        </property_value>
+      </property_value_details>
+      <is_managed type="boolean">true</is_managed>
+    </property_definition>
+    <property_definition>
+      <id type="integer">524</id>
+      <name>Velocity</name>
+      <description nil="true"></description>
+      <data_type>numeric</data_type>
+      <is_numeric type="boolean">true</is_numeric>
+      <hidden type="boolean">false</hidden>
+      <restricted type="boolean">false</restricted>
+      <transition_only type="boolean">false</transition_only>
+      <project url="http://localhost:8080/api/v2/projects/test.xml">
+        <name>test</name>
+        <identifier>test</identifier>
+      </project>
+      <column_name>cp_velocity</column_name>
+      <position nil="true"></position>
+      <property_values_description>Aggregate</property_values_description>
+      <card_types type="array">
+        <card_type url="http://localhost:8080/api/v2/projects/test/card_types/78.xml">
+          <name>Iteration</name>
+        </card_type>
+      </card_types>
+    </property_definition>
+</card>

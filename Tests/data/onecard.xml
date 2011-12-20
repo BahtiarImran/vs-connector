@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<card>
+  <name>Sprint 5</name>
+  <description>
+    h2. Burndown
+
+    {{
+    daily-history-chart
+    chart-width: 800
+    plot-width: 750
+
+    chart-height: 500
+    plot-height: 431
+
+    y-title: Remaining Hours
+
+    aggregate: SUM ('Hours Remaining')
+    start-date: THIS CARD.Start Date
+    end-date: THIS CARD.End Date
+    chart-conditions: type = Task
+    series:
+    - label: Hours Remaining
+    color: #FF0000
+    line-width: 4
+    }}
+
+    _The Start Date and End Date properties on this card must be set in order for the burndown chart to render correctly._
+
+
+    h2. Stories - Accepted this Sprint
+
+    {{table query: SELECT Number, Name, Status, 'Story Points' WHERE Type = Story AND Sprint = (Current Sprint) AND Status = Accepted}}
+
+
+    h2. Stories - Dev Complete this Sprint
+
+    {{table query: SELECT Number, Name, Status, 'Story Points' WHERE Type = Story AND Sprint = (Current Sprint) AND Status &gt; 'In Development' AND Status != Accepted}}
+
+
+    h2. Other Stories in this Sprint
+
+    {{table query: SELECT Number, Name, Status, 'Story Points' WHERE Type = Story AND Sprint = THIS CARD AND Status &lt; 'Ready for Testing'}}
+  </description>
+
+  <card_type url="http://localhost:8080/api/v2/projects/test/card_types/43.xml">
+    <name>Story</name>
+  </card_type>
+  <id type="integer">459</id>
+  <number type="integer">7</number>
+  <project url="http://localhost:8080/api/v2/projects/test.xml">
+    <name>test</name>
+
+    <identifier>test</identifier>
+  </project>
+  <version type="integer">1</version>
+  <project_card_rank type="integer">73</project_card_rank>
+  <created_on type="datetime">2011-08-12T17:59:41Z</created_on>
+  <modified_on type="datetime">2011-08-12T17:59:41Z</modified_on>
+
+  <modified_by url="http://localhost:8080/api/v2/users/1.xml">
+    <name>Mark Richter</name>
+    <login>mrichter</login>
+  </modified_by>
+  <created_by url="http://localhost:8080/api/v2/users/1.xml">
+    <name>Mark Richter</name>
+    <login>mrichter</login>
+
+  </created_by>
+  <properties type="array">
+    <property type_description="Date" hidden="false">
+      <name>Start Date</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Date" hidden="false">
+      <name>End Date</name>
+
+      <value nil="true"></value>
+    </property>
+    <property type_description="Aggregate" hidden="false">
+      <name>Velocity</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Aggregate" hidden="false">
+      <name>Total Points in Sprint</name>
+
+      <value nil="true"></value>
+    </property>
+    <property type_description="Any number" hidden="false">
+      <name>Tfs Work Item</name>
+      <value nil="true"></value>
+    </property>
+    <property type_description="Any card used in tree" hidden="false">
+      <name>Release</name>
+
+      <value url="http://localhost:8080/api/v2/projects/test/cards/1.xml">
+        <number type="integer">1</number>
+      </value>
+    </property>
+  </properties>
+  <tags>
+  </tags>
+  <rendered_description url="http://localhost:8080/api/v2/projects/test/render?content_provider%5Bid%5D=459&amp;content_provider%5Btype%5D=card">
+
+  </rendered_description>
+</card>
+
