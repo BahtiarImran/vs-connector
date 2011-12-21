@@ -36,7 +36,7 @@ namespace TestVsConnector
         private static string _login;
         private static string _password;
         private static string _project;
-        private static string MINGLE_LOCAL_HOST = "http://localhost:8080";
+        private static string MINGLE_LOCAL_HOST = "http://10.0.1.106:8080";
         //private const string MINGLE_LOCAL_HOST = "http://fmtstdsol01.thoughtworks.com:8080";
         private const string MINGLE_INTEGRATION_USER = "mingleuser";
         private const string MINGLE_INTEGRATION_PASSWORD = "secret";

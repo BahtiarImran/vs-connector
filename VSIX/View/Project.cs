@@ -90,7 +90,7 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="mql">MQL query string</param>
         /// <returns>MingleCardCollection</returns>
         /// <exception cref="System.Exception">May throw an exception bubbling up from below</exception>
-        XDocument ExecMql(string mql);
+        XElement ExecMql(string mql);
 
         /// <summary>
         /// Returns a MingleCardCollection for a view 
@@ -207,7 +207,7 @@ namespace ThoughtWorks.VisualStudio
             return cards;
         }
 
-        public XDocument ExecMql(string mql)
+        public XElement ExecMql(string mql)
         {
             return MingleProject.ExecMql(mql);
         }

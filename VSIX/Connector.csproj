@@ -110,7 +110,6 @@
   <ItemGroup>
     <Compile Include="LogSettings.cs" />
     <Compile Include="MingleSettings.cs" />
-    <Compile Include="Mocks.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -281,6 +280,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="View\NewFolder1\" />
   </ItemGroup>
   <PropertyGroup>
     <!--

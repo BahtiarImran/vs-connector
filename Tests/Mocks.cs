@@ -126,7 +126,7 @@ namespace Mocks
             throw new NotImplementedException();
         }
 
-        public XDocument ExecMql(string mql)
+        public XElement ExecMql(string mql)
         {
             throw new NotImplementedException();
         }
@@ -142,6 +142,11 @@ namespace Mocks
         }
 
         public MingleCard CreateCard(string type, string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int ResultsCount(XElement results)
         {
             throw new NotImplementedException();
         }

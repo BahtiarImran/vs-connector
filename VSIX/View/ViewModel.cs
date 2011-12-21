@@ -40,11 +40,6 @@ namespace ThoughtWorks.VisualStudio
             Mingle = new MingleServer(host, login, password);
         }
 
-        public ViewModel(string testData)
-        {
-            Mingle = new Mocks.MingleServer(testData);
-        }
-
         #region Authentication Section
         internal string Host { get; set; }
         internal string Login { get; set; }
