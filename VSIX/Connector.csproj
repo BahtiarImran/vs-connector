@@ -116,26 +116,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SendFileTo.cs" />
-    <Compile Include="View\Card.cs" />
+    <Compile Include="View\Model\Card.cs" />
     <Compile Include="View\CardListWindow.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>CardListWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CardProperties.cs" />
-    <Compile Include="View\CardProperty.cs" />
-    <Compile Include="View\Cards.cs" />
-    <Compile Include="View\CardType.cs" />
-    <Compile Include="View\CardTypePropertyDefinition.cs" />
-    <Compile Include="View\CardTypes.cs" />
-    <Compile Include="View\Favorite.cs" />
-    <Compile Include="View\Favorites.cs" />
-    <Compile Include="View\Project.cs" />
-    <Compile Include="View\Secure.cs" />
-    <Compile Include="View\Team.cs" />
-    <Compile Include="View\TeamMember.cs" />
-    <Compile Include="View\Transition.cs" />
-    <Compile Include="View\Transitions.cs" />
-    <Compile Include="View\ViewModel.cs" />
+    <Compile Include="View\Model\CardProperties.cs" />
+    <Compile Include="View\Model\CardProperty.cs" />
+    <Compile Include="View\Model\Cards.cs" />
+    <Compile Include="View\Model\CardType.cs" />
+    <Compile Include="View\Model\CardTypePropertyDefinition.cs" />
+    <Compile Include="View\Model\CardTypes.cs" />
+    <Compile Include="View\Model\Favorite.cs" />
+    <Compile Include="View\Model\Favorites.cs" />
+    <Compile Include="View\Model\Project.cs" />
+    <Compile Include="View\Model\Secure.cs" />
+    <Compile Include="View\Model\Team.cs" />
+    <Compile Include="View\Model\TeamMember.cs" />
+    <Compile Include="View\Model\Transition.cs" />
+    <Compile Include="View\Model\Transitions.cs" />
+    <Compile Include="View\Model\ViewModel.cs" />
     <Compile Include="View\FeedbackView\FeedbackViewControl.xaml.cs">
       <DependentUpon>FeedbackViewControl.xaml</DependentUpon>
     </Compile>
@@ -165,7 +165,7 @@
     <Compile Include="View\ExplorerView\ExplorerViewWindowPane.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\IAmExplorer.cs" />
+    <Compile Include="View\Model\IAmExplorer.cs" />
     <Compile Include="View\Exceptions\PropertyNullException.cs" />
     <Compile Include="View\SettingsView\SettingsViewControl.xaml.cs">
       <DependentUpon>SettingsViewControl.xaml</DependentUpon>
@@ -191,7 +191,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <EmbeddedResource Include="View\Gear.bmp" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -280,7 +279,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="View\NewFolder1\" />
   </ItemGroup>
   <PropertyGroup>
     <!--
