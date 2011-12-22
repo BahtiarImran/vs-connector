@@ -15,8 +15,12 @@
 //
 
 using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -25,10 +29,11 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public partial class CardListWindow : Window
     {
-        private readonly Cards _cardList;
-        public Card SelectedCard { get; private set; }
+        private readonly XElement _cardList;
+        public string SelectedCardName { get; private set; }
+        public int SelectedCardNumber { get; private set; }
 
-        public CardListWindow(Cards cardList)
+        public CardListWindow(XElement cardList)
         {
             _cardList = cardList;
             InitializeComponent();
@@ -37,14 +42,24 @@ namespace ThoughtWorks.VisualStudio
         private void OnWindowIsInitialized(object sender, EventArgs e)
         {
             Debug.Assert(_cardList != null,"CardListWindow._cardList has not been initialized.");
-            this.list.DataContext = _cardList;
-            this.list.ItemsSource = _cardList;
+            var cards = new SortedList<string, CardItem>();
+            _cardList.Elements("result").ToList().ForEach(c => cards.Add(c.Element("number").Value, new CardItem{Number=c.Element("number").Value, Name=c.Element("name").Value}));
+            this.list.DataContext = cards.Values;
+            this.list.ItemsSource = cards.Values;
+            this.list.SelectedValuePath = "Number";
         }
 
         private void OnSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            SelectedCard = list.SelectedValue as Card;
+            SelectedCardNumber = null == list.SelectedValue ? 0 : int.Parse(list.SelectedValue as string);
+            SelectedCardName = null == list.SelectedItem ? string.Empty :  (list.SelectedItem as CardItem).Name;
             Close();
         }
+    }
+
+    public class CardItem
+    {
+        public string Number { get; set; }
+        public string Name { get; set; }
     }
 }

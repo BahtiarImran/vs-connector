@@ -18,6 +18,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Xml.Linq;
 using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
@@ -234,6 +235,11 @@ namespace ThoughtWorks.VisualStudio
         {
             return Project().GetIndirectCardsByTypeName(indirectTypeName, true);
         }
+
+        public XElement GetListOfCards()
+        {
+            return Project().ExecMql("select number, name");
+        }
     }
 
 
@@ -257,5 +263,6 @@ namespace ThoughtWorks.VisualStudio
         Cards GetCardsFromType(string typeName);
         Cards GetCardTypesFromPropertyName(string propertyName);
         Cards GetIndirectCardsFromType(string indirectTypeName);
+        XElement GetListOfCards();
     }
 }

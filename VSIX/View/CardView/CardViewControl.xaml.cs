@@ -256,7 +256,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
-            var cards = _thisCard.Model.GetCardsFromTree((((sender as Button).Tag) as CardProperty).Name);
+            var cards = _thisCard.Model.GetListOfCards();
             var w = new CardListWindow(cards);
             w.ShowDialog();
         }
