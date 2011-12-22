@@ -238,6 +238,7 @@ namespace ThoughtWorks.VisualStudio
 
         public XElement GetListOfCards()
         {
+
             return Project().ExecMql("select number, name");
         }
     }

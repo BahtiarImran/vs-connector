@@ -258,7 +258,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
-            // TODO Need to see how to send the associated TextBox object in at this point.
+            // TODO Update Mingle with the selected value.
             var cards = _thisCard.Model.GetListOfCards();
             var w = new CardListWindow(cards);
             w.ShowDialog();
