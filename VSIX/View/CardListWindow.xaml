@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Select a Card" Height="150" Width="400" 
         xmlns:my1="clr-namespace:ThoughtWorks.VisualStudio" 
-        ShowInTaskbar="False" ResizeMode="CanResizeWithGrip" FontSize="12" WindowStartupLocation="CenterScreen" Topmost="True" Initialized="OnWindowIsInitialized">
+        ShowInTaskbar="False" ResizeMode="CanResizeWithGrip" FontSize="12" WindowStartupLocation="CenterScreen" Topmost="True" Initialized="OnWindowIsInitialized" >
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <ListBox x:Name="list" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>

@@ -238,6 +238,7 @@ namespace ThoughtWorks.VisualStudio
                     Width = 30
                 };
                 a.Click += OnButtonChooseCardClick;
+                a.Tag = tb;
                 panel.Children.Add(a);
             }
 
@@ -250,15 +251,19 @@ namespace ThoughtWorks.VisualStudio
                 Width = 30
             };
             b.Click += OnButtonNotSetClick;
+            b.Tag = tb;
             panel.Children.Add(b);
             return panel;
         }
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
+            // TODO Need to see how to send the associated TextBox object in at this point.
             var cards = _thisCard.Model.GetListOfCards();
             var w = new CardListWindow(cards);
             w.ShowDialog();
+            if (w.Cancelled) return;
+            ((sender as Button).Tag as TextBox).Text = string.Format("{0} - {1}", w.SelectedCardNumber, w.SelectedCardName);
         }
 
         private void OnButtonNotSetClick(object sender, RoutedEventArgs e)
