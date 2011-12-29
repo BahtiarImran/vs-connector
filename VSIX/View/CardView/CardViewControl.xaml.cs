@@ -313,10 +313,10 @@ namespace ThoughtWorks.VisualStudio
                     _thisCard.AddCardAttributeFilterToPostData(tb.Name.Replace("card", string.Empty).ToLowerInvariant(), tb.Text);
                     break;
 
-                case "PropertyDefinition":
+                case "CardProperty":
                     // The DataContext of the TextBox is a MinglePropertyDefinition object. So, we
                     // take its name and pass it over to AddPropertyPostData.
-                    _thisCard.AddPropertyFilterToPostData(((MinglePropertyDefinition)tb.DataContext).Name, tb.Text);
+                    _thisCard.AddPropertyFilterToPostData((tb.DataContext as CardProperty).Name, tb.Text);
                     break;
             }
 
