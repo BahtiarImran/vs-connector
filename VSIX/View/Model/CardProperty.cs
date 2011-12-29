@@ -52,6 +52,12 @@ namespace ThoughtWorks.VisualStudio
         public bool IsSetValued { get { return _property.IsSetValued; } }
         public bool IsTeamValued { get { return _property.IsTeamValued; } }
         public bool IsTransitionOnly { get { return _property.IsTransitionOnly; } }
+        public bool IsManagedListOfScalars { get
+        {
+            if (IsCardValued || IsTeamValued) return false;
+            return IsSetValued;
+        }
+        }
         public string Name { get { return _property.Name; } }
         public int Position { get { return _property.Position; } }
         public string ProjectId { get { return _property.ProjectId; } }

@@ -86,6 +86,20 @@ namespace TestVsConnector
         #endregion
 
         [TestMethod]
+        public void TestIsManagedListOfScalars()
+        {
+            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            model.SelectProject("test");
+            var card = model.GetOneCard(120);
+            var p = card.Properties["Story Status"];
+            Assert.IsTrue(p.IsManagedListOfScalars);
+            p = card.Properties["Release"];
+            Assert.IsFalse(p.IsManagedListOfScalars);
+            p = card.Properties["Owner"];
+            Assert.IsFalse(p.IsManagedListOfScalars);
+        }
+
+        [TestMethod]
         public void TestFavoritesRefresh()
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
