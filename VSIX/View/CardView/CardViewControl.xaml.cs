@@ -277,44 +277,6 @@ namespace ThoughtWorks.VisualStudio
 
         #endregion
 
-        /// <summary>
-        /// Fires each time the selction int he ComboBox is changed
-        /// </summary>
-        /// <remarks>
-        /// We use this to stash the card number of the selected item in the Tag property so that if
-        /// the user chooses to Save this card we can set the value of the item. we cannot do any I/O 
-        /// in this event because it fires so frequently.
-        /// </remarks>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnPropertyComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (!Settings.Default.EnablePropertyUpdating) return;
-            var cb = sender as ComboBox;
-            if (null == cb) return;
-            var newValue = cb.SelectedValue.ToString();
-            var property = cb.Tag as CardProperty;
-            if (null == property) return;
-
-            _thisCard.SetPropertyOrAttributValue(property.Name, newValue);
-
-            try
-            {
-                _thisCard.Update();
-            }
-            catch (Exception ex)
-            {
-                var message = String.Format(CultureInfo.CurrentCulture, "{0}\r\n\n{1} = {2}\r\n\n{3}", 
-                                                VisualStudio.Resources.PropertyCouldNotBeUpdated,
-                                                property.Name, newValue, ex.Message);
-                TraceLog.WriteLine(new StackFrame().GetMethod().Name, message);
-                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                MessageBox.Show(message);
-
-            }
-            return;
-        }
-
         #region OnInitialized
         /// <summary>
         /// Fired after the window framework has initialized and before it is loaded and rendered.
