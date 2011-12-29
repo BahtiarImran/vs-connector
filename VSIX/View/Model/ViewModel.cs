@@ -83,10 +83,6 @@ namespace ThoughtWorks.VisualStudio
                     ForEach(f => favorites.Add(f.Key, f.Value));                                  /* populates the ViewModel cache */
                 return favorites;
             }
-            private set
-            {
-                // Unused accessor is here to make XAML data binging happy.
-            }
         }
 
         /// <summary>
@@ -196,46 +192,6 @@ namespace ThoughtWorks.VisualStudio
             _project = new Project(MingleSettings.Project, this);
         }
 
-        public Cards GetCardsFromTree(string treeName)
-        {
-            
-
-            return Project().GetCards(new Collection<string>
-                                          {
-                                              string.Format("tree_name={0}", treeName),
-                                              "sort=name",
-                                              "order=ASC"
-                                          });
-        }
-
-        public Cards GetCardsFromType(string typeName)
-        {
-            return Project().GetCards(new Collection<string>
-                                          {
-                                              string.Format("card[card_type_name]={0}", typeName),
-                                              "sort=number",
-                                              "order=ASC"
-                                          });
-        }
-
-        public Cards GetCardTypesFromPropertyName(string propertyName)
-        {
-            var keys = new List<string>();
-            foreach (CardType ct in Project().GetCardTypes().Values)
-            {
-                foreach (var pd in ct.PropertyDefinitions)
-                {
-                   // if (pd)
-                }
-            }
-            return null;
-        }
-
-        public Cards GetIndirectCardsFromType(string indirectTypeName)
-        {
-            return Project().GetIndirectCardsByTypeName(indirectTypeName, true);
-        }
-
         public XElement GetListOfCards()
         {
 
@@ -261,9 +217,6 @@ namespace ThoughtWorks.VisualStudio
         Card CreateCard(string type, string name);
         Project Project();
         void CurrentProject(string projectId);
-        Cards GetCardsFromType(string typeName);
-        Cards GetCardTypesFromPropertyName(string propertyName);
-        Cards GetIndirectCardsFromType(string indirectTypeName);
         XElement GetListOfCards();
     }
 }

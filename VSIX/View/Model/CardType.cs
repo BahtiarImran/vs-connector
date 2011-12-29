@@ -22,27 +22,6 @@ namespace ThoughtWorks.VisualStudio
     public class CardType
     {
         private readonly MingleCardType _cardType;
-        private readonly ViewModel _model;
-        private readonly IMingleProject _project;
-
-        /// <summary>
-        /// Copnstructs a new card type
-        /// </summary>
-        private CardType()
-        {
-
-        }
-
-        /// <summary>
-        /// Constructs a new card type
-        /// </summary>
-        /// <param name="cardType"></param>
-        public CardType(ViewModel model, IMingleProject project,  MingleCardType cardType)
-        {
-            _cardType = cardType;
-            _model = model;
-            _project = project;
-        }
 
         /// <summary>
         /// Card type name

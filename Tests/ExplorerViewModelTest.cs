@@ -327,28 +327,6 @@ namespace TestVsConnector
         }
 
         [TestMethod]
-        public void TestGetCardsForType()
-        {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
-            model.SelectProject("test");
-            var card = model.GetOneCard(120);
-            var indirectTypeName = card.Properties["Feature - Story"].Name;
-            var cards = model.GetIndirectCardsFromType(indirectTypeName);
-            Assert.AreEqual(36, cards.Count);
-        }
-
-        //[TestMethod]
-        //public void TestGetCardsForType2()
-        //{
-        //    var model = new ViewModel("https://mingle05.thoughtworks.com", "mrichter", "1jsUUm#8");
-        //    model.SelectProject("Studios Technical Solutions");
-        //    var card = model.GetOneCard(1333);
-        //    var indirectTypeName = card.Properties["Release"].Name;
-        //    var cards = model.GetIndirectCardsFromType(indirectTypeName);
-        //    Assert.AreEqual(36, cards.Count);
-        //}
-
-        [TestMethod]
         public void TestGetOneCard()
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);

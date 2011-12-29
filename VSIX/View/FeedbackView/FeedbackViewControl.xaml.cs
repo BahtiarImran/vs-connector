@@ -28,7 +28,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// Interaction logic for FeedbackView.xaml
     /// </summary>
-    public partial class FeedbackViewControl : Window, IDisposable
+    public partial class FeedbackViewControl : IDisposable
     {
         private BackgroundWorker _worker;
         private bool _disposed;

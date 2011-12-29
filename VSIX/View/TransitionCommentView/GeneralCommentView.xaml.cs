@@ -22,7 +22,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// Interaction logic for TransitionCommentView.xaml
     /// </summary>
-    public partial class GeneralCommentView : Window
+    public partial class GeneralCommentView
     {
         private readonly string _requiredAdmonition = "";
 

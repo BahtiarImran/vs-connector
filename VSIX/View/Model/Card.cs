@@ -47,7 +47,6 @@ namespace ThoughtWorks.VisualStudio
         {
             MingleCard = mingleCard;
             Model = model;
-            var p =Properties;
         }
 
         public object Value { get; set; }

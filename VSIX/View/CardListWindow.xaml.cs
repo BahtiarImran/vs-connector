@@ -27,7 +27,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// Interaction logic for CardListWindow.xaml
     /// </summary>
-    public partial class CardListWindow : Window
+    public partial class CardListWindow
     {
         private readonly XElement _cardList;
         public string SelectedCardName { get; private set; }

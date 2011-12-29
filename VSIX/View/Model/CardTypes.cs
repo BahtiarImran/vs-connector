@@ -30,14 +30,6 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Constructs a new card type
         /// </summary>
-        private CardTypes()
-        {
-
-        }
-
-        /// <summary>
-        /// Constructs a new card type
-        /// </summary>
         /// <param name="project"></param>
         public CardTypes(ViewModel model, IMingleProject project)
         {

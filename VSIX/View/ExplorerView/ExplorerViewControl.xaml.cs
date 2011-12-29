@@ -30,7 +30,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// Interaction logic for ExplorerViewControl.xaml
     /// </summary>
-    public partial class ExplorerViewControl : UserControl
+    public partial class ExplorerViewControl
     {
         internal ViewModel Model { get; private set; }
 
@@ -45,12 +45,6 @@ namespace ThoughtWorks.VisualStudio
             committed.Text = VisualStudio.Resources.MessageMurmurCommitted;
             committed.Visibility = Visibility.Hidden;
 
-        }
-
-        private void BindPropertyDefinitions()
-        {
-            var p = Model.PropertyDefinitions;
-            return;
         }
 
         #region Bind list of Team members
@@ -378,7 +372,6 @@ namespace ThoughtWorks.VisualStudio
         private void BindExplorerTrees()
         {
             if (!SelectProject()) return;
-            BindPropertyDefinitions();
             BindCardTypes();
             BindFavorites();
             BindTeamMembers();
