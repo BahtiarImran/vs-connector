@@ -78,8 +78,7 @@
 						</Grid.RowDefinitions>
 						
 						<!-- Grid Row 0 Card Name -->
-						<TextBox x:Name="cardName" Grid.Row="0" Style="{StaticResource RoTextBox}"  
-								 LostFocus="OnPropertyTextBoxLostFocus" TextChanged="OnCardNameTextChanged" GotFocus="OnCardNameGotFocus">
+						<TextBox x:Name="cardName" Grid.Row="0" Style="{StaticResource RoTextBox}" Margin="0,0,0,6" LostFocus="OnPropertyTextBoxLostFocus" TextChanged="OnCardNameTextChanged" GotFocus="OnCardNameGotFocus">
 						</TextBox>
 
 						<!-- Grid Row 1 Card Description/Preview Tabs -->
