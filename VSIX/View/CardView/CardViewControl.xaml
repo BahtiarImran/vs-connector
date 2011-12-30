@@ -85,17 +85,15 @@
 						</TextBox>
 
 						<!-- Grid Row 1 -->
-						<TabControl Grid.Row="1" Style="{StaticResource Tabs}" Name="dsecriptionTabs" Margin="0,6,0,0">
+						<TabControl Grid.Row="1" Style="{StaticResource Tabs}" Name="dsecriptionTab" Margin="0,6,0,0">
 							<TabItem x:Name="markupTab" Header="Decription" Style="{StaticResource Tab}" >
 								<TextBox x:Name="cardDescription" 
 										 Style="{StaticResource TextBoxCardDescription}" 
 										 LostFocus="OnPropertyTextBoxLostFocus" 
 										 VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"></TextBox>
 							</TabItem>
-							<TabItem x:Name="renderedTab" Header="Preview" Style="{StaticResource Tab}">
-								<WebBrowser Name="descriptionBrowser" 
-											Source="http://localhost:8080/api/v2/projects/test/render?content_provider%5Bid%5D=2220&amp;content_provider%5Btype%5D=card"
-											/>
+							<TabItem x:Name="renderedTab" Header="Preview" Style="{StaticResource Tab}" GotFocus="OnRenderedDescriptionTabGotFocus">
+								<WebBrowser Name="descriptionBrowser" />
 							</TabItem>
 						</TabControl>
 

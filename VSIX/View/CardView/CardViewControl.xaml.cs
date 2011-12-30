@@ -16,6 +16,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
@@ -131,7 +132,7 @@ namespace ThoughtWorks.VisualStudio
             cardModifiedOn.Tag = cardModifiedOn.Text;
             cardModifiedBy.SetBinding(TextBox.TextProperty, "MofidiedBy");
             cardModifiedBy.Tag = cardModifiedBy.Text;
-
+            descriptionBrowser.Source = new Uri(_thisCard.RenderedDescription);
         }
         #endregion
 
@@ -372,7 +373,7 @@ namespace ThoughtWorks.VisualStudio
             _thisCard.Update();
         }
 
-        private void OnButtonNotSetClick(object sender, RoutedEventArgs e)
+        private static void OnButtonNotSetClick(object sender, RoutedEventArgs e)
         {
             var box = ((sender as Button).Parent as StackPanel).Children[1];
             switch(box.GetType().Name)
@@ -437,7 +438,10 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 if (!string.IsNullOrEmpty(cardName.Text))
+                {
                     _thisCard.Update();
+                    descriptionBrowser.Refresh();
+                }
                 else
                     MessageBox.Show(ThoughtWorksCoreLib.Resources.MingleCardNameNullOrEmpty);
             }
@@ -583,6 +587,10 @@ namespace ThoughtWorks.VisualStudio
         private void OnCardNameGotFocus(object sender, RoutedEventArgs e)
         {
             cardName.SelectAll();
+        }
+
+        private void OnRenderedDescriptionTabGotFocus(object sender, RoutedEventArgs e)
+        {
         }
     }
 
