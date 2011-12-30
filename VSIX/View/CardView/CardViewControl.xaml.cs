@@ -15,6 +15,7 @@
 //
 
 using System;
+using System.Collections;
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
@@ -200,15 +201,81 @@ namespace ThoughtWorks.VisualStudio
             if (cardProperty.Hidden) label.FontStyle = FontStyles.Italic;
             panel.Children.Add(label);
 
-            var tb = new TextBox
-            {
-                IsEnabled = !cardProperty.IsTransitionOnly,
-                MinWidth = 50,
-                Name = cardProperty.ColumnName,
-                DataContext = cardProperty,
-            };
+            FrameworkElement uiElement = null;
 
-            if (UserIsProjectAdmin()) tb.IsEnabled = true;
+            switch (cardProperty.IsManagedListOfScalars)
+            {
+                case false:
+                    {
+                        if (cardProperty.IsTeamValued)
+                        {
+                            uiElement = MakeComboBox(cardProperty);
+                            panel.Children.Add(uiElement);
+                            panel.Children.Add(ValueNotSetButton(cardProperty, uiElement));
+                            break;
+                        }
+
+                        uiElement = MakeTextBox(cardProperty);
+
+                        panel.Children.Add(uiElement);
+
+                        if (PropertyIsEditable(cardProperty) && cardProperty.IsCardValued)
+                        {
+                            // Add a 'click to choose' button
+                            var a = MakeChooseCardButton(cardProperty);
+                            a.Click += OnButtonChooseCardClick;
+                            a.Tag = uiElement;
+                            panel.Children.Add(a);
+                        }
+
+                        if (PropertyIsEditable(cardProperty) && !cardProperty.IsFormula)
+                            // Add a "set value to none" button
+                            panel.Children.Add(ValueNotSetButton(cardProperty, uiElement));
+
+
+                        break;
+                    }
+                case true:
+                    { 
+                        uiElement = MakeComboBox(cardProperty);
+                        panel.Children.Add(uiElement);
+                        panel.Children.Add(ValueNotSetButton(cardProperty, uiElement));
+                        break;
+                    }
+            }
+
+            return panel;
+        }
+
+        private static Button MakeChooseCardButton(CardProperty cardProperty)
+        {
+            var a = new Button
+                        {
+                            Content = "...",
+                            ToolTip = "Click to choose a card",
+                            Tag = cardProperty,
+                            Width = 30
+                        };
+            return a;
+        }
+
+        private bool PropertyIsEditable(CardProperty property)
+        {
+            return UserIsProjectAdmin() || !property.IsFormula && !property.IsTransitionOnly && !property.PropertyValuesDescription.Equals("Aggregate");
+        }
+
+        private TextBox MakeTextBox(CardProperty cardProperty)
+        {
+
+            var tb = new TextBox
+                         {
+                             IsEnabled = !cardProperty.IsTransitionOnly,
+                             MinWidth = 50,
+                             Name = cardProperty.ColumnName,
+                             DataContext = cardProperty
+                         };
+
+            tb.IsEnabled = PropertyIsEditable(cardProperty);
 
             tb.SetBinding(TextBox.TextProperty, "Value");
             tb.Tag = cardProperty;
@@ -219,50 +286,87 @@ namespace ThoughtWorks.VisualStudio
             if (cardProperty.IsTransitionOnly || cardProperty.IsFormula)
                 tb.Background = Brushes.LightGray;
 
-            if (cardProperty.IsFormula)
-                tb.IsReadOnly = true;
+            return tb;
+        }
 
-            if (cardProperty.PropertyValuesDescription.Equals("Aggregate"))
-                tb.IsEnabled = false;
+        private ComboBox MakeComboBox(CardProperty cardProperty)
+        {
+            var cb = new ComboBox
+                         {
+                             IsEnabled = !cardProperty.IsTransitionOnly,
+                             MinWidth = 50,
+                             Name = cardProperty.ColumnName,
+                             DataContext = cardProperty
+                         };
 
-            panel.Children.Add(tb);
-
-            // Add a 'click to shoose' button
-            if (cardProperty.IsCardValued && !(cardProperty.IsTransitionOnly || UserIsProjectAdmin()))
+            if (cardProperty.IsTeamValued)
             {
-                var a = new Button
-                {
-                    Content = "...",
-                    ToolTip = "Click to choose a card",
-                    Tag = cardProperty,
-                    Width = 30
-                };
-                a.Click += OnButtonChooseCardClick;
-                a.Tag = tb;
-                panel.Children.Add(a);
+                cb.ItemsSource = _thisCard.Model.Team.Values;
+                cb.DisplayMemberPath = "Name";
+                cb.SelectedValuePath = "Login";
+            }
+            else
+            {
+                cb.ItemsSource = cardProperty.PropertyValueDetails;
             }
 
-            // Add an 'un-set' button
+            cb.SelectedItem = cardProperty.Value;
+            cb.Tag = cardProperty;
+
+            if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)
+                cb.SelectionChanged += OnPropertyComboBoxSelectionChanged;
+
+            cb.IsEnabled = PropertyIsEditable(cardProperty);
+
+            return cb;
+        }
+
+        private Button ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
+        {
             var b = new Button
-            {
-                Content = "X",
-                ToolTip = "Click to leave the value not set",
-                Tag = cardProperty,
-                Width = 30
-            };
+                        {
+                            Content = "X",
+                            ToolTip = "Click to leave the value not set",
+                            Tag = cardProperty,
+                            Width = 30
+                        };
+
             b.Click += OnButtonNotSetClick;
-            b.Tag = tb;
-            panel.Children.Add(b);
-            return panel;
+            b.Tag = control.Tag;
+            return b;
+        }
+
+        private void OnPropertyComboBoxSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (!sender.GetType().Name.Equals("ComboBox")) return;
+            var me = new StackFrame().GetMethod().Name;
+            var cb = sender as ComboBox;
+            var property = cb.Tag as CardProperty;
+            if (property.IsCardValued || property.IsTeamValued) return;
+            _thisCard.AddPropertyFilterToPostData((cb.DataContext as CardProperty).Name, cb.SelectedItem as string);
+
+            try
+            {
+                if (!string.IsNullOrEmpty(cardName.Text))
+                    _thisCard.Update();
+                else
+                    MessageBox.Show(ThoughtWorksCoreLib.Resources.MingleCardNameNullOrEmpty);
+            }
+            catch (Exception ex)
+            {
+                TraceLog.Exception(me, ex);
+                MessageBox.Show(ex.Message);
+            }
+
+            e.Handled = true;
         }
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
-            // TODO Update Mingle with the selected value.
             var cards = _thisCard.Model.GetListOfCards();
             var w = new CardListWindow(cards);
             w.ShowDialog();
-            if (w.Cancelled) return;
+            if (w.Cancelled || w.SelectedCardNumber == 0) return;
             ((sender as Button).Tag as TextBox).Text = string.Format("{0} - {1}", w.SelectedCardNumber, w.SelectedCardName);
             _thisCard.SetPropertyOrAttributValue((((sender as Button).Tag as TextBox).Tag as CardProperty).Name, w.SelectedCardNumber);
             _thisCard.Update();
@@ -270,9 +374,19 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonNotSetClick(object sender, RoutedEventArgs e)
         {
-            var cardProperty = (sender as Button).Tag as CardProperty;
-            _thisCard.SetPropertyOrAttributValue(cardProperty.Name, "");
-            _thisCard.Update();
+            var box = ((sender as Button).Parent as StackPanel).Children[1];
+            switch(box.GetType().Name)
+            {
+                case "TextBox":
+                    (box as TextBox).Text = string.Empty;
+                    box.Focus();
+                    (sender as Button).Focus();
+                    break;
+
+                case "ComboBox":
+                    (box as ComboBox).SelectedValue = string.Empty;
+                    break;
+            }
         }
 
         #endregion
