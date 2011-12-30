@@ -61,9 +61,7 @@
 		<StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 			
 			<!-- Row of transition buttons -->
-			<ToolBarPanel x:Name="cardToolbar" DockPanel.Dock="Top" Background="DarkOrange" Margin="2,2,0,0" Orientation="Horizontal">
-				<WrapPanel x:Name="transitionButtons" Orientation="Horizontal" />
-			</ToolBarPanel>
+			<WrapPanel x:Name="transitionButtons" Orientation="Horizontal" Background="DarkOrange" />
 			
 			<!-- Details and Properties Tabs -->
 			<TabControl Style="{StaticResource Tabs}" Name="tabs">
@@ -72,20 +70,20 @@
 				
 				<TabItem x:Name="detailsTab" Header="Details" Style="{StaticResource Tab}" >
 					
-					<Grid Style="{StaticResource CardViewGrid}" Margin="0,0,0,6" x:Name="grid">
+					<Grid Style="{StaticResource CardViewGrid}" x:Name="grid">
 						<Grid.RowDefinitions>
 							<RowDefinition />
 							<RowDefinition />
 							<RowDefinition />
 						</Grid.RowDefinitions>
 						
-						<!-- Grid Row 0 -->
-						<TextBox x:Name="cardName" Grid.Row="0" Style="{StaticResource RoTextBox}" Margin="6,6,6,0" 
+						<!-- Grid Row 0 Card Name -->
+						<TextBox x:Name="cardName" Grid.Row="0" Style="{StaticResource RoTextBox}"  
 								 LostFocus="OnPropertyTextBoxLostFocus" TextChanged="OnCardNameTextChanged" GotFocus="OnCardNameGotFocus">
 						</TextBox>
 
-						<!-- Grid Row 1 -->
-						<TabControl Grid.Row="1" Style="{StaticResource Tabs}" Name="dsecriptionTab" Margin="0,6,0,0">
+						<!-- Grid Row 1 Card Description/Preview Tabs -->
+						<TabControl Grid.Row="1" Style="{StaticResource Tabs}" Name="dsecriptionTab">
 							<TabItem x:Name="markupTab" Header="Decription" Style="{StaticResource Tab}" >
 								<TextBox x:Name="cardDescription" 
 										 Style="{StaticResource TextBoxCardDescription}" 
@@ -97,7 +95,7 @@
 							</TabItem>
 						</TabControl>
 
-						<!-- Grid Row 2 -->
+						<!-- Grid Row 2 Managed Attributes -->
 
 						<WrapPanel Orientation="Horizontal" Grid.Row="2">
 							<StackPanel Style="{StaticResource PropertyStackPanel}">

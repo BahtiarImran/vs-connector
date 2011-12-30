@@ -493,21 +493,11 @@ namespace ThoughtWorks.VisualStudio
 
                 // POST the Comment
                 var comment = string.Format(CultureInfo.InvariantCulture, "comment[content]={0}", collectComment.Comment);
-                //CurrentCardCollection.Project.Mingle.Post(
-                //                     string.Format(CultureInfo.CurrentCulture, "{0}/api/v2/projects/{1}/cards/{2}.xml",
-                //                                   Settings.Default.MingleHost,
-                //                                   Settings.Default.MingleProject, _thisCard.Number),
-                //                     new Collection<string> {comment});
+                _thisCard.Model.Mingle.Post(MingleSettings.Project, "/cards/" + _thisCard.Number + ".xml", new Collection<string> {comment});
 
                 // Murmur the comment?
                 var murmur = string.Format(CultureInfo.InvariantCulture, "murmur[body]={0}", collectComment.Comment);
-                //CurrentCardCollection.Project.Mingle.Post(
-                //                     string.Format(CultureInfo.CurrentCulture, "{0}/api/v2/projects/{1}/murmurs.xml",
-                //                                   Settings.Default.MingleHost,
-                //                                   Settings.Default.MingleProject),
-                //                     new Collection<string> {murmur});
-
-                return;
+                _thisCard.Model.Mingle.Post(MingleSettings.Project, "/cards/" + _thisCard.Number + ".xml", new Collection<string> { murmur });
             }
             catch (Exception ex)
             {
@@ -515,7 +505,6 @@ namespace ThoughtWorks.VisualStudio
                 MessageBox.Show(string.Format(CultureInfo.CurrentCulture, "{0}\n\r\n\r{1} {2}\n\r\n\r{3}",
                                               VisualStudio.Resources.TransitionCannotBeApplied,
                                               VisualStudio.Resources.TransitionEquals, t.Name, ex.Message));
-                return;
             }
         }
         #endregion
