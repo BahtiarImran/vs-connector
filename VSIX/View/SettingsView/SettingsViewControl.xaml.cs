@@ -80,8 +80,8 @@ namespace ThoughtWorks.VisualStudio
             //_settings.GoHost = goHostTextBox.Text;
             //_settings.GoLogin = goUserTextBox.Text;
             //_settings.GoPassword = ConvertStringToSecureString(goPasswordBox.Password);
-            LogSettings.Trace = Convert.ToBoolean(enableLogging.IsChecked, CultureInfo.InvariantCulture);
-            LogSettings.TraceEntryExit = Convert.ToBoolean(enableEntryExitLogging.IsChecked, CultureInfo.InvariantCulture);
+            LogSettings.Trace = true;
+            LogSettings.TraceEntryExit = false;
             _thereAreUnsavedChangedOnTheForm = false;
             Close();
 
@@ -143,10 +143,10 @@ namespace ThoughtWorks.VisualStudio
             //goHostTextBox.Text = _settings.GoHost;
             //goUserTextBox.Text = _settings.GoLogin;
             //goPasswordBox.Password = ConvertSecureStringToString(_settings.GoPassword);
-            radioNoGo.IsChecked = false;
-            radio20.IsChecked = false;
-            radio21.IsChecked = false;
-            enableLogging.IsChecked = Convert.ToBoolean(LogSettings.Trace);
+            //radioNoGo.IsChecked = false;
+            //radio20.IsChecked = false;
+            //radio21.IsChecked = false;
+            //enableLogging.IsChecked = Convert.ToBoolean(LogSettings.Trace);
             _thereAreUnsavedChangedOnTheForm = false;
         }
     }

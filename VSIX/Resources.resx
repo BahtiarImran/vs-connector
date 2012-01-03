@@ -151,7 +151,7 @@
     <value>Explorer Command Callback.</value>
   </data>
   <data name="ExplorerViewCaption" xml:space="preserve">
-    <value>ThoughtWorks Explorer</value>
+    <value>Mingle Explorer</value>
   </data>
   <data name="HostnameIsEmpty" xml:space="preserve">
     <value>Host name cannot be empty.\n</value>

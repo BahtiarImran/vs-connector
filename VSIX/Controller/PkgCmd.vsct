@@ -99,7 +99,7 @@
         <!--        <Parent guid="guidTwVscCmdSet" id="ToolbarGroup"/>-->
         <Icon guid="guidMingleCardCommandBmp" id="bmpAllCards"/>
         <Strings>
-          <ButtonText>&amp;ThoughtWorks Explorer</ButtonText>
+          <ButtonText>Mingle Explorer</ButtonText>
         </Strings>
       </Button>
     </Buttons>

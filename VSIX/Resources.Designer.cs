@@ -376,7 +376,7 @@ namespace ThoughtWorks.VisualStudio {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ThoughtWorks Explorer.
+        ///   Looks up a localized string similar to Mingle Explorer.
         /// </summary>
         internal static string ExplorerViewCaption {
             get {
