@@ -15,7 +15,6 @@
 //
 
 using System;
-using System.Collections;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -26,7 +25,6 @@ using System.Windows.Media;
 using Microsoft.VisualStudio.Shell;
 using ThoughtWorks.VisualStudio.Properties;
 using ThoughtWorksCoreLib;
-using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -66,11 +64,11 @@ namespace ThoughtWorks.VisualStudio
             Cursor = Cursors.Wait;
             var me = new StackFrame().GetMethod().Name;
             var start = DateTime.Now;
-            BindTopLevelElements();
+            BindManagedProperties();
             var stop = DateTime.Now;
             var elapsed = stop - start;
             TraceLog.WriteLine(me,
-                               string.Format(CultureInfo.InvariantCulture, "Elapsed time BindTopLevelElements(): {0}", elapsed));
+                               string.Format(CultureInfo.InvariantCulture, "Elapsed time BindManagedProperties(): {0}", elapsed));
             start = DateTime.Now;
             BindPropertyElements();
             stop = DateTime.Now;
@@ -81,11 +79,11 @@ namespace ThoughtWorks.VisualStudio
         }
         #endregion
 
-        #region Bind top-level elements
+        #region Bind managed properties
         /// <summary>
         /// Bind top-level Card properties to the form
         /// </summary>
-        private void BindTopLevelElements()
+        private void BindManagedProperties()
         {
 
             transitionButtons.Children.Clear();
