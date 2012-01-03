@@ -78,7 +78,9 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         private void BindCardTypes()
         {
-            cardTypes.ItemsSource = Model.CardTypes;
+            cardTypes.ItemsSource = Model.CardTypes.Values;
+            cardTypes.DisplayMemberPath = "Name";
+            cardTypes.SelectedValuePath = "Name";
             if (Model.CardTypes.Count > 0)
                 cardTypes.SelectedIndex = 0;
         }

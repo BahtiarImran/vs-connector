@@ -101,7 +101,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Card types
         /// </summary>
-        public ICollection CardTypes
+        public CardTypes CardTypes
         {
             get
             {
@@ -206,7 +206,7 @@ namespace ThoughtWorks.VisualStudio
         bool SelectProject(string projectId);
         Favorites Favorites { get; }
         Hashtable Team { get; }
-        ICollection CardTypes { get; }
+        CardTypes CardTypes { get; }
         Dictionary<string, CardProperty> PropertyDefinitions { get; }
         string ProjectId { get; }
         ObservableCollection<Card> GetCardsForFavorite(string view);
