@@ -21,6 +21,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
+using ThoughtWorksCoreLib;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -43,8 +44,20 @@ namespace ThoughtWorks.VisualStudio
         private void OnWindowIsInitialized(object sender, EventArgs e)
         {
             Debug.Assert(_cardList != null,"CardListWindow._cardList has not been initialized.");
-            var cards = new SortedList<string, CardItem>();
-            _cardList.Elements("result").ToList().ForEach(c => cards.Add(c.Element("number").Value, new CardItem{Number=c.Element("number").Value, Name=c.Element("name").Value}));
+            var cards = new SortedList<int, CardItem>();
+            try
+            {
+                _cardList.Elements("result").ToList().ForEach(c => cards.Add(int.Parse(c.Element("number").Value as string), new CardItem { Number = c.Element("number").Value, Name = c.Element("name").Value }));
+
+            }
+            catch (Exception ex)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                MessageBox.Show(
+                    string.Format("Encountered an error parsing the list of cards received from Mingle.\n\n{0}",
+                                  ex.Message));
+            } 
+            
             this.list.DataContext = cards.Values;
             this.list.ItemsSource = cards.Values;
             this.list.SelectedValuePath = "Number";
