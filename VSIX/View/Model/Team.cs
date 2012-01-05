@@ -14,12 +14,12 @@
 // limitations under the License.
 //
 
-using System.Collections;
+using System.Collections.Generic;
 using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
-    public class Team : Hashtable
+    public class Team : SortedList<string, TeamMember>
     {
         private readonly IMingleProject _project;
         private readonly ViewModel _model;

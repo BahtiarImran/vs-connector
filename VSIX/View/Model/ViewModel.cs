@@ -98,7 +98,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Collection of project team members for data binding with XAML
         /// </summary>
-        public Hashtable Team
+        public SortedList<string,TeamMember> Team
         {
             get
             {
@@ -209,7 +209,7 @@ namespace ThoughtWorks.VisualStudio
         SortedList<string, KeyValuePair> ProjectList { get; }
         bool SelectProject(string projectId);
         Favorites Favorites { get; }
-        Hashtable Team { get; }
+        SortedList<string,TeamMember>  Team { get; }
         CardTypes CardTypes { get; }
         Dictionary<string, CardProperty> PropertyDefinitions { get; }
         string ProjectId { get; }

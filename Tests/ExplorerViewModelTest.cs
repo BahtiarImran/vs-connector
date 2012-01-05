@@ -258,7 +258,7 @@ namespace TestVsConnector
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             Assert.AreEqual(true, model.SelectProject("test"));
-            Assert.AreEqual(false, model.SelectProject("bogus"));
+            Assert.AreEqual(false, model.SelectProject(""));
         }
 
         [TestMethod]
