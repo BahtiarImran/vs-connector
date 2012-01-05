@@ -275,9 +275,15 @@ namespace ThoughtWorks.VisualStudio
                          };
 
             tb.IsEnabled = PropertyIsEditable(cardProperty);
-
-            tb.SetBinding(TextBox.TextProperty, "Value");
+            var cardinfo = string.Empty;
+            if (!string.IsNullOrEmpty(cardProperty.Value as string))
+            {
+                var name = _thisCard.Model.GetOneCard(Convert.ToInt32(cardProperty.Value)).Name;
+                cardinfo = string.Format("{0} - {1}", cardProperty.Value as string, name);
+            }
+            tb.Text = cardinfo;
             tb.Tag = cardProperty;
+            if (cardProperty.IsCardValued) tb.IsReadOnly = true;
 
             if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)
                 tb.LostFocus += OnPropertyTextBoxLostFocus;

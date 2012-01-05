@@ -67,7 +67,15 @@ namespace ThoughtWorks.VisualStudio
         /// <returns>True if projectId is a key in ProjectList, else False</returns>
         public bool SelectProject(string projectId)
         {
+            if (string.IsNullOrEmpty(projectId)) return false;
             MingleSettings.Project = projectId;
+            _project = new Project(MingleSettings.Project, this);
+            return true;
+        }
+
+        public bool UsingProjectSavedInSettings()
+        {
+            if (string.IsNullOrEmpty(MingleSettings.Project)) return false;
             _project = new Project(MingleSettings.Project, this);
             return true;
         }

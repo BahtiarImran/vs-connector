@@ -328,7 +328,6 @@ namespace ThoughtWorks.VisualStudio
             {
                 this.Cursor = Cursors.Wait;
                 Model.SelectProject(comboProjects.SelectedValue as string);
-                MingleSettings.Project = comboProjects.SelectedValue as string;
                 BindExplorerTrees();
             }
             catch (Exception ex)
@@ -353,7 +352,20 @@ namespace ThoughtWorks.VisualStudio
         {
             favoritesTree.MouseDoubleClick += OnFavoritesTreeItemMouseDoubleClick;
             CheckSettings();
-            BindAll();
+            try
+            {
+                BindProjectList();
+                if (Model.UsingProjectSavedInSettings())
+                {
+                    comboProjects.SelectedValue = MingleSettings.Project;
+                    BindExplorerTrees();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+            }
         }
         #endregion
 

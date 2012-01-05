@@ -251,7 +251,7 @@ namespace ThoughtWorks.VisualStudio
 
         public string ProjectId
         {
-            get { throw new NotImplementedException(); }
+            get { return _model.ProjectId; }
         }
 
         public CardProperties PropertyDefinitions
