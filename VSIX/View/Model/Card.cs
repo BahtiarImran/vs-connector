@@ -125,18 +125,18 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="name"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public void SetPropertyOrAttributValue(string name, object value)
+        public void SetPropertyOrAttributValue(string name, string value)
         {
             var isProperty = Properties.ContainsKey(name);
 
             switch (isProperty)
             {
                 case true:
-                    AddPropertyFilterToPostData(name, value as string);
+                    AddPropertyFilterToPostData(name, value);
                     break;
 
                 case false:
-                    AddCardAttributeFilterToPostData(name, value as string);
+                    AddCardAttributeFilterToPostData(name, value);
                     break;
             }
 

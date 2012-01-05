@@ -32,12 +32,13 @@ namespace ThoughtWorks.VisualStudio
     {
         private readonly XElement _cardList;
         public string SelectedCardName { get; private set; }
-        public int SelectedCardNumber { get; private set; }
+        public string SelectedCardNumber { get; private set; }
         public bool Cancelled;
 
         public CardListWindow(XElement cardList)
         {
             _cardList = cardList;
+            SelectedCardNumber = "0";
             InitializeComponent();
         }
 
@@ -72,7 +73,7 @@ namespace ThoughtWorks.VisualStudio
             }
 
             Cancelled = false;
-            SelectedCardNumber = int.Parse(list.SelectedValue as string);
+            SelectedCardNumber = list.SelectedValue as string;
             SelectedCardName = (list.SelectedItem as CardItem).Name;
             Close();
         }
