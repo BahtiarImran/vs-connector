@@ -191,7 +191,9 @@ namespace ThoughtWorks.VisualStudio
         private void BindProjectList()
         {
             Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
-            comboProjects.ItemsSource = Model.ProjectList.Keys;
+            comboProjects.ItemsSource = Model.ProjectList.Values;
+            comboProjects.DisplayMemberPath = "Key";
+            comboProjects.SelectedValuePath = "Value";
         }
 
         /// <summary>
@@ -304,12 +306,7 @@ namespace ThoughtWorks.VisualStudio
             var murmur = string.Format(CultureInfo.InvariantCulture, "murmur[body]={0}", murmurText.Text);
             try
             {
-                Model.Mingle.Post(MingleSettings.Project,
-                                string.Format(CultureInfo.InvariantCulture, "/murmurs.xml",
-                                            comboProjects.SelectedItem),
-                                new Collection<string> { murmur }
-                            );
-
+                Model.Mingle.Post(MingleSettings.Project, "/murmurs.xml", new Collection<string> { murmur });
                 committed.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
@@ -330,7 +327,8 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 this.Cursor = Cursors.Wait;
-                Model.SelectProject(comboProjects.SelectedItem as String);
+                Model.SelectProject(comboProjects.SelectedValue as string);
+                MingleSettings.Project = comboProjects.SelectedValue as string;
                 BindExplorerTrees();
 
             }
@@ -360,7 +358,7 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 BindProjectList();
-                if (!SelectProject()) return;
+                BindExplorerTrees();
             }
             catch (Exception ex)
             {
@@ -373,29 +371,12 @@ namespace ThoughtWorks.VisualStudio
         #region Refresh and bind the Explorer tree
         private void BindExplorerTrees()
         {
-            if (!SelectProject()) return;
+            if (null == comboProjects.SelectedValue) return;
             BindCardTypes();
             BindFavorites();
             BindTeamMembers();
         }
 
-        #endregion
-
-        #region Select a project from the list
-        /// <summary>
-        /// Select a project from the list
-        /// </summary>
-        /// <returns></returns>
-        private bool SelectProject()
-        {
-            if (Model.SelectProject(MingleSettings.Project))
-            {
-                comboProjects.SelectedItem = MingleSettings.Project;
-                return true;
-            }
-
-            return false;
-        }
         #endregion
 
         #region Bind List of Favorites

@@ -50,11 +50,13 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// List of Mingle project ids for data binding with XAML
         /// </summary>
-        public SortedList<string, string> ProjectList
+        public SortedList<string, KeyValuePair> ProjectList
         {
             get
             {
-                return Mingle.GetProjectList();
+                var projects = new SortedList<string, KeyValuePair>();
+                Mingle.GetProjectList().ToList().ForEach(p => projects.Add(p.Key, new KeyValuePair(p.Key,p.Value)));
+                return projects;
             }
         }
 
@@ -65,8 +67,8 @@ namespace ThoughtWorks.VisualStudio
         /// <returns>True if projectId is a key in ProjectList, else False</returns>
         public bool SelectProject(string projectId)
         {
-            if (!ProjectList.Keys.Contains(projectId)) return false;
-            CurrentProject(projectId);
+            MingleSettings.Project = projectId;
+            _project = new Project(MingleSettings.Project, this);
             return true;
         }
 
@@ -186,12 +188,6 @@ namespace ThoughtWorks.VisualStudio
             return _project;
         }
 
-        public void CurrentProject (string projectId)
-        {
-            MingleSettings.Project = projectId;
-            _project = new Project(MingleSettings.Project, this);
-        }
-
         public XElement GetListOfCards()
         {
 
@@ -202,7 +198,7 @@ namespace ThoughtWorks.VisualStudio
 
     public interface IViewModel
     {
-        SortedList<string, string> ProjectList { get; }
+        SortedList<string, KeyValuePair> ProjectList { get; }
         bool SelectProject(string projectId);
         Favorites Favorites { get; }
         Hashtable Team { get; }
@@ -216,7 +212,6 @@ namespace ThoughtWorks.VisualStudio
         ObservableCollection<Transition> Transitions { get; }
         Card CreateCard(string type, string name);
         Project Project();
-        void CurrentProject(string projectId);
         XElement GetListOfCards();
     }
 }

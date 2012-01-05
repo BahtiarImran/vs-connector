@@ -28,6 +28,18 @@ EndProject
 Project("{B373B46A-B089-44D7-96CA-CD150D098BC8}") = "spec", "..\Mingle.NET\spec\spec.rbproj", "{0F95F348-C913-4AFA-90E9-0BB982DD3BA1}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://107.22.185.110:8080/tfs/solutions
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = VSIX\\Connector.csproj
+		SccProjectName1 = VSIX
+		SccLocalPath1 = VSIX
+		SccProjectUniqueName2 = Tests\\Tests.csproj
+		SccProjectName2 = Tests
+		SccLocalPath2 = Tests
+	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Connector.vsmdi
 	EndGlobalSection
