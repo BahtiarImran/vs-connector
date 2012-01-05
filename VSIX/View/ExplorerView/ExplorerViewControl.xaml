@@ -25,11 +25,11 @@
 	<DockPanel LastChildFill="True">
 		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
 			<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
-                <ComboBox Name="comboProjects" 
-                          Margin="2,2,0,2" 
-                          FontSize="11" 
-                          ToolTip="Select a project" 
-                          Height="20" SelectionChanged="OnProjectSelectionChanged" Width="90" />
+				<ComboBox Name="comboProjects" 
+						  Margin="2,2,0,2" 
+						  FontSize="11" 
+						  ToolTip="Select a project" 
+						  Height="20" SelectionChanged="OnProjectSelectionChanged" Width="90" />
 				<Button Name="buttonRefresh" 
 						Content="Refresh" 
 						Click="ButtonClick" 
@@ -61,7 +61,7 @@
 						Margin="2,2,0,2" 
 						FontSize="11" 
 						Height="20"
-                        Visibility="Hidden"/>-->
+						Visibility="Hidden"/>-->
 				<StackPanel Orientation="Horizontal">
 					<TextBox x:Name="card" 
 							 Margin="4,2,2,2"  
@@ -82,9 +82,9 @@
 					<RowDefinition Height="Auto"></RowDefinition>
 					<RowDefinition Height="Auto"></RowDefinition>
 				</Grid.RowDefinitions>
-				<ScrollViewer x:Name="treeScroller" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" CanContentScroll="True">
+				<ScrollViewer x:Name="treeScroller" Grid.Row="0" VerticalAlignment="Stretch">
 					<TreeView x:Name ="explorerTree" BorderThickness="0">
-                        <TreeViewItem Header="Favorites" IsExpanded="False" x:Name="favoritesTree"></TreeViewItem>
+						<TreeViewItem Header="Favorites" IsExpanded="False" x:Name="favoritesTree"></TreeViewItem>
 						<TreeViewItem Header="Pipelines" IsExpanded="False" x:Name="pipelinesTree"></TreeViewItem>
 						<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
 					</TreeView>
