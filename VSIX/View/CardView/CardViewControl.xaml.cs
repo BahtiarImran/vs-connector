@@ -275,8 +275,8 @@ namespace ThoughtWorks.VisualStudio
                          };
 
             tb.IsEnabled = PropertyIsEditable(cardProperty);
-            var cardinfo = string.Empty;
-            if (!string.IsNullOrEmpty(cardProperty.Value as string))
+            var cardinfo = cardProperty.Value as string;
+            if (!string.IsNullOrEmpty(cardProperty.Value as string) && cardProperty.IsCardValued)
             {
                 var name = _thisCard.Model.GetOneCard(Convert.ToInt32(cardProperty.Value)).Name;
                 cardinfo = string.Format("{0} - {1}", cardProperty.Value as string, name);
