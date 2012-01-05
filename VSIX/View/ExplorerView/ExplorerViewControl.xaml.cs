@@ -300,7 +300,8 @@ namespace ThoughtWorks.VisualStudio
 
         } 
         #endregion
-        
+
+        #region Murmuring
         private void OnClickButtonMurmur(object sender, RoutedEventArgs e)
         {
             var murmur = string.Format(CultureInfo.InvariantCulture, "murmur[body]={0}", murmurText.Text);
@@ -314,7 +315,6 @@ namespace ThoughtWorks.VisualStudio
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
                 MessageBox.Show(ex.Message);
             }
-            return;
         }
 
         private void OnMurmurTextChanged(object sender, TextChangedEventArgs e)
@@ -330,13 +330,18 @@ namespace ThoughtWorks.VisualStudio
                 Model.SelectProject(comboProjects.SelectedValue as string);
                 MingleSettings.Project = comboProjects.SelectedValue as string;
                 BindExplorerTrees();
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
             }
             finally
             {
                 this.Cursor = Cursors.Arrow;
             }
         }
+        #endregion
 
         #region OnExplorerViewControlInitialized
         /// <summary>
