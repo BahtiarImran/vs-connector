@@ -5,19 +5,10 @@
     <Setting Name="MingleUser" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="MinglePassword" Type="System.Security.SecureString" Scope="User">
+    <Setting Name="MinglePassword" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MingleHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="GoUser" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="GoPassword" Type="System.Security.SecureString" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="GoHost" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Trace" Type="System.Boolean" Scope="User">

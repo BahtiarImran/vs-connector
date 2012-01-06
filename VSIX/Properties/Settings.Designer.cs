@@ -37,9 +37,10 @@ namespace ThoughtWorks.VisualStudio.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Security.SecureString MinglePassword {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MinglePassword {
             get {
-                return ((global::System.Security.SecureString)(this["MinglePassword"]));
+                return ((string)(this["MinglePassword"]));
             }
             set {
                 this["MinglePassword"] = value;
@@ -55,41 +56,6 @@ namespace ThoughtWorks.VisualStudio.Properties {
             }
             set {
                 this["MingleHost"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string GoUser {
-            get {
-                return ((string)(this["GoUser"]));
-            }
-            set {
-                this["GoUser"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Security.SecureString GoPassword {
-            get {
-                return ((global::System.Security.SecureString)(this["GoPassword"]));
-            }
-            set {
-                this["GoPassword"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string GoHost {
-            get {
-                return ((string)(this["GoHost"]));
-            }
-            set {
-                this["GoHost"] = value;
             }
         }
         
