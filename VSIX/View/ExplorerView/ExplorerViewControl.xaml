@@ -17,14 +17,14 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-			 mc:Ignorable="d Anno" 
+			 mc:Ignorable="d Anno"  x:Name="userControl"
 			 xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" 
 			 x:Class="ThoughtWorks.VisualStudio.ExplorerViewControl" 
-			 d:DesignHeight="300" d:DesignWidth="300" Initialized="OnExplorerViewControlInitialized"
-			 VerticalAlignment="Stretch">
-	<DockPanel LastChildFill="True">
-		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
-			<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
+			 Initialized="OnExplorerViewControlInitialized" >
+	
+	<DockPanel x:Name="dockPanel" LastChildFill="True" >
+
+		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
 				<ComboBox Name="comboProjects" 
 						  Margin="2,2,0,2" 
 						  FontSize="11" 
@@ -76,55 +76,56 @@
 							Click="ButtonClick" />
 				</StackPanel>
 			</WrapPanel>
-			<Grid x:Name="MingleExplorer" DockPanel.Dock="Top" Grid.Row="0" VerticalAlignment="Stretch">
+
+		<Grid x:Name="MingleExplorer" DockPanel.Dock="Top" Grid.Row="0" VerticalAlignment="Stretch">
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+				
+			<!-- Row 0 Explorer Tree -->
+			<TreeView Grid.Row="0" BorderThickness="0" Height="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+					<TreeViewItem Header="Favorites" IsExpanded="True" x:Name="favoritesTree"></TreeViewItem>
+				<!--<TreeViewItem Header="Pipelines" IsExpanded="False" x:Name="pipelinesTree"></TreeViewItem>-->
+				<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
+			</TreeView>
+			<!-- Row 1 Splitter -->
+				
+			<GridSplitter Grid.Row="1" Background="DarkGray" VerticalAlignment="Center" ShowsPreview="True"
+							Height="4" HorizontalAlignment="Stretch" />
+				
+			<!-- Row 2 Murmur Section -->
+
+			<Grid Grid.Row="2" Grid.Column="0">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto"></RowDefinition>
-					<RowDefinition Height="Auto"></RowDefinition>
-					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="50*"></RowDefinition>
+					<RowDefinition Height="28"></RowDefinition>
+					<RowDefinition></RowDefinition>
 				</Grid.RowDefinitions>
-				<ScrollViewer x:Name="treeScroller" Grid.Row="0" VerticalAlignment="Stretch">
-					<TreeView x:Name ="explorerTree" BorderThickness="0">
-						<TreeViewItem Header="Favorites" IsExpanded="False" x:Name="favoritesTree"></TreeViewItem>
-						<TreeViewItem Header="Pipelines" IsExpanded="False" x:Name="pipelinesTree"></TreeViewItem>
-						<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
-					</TreeView>
-				</ScrollViewer>
-				<GridSplitter Grid.Row="1" 
-							  Background="DarkGray" 
-							  VerticalAlignment="Center" 
-							  ShowsPreview="True"
-							  Height="2"
-							  HorizontalAlignment="Stretch" />
-				<Grid Grid.Row="2" Grid.Column="0" VerticalAlignment="Stretch">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="50*"></RowDefinition>
-						<RowDefinition Height="28"></RowDefinition>
-						<RowDefinition></RowDefinition>
-					</Grid.RowDefinitions>
-					<TextBox x:Name="murmurText" 
-							 VerticalAlignment="Stretch" 
-							 HorizontalAlignment="Stretch" 
-							 Grid.Row="0" 
-							 BorderThickness="2" 
-							 BorderBrush="LightGray"
-							 AcceptsReturn="True" 
-							 AutoWordSelection="True" 
-							 TextWrapping="WrapWithOverflow" 
-							 TextChanged="OnMurmurTextChanged"
-							 MinHeight="50"/>
-					<Button x:Name="buttonMurmur" 
-							Grid.Row="1" 
-							HorizontalAlignment="Center" 
-							VerticalAlignment="Center" 
-							Content="Murmur This" 
-							FontSize="11" 
-							Height="20" Click="OnClickButtonMurmur" />
-					<TextBlock x:Name="committed"
-							   Grid.Row="2"
-							   HorizontalAlignment="Center"
-							   FontSize="11" />
-				</Grid>
+				<TextBox x:Name="murmurText" 
+							VerticalAlignment="Stretch" 
+							HorizontalAlignment="Stretch" 
+							Grid.Row="0" 
+							BorderThickness="2" 
+							BorderBrush="LightGray"
+							AcceptsReturn="True" 
+							AutoWordSelection="True" 
+							TextWrapping="WrapWithOverflow" 
+							TextChanged="OnMurmurTextChanged"
+							MinHeight="50"/>
+				<Button x:Name="buttonMurmur" 
+						Grid.Row="1" 
+						HorizontalAlignment="Center" 
+						VerticalAlignment="Center" 
+						Content="Murmur This" 
+						FontSize="11" 
+						Height="20" Click="OnClickButtonMurmur" />
+				<TextBlock x:Name="committed"
+							Grid.Row="2"
+							HorizontalAlignment="Center"
+							FontSize="11" />
 			</Grid>
-		</StackPanel>
+		</Grid>
 	</DockPanel>
 </UserControl>

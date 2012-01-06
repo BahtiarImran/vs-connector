@@ -65,10 +65,6 @@ namespace ThoughtWorks.VisualStudio
         {
             base.OnToolWindowCreated();
             _control.Package = (TwVscCommandsPackage) Package;
-            // Set the text that will appear in the title bar of the tool window.
-            // Note that because we need access to the package for localization,
-            // we have to wait to do this here. If we used a constant string,
-            // we could do this in the constructor.
             Caption = Resources.ExplorerViewCaption;
         }
 

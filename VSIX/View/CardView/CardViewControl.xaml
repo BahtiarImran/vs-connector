@@ -19,7 +19,8 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 mc:Ignorable="d" x:Class="ThoughtWorks.VisualStudio.CardViewControl" 
 			 FontSize="11" x:Name="CardViewControlXaml" 
-			 Initialized="OnInitialized" Background="LightGray">
+			 Initialized="OnInitialized" Background="LightGray"
+			 VerticalAlignment="Stretch">
 	
 	<!-- Static resources must precede any reference to them in the XAML source. -->	
 	<UserControl.Resources>
@@ -39,8 +40,9 @@
 			<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
 			<Setter Property="VerticalAlignment" Value="Stretch"></Setter>
 			<Setter Property="Background" Value="WhiteSmoke"></Setter>
-			<Setter Property="VerticalScrollBarVisibility" Value="Visible"></Setter>
-            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"></Setter>
+			<Setter Property="VerticalScrollBarVisibility" Value="Auto"></Setter>
+			<Setter Property="HorizontalScrollBarVisibility" Value="Auto"></Setter>
+			<Setter Property="MinHeight" Value="200"></Setter>
 		</Style>
 		<Style x:Key ="Tab" TargetType="TabItem">
 			<Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
@@ -68,15 +70,15 @@
 			<Setter Property="Height" Value="23"></Setter>
 		</Style>
 	</UserControl.Resources>
-	<DockPanel LastChildFill="True">
+	<!--<DockPanel LastChildFill="True">-->
 
-		<StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+		<StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
 			<!-- Row of transition buttons -->
 			<WrapPanel x:Name="transitionButtons" Orientation="Horizontal" Background="DarkOrange" DockPanel.Dock="Top" />
 
 			<!-- Details and Properties Tabs -->
-			<TabControl Style="{StaticResource Tabs}" Name="tabs" DockPanel.Dock="Top" >
+			<TabControl Style="{StaticResource Tabs}" Name="tabs" DockPanel.Dock="Top">
 
 				<!-- DETAILS AND "MANAGED PROPERTIES" TAB -->
 
@@ -90,28 +92,32 @@
 						</Grid.RowDefinitions>
 
 						<!-- Grid Row 0 Card Name -->
+						
 						<TextBox x:Name="cardName" 
 								 Grid.Row="0" 
 								 LostFocus="OnPropertyTextBoxLostFocus" 
 								 TextChanged="OnCardNameTextChanged" 
 								 GotFocus="OnCardNameGotFocus" 
-                                 AutoWordSelection="True" 
-                                 HorizontalScrollBarVisibility="Hidden" 
-                                 TabIndex="1"
-                                 Margin="6,6,6,6"
-                                 Height="23">
+								 AutoWordSelection="True" 
+								 HorizontalScrollBarVisibility="Hidden" 
+								 TabIndex="1"
+								 Margin="6,6,6,6"
+								 Height="23"
+								 VerticalAlignment="Top">
 						</TextBox>
 
 						<!-- Grid Row 1 Card Description/Preview Tabs -->
-						<TabControl Grid.Row="1" Style="{StaticResource Tabs}" Name="dsecriptionTab">
+						
+						<TabControl Grid.Row="1" Style="{StaticResource Tabs}" Name="dsecriptionTab" VerticalAlignment="Top">
 							<TabItem x:Name="markupTab" Header="Decription" Style="{StaticResource Tab}" >
 								<TextBox x:Name="cardDescription" 
 										Style="{StaticResource TextBoxCardDescription}" 
-										LostFocus="OnPropertyTextBoxLostFocus" TabIndex="2">
+										LostFocus="OnPropertyTextBoxLostFocus" TabIndex="2"
+										>
 								</TextBox>
 							</TabItem>
 							<TabItem x:Name="renderedTab" Header="Preview" Style="{StaticResource Tab}" GotFocus="OnRenderedDescriptionTabGotFocus">
-								<WebBrowser Name="descriptionBrowser" />
+								<WebBrowser Name="descriptionBrowser" MinHeight="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
 							</TabItem>
 						</TabControl>
 
@@ -186,5 +192,5 @@
 			</TabControl>
 
 		</StackPanel>
-	</DockPanel>
+	<!--</DockPanel>-->
 </UserControl>

@@ -42,8 +42,8 @@ namespace ThoughtWorks.VisualStudio
 
             InitializeComponent();
             // TODO LOAD TEXT FROM RESOURCES
-            committed.Text = VisualStudio.Resources.MessageMurmurCommitted;
-            committed.Visibility = Visibility.Hidden;
+            //committed.Text = VisualStudio.Resources.MessageMurmurCommitted;
+            //committed.Visibility = Visibility.Hidden;
 
         }
 
@@ -321,6 +321,7 @@ namespace ThoughtWorks.VisualStudio
         {
             committed.Visibility = Visibility.Hidden;
         }
+        #endregion
 
         private void OnProjectSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -340,7 +341,6 @@ namespace ThoughtWorks.VisualStudio
                 this.Cursor = Cursors.Arrow;
             }
         }
-        #endregion
 
         #region OnExplorerViewControlInitialized
         /// <summary>
@@ -415,6 +415,5 @@ namespace ThoughtWorks.VisualStudio
             }
         }
         #endregion
-
     }
 }
