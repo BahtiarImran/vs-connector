@@ -25,7 +25,21 @@
 	<DockPanel x:Name="dockPanel" LastChildFill="True" >
 
 		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
-				<ComboBox Name="comboProjects" 
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="card" 
+							 Margin="4,2,2,2"  
+							 FontSize="11" 
+							 Height="20" 
+							 Width="36" />
+                <Button Name="buttonGetCard" 
+							Margin="2,2,0,2" 
+							Content="Go To Card" 
+							FontSize="11" 
+							Height="20" 
+							Click="ButtonClick" 
+                            IsDefault="True" />
+            </StackPanel>
+            <ComboBox Name="comboProjects" 
 						  Margin="2,2,0,2" 
 						  FontSize="11" 
 						  ToolTip="Select a project" 
@@ -62,19 +76,6 @@
 						FontSize="11" 
 						Height="20"
 						Visibility="Hidden"/>-->
-				<StackPanel Orientation="Horizontal">
-					<TextBox x:Name="card" 
-							 Margin="4,2,2,2"  
-							 FontSize="11" 
-							 Height="20" 
-							 Width="36" />
-					<Button Name="buttonGetCard" 
-							Margin="2,2,0,2" 
-							Content="Go To Card" 
-							FontSize="11" 
-							Height="20" 
-							Click="ButtonClick" />
-				</StackPanel>
 			</WrapPanel>
 
 		<Grid x:Name="MingleExplorer" DockPanel.Dock="Top" Grid.Row="0" VerticalAlignment="Stretch">

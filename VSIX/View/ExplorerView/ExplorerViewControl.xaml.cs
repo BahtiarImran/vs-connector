@@ -360,6 +360,7 @@ namespace ThoughtWorks.VisualStudio
                     comboProjects.SelectedValue = MingleSettings.Project;
                     BindExplorerTrees();
                 }
+                card.Focus();
             }
             catch (Exception ex)
             {

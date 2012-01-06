@@ -143,7 +143,7 @@ namespace ThoughtWorks.VisualStudio
             visiblePropertiesPanel.Children.Clear();
             hiddenPropertiesPanel.Children.Clear();
 
-            foreach (CardProperty p in _thisCard.Properties.Values)
+            foreach (var p in _thisCard.Properties.Values)
             {
                 // Load the property
 
@@ -374,7 +374,15 @@ namespace ThoughtWorks.VisualStudio
             if (w.Cancelled || w.SelectedCardNumber == "0") return;
             ((sender as Button).Tag as TextBox).Text = string.Format("{0} - {1}", w.SelectedCardNumber, w.SelectedCardName);
             _thisCard.SetPropertyOrAttributValue((((sender as Button).Tag as TextBox).Tag as CardProperty).Name, w.SelectedCardNumber);
-            _thisCard.Update();
+            try
+            {
+                _thisCard.Update();
+            }
+            catch (Exception ex)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private static void OnButtonNotSetClick(object sender, RoutedEventArgs e)
