@@ -24,9 +24,7 @@ using System.Windows;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using ThoughtWorks.VisualStudio.Properties;
 using ThoughtWorksCoreLib;
-using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -40,21 +38,17 @@ namespace ThoughtWorks.VisualStudio
     [ProvideToolWindow(typeof (CardSetViewWindowPane), Transient = true)]
     [ProvideToolWindow(typeof (CardViewWindowPane), Transient = true)]
     [ProvideToolWindow(typeof (ExplorerViewWindowPane))]
-//    [ProvideToolWindow(typeof (PipelinePropertiesViewWindowPane), Transient = true)]
     [ProvideToolWindowVisibility(typeof (CardSetViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E3FCA72F-B3A4-406E-A4AA-1051594D2367")]
     [ProvideToolWindowVisibility(typeof (CardViewWindowPane), /*UICONTEXT_SolutionExists*/
         "59373D4C-3F6C-4031-AF08-D11D4CCFC45B")]
     [ProvideToolWindowVisibility(typeof (ExplorerViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E03D0A03-6B80-48D4-9A61-220CD2033698")]
-//    [ProvideToolWindowVisibility(typeof (PipelinePropertiesViewWindowPane), /*UICONTEXT_SolutionExists*/
-//        "5ED0510F-9C57-4041-AE09-08962F0753A2")]
     [ProvideMenuResource(1000, 1)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
-    [InstalledProductRegistration("Mingle/GO Visual Studio Extension", "Context-relevant connections to Mingle and GO.",
-        "0.8.9")]
+    [InstalledProductRegistration("Mingle Extension for Visual Studio", "Context-relevant connections to Mingle.",
+        "1.0.1")]
     [Guid("D00EB40D-F709-49C6-B43F-D7910D730883")]
-    //[ComVisible(true)]
     public sealed class TwVscCommandsPackage : Package
     {
         // Cache the Menu Command Service since we will use it multiple times

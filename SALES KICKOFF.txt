@@ -1,0 +1,3 @@
+﻿Welcome to the Mingle Connector for Visual Studio.
+
+Editing me and checking me in will trigger a GO pipeline on TFS.
