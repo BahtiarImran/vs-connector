@@ -26,3 +26,4 @@ VSIX/*ReSharper
 build*.txt
 testimpactdata.sdf
 *.vsp
+*.pdb

@@ -21,6 +21,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mingle.net", "Mingle.net", "{6745F0F1-DD3D-46C4-BFC4-2856827E88AA}"
+	ProjectSection(SolutionItems) = preProject
+		lib\ThoughtWorksCoreLib.dll = lib\ThoughtWorksCoreLib.dll
+		lib\ThoughtWorksMingleLib.dll = lib\ThoughtWorksMingleLib.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 3
@@ -53,5 +59,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6745F0F1-DD3D-46C4-BFC4-2856827E88AA} = {66D54CB9-B8D9-4619-BD84-F37B3615A330}
 	EndGlobalSection
 EndGlobal
