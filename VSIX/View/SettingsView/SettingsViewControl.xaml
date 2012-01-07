@@ -28,8 +28,7 @@
 		ResizeMode="NoResize" 
 		FontSize="11" 
 		ShowInTaskbar="True" 
-		Background="WhiteSmoke"
-		Closing="OnWindowClosing" Initialized="OnWindowInitialized" >
+		Background="WhiteSmoke" Initialized="OnWindowInitialized" >
 	<Window.Resources>
 		<Style TargetType="TabItem">
 			<Setter Property="Background" Value="WhiteSmoke"></Setter>
@@ -233,11 +232,11 @@
 			<Button 
 				Height="24"
 				Width="50"
-				Content="Close"
+				Content="Cancel"
 				Margin="12,0,0,0"
 				x:Name="buttonClose"
 				HorizontalAlignment="Center" 
-				MouseEnter="OnButtonSaveMouseEnter" MouseLeave="OnButtonSaveMouseLeave" Click="OnButtonCloseClick" />
+				MouseEnter="OnButtonSaveMouseEnter" MouseLeave="OnButtonSaveMouseLeave" Click="OnButtonCloseClick" IsCancel="True" />
 		</StackPanel>
 	</Grid>
 </Window>

@@ -113,11 +113,8 @@ namespace ThoughtWorks.VisualStudio
 			{
 				case "buttonSettings":
 					{
-						var ui = new SettingsViewControl();
-						ui.ShowDialog();
-
 						try 
-						{	        
+						{	if (new SettingsViewControl().ShowDialog() == true)        
 							BindAll();
 						}
 						catch (Exception ex)
@@ -375,6 +372,7 @@ namespace ThoughtWorks.VisualStudio
 			{
 				BindProjectList();
 				BindExplorerTrees();
+			    comboProjects.SelectedValue = Model.ProjectId;
 			}
 			catch (Exception ex)
 			{
