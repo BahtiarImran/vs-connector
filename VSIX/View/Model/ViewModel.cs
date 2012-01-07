@@ -14,7 +14,6 @@
 // limitations under the License.
 //
 
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -70,13 +69,6 @@ namespace ThoughtWorks.VisualStudio
             var pid = projectId as string;
             if (string.IsNullOrEmpty(pid)) return false;
             MingleSettings.Project = pid;
-            _project = new Project(MingleSettings.Project, this);
-            return true;
-        }
-
-        public bool UsingProjectSavedInSettings()
-        {
-            if (string.IsNullOrEmpty(MingleSettings.Project)) return false;
             _project = new Project(MingleSettings.Project, this);
             return true;
         }
@@ -145,10 +137,10 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="view"></param>
         /// <returns></returns>
-        public ObservableCollection<Card> GetCardsForFavorite(string view)
+        public SortedList<string, CardBasicInfo> GetCardsForFavorite(string view)
         {
-            var cards = new Cards(Project().MingleProject, this);
-            cards.RefreshView(view);
+            var cards = new SortedList<string, CardBasicInfo>();
+            Project().GetView(view).ToList().ForEach(c => cards.Add(string.Format("{0}{1}", c.CardType, c.Name),new CardBasicInfo(c.Number, c.CardType, c.Name)));
             return cards;
         }
 
@@ -219,7 +211,7 @@ namespace ThoughtWorks.VisualStudio
         CardTypes CardTypes { get; }
         Dictionary<string, CardProperty> PropertyDefinitions { get; }
         string ProjectId { get; }
-        ObservableCollection<Card> GetCardsForFavorite(string view);
+        SortedList<string, CardBasicInfo> GetCardsForFavorite(string view);
         Card GetOneCard(int cardNo);
         Card CurrentCard { get; }
         int CurrentCardNumber { get; }

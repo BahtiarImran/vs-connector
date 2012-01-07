@@ -89,18 +89,6 @@ namespace ThoughtWorks.VisualStudio
 		/// </summary>
 		internal TwVscCommandsPackage Package { private get; set; }
 
-		/// <summary>
-		/// Bind card types
-		/// </summary>
-		private void BindCardTypes()
-		{
-			cardTypes.ItemsSource = Model.CardTypes.Values;
-			cardTypes.DisplayMemberPath = "Name";
-			cardTypes.SelectedValuePath = "Name";
-			if (Model.CardTypes.Count > 0)
-				cardTypes.SelectedIndex = 0;
-		}
-
 		#region Button Click Handler
 		/// <summary>
 		/// Handle SettingsView from the Explorer window
@@ -153,7 +141,7 @@ namespace ThoughtWorks.VisualStudio
 					{
 						try
 						{
-							ShowCardViewToolWindow(Model.CreateCard(cardTypes.SelectedValue.ToString(), Model.ProjectId));
+							ShowCardViewToolWindow(Model.CreateCard(cardTypes.SelectedValue.ToString(), "new card"));
 						}
 						catch (Exception ex)
 						{
@@ -265,7 +253,7 @@ namespace ThoughtWorks.VisualStudio
 				item.Items.Clear();
 				item.MouseDoubleClick += OnFavoritesTreeCardDoubleClick;
 				foreach (var c in Model.GetCardsForFavorite(itemValue))
-					item.Items.Add(c.Number + ": " + c.Name);
+					item.Items.Add(c.Value.Formatted);
 			}
 			catch (Exception ex)
 			{
@@ -295,7 +283,7 @@ namespace ThoughtWorks.VisualStudio
 			try
 			{
 				this.Cursor = Cursors.Wait;
-				if (sender.GetType().Name.CompareTo("TreeViewItem") != 0) return;
+				if (!sender.GetType().Name.Equals("TreeViewItem")) return;
 				TreeViewItem itemContainer = null;
 				GetTreeItemContainerAndValue(sender as TreeViewItem, out itemContainer, out itemValue);
 				if (null == itemContainer) return;
@@ -313,7 +301,7 @@ namespace ThoughtWorks.VisualStudio
 				this.Cursor = Cursors.Arrow;
 			}
 
-			var cardNo = int.Parse(itemValue.Split(':')[0]);
+			var cardNo = int.Parse(itemValue.Split('-')[0]);
 			ShowCardViewToolWindow(cardNo);
 
 		}
@@ -416,7 +404,19 @@ namespace ThoughtWorks.VisualStudio
 			}
 		}
 
-		/// <summary>
+        /// <summary>
+        /// Bind card types
+        /// </summary>
+        private void BindCardTypes()
+        {
+            cardTypes.ItemsSource = Model.CardTypes.Values;
+            cardTypes.DisplayMemberPath = "Name";
+            cardTypes.SelectedValuePath = "Name";
+            if (Model.CardTypes.Count > 0)
+                cardTypes.SelectedIndex = 0;
+        }
+
+        /// <summary>
 		/// Bind the Favorites section of the Explorer tree
 		/// </summary>
 		private void BindFavorites()

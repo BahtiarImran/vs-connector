@@ -117,6 +117,7 @@
       <SubType>Code</SubType>
       <DependentUpon>CardListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Model\CardBasicInfo.cs" />
     <Compile Include="View\Model\CardProperties.cs" />
     <Compile Include="View\Model\CardProperty.cs" />
     <Compile Include="View\Model\Cards.cs" />

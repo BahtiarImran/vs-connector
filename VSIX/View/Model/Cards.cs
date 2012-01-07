@@ -48,15 +48,5 @@ namespace ThoughtWorks.VisualStudio
             Clear();
             _project.GetView(view).ToList().ForEach(c => Add(new Card(c, _model)));
         }
-
-        /// <summary>
-        /// Get a card
-        /// </summary>
-        /// <param name="cardNo"></param>
-        /// <returns></returns>
-        public Card GetDetailsForCard(int cardNo)
-        {
-            return null;
-        }
     }
 }
