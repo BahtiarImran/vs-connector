@@ -114,17 +114,16 @@ namespace ThoughtWorks.VisualStudio
 				case "buttonSettings":
 					{
 						var ui = new SettingsViewControl();
-						if (Convert.ToBoolean(ui.ShowDialog(), CultureInfo.CurrentCulture))
+						ui.ShowDialog();
+
+						try 
+						{	        
+							BindAll();
+						}
+						catch (Exception ex)
 						{
-							try 
-							{	        
-								BindAll();
-							}
-							catch (Exception ex)
-							{
-								TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-								MessageBox.Show(ex.Message);
-							}
+							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+							MessageBox.Show(ex.Message);
 						}
 
 						break;
