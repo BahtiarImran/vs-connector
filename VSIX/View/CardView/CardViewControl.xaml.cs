@@ -315,7 +315,7 @@ namespace ThoughtWorks.VisualStudio
                 cb.ItemsSource = cardProperty.PropertyValueDetails;
             }
 
-            cb.SelectedItem = cardProperty.Value;
+            cb.SelectedValue = cardProperty.Value;
             cb.Tag = cardProperty;
 
             if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)
@@ -347,9 +347,15 @@ namespace ThoughtWorks.VisualStudio
             var me = new StackFrame().GetMethod().Name;
             var cb = sender as ComboBox;
             var property = cb.Tag as CardProperty;
-            if (property.IsCardValued || property.IsTeamValued) return;
-            _thisCard.AddPropertyFilterToPostData((cb.DataContext as CardProperty).Name, cb.SelectedItem as string);
-
+            if (property.IsCardValued) return;
+            if (property.IsTeamValued)
+            {
+                _thisCard.AddPropertyFilterToPostData((cb.DataContext as CardProperty).Name, (cb.SelectedItem as TeamMember).Name);
+            }
+            else
+            {
+                _thisCard.AddPropertyFilterToPostData((cb.DataContext as CardProperty).Name, cb.SelectedItem as string);
+            }
             try
             {
                 if (!string.IsNullOrEmpty(cardName.Text))
