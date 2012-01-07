@@ -348,14 +348,7 @@ namespace ThoughtWorks.VisualStudio
             var cb = sender as ComboBox;
             var property = cb.Tag as CardProperty;
             if (property.IsCardValued) return;
-            if (property.IsTeamValued)
-            {
-                _thisCard.AddPropertyFilterToPostData((cb.DataContext as CardProperty).Name, (cb.SelectedItem as TeamMember).Name);
-            }
-            else
-            {
-                _thisCard.AddPropertyFilterToPostData((cb.DataContext as CardProperty).Name, cb.SelectedItem as string);
-            }
+            _thisCard.AddPropertyFilterToPostData((cb.DataContext as CardProperty).Name, cb.SelectedValue as string);
             try
             {
                 if (!string.IsNullOrEmpty(cardName.Text))
