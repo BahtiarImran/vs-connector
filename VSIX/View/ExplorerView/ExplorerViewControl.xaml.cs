@@ -305,6 +305,12 @@ namespace ThoughtWorks.VisualStudio
 				if (string.IsNullOrEmpty(itemValue)) return;
 
 			}
+			catch (Exception ex)
+			{
+				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+				MessageBox.Show(ex.Message);
+				return;
+			}
 			finally
 			{
 				this.Cursor = Cursors.Arrow;
