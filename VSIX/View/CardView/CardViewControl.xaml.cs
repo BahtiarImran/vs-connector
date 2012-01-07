@@ -371,12 +371,14 @@ namespace ThoughtWorks.VisualStudio
             var cards = _thisCard.Model.GetListOfCards();
             var w = new CardListWindow(cards);
             w.ShowDialog();
+
             if (w.Cancelled || w.SelectedCardNumber == "0") return;
-            ((sender as Button).Tag as TextBox).Text = string.Format("{0} - {1}", w.SelectedCardNumber, w.SelectedCardName);
+
             _thisCard.SetPropertyOrAttributValue((((sender as Button).Tag as TextBox).Tag as CardProperty).Name, w.SelectedCardNumber);
             try
             {
                 _thisCard.Update();
+                ((sender as Button).Tag as TextBox).Text = string.Format("{0} - {1}", w.SelectedCardNumber, w.SelectedCardName);
             }
             catch (Exception ex)
             {

@@ -48,7 +48,8 @@ namespace ThoughtWorks.VisualStudio
             var cards = new SortedList<int, CardItem>();
             try
             {
-                _cardList.Elements("result").ToList().ForEach(c => cards.Add(int.Parse(c.Element("number").Value as string), new CardItem { Number = c.Element("number").Value, Name = c.Element("name").Value }));
+                _cardList.Elements("result").ToList().ForEach(c => cards.Add(int.Parse(c.Element("number").Value as string), 
+                    new CardItem { Number = c.Element("number").Value, Name = "(" + c.Element("type").Value + ") " + c.Element("name").Value }));
 
             }
             catch (Exception ex)

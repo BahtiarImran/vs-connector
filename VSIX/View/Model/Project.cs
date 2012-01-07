@@ -82,7 +82,7 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="cardType">Card_type of cards to be returned</param>
         /// <param name="forceRead">Force cache to be filled. If false then data from the cache is returned.</param>
         /// <returns></returns>
-        Cards GetIndirectCardsByTypeName(string cardType, bool forceRead);
+        Cards GetCardsOfType(string cardType);
 
         /// <summary>
         /// Execute an MQL request and return results in a MingleCardCollection
@@ -198,14 +198,21 @@ namespace ThoughtWorks.VisualStudio
             return MingleProject.GetCardType(cardNumber);
         }
 
-        public Cards GetIndirectCardsByTypeName(string cardType, bool forceRead)
+        public Cards GetCardsOfType(string type)
         {
-            var filters = new Collection<string>{"page=all"};
-            MingleProject.GetIndirectCardsByTypeName(cardType, forceRead).ToList().ForEach(c => filters.Add(new MingleFilter("Type", "is", c).FilterFormatString));
             var cards = new Cards(MingleProject, _model);
-            MingleProject.GetCards(filters).ToList().ForEach(c => cards.Add(new Card(c, _model)));
+            MingleProject.GetCardsOfType(type).ToList().ForEach(c => cards.Add(new Card(c, _model)));
             return cards;
         }
+
+        //public Cards GetIndirectCardsByTypeName(string cardType, bool forceRead)
+        //{
+        //    var filters = new Collection<string>{"page=all"};
+        //    MingleProject.GetIndirectCardsByTypeName(cardType, forceRead).ToList().ForEach(c => filters.Add(new MingleFilter("Type", "is", c).FilterFormatString));
+        //    var cards = new Cards(MingleProject, _model);
+        //    MingleProject.GetCards(filters).ToList().ForEach(c => cards.Add(new Card(c, _model)));
+        //    return cards;
+        //}
 
         public XElement ExecMql(string mql)
         {

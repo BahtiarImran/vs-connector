@@ -349,6 +349,15 @@ namespace TestVsConnector
             Assert.AreEqual("http://localhost:8080/api/v2/projects/test/render?content_provider%5Bid%5D=2306&content_provider%5Btype%5D=card", card.RenderedDescription);
         }
 
+        [TestMethod]
+        public void TestGetCardsOfType()
+        {
+            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            model.SelectProject("test");
+            var count = model.GetCardsOfType("Story").Count;
+            Assert.AreEqual(36, count);
+        }
+
         //[TestMethod]
         //public void TestColumns()
         //{

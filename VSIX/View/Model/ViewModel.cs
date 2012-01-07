@@ -65,10 +65,11 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="projectId"></param>
         /// <returns>True if projectId is a key in ProjectList, else False</returns>
-        public bool SelectProject(string projectId)
+        public bool SelectProject(object projectId)
         {
-            if (string.IsNullOrEmpty(projectId)) return false;
-            MingleSettings.Project = projectId;
+            var pid = projectId as string;
+            if (string.IsNullOrEmpty(pid)) return false;
+            MingleSettings.Project = pid;
             _project = new Project(MingleSettings.Project, this);
             return true;
         }
@@ -102,7 +103,7 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _teamCache) return _teamCache;
+                if (null != _teamCache && _teamCache.Count > 0) return _teamCache;
                 _teamCache = Project().GetTeam();
                 return _teamCache;
             }
@@ -115,7 +116,7 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _cardTypesCache) return _cardTypesCache;
+                if (null != _cardTypesCache && _cardTypesCache.Count > 0) return _cardTypesCache;
                 _cardTypesCache = Project().GetCardTypes();
                 return _cardTypesCache;
             }
@@ -128,7 +129,7 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _propertiesCache) return _propertiesCache;
+                if (null != _propertiesCache && _propertiesCache.Count > 0) return _propertiesCache;
                 _propertiesCache = Project().GetPropertyDefinitions();
                 return _propertiesCache;
             }
@@ -199,7 +200,12 @@ namespace ThoughtWorks.VisualStudio
         public XElement GetListOfCards()
         {
 
-            return Project().ExecMql("select number, name");
+            return Project().ExecMql("SELECT type, name, number ORDER BY type,name ASC");
+        }
+
+        public Cards GetCardsOfType(string type)
+        {
+            return _project.GetCardsOfType(type);
         }
     }
 
@@ -207,7 +213,7 @@ namespace ThoughtWorks.VisualStudio
     public interface IViewModel
     {
         SortedList<string, KeyValuePair> ProjectList { get; }
-        bool SelectProject(string projectId);
+        bool SelectProject(object projectId);
         Favorites Favorites { get; }
         SortedList<string,TeamMember>  Team { get; }
         CardTypes CardTypes { get; }

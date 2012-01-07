@@ -121,7 +121,7 @@ namespace Mocks
             throw new NotImplementedException();
         }
 
-        public List<string> GetIndirectCardsByTypeName(string cardType, bool forceRead)
+        public MingleCardCollection GetCardsOfType(string cardType)
         {
             throw new NotImplementedException();
         }
