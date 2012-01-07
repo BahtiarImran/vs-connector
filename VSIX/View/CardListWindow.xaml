@@ -19,18 +19,23 @@
         Title="Select a Card" Height="300" Width="400" MinHeight="100" MinWidth="100" ResizeMode="CanResizeWithGrip"
         ShowInTaskbar="False" FontSize="12" WindowStartupLocation="CenterScreen" Topmost="True" Initialized="OnWindowIsInitialized" >
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <ScrollViewer>
-            <ListBox x:Name="list" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" SelectionChanged="OnSelectionChanged">
-                <ListBox.ItemTemplate>
-                    <DataTemplate x:Name="cardItemTemplate">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Number}" Margin="2" />
-                            <TextBlock Text=" - " />
-                            <TextBlock Text="{Binding Name}" Margin="2" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Double-Click to choose; Click X (Close Window) to cancel."></Label>
+        <ListBox x:Name="list" VerticalAlignment="Stretch" 
+                    SelectionChanged="OnListSelectionChanged" MouseDoubleClick="OnListMouseDoubleClick"
+                    Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:Name="cardItemTemplate">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Number}" Margin="2" />
+                        <TextBlock Text=" - " />
+                        <TextBlock Text="{Binding Name}" Margin="2" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

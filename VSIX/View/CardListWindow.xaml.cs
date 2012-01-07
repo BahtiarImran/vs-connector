@@ -33,7 +33,7 @@ namespace ThoughtWorks.VisualStudio
         private readonly XElement _cardList;
         public string SelectedCardName { get; private set; }
         public string SelectedCardNumber { get; private set; }
-        public bool Cancelled;
+        public bool Cancelled = true;
 
         public CardListWindow(XElement cardList)
         {
@@ -65,7 +65,7 @@ namespace ThoughtWorks.VisualStudio
             this.list.SelectedValuePath = "Number";
         }
 
-        private void OnSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void OnListSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (null == list.SelectedValue)
             {
@@ -73,9 +73,19 @@ namespace ThoughtWorks.VisualStudio
                 Close();
             }
 
-            Cancelled = false;
             SelectedCardNumber = list.SelectedValue as string;
             SelectedCardName = (list.SelectedItem as CardItem).Name;
+
+        }
+
+        private void OnListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (null == list.SelectedValue)
+            {
+                Cancelled = true;
+            }
+
+            Cancelled = false;
             Close();
         }
 
