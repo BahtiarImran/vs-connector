@@ -67,6 +67,7 @@ namespace ThoughtWorks.VisualStudio
 			try
 			{
 				this.Cursor = Cursors.Wait;
+
 				if (Model.SelectProject(item))
 				{
 					BindCardTypes();
@@ -102,8 +103,13 @@ namespace ThoughtWorks.VisualStudio
 				case "buttonSettings":
 					{
 						try 
-						{	if (new SettingsViewControl().ShowDialog() == true)        
-							BindAll();
+						{
+							if (!new SettingsViewControl().ShowDialog() == true) 
+								break;
+							
+							Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
+							BindProjectList();
+							ClearTrees();
 						}
 						catch (Exception ex)
 						{
@@ -116,14 +122,19 @@ namespace ThoughtWorks.VisualStudio
 
 				case "buttonRefresh":
 					{
-						try 
-						{	        
+						try
+						{
+							this.Cursor = Cursors.Wait;
 							BindAll();
 						}
 						catch (Exception ex)
 						{
 							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
 							MessageBox.Show(ex.Message);
+						}
+						finally
+						{
+							this.Cursor = Cursors.Arrow;
 						}
 
 						break;
@@ -141,12 +152,17 @@ namespace ThoughtWorks.VisualStudio
 					{
 						try
 						{
+							this.Cursor = Cursors.Wait;
 							ShowCardViewToolWindow(Model.CreateCard(cardTypes.SelectedValue.ToString(), "new card"));
 						}
 						catch (Exception ex)
 						{
 							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
 							MessageBox.Show(ex.Message);
+						}
+						finally
+						{
+							this.Cursor = Cursors.Arrow;
 						}
 	 
 						break;
@@ -159,7 +175,8 @@ namespace ThoughtWorks.VisualStudio
 						break;
 					}
 			}
-		} 
+		}
+
 		#endregion
 
 		#region Display one card
@@ -360,7 +377,7 @@ namespace ThoughtWorks.VisualStudio
 			{
 				BindProjectList();
 				BindExplorerTrees();
-			    comboProjects.SelectedValue = Model.ProjectId;
+				comboProjects.SelectedValue = Model.ProjectId;
 			}
 			catch (Exception ex)
 			{
@@ -392,7 +409,6 @@ namespace ThoughtWorks.VisualStudio
 		{
 			try
 			{
-				BindCardTypes();
 				BindFavorites();
 				BindTeamMembers();
 
@@ -404,19 +420,28 @@ namespace ThoughtWorks.VisualStudio
 			}
 		}
 
-        /// <summary>
-        /// Bind card types
-        /// </summary>
-        private void BindCardTypes()
-        {
-            cardTypes.ItemsSource = Model.CardTypes.Values;
-            cardTypes.DisplayMemberPath = "Name";
-            cardTypes.SelectedValuePath = "Name";
-            if (Model.CardTypes.Count > 0)
-                cardTypes.SelectedIndex = 0;
-        }
+		/// <summary>
+		/// Bind card types
+		/// </summary>
+		private void BindCardTypes()
+		{
+			try
+			{
+				cardTypes.ItemsSource = Model.CardTypes.Values;
+				cardTypes.DisplayMemberPath = "Name";
+				cardTypes.SelectedValuePath = "Name";
+				if (Model.CardTypes.Count > 0)
+					cardTypes.SelectedIndex = 0;
 
-        /// <summary>
+			}
+			catch (Exception ex)
+			{
+				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+				throw;
+			}
+		}
+
+		/// <summary>
 		/// Bind the Favorites section of the Explorer tree
 		/// </summary>
 		private void BindFavorites()
@@ -462,6 +487,16 @@ namespace ThoughtWorks.VisualStudio
 				this.Cursor = Cursors.Arrow;
 			}
 		}
+		
+		/// <summary>
+		/// Clear the contents of the trees
+		/// </summary>
+		private void ClearTrees()
+		{
+			favoritesTree.ItemsSource = null;
+			teamTree.Items.Clear();
+		}
+
 		#endregion
 	}
 }

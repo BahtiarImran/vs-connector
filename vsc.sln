@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		build.bat = build.bat
+		DEMO BUILD TRIGGER.txt = DEMO BUILD TRIGGER.txt
 		init.bat = init.bat
 		Local.testsettings = Local.testsettings
 		tools\MSBuild-to-NUnit.xslt = tools\MSBuild-to-NUnit.xslt
@@ -22,6 +23,21 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4FA2CCF2-F7AB-4293-BC2A-632DED551DB3}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://localhost:8080/tfs/solutions
+		SccProjectUniqueName0 = VSIX\\Connector.csproj
+		SccProjectName0 = VSIX
+		SccAuxPath0 = http://localhost:8080/tfs/solutions
+		SccLocalPath0 = VSIX
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = Tests\\Tests.csproj
+		SccProjectName1 = Tests
+		SccAuxPath1 = http://localhost:8080/tfs/solutions
+		SccLocalPath1 = Tests
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = vsc.vsmdi
 	EndGlobalSection

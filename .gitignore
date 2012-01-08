@@ -27,3 +27,6 @@ build*.txt
 testimpactdata.sdf
 *.vsp
 *.pdb
+DEMO BUILD TRIGGER.txt
+BuildProcessTemplates/
+

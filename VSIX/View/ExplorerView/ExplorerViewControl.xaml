@@ -43,7 +43,7 @@
 						  Margin="2,2,0,2" 
 						  FontSize="11" 
 						  ToolTip="Select a project" 
-						  Height="20" SelectionChanged="OnProjectSelectionChanged" Width="90" />
+						  Height="20" SelectionChanged="OnProjectSelectionChanged" Width="Auto" />
 				<Button Name="buttonRefresh" 
 						Content="Refresh" 
 						Click="ButtonClick" 
