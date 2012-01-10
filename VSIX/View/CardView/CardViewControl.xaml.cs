@@ -15,6 +15,7 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -131,6 +132,7 @@ namespace ThoughtWorks.VisualStudio
             cardModifiedBy.SetBinding(TextBox.TextProperty, "MofidiedBy");
             cardModifiedBy.Tag = cardModifiedBy.Text;
             descriptionBrowser.Source = new Uri(_thisCard.RenderedDescription);
+            commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);
         }
         #endregion
 
@@ -593,6 +595,20 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnRenderedDescriptionTabGotFocus(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void OnButtonSaveCommentClicked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _thisCard.Model.PostComment(_thisCard.Number, comment.Text);
+                commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);
+            }
+            catch (Exception ex)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 

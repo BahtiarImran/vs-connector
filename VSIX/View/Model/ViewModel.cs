@@ -14,6 +14,7 @@
 // limitations under the License.
 //
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -157,6 +158,9 @@ namespace ThoughtWorks.VisualStudio
             return CurrentCard;
         }
 
+        /// <summary>
+        /// Returns the current card
+        /// </summary>
         public Card CurrentCard { get; private set; }
 
         public int CurrentCardNumber { get; set; }
@@ -184,24 +188,66 @@ namespace ThoughtWorks.VisualStudio
 
         }
 
+        /// <summary>
+        /// Returns the project object
+        /// </summary>
+        /// <returns></returns>
         public Project Project()
         {
             return _project;
         }
 
+        /// <summary>
+        /// Returns the list of cards in Mingle ordered by type, name
+        /// </summary>
+        /// <returns></returns>
         public XElement GetListOfCards()
         {
 
             return Project().ExecMql("SELECT type, name, number ORDER BY type,name ASC");
         }
 
+        /// <summary>
+        /// Gets cards for type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public Cards GetCardsOfType(string type)
         {
             return _project.GetCardsOfType(type);
         }
+
+        /// <summary>
+        /// Posts a comment to a card 
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="comment"></param>
+        /// <returns></returns>
+        public void PostComment(int number, string comment)
+        {
+            var commentData = new Collection<string> { string.Format("comment[content]={0}", comment) };
+            var url = string.Format("/cards/{0}/comments.xml", number);
+            Mingle.Post(ProjectId, url, commentData);
+        }
+
+        /// <summary>
+        /// Returns comments for a card
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public IList<CardComment> GetCommentsForCard(int number)
+        {
+            var url = string.Format("/cards/{0}/comments.xml", number);
+            var comments = new List<CardComment>();
+            XElement.Parse(Mingle.Get(ProjectId, url)).Elements("comment").ToList().ForEach(c => comments.Add(
+                new CardComment(c.Element("content").Value, c.Element("created_by").Element("name").Value, c.Element("created_at").Value)));
+            return comments;
+        }
     }
 
-
+    /// <summary>
+    /// Interface to the ViewModel
+    /// </summary>
     public interface IViewModel
     {
         SortedList<string, KeyValuePair> ProjectList { get; }
