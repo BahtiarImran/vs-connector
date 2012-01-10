@@ -346,7 +346,7 @@ namespace TestVsConnector
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.GetOneCard(120);
-            Assert.AreEqual("http://localhost:8080/api/v2/projects/test/render?content_provider%5Bid%5D=2306&content_provider%5Btype%5D=card", card.RenderedDescription);
+            Assert.AreEqual("This is a card for testing", card.Name);
         }
 
         [TestMethod]
@@ -355,23 +355,9 @@ namespace TestVsConnector
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var count = model.GetCardsOfType("Story").Count;
-            Assert.AreEqual(36, count);
+            Assert.AreEqual(37, count);
         }
 
-        //[TestMethod]
-        //public void TestColumns()
-        //{
-        //    var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
-        //    model.SelectProject("test");
-        //    var cols = Columns(model);
-        //}
-
-        //internal Dictionary<string, CardProperty> Columns (ViewModel model)
-        //{
-        //    var _cols = model.PropertyDefinitions.Where(prop => prop.Value.PropertyValuesDescription.ToLower().CompareTo("any card used in tree") == 0).ToDictionary(prop => prop.Value.ColumnName, prop => prop.Value);
-        //    var _cols2 = model.PropertyDefinitions.Where(prop => prop.Value.ColumnName.Contains("___")).ToDictionary(prop => prop.Value.ColumnName, prop => prop.Value);
-        //    return null;
-        //}
     }
 }
 
