@@ -55,6 +55,7 @@ namespace ThoughtWorks.VisualStudio
 			Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
 			BindProjectList();
 			comboProjects.SelectedValue = Model.ProjectId;
+			committed.Visibility = Visibility.Hidden;
 		}
 		#endregion
 

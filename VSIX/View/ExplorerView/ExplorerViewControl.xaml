@@ -25,21 +25,21 @@
 	<DockPanel x:Name="dockPanel" LastChildFill="True" >
 
 		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="card" 
+			<StackPanel Orientation="Horizontal">
+				<TextBox x:Name="card" 
 							 Margin="4,2,2,2"  
 							 FontSize="11" 
 							 Height="20" 
 							 Width="36" />
-                <Button Name="buttonGetCard" 
+				<Button Name="buttonGetCard" 
 							Margin="2,2,0,2" 
 							Content="Go To Card" 
 							FontSize="11" 
 							Height="20" 
 							Click="ButtonClick" 
-                            IsDefault="True" />
-            </StackPanel>
-            <ComboBox Name="comboProjects" 
+							IsDefault="True" />
+			</StackPanel>
+			<ComboBox Name="comboProjects" 
 						  Margin="2,2,0,2" 
 						  FontSize="11" 
 						  ToolTip="Select a project" 
@@ -125,7 +125,8 @@
 				<TextBlock x:Name="committed"
 							Grid.Row="2"
 							HorizontalAlignment="Center"
-							FontSize="11" />
+							FontSize="11" 
+						   Text="Murmur accepted"/>
 			</Grid>
 		</Grid>
 	</DockPanel>
