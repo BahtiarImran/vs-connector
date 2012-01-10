@@ -155,15 +155,18 @@
                     </Grid.RowDefinitions>
                     <TextBox x:Name="comment" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="50" BorderThickness="1"></TextBox>
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,6,0,6">
-                        <Button x:Name="saveComment" Content="Add Comment" Width="75" Click="OnButtonSaveCommentClicked"></Button>
-                        <CheckBox x:Name="murmurComment" Content="Murmur this comment" Margin="10,3,0,0" Checked="OnButtonSaveCommentClicked"></CheckBox>
+                        <Button x:Name="saveComment" Content="Add Comment" Click="OnButtonSaveCommentClicked"></Button>
+                        <CheckBox x:Name="murmurComment" Content="Murmur this comment" Margin="10,3,0,0" Checked="OnButtonSaveCommentClicked" 
+                                  ToolTip="Check this box to murmur this comment in addition to adding it to this card."></CheckBox>
                     </StackPanel>
                     <ListBox x:Name="commentsList"  Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
+                                    <!-- The comment text is here -->
                                     <TextBlock Text="{Binding Path=Comment}" />
                                     <StackPanel Orientation="Horizontal">
+                                        <!-- user name and date of the comment are here -->
                                         <TextBlock Text="{Binding Path=Name}"/>
                                         <TextBlock Text="on"  Margin="6,0,6,0" />
                                         <TextBlock Text="{Binding Path=Date}"/>
