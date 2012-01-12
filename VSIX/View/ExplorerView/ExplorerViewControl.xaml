@@ -87,7 +87,7 @@
 				
 			<!-- Row 0 Explorer Tree -->
 			<TreeView Grid.Row="0" BorderThickness="0" Height="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-					<TreeViewItem Header="Favorites" IsExpanded="True" x:Name="favoritesTree"></TreeViewItem>
+					<TreeViewItem Header="Favorites (Card Lists)" IsExpanded="True" x:Name="favoritesTree"></TreeViewItem>
 				<!--<TreeViewItem Header="Pipelines" IsExpanded="False" x:Name="pipelinesTree"></TreeViewItem>-->
 				<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
 			</TreeView>
