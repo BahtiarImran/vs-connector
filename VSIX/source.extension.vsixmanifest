@@ -2,12 +2,14 @@
 
 <Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
   <Identifier Id="TwVsc">
-    <Name>ThoughtWorks Visual Studio Connector</Name>
+    <Name>Mingle Extension for Visual Studio</Name>
     <Author>ThoughtWorks, Inc.</Author>
-    <Version>0.8</Version>
-    <Description xml:space="preserve">ThoughtWorks Visual Studio Connector lets you interact directly with Mingle and Go from the IDE: create and edit cards, browse cards. You also have integration to Go for tracking build history and status.</Description>
+    <Version>1.0</Version>
+    <Description xml:space="preserve">Mingle Extension for Visual Studio lets you interact directly with Mingle from the IDE: create and edit cards, browse cards. </Description>
     <Locale>1033</Locale>
-    <License>tw-vs-connector-eval-license.rtf</License>
+    <MoreInfoUrl>http://community.thoughtworks.com/posts/a2bd5eaced</MoreInfoUrl>
+    <License>License.rtf</License>
+    <Icon>logo_mingle_icon.png</Icon>
     <PreviewImage>mingleexplorer.png</PreviewImage>
     <InstalledByMsi>false</InstalledByMsi>
     <SupportedProducts>
