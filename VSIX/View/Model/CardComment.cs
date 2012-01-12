@@ -19,11 +19,29 @@ using System.Globalization;
 
 namespace ThoughtWorks.VisualStudio
 {
+    /// <summary>
+    /// A card comment
+    /// </summary>
     public class CardComment
     {
+        /// <summary>
+        /// Text of the comment
+        /// </summary>
         public string Comment { get; private set; }
+        /// <summary>
+        /// Name of the commenter
+        /// </summary>
         public string Name { get; private set; }
+        /// <summary>
+        /// Date of the comment
+        /// </summary>
         public string Date { get; private set; }
+        /// <summary>
+        /// Constructs a new CardComment
+        /// </summary>
+        /// <param name="comment"></param>
+        /// <param name="name"></param>
+        /// <param name="date"></param>
         public CardComment(string comment, string name, string date)
         {
             Comment = comment;
