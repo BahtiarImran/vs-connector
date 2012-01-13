@@ -15,7 +15,6 @@
 //
 
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -35,6 +34,8 @@ namespace ThoughtWorks.VisualStudio
     public partial class CardViewControl
     {
         private Card _thisCard;
+        private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(Colors.Gainsboro );
+        private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
 
         /// <summary>
         /// Constructs a CardViewControl
@@ -100,7 +101,9 @@ namespace ThoughtWorks.VisualStudio
                         ToolTip = VisualStudio.Resources.ClickToMakeTransition,
                         HorizontalAlignment = HorizontalAlignment.Left,
                         Margin = new Thickness(2, 2, 2, 2),
-                        Height = 24
+                        Height = 24,
+                        Background = _buttonBackground,
+                        BorderThickness = _buttonBorderThickness
                     };
 
                     button.Click += OnTransitionButtonClick;
@@ -248,14 +251,16 @@ namespace ThoughtWorks.VisualStudio
             return panel;
         }
 
-        private static Button MakeChooseCardButton(CardProperty cardProperty)
+        private Button MakeChooseCardButton(CardProperty cardProperty)
         {
             var a = new Button
                         {
                             Content = "...",
                             ToolTip = "Click to choose a card",
                             Tag = cardProperty,
-                            Width = 30
+                            Width = 30,
+                            Background = _buttonBackground,
+                            BorderThickness = _buttonBorderThickness
                         };
             return a;
         }
@@ -303,7 +308,9 @@ namespace ThoughtWorks.VisualStudio
                              IsEnabled = !cardProperty.IsTransitionOnly,
                              MinWidth = 50,
                              Name = cardProperty.ColumnName,
-                             DataContext = cardProperty
+                             DataContext = cardProperty,
+                             Background = _buttonBackground,
+                             BorderThickness = _buttonBorderThickness
                          };
 
             if (cardProperty.IsTeamValued)

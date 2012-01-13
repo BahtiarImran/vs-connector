@@ -21,8 +21,10 @@
 			 xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" 
 			 x:Class="ThoughtWorks.VisualStudio.ExplorerViewControl" 
 			 Initialized="OnExplorerViewControlInitialized" >
-	
-	<DockPanel x:Name="dockPanel" LastChildFill="True" >
+    <UserControl.Background>
+        <ImageBrush />
+    </UserControl.Background>
+    <DockPanel x:Name="dockPanel" LastChildFill="True" >
 
 		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
 			<StackPanel Orientation="Horizontal">
@@ -31,42 +33,40 @@
 							 FontSize="11" 
 							 Height="20" 
 							 Width="36" />
-				<Button Name="buttonGetCard" 
-							Margin="2,2,0,2" 
-							Content="Go To Card" 
-							FontSize="11" 
-							Height="20" 
+                <Button Name="buttonGetCard" 
+							Margin="2,2,0,2" FontSize="11" 
+							Height="20" Width="Auto" 
 							Click="ButtonClick" 
-							IsDefault="True" />
-			</StackPanel>
+							IsDefault="False" BorderThickness="0"
+                        ToolTip="Go to card" Content="&lt;Get Card" Background="Gainsboro" Padding="0">
+                </Button>
+            </StackPanel>
 			<ComboBox Name="comboProjects" 
 						  Margin="2,2,0,2" 
 						  FontSize="11" 
 						  ToolTip="Select a project" 
-						  Height="20" SelectionChanged="OnProjectSelectionChanged" Width="Auto" />
+						  Height="20" SelectionChanged="OnProjectSelectionChanged" Width="Auto" Background="Gainsboro" BorderThickness="0" Opacity="1" />
 				<Button Name="buttonRefresh" 
 						Content="Refresh" 
 						Click="ButtonClick" 
 						ToolTip="Refresh Explorer from Mingle and Go" 
 						Margin="2,2,0,2"  
 						FontSize="11" 
-						Height="20"/>
+						Height="20" Background="Gainsboro" BorderThickness="0" Opacity="1" />
 				<Button Name="buttonSettings" 
 						Content="Settings..." 
 						Click="ButtonClick" 
 						ToolTip="Specify Mingle host URL, user name, etc." 
 						Margin="2,2,0,2"  
 						FontSize="11" 
-						Height="20"/>
+						Height="20" Background="Gainsboro" BorderThickness="0" Opacity="1" />
 				<StackPanel Orientation="Horizontal">
-					<Button Name="buttonNewCard" 
-							ToolTip="Create a new card" 
-							Content="New Card->" 
-							Click="ButtonClick" 
-							Margin="2,2,0,2"  
+                <ComboBox x:Name="cardTypes" FontSize="11" Height="20" Margin="2,2,0,2" Background="Gainsboro" BorderThickness="0" Opacity="1"></ComboBox>
+                <Button Name="buttonNewCard" 
+							ToolTip="Create a new card" Click="ButtonClick" 
+							Margin="2,2,2,2"  
 							FontSize="11" 
-							Height="20" />
-					<ComboBox x:Name="cardTypes" FontSize="11" Height="20" Margin="2,2,2,2" Width="90"></ComboBox>
+							Height="20" Width="Auto" Content="&lt;New Card" Background="Gainsboro" BorderThickness="0" Opacity="1"></Button>
 				</StackPanel>
 				<!--<Button Name="buttonFeedback" 
 						ToolTip="Send feedback" 
@@ -94,23 +94,23 @@
 			
 			<!-- Row 1 Murmur Section -->
 
-            <DockPanel Grid.Row="1" Background="Bisque">
+            <DockPanel Grid.Row="1">
                 <Grid DockPanel.Dock="Top" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition Width="80"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="murmurText" Grid.Column="0" HorizontalAlignment="Stretch"
-                                BorderThickness="2" BorderBrush="LightGray" Margin="16,8,16,6" Height="48"
+                                BorderThickness="2" BorderBrush="LightGray" Margin="16,8,8,6" Height="48"
                                 AcceptsReturn="True" AutoWordSelection="True" TextWrapping="WrapWithOverflow"
  			                    />
                     <Button x:Name="buttonMurmur" VerticalAlignment="Top" Grid.Column="1"
 						    HorizontalAlignment="Center" Margin="0,8,0,0"
 						    Content="Murmur This" 
 						    FontSize="11" 
-						    Height="20" Click="OnClickButtonMurmur" />
+						    Height="20" Click="OnClickButtonMurmur" Background="Gainsboro" BorderThickness="0" Opacity="1" />
                 </Grid>
-                <ListBox x:Name="murmursList" BorderThickness="0" Background="Bisque" Margin="16,0,16,8">
+                <ListBox x:Name="murmursList" BorderThickness="0" Margin="16,0,16,8">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<StackPanel Orientation="Vertical">
@@ -125,6 +125,7 @@
 				</ListBox.ItemTemplate>
     			</ListBox>
             </DockPanel>
+            
         </Grid>
 	</DockPanel>
 </UserControl>
