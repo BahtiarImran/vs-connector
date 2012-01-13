@@ -411,4 +411,56 @@
   <data name="ViewModelInvalidOnCardViewWindowPaneConstructor" xml:space="preserve">
     <value>The CardViewWindowPane constructor was called before first setting CardViewWindowPane.Model to a valid ViewModel reference.</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="grid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\grid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_action" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-action.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_child" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-child.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_in_next_line" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-in-next-line.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-medium.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_email_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-email-disabled.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_grid_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-grid-off.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_help_unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-help-unselected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_hierarchy_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-hierarchy-disabled.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_hierarchy_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-hierarchy-off.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_list_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-list-off.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_list_off1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-list-off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_quick_add_unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-quick-add-unselected.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_tab_checkbox_unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-tab-checkbox-unselected.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_tree_disabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-tree-disabled.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_tree_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-tree-off.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_wiki_checkbox_unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-wiki-checkbox-unselected.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

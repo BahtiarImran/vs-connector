@@ -483,12 +483,131 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
+        internal static System.Drawing.Bitmap grid {
+            get {
+                object obj = ResourceManager.GetObject("grid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Host name cannot be empty.\n.
         /// </summary>
         internal static string HostnameIsEmpty {
             get {
                 return ResourceManager.GetString("HostnameIsEmpty", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_action {
+            get {
+                object obj = ResourceManager.GetObject("icon_action", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_child {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_child", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_in_next_line {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_in_next_line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_medium {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_medium", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_email_disabled {
+            get {
+                object obj = ResourceManager.GetObject("icon_email_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_grid_off {
+            get {
+                object obj = ResourceManager.GetObject("icon_grid_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_help_unselected {
+            get {
+                object obj = ResourceManager.GetObject("icon_help_unselected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_hierarchy_disabled {
+            get {
+                object obj = ResourceManager.GetObject("icon_hierarchy_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_hierarchy_off {
+            get {
+                object obj = ResourceManager.GetObject("icon_hierarchy_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_list_off {
+            get {
+                object obj = ResourceManager.GetObject("icon_list_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_list_off1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_list_off1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_quick_add_unselected {
+            get {
+                object obj = ResourceManager.GetObject("icon_quick_add_unselected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_tab_checkbox_unselected {
+            get {
+                object obj = ResourceManager.GetObject("icon_tab_checkbox_unselected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_tree_disabled {
+            get {
+                object obj = ResourceManager.GetObject("icon_tree_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_tree_off {
+            get {
+                object obj = ResourceManager.GetObject("icon_tree_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_wiki_checkbox_unselected {
+            get {
+                object obj = ResourceManager.GetObject("icon_wiki_checkbox_unselected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

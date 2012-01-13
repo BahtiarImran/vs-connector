@@ -199,6 +199,23 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="README.txt" />
+    <None Include="Resources\grid.png" />
+    <None Include="Resources\icon-action.png" />
+    <None Include="Resources\icon-add-child.gif" />
+    <None Include="Resources\icon-add-in-next-line.gif" />
+    <None Include="Resources\icon-add-medium.gif" />
+    <None Include="Resources\icon-email-disabled.gif" />
+    <None Include="Resources\icon-grid-off.gif" />
+    <None Include="Resources\icon-help-unselected.png" />
+    <None Include="Resources\icon-hierarchy-disabled.gif" />
+    <None Include="Resources\icon-hierarchy-off.gif" />
+    <None Include="Resources\icon-list-off.gif" />
+    <None Include="Resources\icon-list-off.png" />
+    <None Include="Resources\icon-quick-add-unselected.gif" />
+    <None Include="Resources\icon-tab-checkbox-unselected.gif" />
+    <None Include="Resources\icon-tree-disabled.gif" />
+    <None Include="Resources\icon-tree-off.gif" />
+    <None Include="Resources\icon-wiki-checkbox-unselected.gif" />
     <Content Include="{1AC7734D-53DF-40D4-9B7A-32B47253B712}.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -291,9 +308,7 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <!--
     To specify a different registry root to register your package, uncomment the TargetRegistryRoot
