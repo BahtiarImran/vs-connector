@@ -127,6 +127,7 @@
     <Compile Include="View\Model\CardComment.cs" />
     <Compile Include="View\Model\Favorite.cs" />
     <Compile Include="View\Model\Favorites.cs" />
+    <Compile Include="View\Model\Murmur.cs" />
     <Compile Include="View\Model\Project.cs" />
     <Compile Include="View\Model\ProjectList.cs" />
     <Compile Include="View\Model\Secure.cs" />

@@ -55,7 +55,7 @@ namespace ThoughtWorks.VisualStudio
 			Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
 			BindProjectList();
 			comboProjects.SelectedValue = Model.ProjectId;
-			committed.Visibility = Visibility.Hidden;
+		    murmursList.ItemsSource = Model.GetMurmurs();
 		}
 		#endregion
 
@@ -356,18 +356,13 @@ namespace ThoughtWorks.VisualStudio
 			try
 			{
 				Model.Mingle.Post(MingleSettings.Project, "/murmurs.xml", new Collection<string> { murmur });
-				committed.Visibility = Visibility.Visible;
-			}
+                murmursList.ItemsSource = Model.GetMurmurs();
+            }
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
 				MessageBox.Show(ex.Message);
 			}
-		}
-
-		private void OnMurmurTextChanged(object sender, TextChangedEventArgs e)
-		{
-			committed.Visibility = Visibility.Hidden;
 		}
 		#endregion
 
