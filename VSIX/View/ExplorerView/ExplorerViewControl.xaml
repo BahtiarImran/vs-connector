@@ -82,7 +82,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition></RowDefinition>
 				<RowDefinition></RowDefinition>
-			</Grid.RowDefinitions>
+            </Grid.RowDefinitions>
 				
 			<!-- Row 0 Explorer Tree -->
             
@@ -92,25 +92,25 @@
 				<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
 			</TreeView>
 			
-            <!-- Row 1 Splitter -->
-				
-			<!--<GridSplitter Grid.Row="1" Background="DarkGray" ShowsPreview="True" Height="4" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>-->
-				
-			<!-- Row 2 Murmur Section -->
+			<!-- Row 1 Murmur Section -->
 
-            <DockPanel Grid.Row="1" Margin="24,16,24,8">
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" >
-                    <TextBox x:Name="murmurText" VerticalAlignment="Top" Width="200"
-                                BorderThickness="2" BorderBrush="LightGray" Margin="0,0,16,6" Height="48"
+            <DockPanel Grid.Row="1" Background="Bisque">
+                <Grid DockPanel.Dock="Top" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="murmurText" Grid.Column="0" HorizontalAlignment="Stretch"
+                                BorderThickness="2" BorderBrush="LightGray" Margin="16,8,16,6" Height="48"
                                 AcceptsReturn="True" AutoWordSelection="True" TextWrapping="WrapWithOverflow"
  			                    />
-                    <Button x:Name="buttonMurmur" VerticalAlignment="Top"
-						    HorizontalAlignment="Center" 
+                    <Button x:Name="buttonMurmur" VerticalAlignment="Top" Grid.Column="1"
+						    HorizontalAlignment="Center" Margin="0,8,0,0"
 						    Content="Murmur This" 
 						    FontSize="11" 
 						    Height="20" Click="OnClickButtonMurmur" />
-                </StackPanel>
-                <ListBox x:Name="murmursList" BorderThickness="0" >
+                </Grid>
+                <ListBox x:Name="murmursList" BorderThickness="0" Background="Bisque" Margin="16,0,16,8">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<StackPanel Orientation="Vertical">
