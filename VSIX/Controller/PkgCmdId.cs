@@ -24,11 +24,11 @@ namespace ThoughtWorks.VisualStudio
     internal static class PkgCmdId
     {
         // Now define the list a set of public static members.
-        public const int SettingsWindow = 0x2001;
-        public const int CardListWindow = 0x2002;
-        public const int CmdidTwCardsFilteredCommand = 0x2003;
-        public const int PipelinePropertiesListWindow = 0x2004;
-        public const int MingleExplorer = 0x2005;
-        public const int CmdidTwNewCardCommand = 0x2006;
+        //public const int SettingsWindow = 0x2001;
+        //public const int CardListWindow = 0x2002;
+        //public const int CmdidTwCardsFilteredCommand = 0x2003;
+        //public const int PipelinePropertiesListWindow = 0x2004;
+        public const int MingleExplorer = 0x2001;
+        public const int MingleMurmurs = 0x2002;
     }
 }

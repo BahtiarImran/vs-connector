@@ -102,6 +102,13 @@
           <ButtonText>Mingle Explorer</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidTwVscCmdSet" id="cmdidTwMurmursCommand" priority="0x105" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWSEXPLORERS"/>
+        <Icon guid="guidMingleCardCommandBmp" id="bmpAllCards"/>
+        <Strings>
+          <ButtonText>Mingle Murmurs</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
 
     <!--
@@ -151,12 +158,12 @@
       <IDSymbol name="TwMenuGroup" value="0x1010" />
       <IDSymbol name="ToolbarGroup" value="0x1011"/>
       <!--Commands-->
-      <IDSymbol name="cmdidTwSettingsCommand" value="0x2001"/>
-      <IDSymbol name="cmdidTwCardsAllCommand" value="0x2002" />
-      <IDSymbol name="cmdidTwCardsThisUserCommand" value="0x2003" />
-      <IDSymbol name="cmdidTwBuildNoticeCommand" value="0x2004"/>
-      <IDSymbol name="cmdidTwExplorerCommand" value="0x2005"/>
-      <IDSymbol name="cmdidTwNewCardCommand" value="0x2006"/>
+      <IDSymbol name="cmdidTwExplorerCommand" value="0x2001"/>
+      <IDSymbol name="cmdidTwMurmursCommand" value="0x2002"/>
+      <!--<IDSymbol name="cmdidTwSettingsCommand" value="0x2003"/>
+      <IDSymbol name="cmdidTwCardsAllCommand" value="0x2004" />
+      <IDSymbol name="cmdidTwCardsThisUserCommand" value="0x2005" />
+      <IDSymbol name="cmdidTwBuildNoticeCommand" value="0x2006"/>-->
     </GuidSymbol>
     
     <!--Last is the definition of the GUID used for the Bitmap and the ID of its used slots.-->

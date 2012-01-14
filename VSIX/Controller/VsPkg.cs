@@ -95,13 +95,13 @@ namespace ThoughtWorks.VisualStudio
             // the VSCT file and add it to the command service.
 
             // For each command we have to define its id that is a unique Guid/integer pair.
-            var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.CardListWindow);
-            DefineCommandHandler(ShowListOfCards, id);
+            //var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.CardListWindow);
+            //DefineCommandHandler(ShowListOfCards, id);
 
-            id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.SettingsWindow);
-            DefineCommandHandler(ShowSettingsWindow, id);
+            //id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.SettingsWindow);
+            //DefineCommandHandler(ShowSettingsWindow, id);
 
-            id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.MingleExplorer);
+            var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.MingleExplorer);
             DefineCommandHandler(ShowMingleExplorer, id);
 
             TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
