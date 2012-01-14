@@ -79,52 +79,12 @@
 			</WrapPanel>
 
 		<Grid x:Name="MingleExplorer" DockPanel.Dock="Top" Grid.Row="0">
-			<Grid.RowDefinitions>
-				<RowDefinition></RowDefinition>
-				<RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-				
-			<!-- Row 0 Explorer Tree -->
             
-			<TreeView Grid.Row="0" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+			<TreeView BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 			    <TreeViewItem Header="Favorites (Card Lists)" IsExpanded="True" x:Name="favoritesTree"></TreeViewItem>
 				<!--<TreeViewItem Header="Pipelines" IsExpanded="False" x:Name="pipelinesTree"></TreeViewItem>-->
 				<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
 			</TreeView>
-			
-			<!-- Row 1 Murmur Section -->
-
-            <DockPanel Grid.Row="1">
-                <Grid DockPanel.Dock="Top" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <TextBox x:Name="murmurText" Grid.Column="0" HorizontalAlignment="Stretch"
-                                BorderThickness="2" BorderBrush="LightGray" Margin="16,8,8,6" Height="48"
-                                AcceptsReturn="True" AutoWordSelection="True" TextWrapping="WrapWithOverflow"
- 			                    />
-                    <Button x:Name="buttonMurmur" VerticalAlignment="Top" Grid.Column="1"
-						    HorizontalAlignment="Center" Margin="0,8,0,0"
-						    Content="Murmur This" 
-						    FontSize="11" 
-						    Height="20" Click="OnClickButtonMurmur" Background="Gainsboro" BorderThickness="0" Opacity="1" />
-                </Grid>
-                <ListBox x:Name="murmursList" BorderThickness="0" Margin="16,0,16,8">
-				<ListBox.ItemTemplate>
-					<DataTemplate>
-						<StackPanel Orientation="Vertical">
-							<TextBlock Text="{Binding Path=Body}" />
-							<StackPanel Orientation="Horizontal" >
-								<TextBlock Text="{Binding Path=Name}" Foreground="DimGray" />
-                                <TextBlock Text="on"  Margin="6,0,6,0"   Foreground="DimGray"  />
-                                <TextBlock Text="{Binding Path=Date}"  Foreground="DimGray"  />
-							</StackPanel>
-						</StackPanel>
-					</DataTemplate>
-				</ListBox.ItemTemplate>
-    			</ListBox>
-            </DockPanel>
             
         </Grid>
 	</DockPanel>

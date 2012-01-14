@@ -57,7 +57,6 @@ namespace ThoughtWorks.VisualStudio
 			Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
 			BindProjectList();
 			comboProjects.SelectedValue = Model.ProjectId;
-		    murmursList.ItemsSource = Model.GetMurmurs();
 		}
 		#endregion
 
@@ -75,7 +74,7 @@ namespace ThoughtWorks.VisualStudio
 				{
 					BindCardTypes();
 					BindExplorerTrees();
-				}
+                }
 			}
 			catch (Exception ex)
 			{
@@ -351,23 +350,6 @@ namespace ThoughtWorks.VisualStudio
 		} 
 		#endregion
 
-		#region Murmuring
-		private void OnClickButtonMurmur(object sender, RoutedEventArgs e)
-		{
-			var murmur = string.Format(CultureInfo.InvariantCulture, "murmur[body]={0}", murmurText.Text);
-			try
-			{
-				Model.Mingle.Post(MingleSettings.Project, "/murmurs.xml", new Collection<string> { murmur });
-                murmursList.ItemsSource = Model.GetMurmurs();
-            }
-			catch (Exception ex)
-			{
-				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-				MessageBox.Show(ex.Message);
-			}
-		}
-		#endregion
-
 		#region Data Binding
 		private void BindAll()
 		{
@@ -496,5 +478,6 @@ namespace ThoughtWorks.VisualStudio
 		}
 
 		#endregion
+
 	}
 }

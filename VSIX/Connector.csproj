@@ -77,6 +77,7 @@
     <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -167,6 +168,9 @@
     </Compile>
     <Compile Include="View\Model\IAmExplorer.cs" />
     <Compile Include="View\Exceptions\PropertyNullException.cs" />
+    <Compile Include="View\MurmurView\MurmurViewControl.xaml.cs">
+      <DependentUpon>MurmurViewControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MurmurView\MurmurViewWindowPane.cs" />
     <Compile Include="View\SettingsView\SettingsViewControl.xaml.cs">
       <DependentUpon>SettingsViewControl.xaml</DependentUpon>
@@ -293,6 +297,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FeedbackView\FeedbackViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MurmurView\MurmurViewControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
