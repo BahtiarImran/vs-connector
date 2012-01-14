@@ -36,13 +36,16 @@ namespace ThoughtWorks.VisualStudio
     /// basic implementation of a package provided by the Managed Package Framework (MPF).
     /// </summary>
     [ProvideToolWindow(typeof (CardSetViewWindowPane), Transient = true)]
-    [ProvideToolWindow(typeof (CardViewWindowPane), Transient = true)]
+    [ProvideToolWindow(typeof (CardViewWindowPane), Transient = true, MultiInstances = true)]
     [ProvideToolWindow(typeof (ExplorerViewWindowPane))]
+    [ProvideToolWindow(typeof(MurmurViewWindowPane), Transient = true)]
     [ProvideToolWindowVisibility(typeof (CardSetViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E3FCA72F-B3A4-406E-A4AA-1051594D2367")]
     [ProvideToolWindowVisibility(typeof (CardViewWindowPane), /*UICONTEXT_SolutionExists*/
         "59373D4C-3F6C-4031-AF08-D11D4CCFC45B")]
     [ProvideToolWindowVisibility(typeof (ExplorerViewWindowPane), /*UICONTEXT_SolutionExists*/
+        "E03D0A03-6B80-48D4-9A61-220CD2033698")]
+    [ProvideToolWindowVisibility(typeof(MurmurViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E03D0A03-6B80-48D4-9A61-220CD2033698")]
     [ProvideMenuResource(1000, 1)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
@@ -136,28 +139,6 @@ namespace ThoughtWorks.VisualStudio
             }
             TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
             return command;
-        }
-
-        /// <summary>
-        /// This method loads a localized string based on the specified resource.
-        /// </summary>
-        /// <param name="resourceName">Resource to load</param>
-        /// <returns>string loaded for the specified resource</returns>
-        internal string GetResourceString(string resourceName)
-        {
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
-            string resourceValue;
-            var resourceManager = (IVsResourceManager) GetService(typeof (SVsResourceManager));
-            if (resourceManager == null)
-            {
-                throw new InvalidOperationException(
-                    "Could not get SVsResourceManager service. Make sure the package is Sited before calling this method");
-            }
-            Guid packageGuid = GetType().GUID;
-            int hr = resourceManager.LoadResourceString(ref packageGuid, -1, resourceName, out resourceValue);
-            ErrorHandler.ThrowOnFailure(hr);
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
-            return resourceValue;
         }
 
         #region Commands Actions

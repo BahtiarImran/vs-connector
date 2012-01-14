@@ -167,6 +167,7 @@
     </Compile>
     <Compile Include="View\Model\IAmExplorer.cs" />
     <Compile Include="View\Exceptions\PropertyNullException.cs" />
+    <Compile Include="View\MurmurView\MurmurViewWindowPane.cs" />
     <Compile Include="View\SettingsView\SettingsViewControl.xaml.cs">
       <DependentUpon>SettingsViewControl.xaml</DependentUpon>
     </Compile>
