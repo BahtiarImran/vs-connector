@@ -124,7 +124,7 @@ namespace ThoughtWorks.VisualStudio.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Replace Me!")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string MingleProject {
             get {
                 return ((string)(this["MingleProject"]));
