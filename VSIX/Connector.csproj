@@ -184,8 +184,6 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controller\icon-list-on.png" />
-    <Content Include="Controller\icon-source-modify.png" />
     <Content Include="Controller\mingle.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

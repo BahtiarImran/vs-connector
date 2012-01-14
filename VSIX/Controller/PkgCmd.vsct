@@ -39,7 +39,6 @@
 
     <Bitmaps>
       <Bitmap guid="guidMingleExplorerCommandBmp" href="mingle.ico"/>
-      <Bitmap guid="guidMingleMurmursCommandBmp" href="icon-source-modify.bmp"/>
     </Bitmaps>
   </Commands>
 
@@ -52,9 +51,6 @@
 
     <GuidSymbol name="guidMingleExplorerCommandBmp" value="{C9E4E92C-34DD-4F0F-9B93-2D620E067858}">
       <IDSymbol name="bmpMingleLogo" value="1" />
-    </GuidSymbol>
-    <GuidSymbol name="guidMingleMurmursCommandBmp" value="{0CF9BD82-FC2A-4B39-958B-EFB5B3129087}">
-      <IDSymbol name="bmpMurmurs" value="1" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>
