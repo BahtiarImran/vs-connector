@@ -20,7 +20,7 @@ using System.Linq;
 using ThoughtWorks.VisualStudio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestVsConnector
+namespace Tests
 {
     
     
@@ -41,8 +41,8 @@ namespace TestVsConnector
         private static string _login;
         private static string _password;
         private static string _project;
-        private static string MINGLE_LOCAL_HOST = "http://localhost:8080";
-        //private const string MINGLE_LOCAL_HOST = "http://fmtstdsol01.thoughtworks.com:8080";
+        //private static string MINGLE_LOCAL_HOST = "http://localhost:8080";
+        private const string MINGLE_LOCAL_HOST = "http://fmtstdsol01.thoughtworks.com:8080";
         private const string MINGLE_INTEGRATION_USER = "mingleuser";
         private const string MINGLE_INTEGRATION_PASSWORD = "secret";
 
@@ -177,8 +177,7 @@ namespace TestVsConnector
         public void TestProjectsRefresh()
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
-            Assert.AreEqual(2, model.ProjectList.Count);
-            Assert.AreEqual("test", model.ProjectList.Keys[1]);
+            Assert.IsInstanceOfType(model.ProjectList.Values[0], typeof(KeyValuePair));
         }
 
         [TestMethod]
@@ -359,8 +358,8 @@ namespace TestVsConnector
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
-            var count = model.GetCardsOfType("Story").Count;
-            Assert.AreEqual(37, count);
+            var count = model.GetCardsOfType("Feature").Count;
+            Assert.AreEqual(10, count);
         }
 
         [TestMethod]

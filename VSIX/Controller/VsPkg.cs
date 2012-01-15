@@ -98,11 +98,11 @@ namespace ThoughtWorks.VisualStudio
             //var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.CardListWindow);
             //DefineCommandHandler(ShowListOfCards, id);
 
-            //id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.SettingsWindow);
-            //DefineCommandHandler(ShowSettingsWindow, id);
-
             var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.MingleExplorer);
             DefineCommandHandler(ShowMingleExplorer, id);
+
+            id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.MingleMurmurs);
+            DefineCommandHandler(ShowMurmursWindow, id);
 
             TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
         }
@@ -117,8 +117,6 @@ namespace ThoughtWorks.VisualStudio
         /// <returns>The menu command. This can be used to set parameter such as the default visibility once the package is loaded</returns>
         internal OleMenuCommand DefineCommandHandler(EventHandler handler, CommandID id)
         {
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
-
             // if the package is zombied, we don't want to add commands
             if (Zombied)
                 return null;
@@ -144,47 +142,6 @@ namespace ThoughtWorks.VisualStudio
         #region Commands Actions
 
         /// <summary>
-        /// Event handler called when the user selects the Card Set View command.
-        /// </summary>
-        /// <param name="caller"></param>
-        /// <param name="args"></param>
-        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-        internal void ShowListOfCards(object caller, EventArgs args)
-        {
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
-            try
-            {
-                var pane = (CardSetViewWindowPane) FindToolWindow(typeof (CardSetViewWindowPane), 0, true);
-
-                if (null == pane || null == pane.Frame)
-                    throw new NotSupportedException(Resources.CanNotCreateWindow);
-
-                var frame = (IVsWindowFrame) pane.Frame;
-
-                ErrorHandler.ThrowOnFailure(frame.Show());
-
-                TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
-            }
-            catch (Exception e)
-            {
-                TraceLog.Exception(new StackFrame().GetMethod().Name, e);
-                MessageBox.Show(e.Message);
-            }
-        }
-
-        /// <summary>
-        /// Event handler called when the user selects the settings command.
-        /// </summary>
-        /// <param name="caller"></param>
-        /// <param name="args"></param>
-        internal void ShowSettingsWindow(object caller, EventArgs args)
-        {
-            var ui = new SettingsViewControl();;
-            ui.Show();
-            ui.Visibility = Visibility.Visible;
-        }
-
-        /// <summary>
         /// Event handler called when the user selects the Explorer View command.
         /// </summary>
         /// <param name="caller"></param>
@@ -192,7 +149,6 @@ namespace ThoughtWorks.VisualStudio
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         internal void ShowMingleExplorer(object caller, EventArgs args)
         {
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
             try
             {
                 ToolWindowPane window = FindToolWindow(typeof (ExplorerViewWindowPane), 0, true);
@@ -210,9 +166,28 @@ namespace ThoughtWorks.VisualStudio
                 MessageBox.Show(e.Message);
             }
 
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leavring...");
         }
 
+        internal void ShowMurmursWindow(object caller, EventArgs args)
+        {
+            try
+            {
+                ToolWindowPane window = FindToolWindow(typeof(MurmurViewWindowPane), 0, true);
+
+                if ((null == window) || (null == window.Frame))
+                    throw new NotSupportedException(Resources.CanNotCreateWindow);
+
+                var frame = (IVsWindowFrame)window.Frame;
+
+                ErrorHandler.ThrowOnFailure(frame.Show());
+            }
+            catch (Exception e)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, e);
+                MessageBox.Show(e.Message);
+            }
+        }
         #endregion
     }
+
 }

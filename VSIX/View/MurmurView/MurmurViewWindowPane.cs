@@ -44,25 +44,13 @@ namespace ThoughtWorks.VisualStudio
         {
             try
             {
-                base.Content = new CardViewControl();
+                base.Content = new MurmurViewControl();
             }
             catch (Exception e)
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, e);
                 throw;
             }
-        }
-
-        /// <summary>
-        /// Binds the CardViewControl content of this window to its data.
-        /// </summary>
-        internal void Bind(Card card)
-        {
-            var window = (CardViewControl) base.Content;
-
-            Caption = string.Format(CultureInfo.CurrentCulture,Resources.CardWindowCaption, card.Number,
-                                    card.Name);
-            window.Bind(card);
         }
 
         /// <summary>
@@ -73,12 +61,7 @@ namespace ThoughtWorks.VisualStudio
         public override void OnToolWindowCreated()
         {
             base.OnToolWindowCreated();
-            var window = (CardViewControl)base.Content;
-            window.ToolPane = this;
-            // Set the text that will appear in the title bar of the tool window.
-            // Note that because we need access to the package for localization,
-            // we have to wait to do this here. If we used a constant string,
-            // we could do this in the constructor.
+            Caption = Resources.MurmurWindowTitle;
         }
     }
 }

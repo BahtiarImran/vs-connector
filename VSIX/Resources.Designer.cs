@@ -783,6 +783,15 @@ namespace ThoughtWorks.VisualStudio {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Murmurs.
+        /// </summary>
+        internal static string MurmurWindowTitle {
+            get {
+                return ResourceManager.GetString("MurmurWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New card.
         /// </summary>
         internal static string NewCardDefaultName {

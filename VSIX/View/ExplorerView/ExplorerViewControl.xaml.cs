@@ -1,5 +1,4 @@
-﻿//
-// Copyright © 2010, 2011 ThoughtWorks, Inc.
+﻿#region Copyright © 2010, 2011, 2012 ThoughtWorks, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); 
 // you may not use this file except in compliance with the License. 
@@ -13,16 +12,14 @@
 // See the License for the specific language governing permissions and 
 // limitations under the License.
 //
+#endregion
 
 using System;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell.Interop;
 using ThoughtWorksCoreLib;

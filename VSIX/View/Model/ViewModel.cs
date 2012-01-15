@@ -250,11 +250,18 @@ namespace ThoughtWorks.VisualStudio
         public IEnumerable<Murmur> GetMurmurs()
         {
             var url = string.Format("/murmurs.xml");
-            var murmurs = new List<Murmur>();
-            XElement.Parse(Mingle.Get(ProjectId, url)).Elements("murmur").ToList().ForEach(m => murmurs.Add(
-                new Murmur(m.Element("author").Element("name").Value, m.Element("created_at").Value, m.Element("body").Value)));
-            return murmurs;
+ 
+            return (from m in XElement.Parse(Mingle.Get(ProjectId, url)).Elements("murmur").ToList()
+                    where null != m.Element("author")
+                    where null != m.Element("author").Element("name")
+                    where null != m.Element("created_at")
+                    where null != m.Element("body")
+                    let name = m.Element("author").Element("name").Value
+                    let date = m.Element("created_at").Value
+                    let body = m.Element("body").Value
+                    select new Murmur(name, date, body)).ToList();
         }
+
     }
 
     /// <summary>
