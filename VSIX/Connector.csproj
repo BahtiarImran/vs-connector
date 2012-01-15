@@ -197,6 +197,7 @@
     </Content>
     <Content Include="mingle.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="mingleexplorer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
