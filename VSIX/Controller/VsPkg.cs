@@ -36,9 +36,9 @@ namespace ThoughtWorks.VisualStudio
     /// basic implementation of a package provided by the Managed Package Framework (MPF).
     /// </summary>
     [ProvideToolWindow(typeof (CardSetViewWindowPane), Transient = true)]
-    [ProvideToolWindow(typeof (CardViewWindowPane), Transient = true, MultiInstances = true)]
+    [ProvideToolWindow(typeof (CardViewWindowPane), Transient = true)]
     [ProvideToolWindow(typeof (ExplorerViewWindowPane))]
-    [ProvideToolWindow(typeof(MurmurViewWindowPane), Transient = true)]
+    [ProvideToolWindow(typeof(MurmurViewWindowPane))]
     [ProvideToolWindowVisibility(typeof (CardSetViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E3FCA72F-B3A4-406E-A4AA-1051594D2367")]
     [ProvideToolWindowVisibility(typeof (CardViewWindowPane), /*UICONTEXT_SolutionExists*/
