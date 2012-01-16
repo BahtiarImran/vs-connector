@@ -14,7 +14,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding Path=Body}" TextWrapping="Wrap" />
+                        <TextBlock Text="{Binding Path=Body}" TextWrapping="WrapWithOverflow" Height="Auto"/>
                         <StackPanel Orientation="Horizontal" >
                             <TextBlock Text="{Binding Path=Name}" Foreground="DimGray" />
                             <TextBlock Text="on"  Margin="6,0,6,0"   Foreground="DimGray"  />
