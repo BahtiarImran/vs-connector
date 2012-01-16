@@ -20,7 +20,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using Microsoft.VisualStudio.Shell;
 using ThoughtWorksCoreLib;
 
 namespace ThoughtWorks.VisualStudio
@@ -47,6 +46,7 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 Model.Mingle.Post(MingleSettings.Project, "/murmurs.xml", new Collection<string> { murmur });
+                murmursList.ItemsSource = Model.GetMurmurs();
             }
             catch (Exception ex)
             {
