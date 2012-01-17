@@ -181,7 +181,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestTeamMembersRefresh()
+        public void TestTeamMembers()
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
@@ -189,9 +189,10 @@ namespace Tests
             Assert.IsInstanceOfType(team, typeof(Team));
             Assert.IsInstanceOfType(team["mingleuser"], typeof(TeamMember));
             var actual = team.Count;
-            const int expected = 3;
+            const int expected = 4;
             Assert.AreEqual(expected, actual);
             Assert.AreEqual(true, team.ContainsKey("mingleuser"));
+            Assert.IsFalse(team.Values[0].IsSet);
         }
 
         [TestMethod]

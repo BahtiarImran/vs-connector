@@ -21,7 +21,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// An individual Mingle project team member
     /// </summary>
-    public class TeamMember
+    public class TeamMember : IManagedListItem
     {
         private readonly MingleProjectMember _teamMember;
         public ViewModel Model;
@@ -29,6 +29,13 @@ namespace ThoughtWorks.VisualStudio
         public TeamMember(ViewModel model)
         {
             Model = model;
+            IsSet = true;
+        }
+
+        public TeamMember(ViewModel model, bool set)
+        {
+            Model = model;
+            IsSet = set;
         }
 
         /// <summary>
@@ -47,5 +54,11 @@ namespace ThoughtWorks.VisualStudio
         public string Name { get { return _teamMember.UserName; } }
         public string Login { get { return _teamMember.UserLogin; } }
         public bool IsAdmin { get { return _teamMember.ProjectAdmin; } }
+
+        /// <summary>
+        /// Indicates that the Team Member is set
+        /// </summary>
+        public bool IsSet { get; private set; }
+
     }
 }

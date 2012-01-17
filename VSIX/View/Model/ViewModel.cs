@@ -97,6 +97,7 @@ namespace ThoughtWorks.VisualStudio
             {
                 if (null != _teamCache && _teamCache.Count > 0) return _teamCache;
                 _teamCache = Project().GetTeam();
+                _teamCache.Add(Resources.ItemNotSet, new TeamMember(this, false));
                 return _teamCache;
             }
         }

@@ -621,6 +621,15 @@ namespace ThoughtWorks.VisualStudio {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (item not set).
+        /// </summary>
+        internal static string ItemNotSet {
+            get {
+                return ResourceManager.GetString("ItemNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to get a reference to IVsOutputWindow.
         /// </summary>
         internal static string IvsOutputWindowAccessFail {
