@@ -621,7 +621,7 @@ namespace ThoughtWorks.VisualStudio {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (item not set).
+        ///   Looks up a localized string similar to (not set).
         /// </summary>
         internal static string ItemNotSet {
             get {

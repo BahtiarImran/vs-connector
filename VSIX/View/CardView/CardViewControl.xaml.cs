@@ -215,7 +215,6 @@ namespace ThoughtWorks.VisualStudio
                         {
                             uiElement = MakeComboBox(cardProperty);
                             panel.Children.Add(uiElement);
-                            panel.Children.Add(ValueNotSetButton(cardProperty, uiElement));
                             break;
                         }
 
@@ -231,11 +230,6 @@ namespace ThoughtWorks.VisualStudio
                             a.Tag = uiElement;
                             panel.Children.Add(a);
                         }
-
-                        if (PropertyIsEditable(cardProperty) && !cardProperty.IsFormula)
-                            // Add a "set value to none" button
-                            panel.Children.Add(ValueNotSetButton(cardProperty, uiElement));
-
 
                         break;
                     }
@@ -315,7 +309,7 @@ namespace ThoughtWorks.VisualStudio
 
             if (cardProperty.IsTeamValued)
             {
-                cb.ItemsSource = _thisCard.Model.Team.Values;
+                cb.ItemsSource = _thisCard.Model.TeamAsManagedList.Values;
                 cb.DisplayMemberPath = "Name";
                 cb.SelectedValuePath = "Login";
             }
@@ -324,7 +318,8 @@ namespace ThoughtWorks.VisualStudio
                 cb.ItemsSource = cardProperty.PropertyValueDetails;
             }
 
-            cb.SelectedValue = cardProperty.Value;
+            cb.SelectedValue = cardProperty.IsSetValued && !string.IsNullOrEmpty(cardProperty.Value as string) || (!cardProperty.IsManagedListOfScalars && !cardProperty.IsTeamValued) ? cardProperty.Value : VisualStudio.Resources.ItemNotSet;
+
             cb.Tag = cardProperty;
 
             if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)

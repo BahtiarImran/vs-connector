@@ -190,10 +190,26 @@ namespace Tests
             Assert.IsInstanceOfType(team, typeof(Team));
             Assert.IsInstanceOfType(team["mingleuser"], typeof(TeamMember));
             var actual = team.Count;
+            const int expected = 3;
+            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(true, team.ContainsKey("mingleuser"));
+        }
+
+        [TestMethod]
+        public void TestTeamMembersAsManagedList()
+        {
+            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            model.SelectProject("test");
+            var team = model.TeamAsManagedList;
+            Assert.IsInstanceOfType(team, typeof(Team));
+            Assert.IsInstanceOfType(team["mingleuser"], typeof(TeamMember));
+            var actual = team.Count;
             const int expected = 4;
             Assert.AreEqual(expected, actual);
             Assert.AreEqual(true, team.ContainsKey("mingleuser"));
             Assert.IsFalse(team.Values[0].IsSet);
+            Assert.AreEqual("(not set)", team.Values[0].Name);
+            Assert.AreEqual("(not set)", team.Values[0].Login);
         }
 
         [TestMethod]

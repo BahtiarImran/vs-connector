@@ -467,7 +467,7 @@
     <value>Murmurs</value>
   </data>
   <data name="ItemNotSet" xml:space="preserve">
-    <value>(item not set)</value>
+    <value>(not set)</value>
     <comment>Indicates that the property will be set to "no value"</comment>
   </data>
 </root>
