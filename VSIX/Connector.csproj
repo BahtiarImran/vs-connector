@@ -132,6 +132,7 @@
     <Compile Include="View\Model\Murmur.cs" />
     <Compile Include="View\Model\Project.cs" />
     <Compile Include="View\Model\ProjectList.cs" />
+    <Compile Include="View\Model\PropertyValuesList.cs" />
     <Compile Include="View\Model\Secure.cs" />
     <Compile Include="View\Model\Team.cs" />
     <Compile Include="View\Model\TeamMember.cs" />
