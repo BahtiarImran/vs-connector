@@ -41,6 +41,15 @@ namespace ThoughtWorks.VisualStudio
             Mingle = new MingleServer(host, login, password);
         }
 
+        /// <summary>
+        /// Testable constructor used to inject a Mingle fixture
+        /// </summary>
+        /// <param name="mingle"></param>
+        internal ViewModel(IMingleServer mingle)
+        {
+            Mingle = mingle;
+        }
+
         #region Authentication Section
         internal string Host { get; set; }
         internal string Login { get; set; }
