@@ -229,6 +229,7 @@ namespace ThoughtWorks.VisualStudio
                             a.Click += OnButtonChooseCardClick;
                             a.Tag = uiElement;
                             panel.Children.Add(a);
+                            ValueNotSetButton(cardProperty, panel);
                         }
 
                         break;
@@ -237,10 +238,11 @@ namespace ThoughtWorks.VisualStudio
                     { 
                         uiElement = MakeComboBox(cardProperty);
                         panel.Children.Add(uiElement);
-                        panel.Children.Add(ValueNotSetButton(cardProperty, uiElement));
                         break;
                     }
             }
+
+            panel.IsEnabled = PropertyIsEditable(cardProperty);
 
             return panel;
         }
@@ -269,13 +271,11 @@ namespace ThoughtWorks.VisualStudio
 
             var tb = new TextBox
                          {
-                             IsEnabled = !cardProperty.IsTransitionOnly,
                              MinWidth = 50,
                              Name = cardProperty.ColumnName,
                              DataContext = cardProperty
                          };
 
-            tb.IsEnabled = PropertyIsEditable(cardProperty);
             var cardinfo = cardProperty.Value as string;
             if (!string.IsNullOrEmpty(cardProperty.Value as string) && cardProperty.IsCardValued)
             {
@@ -284,7 +284,6 @@ namespace ThoughtWorks.VisualStudio
             }
             tb.Text = cardinfo;
             tb.Tag = cardProperty;
-            if (cardProperty.IsCardValued) tb.IsReadOnly = true;
 
             if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)
                 tb.LostFocus += OnPropertyTextBoxLostFocus;
@@ -330,7 +329,7 @@ namespace ThoughtWorks.VisualStudio
             return cb;
         }
 
-        private Button ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
+        private static Button ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
         {
             var b = new Button
                         {
