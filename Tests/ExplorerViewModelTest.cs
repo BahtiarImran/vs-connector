@@ -148,7 +148,7 @@ namespace Tests
             Assert.AreEqual("managed text list", p.PropertyValuesDescription.ToLower());
             Assert.AreEqual(false, p.Hidden);
             Assert.AreEqual(5, p.PropertyValueDetails.Count);
-            Assert.AreEqual("(item not set)", p.PropertyValueDetails[0]);
+            Assert.AreEqual("(not set)", p.PropertyValueDetails[0]);
             Assert.AreEqual("Critical", p.PropertyValueDetails[1]);
             Assert.AreEqual("Essential", p.PropertyValueDetails[2]);
             Assert.AreEqual("Non-Essential", p.PropertyValueDetails[3]);
