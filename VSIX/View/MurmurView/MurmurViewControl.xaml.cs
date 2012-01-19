@@ -42,10 +42,10 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnClickButtonMurmur(object sender, RoutedEventArgs e)
         {
-            var murmur = string.Format(CultureInfo.InvariantCulture, "murmur[body]={0}", murmurText.Text);
+
             try
             {
-                Model.Mingle.Post(MingleSettings.Project, "/murmurs.xml", new Collection<string> { murmur });
+                Model.SendMurmur(murmurText.Text);
                 murmursList.ItemsSource = Model.GetMurmurs();
             }
             catch (Exception ex)

@@ -90,5 +90,10 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <returns></returns>
         IEnumerable<Murmur> GetMurmurs();
+        /// <summary>
+        /// Sends a murmur
+        /// </summary>
+        /// <param name="murmur"></param>
+        void SendMurmur(string murmur);
     }
 }

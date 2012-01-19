@@ -151,6 +151,21 @@ namespace Mocks
             throw new NotImplementedException();
         }
 
+        public MingleCard GetCard(int cardNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<MingleMurmur> GetMurmurs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendMurmur(string murmur)
+        {
+            throw new NotImplementedException();
+        }
+
         public string ProjectId
         {
             get { throw new NotImplementedException(); }

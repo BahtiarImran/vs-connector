@@ -16,13 +16,18 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
+    /// <summary>
+    /// IProject interface for a Mingle project
+    /// </summary>
     public interface IProject
     {
         /// <summary>
@@ -128,6 +133,18 @@ namespace ThoughtWorks.VisualStudio
         /// Transition collection for this project
         /// </summary>
         Transitions Transitions { get; }
+
+        /// <summary>
+        /// Sends a murmur to Mingle
+        /// </summary>
+        /// <param name="murmur"></param>
+        void SendMurmur(string murmur);
+
+        /// <summary>
+        /// Returns murmur history from Mingle
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<Murmur> GetMurmurs();
     }
 
     /// <summary>
@@ -274,6 +291,26 @@ namespace ThoughtWorks.VisualStudio
         public Transitions Transitions
         {
             get { throw new NotImplementedException(); }
+        }
+
+        /// <summary>
+        /// Sends a murmur to Mingle
+        /// </summary>
+        /// <param name="murmur"></param>
+        public void SendMurmur(string murmur)
+        {
+            MingleProject.SendMurmur(murmur);
+        }
+
+        /// <summary>
+        /// Returns murmur history from Mingle
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Murmur> GetMurmurs()
+        {
+            var murmurs = new List<Murmur>();
+            MingleProject.GetMurmurs().ToList().ForEach(m => murmurs.Add(new Murmur(m.Body, m.CreatedAt.ToString(CultureInfo.InvariantCulture), m.AuthorName)));
+            return murmurs;
         }
 
         public IMingleServer Mingle

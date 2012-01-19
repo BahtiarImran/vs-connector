@@ -45,7 +45,11 @@ namespace Tests
         /// </summary>
         public SortedList<string, KeyValuePair> ProjectList
         {
-            get { return _model.ProjectList; }
+            get
+            {
+
+                return _model.ProjectList;
+            }
         }
 
         /// <summary>
@@ -187,6 +191,15 @@ namespace Tests
         public IEnumerable<Murmur> GetMurmurs()
         {
             return _model.GetMurmurs();
+        }
+
+        /// <summary>
+        /// Sends a murmur
+        /// </summary>
+        /// <param name="murmur"></param>
+        public void SendMurmur(string murmur)
+        {
+            throw new NotImplementedException();
         }
     }
 }
