@@ -110,7 +110,7 @@ namespace Tests
         /// <returns></returns>
         public Card GetOneCard(int cardNo)
         {
-            return _model.GetOneCard();
+            return _model.GetOneCard(cardNo);
         }
 
         /// <summary>
