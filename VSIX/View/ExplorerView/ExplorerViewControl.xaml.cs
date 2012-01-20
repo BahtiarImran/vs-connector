@@ -51,8 +51,17 @@ namespace ThoughtWorks.VisualStudio
 		{
 			favoritesTree.MouseDoubleClick += OnFavoritesTreeItemMouseDoubleClick;
 			CheckSettings();
-			Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
-			BindProjectList();
+		    try
+		    {
+                Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
+                BindProjectList();
+            }
+		    catch (Exception ex)
+		    {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                MessageBox.Show(ex.Message, "Mingle");
+                return;
+            }
 			comboProjects.SelectedValue = Model.ProjectId;
 		}
 		#endregion
@@ -75,7 +84,7 @@ namespace ThoughtWorks.VisualStudio
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message);
+				MessageBox.Show(ex.Message, "Mingle");
 			}
 			finally
 			{
@@ -113,7 +122,7 @@ namespace ThoughtWorks.VisualStudio
 						catch (Exception ex)
 						{
 							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-							MessageBox.Show(ex.Message);
+							MessageBox.Show(ex.Message, "Mingle");
 						}
 
 						break;
@@ -129,7 +138,7 @@ namespace ThoughtWorks.VisualStudio
 						catch (Exception ex)
 						{
 							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-							MessageBox.Show(ex.Message);
+							MessageBox.Show(ex.Message, "Mingle");
 						}
 						finally
 						{
@@ -157,7 +166,7 @@ namespace ThoughtWorks.VisualStudio
 						catch (Exception ex)
 						{
 							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-							MessageBox.Show(ex.Message);
+							MessageBox.Show(ex.Message, "Mingle");
 						}
 						finally
 						{
@@ -274,7 +283,7 @@ namespace ThoughtWorks.VisualStudio
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-				MessageBox.Show(ex.Message);
+				MessageBox.Show(ex.Message, "Mingle");
 			}
 			finally
 			{
@@ -309,7 +318,7 @@ namespace ThoughtWorks.VisualStudio
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-				MessageBox.Show(ex.Message);
+				MessageBox.Show(ex.Message, "Mingle");
 				return;
 			}
 			finally

@@ -69,7 +69,15 @@ namespace ThoughtWorks.VisualStudio
 
             Model.SelectProject(MingleSettings.Project);
 
-            murmursList.ItemsSource = Model.GetMurmurs();
+            try
+            {
+                murmursList.ItemsSource = Model.GetMurmurs();
+            }
+            catch (Exception ex)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                MessageBox.Show(ex.Message, "Mingle");
+            }
 
         }
 
