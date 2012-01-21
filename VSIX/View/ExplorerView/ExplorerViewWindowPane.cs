@@ -34,7 +34,7 @@ namespace ThoughtWorks.VisualStudio
     [Guid("E889901A-32B0-41DB-AFE8-0CA1FA860A58")]
     internal class ExplorerViewWindowPane : ToolWindowPane
     {
-        private readonly ExplorerViewControl _control;
+        private ExplorerViewControl _control;
 
         /// <summary>
         /// Standard constructor for the tool window.
@@ -64,7 +64,7 @@ namespace ThoughtWorks.VisualStudio
         public override void OnToolWindowCreated()
         {
             base.OnToolWindowCreated();
-            _control.Package = (TwVscCommandsPackage) Package;
+            _control.Package = (TwVscCommandsPackage)Package;
             Caption = Resources.ExplorerViewCaption;
         }
 

@@ -470,4 +470,7 @@
     <value>(not set)</value>
     <comment>Indicates that the property will be set to "no value"</comment>
   </data>
+  <data name="MingleExtensionTitle" xml:space="preserve">
+    <value>Mingle Extention for Visual Studio</value>
+  </data>
 </root>

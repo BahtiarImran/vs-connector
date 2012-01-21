@@ -711,6 +711,15 @@ namespace ThoughtWorks.VisualStudio {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mingle Extention for Visual Studio.
+        /// </summary>
+        internal static string MingleExtensionTitle {
+            get {
+                return ResourceManager.GetString("MingleExtensionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There was a problem loading Mingle Favorites..
         /// </summary>
         internal static string MingleFavoritesLoadingError {

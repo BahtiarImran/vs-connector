@@ -28,13 +28,13 @@
           <ButtonText>Mingle Explorer</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidTwVscCmdSet" id="cmdidTwMurmursCommand" priority="0x105" type="Button">
+      <!--<Button guid="guidTwVscCmdSet" id="cmdidTwMurmursCommand" priority="0x105" type="Button">
         <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWSEXPLORERS"/>
         <Icon guid="guidMingleExplorerCommandBmp" id="bmpMingleLogo"/>
         <Strings>
           <ButtonText>Mingle Murmurs</ButtonText>
         </Strings>
-      </Button>
+      </Button>-->
     </Buttons>
 
     <Bitmaps>

@@ -603,6 +603,10 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 _thisCard.Model.PostComment(_thisCard.Number, comment.Text);
+                if (Convert.ToBoolean(murmurComment.IsChecked))
+                {
+                    _thisCard.Model.SendMurmur(comment.Text);
+                }
                 commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);
             }
             catch (Exception ex)

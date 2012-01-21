@@ -89,7 +89,7 @@ namespace ThoughtWorks.VisualStudio
         /// Gets all the murmur history
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Murmur> GetMurmurs();
+        ObservableCollection<Murmur> Murmurs { get; }
         /// <summary>
         /// Sends a murmur
         /// </summary>

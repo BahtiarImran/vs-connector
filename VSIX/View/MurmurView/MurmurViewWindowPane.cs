@@ -35,6 +35,7 @@ namespace ThoughtWorks.VisualStudio
     [Guid("C926392F-D1F1-4D19-8BF6-FA8D80025A32")]
     internal class MurmurViewWindowPane : ToolWindowPane
     {
+        protected internal MurmurViewControl Control;
 
         /// <summary>
         /// Standard constructor for the tool window.
@@ -44,13 +45,19 @@ namespace ThoughtWorks.VisualStudio
         {
             try
             {
-                base.Content = new MurmurViewControl();
+                Control = new MurmurViewControl();
+                base.Content = Control;
             }
             catch (Exception e)
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, e);
                 throw;
             }
+        }
+
+        protected internal void Initialize(ViewModel model)
+        {
+            Control.Initialize(model);
         }
 
         /// <summary>

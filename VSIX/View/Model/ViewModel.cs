@@ -35,10 +35,18 @@ namespace ThoughtWorks.VisualStudio
         private Transitions _transitionsCache;
         private CardProperties _propertiesCache;
         private CardTypes _cardTypesCache;
+        private ObservableCollection<Murmur> _murmursCache;
 
+        #region Constructors
+        /// <summary>
+        /// Constructs a new ViewModel
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="login"></param>
+        /// <param name="password"></param>
         public ViewModel(string host, string login, string password)
         {
-            Mingle = new MingleServer(host, login, password);
+            Initialize(host, login, password);
         }
 
         /// <summary>
@@ -48,6 +56,17 @@ namespace ThoughtWorks.VisualStudio
         internal ViewModel(IMingleServer mingle)
         {
             Mingle = mingle;
+        }
+
+        /// <summary>
+        /// Constructs a naked ViewModel
+        /// </summary>
+        internal ViewModel() { } 
+        #endregion
+
+        internal void Initialize(string host, string login, string password)
+        {
+            Mingle = new MingleServer(host, login, password);
         }
 
         #region Authentication Section
@@ -197,6 +216,16 @@ namespace ThoughtWorks.VisualStudio
             } 
         }
 
+        public ObservableCollection<Murmur> Murmurs
+        {
+            get
+            {
+                _murmursCache = new ObservableCollection<Murmur>();
+                Project().GetMurmurs().ToList().ForEach(m => _murmursCache.Add(new Murmur(m.Body, m.Date, m.Name)));
+                return _murmursCache;
+            }
+        }
+
         /// <summary>
         /// Creates a new Card
         /// </summary>
@@ -266,15 +295,6 @@ namespace ThoughtWorks.VisualStudio
         }
 
         /// <summary>
-        /// Get the list of murmurs
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<Murmur> GetMurmurs()
-        {
-            return Project().GetMurmurs();
-        }
-
-        /// <summary>
         /// Sends a murmur
         /// </summary>
         /// <param name="murmur"></param>
@@ -283,4 +303,5 @@ namespace ThoughtWorks.VisualStudio
             Project().SendMurmur(murmur);
         }
     }
+
 }

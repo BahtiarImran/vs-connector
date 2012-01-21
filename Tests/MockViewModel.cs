@@ -188,9 +188,9 @@ namespace Tests
         /// Gets all the murmur history
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Murmur> GetMurmurs()
+        public ObservableCollection<Murmur> Murmurs
         {
-            return _model.GetMurmurs();
+            get { return _model.Murmurs; }
         }
 
         /// <summary>

@@ -17,9 +17,7 @@
 using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using System.Windows;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
@@ -38,7 +36,7 @@ namespace ThoughtWorks.VisualStudio
     [ProvideToolWindow(typeof (CardSetViewWindowPane), Transient = true)]
     [ProvideToolWindow(typeof (CardViewWindowPane), Transient = true)]
     [ProvideToolWindow(typeof (ExplorerViewWindowPane))]
-    [ProvideToolWindow(typeof(MurmurViewWindowPane))]
+    [ProvideToolWindow(typeof(MurmurViewWindowPane), Transient = true)]
     [ProvideToolWindowVisibility(typeof (CardSetViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E3FCA72F-B3A4-406E-A4AA-1051594D2367")]
     [ProvideToolWindowVisibility(typeof (CardViewWindowPane), /*UICONTEXT_SolutionExists*/
@@ -75,15 +73,9 @@ namespace ThoughtWorks.VisualStudio
         /// Initialization of the package; this is the place where you can put all the initialization
         /// code that relies on services provided by Visual Studio.
         /// </summary>
-        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters",
-            MessageId =
-                "ThoughtWorksCoreLib.TraceLog.WriteLine(new StackFrame().GetMethod().Name,System.Object,System.string)"
-            ),
-         SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected override void Initialize()
         {
             // Trace the beginning of this method and call the base implementation.
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Entering...");
             base.Initialize();
 
             // Now get the OleCommandService object provided by the MPF; this object is the one
@@ -101,10 +93,6 @@ namespace ThoughtWorks.VisualStudio
             var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.MingleExplorer);
             DefineCommandHandler(ShowMingleExplorer, id);
 
-            id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.MingleMurmurs);
-            DefineCommandHandler(ShowMurmursWindow, id);
-
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
         }
 
         /// <summary>
@@ -135,7 +123,7 @@ namespace ThoughtWorks.VisualStudio
                 command = new OleMenuCommand(handler, id);
                 _menuService.AddCommand(command);
             }
-            TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Leaving...");
+
             return command;
         }
 
@@ -146,36 +134,17 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="caller"></param>
         /// <param name="args"></param>
-        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         internal void ShowMingleExplorer(object caller, EventArgs args)
         {
             try
             {
-                ToolWindowPane window = FindToolWindow(typeof (ExplorerViewWindowPane), 0, true);
+                TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Creating the Explorer window pane");
+                var window = FindToolWindow(typeof (ExplorerViewWindowPane), 0, true);
 
                 if ((null == window) || (null == window.Frame))
                     throw new NotSupportedException(Resources.CanNotCreateWindow);
 
-                var frame = (IVsWindowFrame) window.Frame;
-
-                ErrorHandler.ThrowOnFailure(frame.Show());
-            }
-            catch (Exception e)
-            {
-                TraceLog.Exception(new StackFrame().GetMethod().Name, e);
-                MessageBox.Show(e.Message);
-            }
-
-        }
-
-        internal void ShowMurmursWindow(object caller, EventArgs args)
-        {
-            try
-            {
-                ToolWindowPane window = FindToolWindow(typeof(MurmurViewWindowPane), 0, true);
-
-                if ((null == window) || (null == window.Frame))
-                    throw new NotSupportedException(Resources.CanNotCreateWindow);
+                TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Handing the ViewModel to the ExplorerViewControl window");
 
                 var frame = (IVsWindowFrame)window.Frame;
 
@@ -186,7 +155,9 @@ namespace ThoughtWorks.VisualStudio
                 TraceLog.Exception(new StackFrame().GetMethod().Name, e);
                 MessageBox.Show(e.Message);
             }
+
         }
+
         #endregion
     }
 

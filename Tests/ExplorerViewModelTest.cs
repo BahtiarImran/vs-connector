@@ -385,7 +385,7 @@ namespace Tests
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
-            var m = model.GetMurmurs();
+            var m = model.Murmurs;
             Assert.IsInstanceOfType(m, typeof(IEnumerable<Murmur>));
             Assert.AreNotEqual(0, m.Count());
         }

@@ -15,9 +15,7 @@
 //
 
 using System;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using ThoughtWorksCoreLib;
@@ -29,7 +27,7 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public partial class MurmurViewControl : UserControl
     {
-        protected ViewModel Model { get; set; }
+        protected internal ViewModel Model { get; set; }
 
         /// <summary>
         /// Constructs a new MurmurViewControl
@@ -46,7 +44,7 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 Model.SendMurmur(murmurText.Text);
-                murmursList.ItemsSource = Model.GetMurmurs();
+                murmursList.ItemsSource = Model.Murmurs;
             }
             catch (Exception ex)
             {
@@ -55,12 +53,14 @@ namespace ThoughtWorks.VisualStudio
             }
         }
 
-        private void OnMurmurViewControlInitialized(object sender, EventArgs e)
+        protected internal void Initialize(ViewModel model)
         {
+            Model = model;
+
             CheckSettings();
-            
-            Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
-            
+
+            murmursList.ItemsSource = Model.Murmurs;
+
             if (string.IsNullOrEmpty(MingleSettings.Project))
             {
                 MessageBox.Show("Please open Mingle Explorer and select a project before opening the murmurs window.");
@@ -69,15 +69,7 @@ namespace ThoughtWorks.VisualStudio
 
             Model.SelectProject(MingleSettings.Project);
 
-            try
-            {
-                murmursList.ItemsSource = Model.GetMurmurs();
-            }
-            catch (Exception ex)
-            {
-                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                MessageBox.Show(ex.Message, "Mingle");
-            }
+            RefreshMurmurs();
 
         }
 
@@ -95,6 +87,19 @@ namespace ThoughtWorks.VisualStudio
 
             var svc = new SettingsViewControl();
             svc.ShowDialog();
+        }
+
+        private void RefreshMurmurs()
+        {
+            try
+            {
+                murmursList.ItemsSource = Model.Murmurs;
+            }
+            catch (Exception ex)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+            }
         }
 
     }

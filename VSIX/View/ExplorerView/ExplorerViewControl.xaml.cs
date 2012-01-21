@@ -31,7 +31,7 @@ namespace ThoughtWorks.VisualStudio
 	/// </summary>
 	public partial class ExplorerViewControl
 	{
-		internal ViewModel Model { get; private set; }
+		protected internal ViewModel Model { get; set; }
 
 		/// <summary>
 		/// XAML form for navigating a Mingle/GO integrated environment 
@@ -39,32 +39,29 @@ namespace ThoughtWorks.VisualStudio
 		public ExplorerViewControl()
 		{
 			InitializeComponent();
-		}
+            favoritesTree.MouseDoubleClick += OnFavoritesTreeItemMouseDoubleClick;
+        }
 
-		#region OnExplorerViewControlInitialized
-		/// <summary>
-		/// Called after the ExplorerView window is initialized and before it is rendered
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void OnExplorerViewControlInitialized(object sender, EventArgs e)
-		{
-			favoritesTree.MouseDoubleClick += OnFavoritesTreeItemMouseDoubleClick;
-			CheckSettings();
-		    try
-		    {
-                Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
+        private void UserControlInitialized(object sender, EventArgs e)
+        {
+            CheckSettings();
+
+            try
+            {
+                Model = new ViewModel();
+                Model.Initialize(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
                 BindProjectList();
             }
-		    catch (Exception ex)
-		    {
+            catch (Exception ex)
+            {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                MessageBox.Show(ex.Message, "Mingle");
+                MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
                 return;
             }
-			comboProjects.SelectedValue = Model.ProjectId;
-		}
-		#endregion
+
+            comboProjects.SelectedValue = Model.ProjectId;
+        }
+
 
 		#region OnComboProjectsSelectionChanged
 		private void OnProjectSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -79,12 +76,12 @@ namespace ThoughtWorks.VisualStudio
 				if (Model.SelectProject(item))
 				{
 					BindCardTypes();
-					BindExplorerTrees();
-                }
+				    BindExplorerTrees();
+				}
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Mingle");
+				MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
 			}
 			finally
 			{
@@ -106,89 +103,117 @@ namespace ThoughtWorks.VisualStudio
 		/// <param name="e"></param>
 		private void ButtonClick(object sender, RoutedEventArgs e)
 		{
-			switch (((Button)sender).Name)
-			{
-				case "buttonSettings":
-					{
-						try 
-						{
-							if (!new SettingsViewControl().ShowDialog() == true) 
-								break;
-							
-							Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
-							BindProjectList();
-							ClearTrees();
-						}
-						catch (Exception ex)
-						{
-							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-							MessageBox.Show(ex.Message, "Mingle");
-						}
+            switch (((Button)sender).Name)
+            {
+                case "buttonSettings":
+                    {
+                        try
+                        {
+                            if (!new SettingsViewControl().ShowDialog() == true)
+                                break;
 
-						break;
-					}
+                            Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
+                            BindProjectList();
+                            ClearTrees();
+                        }
+                        catch (Exception ex)
+                        {
+                            TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                            MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+                        }
 
-				case "buttonRefresh":
-					{
-						try
-						{
-							this.Cursor = Cursors.Wait;
-							BindAll();
-						}
-						catch (Exception ex)
-						{
-							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-							MessageBox.Show(ex.Message, "Mingle");
-						}
-						finally
-						{
-							this.Cursor = Cursors.Arrow;
-						}
+                        break;
+                    }
 
-						break;
-					}
+                case "buttonRefresh":
+                    {
+                        try
+                        {
+                            this.Cursor = Cursors.Wait;
+                            BindAll();
+                        }
+                        catch (Exception ex)
+                        {
+                            TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                            MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+                        }
+                        finally
+                        {
+                            this.Cursor = Cursors.Arrow;
+                        }
 
-				case "buttonFeedback":
-					{
-						var feedback = new FeedbackViewControl();
-						feedback.ShowDialog();
-						feedback.Dispose();
-						break;
-					}
+                        break;
+                    }
 
-				case "buttonNewCard":
-					{
-						try
-						{
-							this.Cursor = Cursors.Wait;
-							ShowCardViewToolWindow(Model.CreateCard(cardTypes.SelectedValue.ToString(), "new card"));
-						}
-						catch (Exception ex)
-						{
-							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-							MessageBox.Show(ex.Message, "Mingle");
-						}
-						finally
-						{
-							this.Cursor = Cursors.Arrow;
-						}
-	 
-						break;
-					}
+                case "buttonFeedback":
+                    {
+                        var feedback = new FeedbackViewControl();
+                        feedback.ShowDialog();
+                        feedback.Dispose();
+                        break;
+                    }
 
-				case "buttonGetCard":
-					{
-						if (!string.IsNullOrEmpty(card.Text) && Convert.ToInt32(card.Text, CultureInfo.CurrentCulture) > 0)
-							ShowCardViewToolWindow(Convert.ToInt32(card.Text, CultureInfo.CurrentCulture));
-						break;
-					}
-			}
+                case "buttonNewCard":
+                    {
+                        try
+                        {
+                            this.Cursor = Cursors.Wait;
+                            ShowCardViewToolWindow(Model.CreateCard(cardTypes.SelectedValue.ToString(), "new card"));
+                        }
+                        catch (Exception ex)
+                        {
+                            TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                            MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+                        }
+                        finally
+                        {
+                            this.Cursor = Cursors.Arrow;
+                        }
+
+                        break;
+                    }
+
+                case "buttonGetCard":
+                    {
+                        if (!string.IsNullOrEmpty(card.Text) && Convert.ToInt32(card.Text, CultureInfo.CurrentCulture) > 0)
+                            ShowCardViewToolWindow(Convert.ToInt32(card.Text, CultureInfo.CurrentCulture));
+                        break;
+                    }
+
+                case "buttonOpenMurmurWindow":
+                    {
+                        ShowMurmurWindow();
+                        break;
+                    }
+            }
 		}
 
 		#endregion
 
 		#region Display one card
-		private void ShowCardViewToolWindow(Card mingleCard)
+        private void ShowMurmurWindow()
+        {
+            try
+            {
+                var window = Package.FindToolWindow(typeof(MurmurViewWindowPane), 0, true);
+
+                if ((null == window) || (null == window.Frame))
+                    throw new NotSupportedException(VisualStudio.Resources.CanNotCreateWindow);
+
+                (window as MurmurViewWindowPane).Initialize(Model);
+
+                var frame = (IVsWindowFrame)window.Frame;
+
+                ErrorHandler.ThrowOnFailure(frame.Show());
+            }
+            catch (Exception e)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, e);
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void ShowCardViewToolWindow(Card mingleCard)
 		{
 			try
 			{
@@ -283,7 +308,7 @@ namespace ThoughtWorks.VisualStudio
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-				MessageBox.Show(ex.Message, "Mingle");
+				MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
 			}
 			finally
 			{
@@ -318,7 +343,7 @@ namespace ThoughtWorks.VisualStudio
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-				MessageBox.Show(ex.Message, "Mingle");
+				MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
 				return;
 			}
 			finally
