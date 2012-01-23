@@ -76,7 +76,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        protected void Dispose(bool disposing)
+        virtual protected void Dispose(bool disposing)
         {
             if (_disposed) return;
             if (disposing)
