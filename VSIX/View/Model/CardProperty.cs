@@ -111,7 +111,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// List of values
         /// </summary>
-        public PropertyValuesList PropertyValueDetails { get { return new PropertyValuesList(_property.PropertyValueDetails); } }
+        public PropertyValuesCollection PropertyValueDetails { get { return new PropertyValuesCollection(_property.PropertyValueDetails); } }
         /// <summary>
         /// Mingle's property_values_description
         /// </summary>

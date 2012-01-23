@@ -22,13 +22,13 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// List decorated with a leading value indicating "not set"
     /// </summary>
-    public class PropertyValuesList : Collection<string>
+    public class PropertyValuesCollection : Collection<string>
     {
         /// <summary>
         /// Constructs a new PropertyValuesList
         /// </summary>
         /// <param name="propertyValueDetails"></param>
-        internal PropertyValuesList(IEnumerable<string> propertyValueDetails)
+        internal PropertyValuesCollection(IEnumerable<string> propertyValueDetails)
         {
             Add(Resources.ItemNotSet);
             foreach(var p in propertyValueDetails) Add(p);
