@@ -498,3 +498,5 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Scope = "member", Target = "ThoughtWorks.VisualStudio.Card.#CreatedByUrl")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Scope = "member", Target = "ThoughtWorks.VisualStudio.Card.#CardTypeUrl")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Scope = "member", Target = "ThoughtWorks.VisualStudio.TwVscCommandsPackage.#ShowMingleExplorer(System.Object,System.EventArgs)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Mql", Scope = "member", Target = "ThoughtWorks.VisualStudio.IProject.#ExecMql(System.String)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "mql", Scope = "member", Target = "ThoughtWorks.VisualStudio.IProject.#ExecMql(System.String)")]
