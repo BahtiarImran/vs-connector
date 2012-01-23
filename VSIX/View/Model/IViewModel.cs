@@ -30,7 +30,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// List of CardTypes
         /// </summary>
-        CardTypes CardTypes { get; }
+        CardTypesCollection CardTypesCollection { get; }
         /// <summary>
         /// List of property definitions
         /// </summary>

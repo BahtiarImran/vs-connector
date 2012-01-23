@@ -217,7 +217,7 @@ namespace Tests
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
-            var target = model.CardTypes;
+            var target = model.CardTypesCollection;
             var actual = target.Count;
             const int expected = 7;
             Assert.AreEqual(expected, actual);

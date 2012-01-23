@@ -14,7 +14,6 @@
 // limitations under the License.
 //
 
-using System.Collections;
 using System.Collections.ObjectModel;
 using ThoughtWorksMingleLib;
 
@@ -23,7 +22,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// Models card_types for the view
     /// </summary>
-    public class CardTypes : ObservableCollection<CardType>
+    public class CardTypesCollection : ObservableCollection<CardType>
     {
         private readonly IMingleProject _project;
         private readonly ViewModel _model;
@@ -32,7 +31,7 @@ namespace ThoughtWorks.VisualStudio
         /// Constructs a new card type
         /// </summary>
         /// <param name="project"></param>
-        public CardTypes(ViewModel model, IMingleProject project)
+        public CardTypesCollection(ViewModel model, IMingleProject project)
         {
             _project = project;
             _model = model;

@@ -41,7 +41,7 @@ namespace ThoughtWorks.VisualStudio
         /// Gets the card types for this project
         /// </summary>
         /// <returns></returns>
-        CardTypes CardTypes { get; }
+        CardTypesCollection CardTypesCollection { get; }
 
         /// <summary>
         /// Gets the transitions for this project
@@ -166,11 +166,11 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Returns CardTypes collection 
         /// </summary>
-        public CardTypes CardTypes
+        public CardTypesCollection CardTypesCollection
         {
             get
             {
-                var cardTypes = new CardTypes(_model, MingleProject);
+                var cardTypes = new CardTypesCollection(_model, MingleProject);
                 MingleProject.GetCardTypes().ToList().ForEach(ct => cardTypes.Add(new CardType(ct)));
                 return cardTypes;
             }

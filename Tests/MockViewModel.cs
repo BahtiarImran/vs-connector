@@ -81,9 +81,9 @@ namespace Tests
         /// <summary>
         /// List of CardTypes
         /// </summary>
-        public CardTypes CardTypes
+        public CardTypesCollection CardTypesCollection
         {
-            get { return _model.CardTypes; }
+            get { return _model.CardTypesCollection; }
         }
 
         /// <summary>

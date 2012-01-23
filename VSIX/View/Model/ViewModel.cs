@@ -35,7 +35,7 @@ namespace ThoughtWorks.VisualStudio
         private Team _teamMlCache;
         private Transitions _transitionsCache;
         private CardPropertiesDictionary _propertiesDictionaryCache;
-        private CardTypes _cardTypesCache;
+        private CardTypesCollection _cardTypesCollectionCache;
         private ObservableCollection<Murmur> _murmursCache;
 
         #region Constructors
@@ -147,13 +147,13 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Card types
         /// </summary>
-        public CardTypes CardTypes
+        public CardTypesCollection CardTypesCollection
         {
             get
             {
-                if (null != _cardTypesCache && _cardTypesCache.Count > 0) return _cardTypesCache;
-                _cardTypesCache = Project().CardTypes;
-                return _cardTypesCache;
+                if (null != _cardTypesCollectionCache && _cardTypesCollectionCache.Count > 0) return _cardTypesCollectionCache;
+                _cardTypesCollectionCache = Project().CardTypesCollection;
+                return _cardTypesCollectionCache;
             }
         }
 
