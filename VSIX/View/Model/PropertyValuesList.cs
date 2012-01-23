@@ -15,13 +15,14 @@
 //
 
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ThoughtWorks.VisualStudio
 {
     /// <summary>
     /// List decorated with a leading value indicating "not set"
     /// </summary>
-    public class PropertyValuesList : List<string>
+    public class PropertyValuesList : Collection<string>
     {
         /// <summary>
         /// Constructs a new PropertyValuesList
