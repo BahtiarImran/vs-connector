@@ -46,7 +46,7 @@ namespace ThoughtWorks.VisualStudio
         {
             Comment = comment;
             Name = name;
-            Date = Convert.ToDateTime(date).ToString(CultureInfo.InvariantCulture);
+            Date = Convert.ToDateTime(date, CultureInfo.InvariantCulture).ToString(CultureInfo.InvariantCulture);
         }
     }
 }

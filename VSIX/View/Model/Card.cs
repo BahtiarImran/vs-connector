@@ -16,6 +16,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using ThoughtWorksMingleLib;
 
@@ -97,7 +98,7 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="value"></param>
         internal void AddCardAttributeFilterToPostData(string name, string value)
         {
-            MingleCard.PostData.Add(string.Format("card[{0}]={1}", name, value).Trim());
+            MingleCard.PostData.Add(string.Format(CultureInfo.InvariantCulture, "card[{0}]={1}", name, value).Trim());
         }
 
         /// <summary>
@@ -107,8 +108,8 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="value"></param>
         internal void AddPropertyFilterToPostData(string name, string value)
         {
-            MingleCard.PostData.Add(String.Format("card[properties][][name]={0}", name).Trim());
-            MingleCard.PostData.Add(String.Format("card[properties][][value]={0}", value).Trim());
+            MingleCard.PostData.Add(String.Format(CultureInfo.InvariantCulture, "card[properties][][name]={0}", name).Trim());
+            MingleCard.PostData.Add(String.Format(CultureInfo.InvariantCulture, "card[properties][][value]={0}", value).Trim());
         }
 
         /// <summary>

@@ -16,6 +16,7 @@
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 using ThoughtWorksMingleLib;
@@ -111,7 +112,7 @@ namespace ThoughtWorks.VisualStudio
             {
                 var favorites = new Favorites();
                 new Project(MingleSettings.Project, this).GetFavorites.ToList().              /* enumerates favorites from mingle */
-                    Where(f => f.Value.FavoriteType.CompareTo("CardListView") == 0).ToList().    /* selects only CardListView favorites */
+                    Where(f => string.CompareOrdinal(f.Value.FavoriteType, "CardListView") == 0).ToList().    /* selects only CardListView favorites */
                     ForEach(f => favorites.Add(f.Key, f.Value));                                  /* populates the ViewModel cache */
                 return favorites;
             }
@@ -182,7 +183,7 @@ namespace ThoughtWorks.VisualStudio
         public SortedList<string, CardBasicInfo> GetCardsForFavorite(string view)
         {
             var cards = new SortedList<string, CardBasicInfo>();
-            Project().GetView(view).ToList().ForEach(c => cards.Add(string.Format("{0}{1}", c.CardType, c.Name),new CardBasicInfo(c.Number, c.CardType, c.Name)));
+            Project().GetView(view).ToList().ForEach(c => cards.Add(string.Format(CultureInfo.InvariantCulture, "{0}{1}", c.CardType, c.Name), new CardBasicInfo(c.Number, c.CardType, c.Name)));
             return cards;
         }
 
@@ -193,7 +194,7 @@ namespace ThoughtWorks.VisualStudio
         /// <returns>Card object</returns>
         public Card GetOneCard(int cardNo)
         {
-            var cardStr = Mingle.Get(MingleSettings.Project, string.Format("/cards/{0}.xml", cardNo));
+            var cardStr = Mingle.Get(MingleSettings.Project, string.Format(CultureInfo.InvariantCulture, "/cards/{0}.xml", cardNo));
             CurrentCardNumber = cardNo;
             CurrentCard = new Card(new MingleCard(cardStr, Project().MingleProject), this);
             return CurrentCard;
@@ -278,8 +279,8 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         public void PostComment(int number, string comment)
         {
-            var commentData = new Collection<string> { string.Format("comment[content]={0}", comment) };
-            var url = string.Format("/cards/{0}/comments.xml", number);
+            var commentData = new Collection<string> { string.Format(CultureInfo.InvariantCulture, "comment[content]={0}", comment) };
+            var url = string.Format(CultureInfo.InvariantCulture, "/cards/{0}/comments.xml", number);
             Mingle.Post(ProjectId, url, commentData);
         }
 
@@ -290,7 +291,7 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         public IEnumerable<CardComment> GetCommentsForCard(int number)
         {
-            var url = string.Format("/cards/{0}/comments.xml", number);
+            var url = string.Format(CultureInfo.InvariantCulture, "/cards/{0}/comments.xml", number);
             var comments = new List<CardComment>();
             XElement.Parse(Mingle.Get(ProjectId, url)).Elements("comment").ToList().ForEach(c => comments.Add(
                 new CardComment(c.Element("content").Value, c.Element("created_by").Element("name").Value, c.Element("created_at").Value)));

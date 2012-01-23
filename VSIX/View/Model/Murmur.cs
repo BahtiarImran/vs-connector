@@ -45,7 +45,7 @@ namespace ThoughtWorks.VisualStudio
         public Murmur (string name, string date, string body)
         {
             Name = name;
-            Date = Convert.ToDateTime(date).ToString(CultureInfo.InvariantCulture);
+            Date = Convert.ToDateTime(date, CultureInfo.InvariantCulture).ToString(CultureInfo.InvariantCulture);
             Body = body;
         }
     }

@@ -31,7 +31,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         public string Formatted
         {
-            get { return string.Format("{0} - ({1}) {2}", Number, Type, Name); }
+            get { return string.Format(CultureInfo.InvariantCulture, "{0} - ({1}) {2}", Number, Type, Name); }
         }
 
         /// <summary>

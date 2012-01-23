@@ -282,7 +282,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 var favorites = new Favorites();
-                MingleProject.GetFavorites().ToList().Where(f => f.Value.FavoritedType.CompareTo("CardListView") == 0).
+                MingleProject.GetFavorites().ToList().Where(f => string.CompareOrdinal(f.Value.FavoritedType, "CardListView") == 0).
                     ToList().ForEach(f => favorites.Add(f.Key, new Favorite(f.Value)));
                 return favorites;
             }
