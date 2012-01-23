@@ -153,7 +153,7 @@ namespace ThoughtWorks.VisualStudio
             catch (Exception e)
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, e);
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message, Resources.MingleExtensionTitle);
             }
 
         }
