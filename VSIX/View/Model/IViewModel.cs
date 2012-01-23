@@ -62,11 +62,12 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <returns></returns>
         Project Project();
+
         /// <summary>
         /// Returns all the cards
         /// </summary>
         /// <returns></returns>
-        XElement GetListOfCards();
+        XElement ListOfCards { get; }
         /// <summary>
         /// Returns cards of a certain type
         /// </summary>

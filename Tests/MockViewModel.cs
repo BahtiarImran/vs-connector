@@ -149,9 +149,9 @@ namespace Tests
         /// Returns all the cards
         /// </summary>
         /// <returns></returns>
-        public XElement GetListOfCards()
+        public XElement ListOfCards()
         {
-            return _model.GetListOfCards();
+            return _model.ListOfCards();
         }
 
         /// <summary>

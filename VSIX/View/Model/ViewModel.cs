@@ -252,9 +252,12 @@ namespace ThoughtWorks.VisualStudio
         /// Returns the list of cards in Mingle ordered by type, name
         /// </summary>
         /// <returns></returns>
-        public XElement GetListOfCards()
+        public XElement ListOfCards
         {
-            return Project().ExecMql("SELECT type, name, number ORDER BY type,name ASC");
+            get
+            {
+                return Project().ExecMql("SELECT type, name, number ORDER BY type,name ASC");
+            }
         }
 
         /// <summary>
