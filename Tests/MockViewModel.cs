@@ -65,9 +65,9 @@ namespace Tests
         /// <summary>
         /// List of favorites of type "CardListView"
         /// </summary>
-        public Favorites Favorites
+        public FavoritesDictionary FavoritesDictionary
         {
-            get { return _model.Favorites; }
+            get { return _model.FavoritesDictionary; }
         }
 
         /// <summary>

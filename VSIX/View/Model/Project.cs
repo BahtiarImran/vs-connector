@@ -65,7 +65,7 @@ namespace ThoughtWorks.VisualStudio
         /// Gets the favorites for this project
         /// </summary>
         /// <returns></returns>
-        Favorites GetFavorites { get; }
+        FavoritesDictionary GetFavoritesDictionary { get; }
 
         /// <summary>
         /// Get the list of property definitions for properties that are not restricted to transition-only
@@ -277,11 +277,11 @@ namespace ThoughtWorks.VisualStudio
         /// Get the Favorites for a project of type CardListView
         /// </summary>
         /// <returns></returns>
-        public Favorites GetFavorites
+        public FavoritesDictionary GetFavoritesDictionary
         {
             get
             {
-                var favorites = new Favorites();
+                var favorites = new FavoritesDictionary();
                 MingleProject.GetFavorites().ToList().Where(f => string.CompareOrdinal(f.Value.FavoritedType, "CardListView") == 0).
                     ToList().ForEach(f => favorites.Add(f.Key, new Favorite(f.Value)));
                 return favorites;

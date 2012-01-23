@@ -108,10 +108,10 @@ namespace Tests
         public void TestFavoritesRefresh()
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
-            var actual = model.Favorites.Count;
+            var actual = model.FavoritesDictionary.Count;
             const int expected = 10;
             Assert.AreEqual(expected, actual);
-            Assert.AreEqual("Iteration Scoreboard", model.Favorites.Values[1].Name);
+            Assert.AreEqual("Iteration Scoreboard", model.FavoritesDictionary.Values[1].Name);
         }
 
         [TestMethod]

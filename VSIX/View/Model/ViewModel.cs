@@ -106,12 +106,12 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Get the collection of Favorites
         /// </summary>
-        public Favorites Favorites 
+        public FavoritesDictionary FavoritesDictionary 
         { 
             get
             {
-                var favorites = new Favorites();
-                new Project(MingleSettings.Project, this).GetFavorites.ToList().              /* enumerates favorites from mingle */
+                var favorites = new FavoritesDictionary();
+                new Project(MingleSettings.Project, this).GetFavoritesDictionary.ToList().              /* enumerates favorites from mingle */
                     Where(f => string.CompareOrdinal(f.Value.FavoriteType, "CardListView") == 0).ToList().    /* selects only CardListView favorites */
                     ForEach(f => favorites.Add(f.Key, f.Value));                                  /* populates the ViewModel cache */
                 return favorites;

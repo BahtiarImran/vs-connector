@@ -21,7 +21,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// A collection of Favorite
     /// </summary>
-    public class Favorites : SortedList<string,Favorite>
+    public class FavoritesDictionary : SortedList<string,Favorite>
     {
     }
 }

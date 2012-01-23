@@ -479,7 +479,7 @@ namespace ThoughtWorks.VisualStudio
 				this.Cursor = Cursors.Wait;
 				favoritesTree.ItemsSource = null;
 				favoritesTree.Items.Clear();
-				favoritesTree.ItemsSource = Model.Favorites.Keys;
+				favoritesTree.ItemsSource = Model.FavoritesDictionary.Keys;
 			}
 			catch (Exception ex)
 			{

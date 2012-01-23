@@ -22,7 +22,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// List of favorites of type "CardListView"
         /// </summary>
-        Favorites Favorites { get; }
+        FavoritesDictionary FavoritesDictionary { get; }
         /// <summary>
         /// List of TeamMember sorted by name
         /// </summary>
