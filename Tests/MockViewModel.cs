@@ -162,7 +162,7 @@ namespace Tests
         /// </summary>
         /// <param name="type">Card type</param>
         /// <returns></returns>
-        public Cards GetCardsOfType(string type)
+        public CardsCollection GetCardsOfType(string type)
         {
             return _model.GetCardsOfType(type);
         }

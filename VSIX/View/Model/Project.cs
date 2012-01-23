@@ -35,7 +35,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="filters">Filters to be applied to the query</param>
         /// <returns></returns>
-        Cards GetCards(Collection<string> filters);
+        CardsCollection GetCards(Collection<string> filters);
 
         /// <summary>
         /// Gets the card types for this project
@@ -59,7 +59,7 @@ namespace ThoughtWorks.VisualStudio
         /// Gets the property definitions for this project
         /// </summary>
         /// <returns></returns>
-        CardProperties PropertyDefinitions { get; }
+        CardPropertiesDictionary PropertyDictionaryDefinitions { get; }
 
         /// <summary>
         /// Gets the favorites for this project
@@ -87,7 +87,7 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="cardType">Card_type of cards to be returned</param>
         /// <param name="forceRead">Force cache to be filled. If false then data from the cache is returned.</param>
         /// <returns></returns>
-        Cards GetCardsOfType(string cardType);
+        CardsCollection GetCardsOfType(string cardType);
 
         /// <summary>
         /// Execute an MQL request and return results in a MingleCardCollection
@@ -102,7 +102,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="name">Name of the view (favorite)</param>
         /// <returns></returns>
-        Cards GetView(string name);
+        CardsCollection GetView(string name);
 
         /// <summary>
         /// Creates a new card
@@ -157,9 +157,9 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="filters"></param>
         /// <returns></returns>
-        public Cards GetCards(Collection<string> filters)
+        public CardsCollection GetCards(Collection<string> filters)
         {
-            var cards = new Cards(_project, _model);
+            var cards = new CardsCollection(_project, _model);
             _project.GetCards(filters).ToList().ForEach(c => cards.Add(new Card(c, _model)));
             return cards;
         }
@@ -201,13 +201,13 @@ namespace ThoughtWorks.VisualStudio
             }
         }
         /// <summary>
-        /// Returns a CardProperties collection
+        /// Returns a CardPropertiesDictionary collection
         /// </summary>
-        public CardProperties PropertyDefinitions
+        public CardPropertiesDictionary PropertyDictionaryDefinitions
         {
             get
             {
-                var cardProperties = new CardProperties(_model, MingleProject);
+                var cardProperties = new CardPropertiesDictionary(_model, MingleProject);
                 MingleProject.GetProperties().ToList().ForEach(
                     p => cardProperties.Add(p.Key, new CardProperty(_model, p.Value, null)));
                 return cardProperties;
@@ -232,22 +232,22 @@ namespace ThoughtWorks.VisualStudio
             return MingleProject.GetCardType(cardNumber);
         }
         /// <summary>
-        /// Returns a Cards collection of cards of type
+        /// Returns a CardsCollection collection of cards of type
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public Cards GetCardsOfType(string type)
+        public CardsCollection GetCardsOfType(string type)
         {
-            var cards = new Cards(MingleProject, _model);
+            var cards = new CardsCollection(MingleProject, _model);
             MingleProject.GetCardsOfType(type).ToList().ForEach(c => cards.Add(new Card(c, _model)));
             return cards;
         }
 
-        //public Cards GetIndirectCardsByTypeName(string cardType, bool forceRead)
+        //public CardsCollection GetIndirectCardsByTypeName(string cardType, bool forceRead)
         //{
         //    var filters = new Collection<string>{"page=all"};
         //    MingleProject.GetIndirectCardsByTypeName(cardType, forceRead).ToList().ForEach(c => filters.Add(new MingleFilter("Type", "is", c).FilterFormatString));
-        //    var cards = new Cards(MingleProject, _model);
+        //    var cards = new CardsCollection(MingleProject, _model);
         //    MingleProject.GetCards(filters).ToList().ForEach(c => cards.Add(new Card(c, _model)));
         //    return cards;
         //}
@@ -262,13 +262,13 @@ namespace ThoughtWorks.VisualStudio
             return MingleProject.ExecMql(mql);
         }
         /// <summary>
-        /// Returns a Cards collection for cards for view of name
+        /// Returns a CardsCollection collection for cards for view of name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Cards GetView(string name)
+        public CardsCollection GetView(string name)
         {
-            var cards = new Cards(MingleProject, _model);
+            var cards = new CardsCollection(MingleProject, _model);
             MingleProject.GetView(name).ToList().ForEach(c => cards.Add(new Card(c, _model)));
             return cards;
         }

@@ -34,7 +34,7 @@ namespace ThoughtWorks.VisualStudio
         private Team _teamCache;
         private Team _teamMlCache;
         private Transitions _transitionsCache;
-        private CardProperties _propertiesCache;
+        private CardPropertiesDictionary _propertiesDictionaryCache;
         private CardTypes _cardTypesCache;
         private ObservableCollection<Murmur> _murmursCache;
 
@@ -164,9 +164,9 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _propertiesCache && _propertiesCache.Count > 0) return _propertiesCache;
-                _propertiesCache = Project().PropertyDefinitions;
-                return _propertiesCache;
+                if (null != _propertiesDictionaryCache && _propertiesDictionaryCache.Count > 0) return _propertiesDictionaryCache;
+                _propertiesDictionaryCache = Project().PropertyDictionaryDefinitions;
+                return _propertiesDictionaryCache;
             }
         }
 
@@ -176,7 +176,7 @@ namespace ThoughtWorks.VisualStudio
         public string ProjectId { get { return MingleSettings.Project; } }
 
         /// <summary>
-        /// Get collection of Cards for a particular favorite
+        /// Get collection of CardsCollection for a particular favorite
         /// </summary>
         /// <param name="view"></param>
         /// <returns></returns>
@@ -266,7 +266,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public Cards GetCardsOfType(string type)
+        public CardsCollection GetCardsOfType(string type)
         {
             return _project.GetCardsOfType(type);
         }

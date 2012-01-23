@@ -14,27 +14,39 @@
 // limitations under the License.
 //
 
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
     /// <summary>
-    /// Colelction of Mingle propery_definitions
+    /// Collection of Cards
     /// </summary>
-    public class CardProperties : Dictionary<string, CardProperty>
+    public class CardsCollection : ObservableCollection<Card>
     {
         private readonly IMingleProject _project;
         private readonly ViewModel _model;
 
         /// <summary>
-        /// Constructs a new cardProperties collection
+        /// Constructs a Cards collection
         /// </summary>
         /// <param name="project"></param>
-        public CardProperties(ViewModel model, IMingleProject project)
+        /// <param name="model"></param>
+        public CardsCollection(IMingleProject project, ViewModel model)
         {
             _project = project;
             _model = model;
+        }
+
+        /// <summary>
+        /// Refresh the cache of cards for a Favorite in the ViewModel
+        /// </summary>
+        /// <param name="view"></param>
+        public void RefreshView(string view)
+        {
+            Clear();
+            _project.GetView(view).ToList().ForEach(c => Add(new Card(c, _model)));
         }
     }
 }

@@ -120,9 +120,9 @@
       <DependentUpon>CardListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Model\CardBasicInfo.cs" />
-    <Compile Include="View\Model\CardProperties.cs" />
+    <Compile Include="View\Model\CardPropertiesDictionary.cs" />
     <Compile Include="View\Model\CardProperty.cs" />
-    <Compile Include="View\Model\Cards.cs" />
+    <Compile Include="View\Model\CardsCollection.cs" />
     <Compile Include="View\Model\CardType.cs" />
     <Compile Include="View\Model\CardTypePropertyDefinition.cs" />
     <Compile Include="View\Model\CardTypes.cs" />

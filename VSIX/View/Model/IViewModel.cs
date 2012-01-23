@@ -73,7 +73,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="type">Card type</param>
         /// <returns></returns>
-        Cards GetCardsOfType(string type);
+        CardsCollection GetCardsOfType(string type);
         /// <summary>
         /// Posts a comment to a card
         /// </summary>
