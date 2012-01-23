@@ -249,6 +249,7 @@ namespace ThoughtWorks.VisualStudio
 
         internal void RefreshMurmurs()
         {
+            if (null == _murmurs) return;
             _murmurs.Control.RefreshMurmurs();
         }
 
