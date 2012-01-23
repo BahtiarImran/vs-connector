@@ -19,15 +19,30 @@ using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
+    /// <summary>
+    /// Models a Mingle card type
+    /// </summary>
     public class CardType
     {
         private readonly MingleCardType _cardType;
+
+        /// <summary>
+        /// Constructs a new CardType
+        /// </summary>
+        /// <param name="cardType">A MingleCardType object</param>
+        public CardType(MingleCardType cardType)
+        {
+            _cardType = cardType;
+        }
 
         /// <summary>
         /// Card type name
         /// </summary>
         public string Name { get { return _cardType.Name; } }
 
+        /// <summary>
+        /// List of property definitions for the CardType
+        /// </summary>
         public SortedList<string, CardProperty> PropertyDefinitions 
         { 
             get
