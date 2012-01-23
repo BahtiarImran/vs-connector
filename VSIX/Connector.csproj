@@ -242,9 +242,6 @@
       <SubType>Designer</SubType>
       <MergeWithCTO>true</MergeWithCTO>
     </EmbeddedResource>
-    <Content Include="tw-vs-connector-eval-license.rtf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
