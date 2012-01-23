@@ -110,7 +110,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 var favorites = new Favorites();
-                new Project(MingleSettings.Project, this).GetFavorites().ToList().              /* enumerates favorites from mingle */
+                new Project(MingleSettings.Project, this).GetFavorites.ToList().              /* enumerates favorites from mingle */
                     Where(f => f.Value.FavoriteType.CompareTo("CardListView") == 0).ToList().    /* selects only CardListView favorites */
                     ForEach(f => favorites.Add(f.Key, f.Value));                                  /* populates the ViewModel cache */
                 return favorites;
@@ -125,7 +125,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 if (null != _teamCache && _teamCache.Count > 0) return _teamCache;
-                _teamCache = Project().GetTeam();
+                _teamCache = Project().Team;
                 return _teamCache;
             }
         }
@@ -138,7 +138,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 if (null != _teamMlCache && _teamMlCache.Count > 0) return _teamMlCache;
-                _teamMlCache = Project().GetTeam();
+                _teamMlCache = Project().Team;
                 _teamMlCache.Add(Resources.ItemNotSet, new TeamMember(this, false));
                 return _teamMlCache;
             }
@@ -151,7 +151,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 if (null != _cardTypesCache && _cardTypesCache.Count > 0) return _cardTypesCache;
-                _cardTypesCache = Project().GetCardTypes();
+                _cardTypesCache = Project().CardTypes;
                 return _cardTypesCache;
             }
         }
@@ -164,7 +164,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 if (null != _propertiesCache && _propertiesCache.Count > 0) return _propertiesCache;
-                _propertiesCache = Project().GetPropertyDefinitions();
+                _propertiesCache = Project().PropertyDefinitions;
                 return _propertiesCache;
             }
         }
@@ -211,7 +211,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 if (null != _transitionsCache) return _transitionsCache;
-                _transitionsCache = Project().GetTransitions();
+                _transitionsCache = Project().Transitions;
                 return _transitionsCache;
             } 
         }

@@ -41,31 +41,31 @@ namespace ThoughtWorks.VisualStudio
         /// Gets the card types for this project
         /// </summary>
         /// <returns></returns>
-        CardTypes GetCardTypes();
+        CardTypes CardTypes { get; }
 
         /// <summary>
         /// Gets the transitions for this project
         /// </summary>
         /// <returns></returns>
-        Transitions GetTransitions();
+        Transitions Transitions { get; }
 
         /// <summary>
         /// Gets the team members for this project
         /// </summary>
         /// <returns></returns>
-        Team GetTeam();
+        Team Team { get; }
 
         /// <summary>
         /// Gets the property definitions for this project
         /// </summary>
         /// <returns></returns>
-        CardProperties GetPropertyDefinitions();
+        CardProperties PropertyDefinitions { get; }
 
         /// <summary>
         /// Gets the favorites for this project
         /// </summary>
         /// <returns></returns>
-        Favorites GetFavorites();
+        Favorites GetFavorites { get; }
 
         /// <summary>
         /// Get the list of property definitions for properties that are not restricted to transition-only
@@ -125,16 +125,6 @@ namespace ThoughtWorks.VisualStudio
         string ProjectId { get; }
 
         /// <summary>
-        /// Property definitions for this project
-        /// </summary>
-        CardProperties PropertyDefinitions { get; }
-
-        /// <summary>
-        /// Transition collection for this project
-        /// </summary>
-        Transitions Transitions { get; }
-
-        /// <summary>
         /// Sends a murmur to Mingle
         /// </summary>
         /// <param name="murmur"></param>
@@ -163,58 +153,96 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="project"></param>
         /// <param name="model"></param>
-        public Project(string project, ViewModel model)
+        internal Project(string project, ViewModel model)
         {
             _mingle = model.Mingle;
             _project = _mingle.GetProject(project);
             _model = model;
         }
-
+        /// <summary>
+        /// Wraps MingleProject.GetCards(filters)
+        /// </summary>
+        /// <param name="filters"></param>
+        /// <returns></returns>
         public Cards GetCards(Collection<string> filters)
         {
             var cards = new Cards(_project, _model);
             _project.GetCards(filters).ToList().ForEach(c => cards.Add(new Card(c, _model)));
             return cards;
         }
-
-        public CardTypes GetCardTypes()
+        /// <summary>
+        /// Returns CardTypes collection 
+        /// </summary>
+        public CardTypes CardTypes
         {
-            var cardTypes = new CardTypes(_model, MingleProject);
-            MingleProject.GetCardTypes().ToList().ForEach(ct => cardTypes.Add(ct.Name, ct));
-            return cardTypes;
+            get
+            {
+                var cardTypes = new CardTypes(_model, MingleProject);
+                MingleProject.GetCardTypes().ToList().ForEach(ct => cardTypes.Add(ct.Name, ct));
+                return cardTypes;
+            }
         }
-
-        public Transitions GetTransitions()
+        /// <summary>
+        /// Returns a Transitions collection
+        /// </summary>
+        public Transitions Transitions
         {
-            var transitions = new Transitions(MingleProject);
-            MingleProject.GetTransitions().ToList().ForEach(t => transitions.Add(new Transition(t.Value)));
-            return transitions;
-        }
+            get
+            {
+                var transitions = new Transitions(MingleProject);
+                MingleProject.GetTransitions().ToList().ForEach(t => transitions.Add(new Transition(t.Value)));
+                return transitions;
 
-        public Team GetTeam()
+            }
+        }
+        /// <summary>
+        /// Returns a Team collection
+        /// </summary>
+        public Team Team
         {
-            var team = new Team(_model, MingleProject);
-            MingleProject.GetTeam().ToList().ForEach(t => team.Add(t.Key, new TeamMember(_model, t.Value)));
-            return team;
+            get
+            {
+                var team = new Team(_model, MingleProject);
+                MingleProject.GetTeam().ToList().ForEach(t => team.Add(t.Key, new TeamMember(_model, t.Value)));
+                return team;
+            }
         }
-
-        public CardProperties GetPropertyDefinitions()
-        { 
-            var cardProperties = new CardProperties(_model, MingleProject);
-            MingleProject.GetProperties().ToList().ForEach(p => cardProperties.Add(p.Key, new CardProperty(_model, p.Value, null)));
-            return cardProperties;
+        /// <summary>
+        /// Returns a CardProperties collection
+        /// </summary>
+        public CardProperties PropertyDefinitions
+        {
+            get
+            {
+                var cardProperties = new CardProperties(_model, MingleProject);
+                MingleProject.GetProperties().ToList().ForEach(
+                    p => cardProperties.Add(p.Key, new CardProperty(_model, p.Value, null)));
+                return cardProperties;
+            }
         }
-
+        /// <summary>
+        /// Returns a Hashtable of CardProperty
+        /// </summary>
+        /// <param name="transitionOnly"></param>
+        /// <returns></returns>
         public Hashtable GetCardValuedProperties(bool transitionOnly)
         {
             return MingleProject.GetCardValuedProperties(transitionOnly);
         }
-
+        /// <summary>
+        /// Returns the CardType name of a card identified by cardNumber
+        /// </summary>
+        /// <param name="cardNumber"></param>
+        /// <returns></returns>
         public string GetCardType(string cardNumber)
         {
             return MingleProject.GetCardType(cardNumber);
         }
-
+        /// <summary>
+        /// Returns a Cards collection of cards of type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public Cards GetCardsOfType(string type)
         {
             var cards = new Cards(MingleProject, _model);
@@ -231,11 +259,20 @@ namespace ThoughtWorks.VisualStudio
         //    return cards;
         //}
 
+        /// <summary>
+        /// Calls the execute_mql API and returns an XElement of results
+        /// </summary>
+        /// <param name="mql"></param>
+        /// <returns></returns>
         public XElement ExecMql(string mql)
         {
             return MingleProject.ExecMql(mql);
         }
-
+        /// <summary>
+        /// Returns a Cards collection for cards for view of name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public Cards GetView(string name)
         {
             var cards = new Cards(MingleProject, _model);
@@ -245,19 +282,22 @@ namespace ThoughtWorks.VisualStudio
 
         public string RunMacro(string macro)
         {
-            return MingleProject.RunMacro(macro);
+            throw new Exception("IProject.RunMarco is not implemented");
         }
 
         /// <summary>
         /// Get the Favorites for a project of type CardListView
         /// </summary>
         /// <returns></returns>
-        public Favorites GetFavorites()
+        public Favorites GetFavorites
         {
-            var favorites = new Favorites();
-            MingleProject.GetFavorites().ToList().Where(f => f.Value.FavoritedType.CompareTo("CardListView") == 0).
-                ToList().ForEach(f => favorites.Add(f.Key, new Favorite(f.Value)));
-            return favorites;
+            get
+            {
+                var favorites = new Favorites();
+                MingleProject.GetFavorites().ToList().Where(f => f.Value.FavoritedType.CompareTo("CardListView") == 0).
+                    ToList().ForEach(f => favorites.Add(f.Key, new Favorite(f.Value)));
+                return favorites;
+            }
         }
 
         /// <summary>
@@ -276,21 +316,6 @@ namespace ThoughtWorks.VisualStudio
         public string ProjectId
         {
             get { return _model.ProjectId; }
-        }
-
-        public CardProperties PropertyDefinitions
-        {
-            get 
-            { 
-                var properties = new CardProperties(_model, this.MingleProject); 
-                MingleProject.GetProperties().ToList().ForEach(p => properties.Add(p.Key, new CardProperty(_model, p.Value, null)));
-                return properties;
-            }
-        }
-
-        public Transitions Transitions
-        {
-            get { throw new NotImplementedException(); }
         }
 
         /// <summary>
@@ -315,7 +340,7 @@ namespace ThoughtWorks.VisualStudio
 
         public IMingleServer Mingle
         {
-            get { throw new NotImplementedException(); }
+            get { throw new Exception("IProject.Mingle is not implemented."); }
         }
     }
 }
