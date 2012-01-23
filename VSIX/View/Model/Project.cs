@@ -171,7 +171,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 var cardTypes = new CardTypes(_model, MingleProject);
-                MingleProject.GetCardTypes().ToList().ForEach(ct => cardTypes.Add(ct.Name, ct));
+                MingleProject.GetCardTypes().ToList().ForEach(ct => cardTypes.Add(new CardType(ct)));
                 return cardTypes;
             }
         }

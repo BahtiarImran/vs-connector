@@ -15,6 +15,7 @@
 //
 
 using System.Collections;
+using System.Collections.ObjectModel;
 using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
@@ -22,7 +23,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// Models card_types for the view
     /// </summary>
-    public class CardTypes : SortedList
+    public class CardTypes : ObservableCollection<CardType>
     {
         private readonly IMingleProject _project;
         private readonly ViewModel _model;

@@ -371,7 +371,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
-            var cards = _thisCard.Model.ListOfCards();
+            var cards = _thisCard.Model.ListOfCards;
             var w = new CardListWindow(cards);
             w.ShowDialog();
 
