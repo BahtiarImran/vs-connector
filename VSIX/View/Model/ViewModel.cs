@@ -221,7 +221,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 _murmursCache = new ObservableCollection<Murmur>();
-                Project().GetMurmurs().ToList().ForEach(m => _murmursCache.Add(new Murmur(m.Body, m.Date, m.Name)));
+                Project().Murmurs.ToList().ForEach(m => _murmursCache.Add(new Murmur(m.Body, m.Date, m.Name)));
                 return _murmursCache;
             }
         }

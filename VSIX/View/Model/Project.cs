@@ -105,13 +105,6 @@ namespace ThoughtWorks.VisualStudio
         Cards GetView(string name);
 
         /// <summary>
-        /// Given a macro, return the renderable HTML
-        /// </summary>
-        /// <param name="macro">Macro text</param>
-        /// <returns>HTML</returns>
-        string RunMacro(string macro);
-
-        /// <summary>
         /// Creates a new card
         /// </summary>
         /// <param name="type"></param>
@@ -134,7 +127,7 @@ namespace ThoughtWorks.VisualStudio
         /// Returns murmur history from Mingle
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Murmur> GetMurmurs();
+        IEnumerable<Murmur> Murmurs { get; }
     }
 
     /// <summary>
@@ -280,11 +273,6 @@ namespace ThoughtWorks.VisualStudio
             return cards;
         }
 
-        public string RunMacro(string macro)
-        {
-            throw new Exception("IProject.RunMarco is not implemented");
-        }
-
         /// <summary>
         /// Get the Favorites for a project of type CardListView
         /// </summary>
@@ -312,7 +300,9 @@ namespace ThoughtWorks.VisualStudio
         {
             return new Card(MingleProject.CreateCard(type, name), _model);
         }
-
+        /// <summary>
+        /// Id (not the name) of a Mingle project
+        /// </summary>
         public string ProjectId
         {
             get { return _model.ProjectId; }
@@ -331,16 +321,16 @@ namespace ThoughtWorks.VisualStudio
         /// Returns murmur history from Mingle
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Murmur> GetMurmurs()
+        public IEnumerable<Murmur> Murmurs
         {
-            var murmurs = new List<Murmur>();
-            MingleProject.GetMurmurs().ToList().ForEach(m => murmurs.Add(new Murmur(m.Body, m.CreatedAt.ToString(CultureInfo.InvariantCulture), m.AuthorName)));
-            return murmurs;
-        }
-
-        public IMingleServer Mingle
-        {
-            get { throw new Exception("IProject.Mingle is not implemented."); }
+            get
+            {
+                var murmurs = new List<Murmur>();
+                MingleProject.GetMurmurs().ToList().ForEach(
+                    m =>
+                    murmurs.Add(new Murmur(m.Body, m.CreatedAt.ToString(CultureInfo.InvariantCulture), m.AuthorName)));
+                return murmurs;
+            }
         }
     }
 }
