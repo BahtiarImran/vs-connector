@@ -32,6 +32,7 @@ namespace ThoughtWorks.VisualStudio
 	public partial class ExplorerViewControl
 	{
 		protected internal ViewModel Model { get; set; }
+	    private MurmurViewWindowPane _murmurs;
 
 		/// <summary>
 		/// XAML form for navigating a Mingle/GO integrated environment 
@@ -71,13 +72,17 @@ namespace ThoughtWorks.VisualStudio
 
 			try
 			{
-				this.Cursor = Cursors.Wait;
+			    this.Cursor = Cursors.Wait;
 
-				if (Model.SelectProject(item))
-				{
-					BindCardTypes();
-				    BindExplorerTrees();
-				}
+			    if (Model.SelectProject(item))
+			    {
+			        BindCardTypes();
+			        BindExplorerTrees();
+                    if (null != _murmurs) _murmurs.Control.RefreshMurmurs();
+			    }
+			    else
+			    {
+			    }
 			}
 			catch (Exception ex)
 			{
@@ -182,7 +187,7 @@ namespace ThoughtWorks.VisualStudio
 
                 case "buttonOpenMurmurWindow":
                     {
-                        ShowMurmurWindow();
+                        _murmurs = ShowMurmurWindow();
                         break;
                     }
             }
@@ -191,7 +196,7 @@ namespace ThoughtWorks.VisualStudio
 		#endregion
 
 		#region Display one card
-        private void ShowMurmurWindow()
+        private MurmurViewWindowPane ShowMurmurWindow()
         {
             try
             {
@@ -205,12 +210,17 @@ namespace ThoughtWorks.VisualStudio
                 var frame = (IVsWindowFrame)window.Frame;
 
                 ErrorHandler.ThrowOnFailure(frame.Show());
+
+                return window as MurmurViewWindowPane;
             }
             catch (Exception e)
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, e);
                 MessageBox.Show(e.Message);
             }
+
+            return null;
+
         }
 
         private void ShowCardViewToolWindow(Card mingleCard)
@@ -223,7 +233,7 @@ namespace ThoughtWorks.VisualStudio
 				if ((null == window) || (null == window.Frame))
 					throw new NotSupportedException(VisualStudio.Resources.CanNotCreateWindow);
 
-				window.Bind(mingleCard);
+				window.Bind(mingleCard, RefreshMurmurs);
 
 				var windowFrame = (IVsWindowFrame)window.Frame;
 				ErrorHandler.ThrowOnFailure(windowFrame.Show());
@@ -236,6 +246,12 @@ namespace ThoughtWorks.VisualStudio
 									: ex.Message);
 			}
 		}
+
+        internal void RefreshMurmurs()
+        {
+            _murmurs.Control.RefreshMurmurs();
+        }
+
 		/// <summary>
 		/// Show the CardView window
 		/// </summary>
@@ -250,7 +266,7 @@ namespace ThoughtWorks.VisualStudio
 				if ((null == window) || (null == window.Frame))
 					throw new NotSupportedException(VisualStudio.Resources.CanNotCreateWindow);
 
-				window.Bind(Model.GetOneCard(cardNumber));
+				window.Bind(Model.GetOneCard(cardNumber), RefreshMurmurs);
 
 				var windowFrame = (IVsWindowFrame)window.Frame;
 				ErrorHandler.ThrowOnFailure(windowFrame.Show());

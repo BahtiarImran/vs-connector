@@ -89,10 +89,11 @@ namespace ThoughtWorks.VisualStudio
             svc.ShowDialog();
         }
 
-        private void RefreshMurmurs()
+        internal void RefreshMurmurs()
         {
             try
             {
+                murmursList.DataContext = Model.Murmurs;
                 murmursList.ItemsSource = Model.Murmurs;
             }
             catch (Exception ex)

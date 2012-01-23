@@ -36,6 +36,7 @@ namespace ThoughtWorks.VisualStudio
         private Card _thisCard;
         private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(Colors.Gainsboro );
         private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
+        internal Action RefreshMurmurs { get; set; }
 
         /// <summary>
         /// Constructs a CardViewControl
@@ -606,6 +607,8 @@ namespace ThoughtWorks.VisualStudio
                 if (Convert.ToBoolean(murmurComment.IsChecked))
                 {
                     _thisCard.Model.SendMurmur(comment.Text);
+                    RefreshMurmurs();
+
                 }
                 commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);
             }

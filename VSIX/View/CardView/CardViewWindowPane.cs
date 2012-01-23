@@ -56,13 +56,14 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Binds the CardViewControl content of this window to its data.
         /// </summary>
-        internal void Bind(Card card)
+        internal void Bind(Card card, Action refreshMurmurs)
         {
             var window = (CardViewControl) base.Content;
 
             Caption = string.Format(CultureInfo.CurrentCulture,Resources.CardWindowCaption, card.Number,
                                     card.Name);
             window.Bind(card);
+            window.RefreshMurmurs = refreshMurmurs;
         }
 
         /// <summary>

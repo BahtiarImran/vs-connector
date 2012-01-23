@@ -10,7 +10,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="66"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListBox x:Name="murmursList" Grid.Row="0" BorderThickness="0" Margin="8,0,8,8">
+        <ListBox x:Name="murmursList" Grid.Row="0" BorderThickness="0" Margin="8,0,8,8" IsSynchronizedWithCurrentItem="True">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
