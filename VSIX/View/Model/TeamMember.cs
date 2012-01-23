@@ -25,15 +25,24 @@ namespace ThoughtWorks.VisualStudio
     {
         private const string _notSetMember = "<projects_member><user><name>xxxx</name><login>xxxx</login></user></projects_member>";
         private readonly MingleProjectMember _teamMember;
-        public ViewModel Model;
+        internal ViewModel Model { get; set; }
 
-        public TeamMember(ViewModel model)
+        /// <summary>
+        /// Constructs a TeamMember
+        /// </summary>
+        /// <param name="model"></param>
+        internal TeamMember(ViewModel model)
         {
             Model = model;
             IsSet = true;
         }
 
-        public TeamMember(ViewModel model, bool set)
+        /// <summary>
+        /// Constructs a TeamMember
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="set"></param>
+        internal TeamMember(ViewModel model, bool set)
         {
             Model = model;
             IsSet = set;
@@ -44,18 +53,24 @@ namespace ThoughtWorks.VisualStudio
         /// Constructs a new TeamMember
         /// </summary>
         /// <param name="teamMember"></param>
-        public TeamMember(ViewModel model, MingleProjectMember teamMember)
+        internal TeamMember(ViewModel model, MingleProjectMember teamMember)
         {
             _teamMember = teamMember;
             Model = model;
         }
 
         /// <summary>
-        /// Login id of the team member
+        /// Login name of the team member
         /// </summary>
-        public string Name { get { return _teamMember.UserName; } }
-        public string Login { get { return _teamMember.UserLogin; } }
-        public bool IsAdmin { get { return _teamMember.ProjectAdmin; } }
+        internal string Name { get { return _teamMember.UserName; } }
+        /// <summary>
+        /// Login name of the team member
+        /// </summary>
+        internal string Login { get { return _teamMember.UserLogin; } }
+        /// <summary>
+        /// Indicates whether the team member has administrative privilges
+        /// </summary>
+        internal bool IsAdmin { get { return _teamMember.ProjectAdmin; } }
 
         /// <summary>
         /// Indicates that the Team Member is set
