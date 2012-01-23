@@ -28,7 +28,7 @@ namespace ThoughtWorks.VisualStudio
         /// Constructs a new PropertyValuesList
         /// </summary>
         /// <param name="propertyValueDetails"></param>
-        public PropertyValuesList(IEnumerable<string> propertyValueDetails)
+        internal PropertyValuesList(IEnumerable<string> propertyValueDetails)
         {
             Add(Resources.ItemNotSet);
             foreach(var p in propertyValueDetails) Add(p);
