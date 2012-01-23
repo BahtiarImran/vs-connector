@@ -10,7 +10,7 @@ namespace ThoughtWorks.VisualStudio
 	/// <summary>
 	/// This class supports persistance of user and application settings. 
 	/// </summary>
-	public class MingleSettings 
+	public static class MingleSettings 
 	{
 		private static readonly Properties.Settings Settings = new Properties.Settings();
 
