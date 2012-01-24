@@ -138,7 +138,7 @@
     <Compile Include="View\Model\TeamMemberDictionary.cs" />
     <Compile Include="View\Model\TeamMember.cs" />
     <Compile Include="View\Model\Transition.cs" />
-    <Compile Include="View\Model\Transitions.cs" />
+    <Compile Include="View\Model\TransitionsCollection.cs" />
     <Compile Include="View\Model\ViewModel.cs" />
     <Compile Include="View\FeedbackView\FeedbackViewControl.xaml.cs">
       <DependentUpon>FeedbackViewControl.xaml</DependentUpon>

@@ -47,7 +47,7 @@ namespace ThoughtWorks.VisualStudio
         /// Gets the transitions for this project
         /// </summary>
         /// <returns></returns>
-        Transitions Transitions { get; }
+        TransitionsCollection TransitionsCollection { get; }
 
         /// <summary>
         /// Gets the team members for this project
@@ -177,11 +177,11 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Returns a Transitions collection
         /// </summary>
-        public Transitions Transitions
+        public TransitionsCollection TransitionsCollection
         {
             get
             {
-                var transitions = new Transitions(MingleProject);
+                var transitions = new TransitionsCollection(MingleProject);
                 MingleProject.GetTransitions().ToList().ForEach(t => transitions.Add(new Transition(t.Value)));
                 return transitions;
 

@@ -23,7 +23,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// A collection of Transitions
     /// </summary>
-    public class Transitions : ObservableCollection<Transition>
+    public class TransitionsCollection : ObservableCollection<Transition>
     {
         private readonly IMingleProject _project;
 
@@ -31,7 +31,7 @@ namespace ThoughtWorks.VisualStudio
         /// Constructs a new Transitions collection
         /// </summary>
         /// <param name="project"></param>
-        public Transitions(IMingleProject project)
+        public TransitionsCollection(IMingleProject project)
         {
             _project = project;
         }

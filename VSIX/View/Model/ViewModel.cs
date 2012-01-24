@@ -33,7 +33,7 @@ namespace ThoughtWorks.VisualStudio
         private Project _project;
         private TeamMemberDictionary _teamMemberDictionaryCache;
         private TeamMemberDictionary _teamMemberDictionaryMlCache;
-        private Transitions _transitionsCache;
+        private TransitionsCollection _transitionsCollectionCache;
         private CardPropertiesDictionary _propertiesDictionaryCache;
         private CardTypesCollection _cardTypesCollectionCache;
         private ObservableCollection<Murmur> _murmursCache;
@@ -211,9 +211,9 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _transitionsCache) return _transitionsCache;
-                _transitionsCache = Project().Transitions;
-                return _transitionsCache;
+                if (null != _transitionsCollectionCache) return _transitionsCollectionCache;
+                _transitionsCollectionCache = Project().TransitionsCollection;
+                return _transitionsCollectionCache;
             } 
         }
 
