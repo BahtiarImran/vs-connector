@@ -30,6 +30,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Constructs a new CardProperty
         /// </summary>
+        /// <param name="model"> </param>
         /// <param name="property"></param>
         /// <param name="value"></param>
         public CardProperty(ViewModel model, MinglePropertyDefinition property, string value)
@@ -102,7 +103,13 @@ namespace ThoughtWorks.VisualStudio
                 return IsSetValued;
             }
         }
+        /// <summary>
+        /// Property name
+        /// </summary>
         public string Name { get { return _property.Name; } }
+        /// <summary>
+        /// Property position
+        /// </summary>
         public int Position { get { return _property.Position; } }
         /// <summary>
         /// Mingle's position attribute
