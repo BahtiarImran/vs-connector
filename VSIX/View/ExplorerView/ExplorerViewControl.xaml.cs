@@ -31,6 +31,9 @@ namespace ThoughtWorks.VisualStudio
 	/// </summary>
 	public partial class ExplorerViewControl
 	{
+        /// <summary>
+        /// View model
+        /// </summary>
 		protected internal ViewModel Model { get; set; }
 	    private MurmurViewWindowPane _murmurs;
 
