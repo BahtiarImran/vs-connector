@@ -26,6 +26,10 @@ namespace ThoughtWorks.VisualStudio
     [Serializable]
     public class CardPropertiesDictionary : Dictionary<string, CardProperty>
     {
+        internal CardPropertiesDictionary()
+        {
+        }
+
         protected CardPropertiesDictionary(SerializationInfo info, StreamingContext context)
         {
         }
