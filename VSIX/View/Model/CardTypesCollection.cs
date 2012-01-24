@@ -15,7 +15,6 @@
 //
 
 using System.Collections.ObjectModel;
-using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -24,17 +23,11 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public class CardTypesCollection : ObservableCollection<CardType>
     {
-        private readonly IMingleProject _project;
-        private readonly ViewModel _model;
-
         /// <summary>
         /// Constructs a new card type
         /// </summary>
-        /// <param name="project"></param>
-        public CardTypesCollection(ViewModel model, IMingleProject project)
+        public CardTypesCollection()
         {
-            _project = project;
-            _model = model;
         }
     }
 }
