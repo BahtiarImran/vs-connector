@@ -14,27 +14,20 @@
 // limitations under the License.
 //
 
+using System;
 using System.Collections.Generic;
-using ThoughtWorksMingleLib;
+using System.Runtime.Serialization;
 
 namespace ThoughtWorks.VisualStudio
 {
     /// <summary>
     /// Colelction of Mingle propery_definitions
     /// </summary>
+    [Serializable]
     public class CardPropertiesDictionary : Dictionary<string, CardProperty>
     {
-        private readonly IMingleProject _project;
-        private readonly ViewModel _model;
-
-        /// <summary>
-        /// Constructs a new cardProperties collection
-        /// </summary>
-        /// <param name="project"></param>
-        public CardPropertiesDictionary(ViewModel model, IMingleProject project)
+        protected CardPropertiesDictionary(SerializationInfo info, StreamingContext context)
         {
-            _project = project;
-            _model = model;
         }
     }
 }

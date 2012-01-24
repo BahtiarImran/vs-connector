@@ -207,7 +207,7 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                var cardProperties = new CardPropertiesDictionary(_model, MingleProject);
+                var cardProperties = new CardPropertiesDictionary();
                 MingleProject.GetProperties().ToList().ForEach(
                     p => cardProperties.Add(p.Key, new CardProperty(_model, p.Value, null)));
                 return cardProperties;
