@@ -51,28 +51,28 @@ namespace ThoughtWorks.VisualStudio
         }
 
         public object Value { get; set; }
-        internal int Number { get { return MingleCard.Number; } set { MingleCard.Number = value; } }
-        internal string Name { get { return MingleCard.Name; } set { MingleCard.Name = value; } }
-        internal int Id { get { return MingleCard.Id; } set { MingleCard.Id = value; } }
-        internal string Url { get { return MingleCard.Url; } set {  } }
-        internal string Description { get { return MingleCard.Description; } set { MingleCard.Description = value; } }
-        internal string RenderedDescription { get { return MingleCard.RenderedDescription; } }
-        internal string CardType { get { return MingleCard.Type; } set { MingleCard.Type = value; } }
-        internal string CardTypeUrl { get { return MingleCard.CardTypeUrl; } set { MingleCard.CardTypeUrl = value; } }
-        internal string ProjectName { get { return MingleCard.ProjectName; } set { MingleCard.ProjectName = value; } }
-        internal string ProjectId { get { return MingleCard.ProjectId; } set { MingleCard.ProjectId = value; } }
-        internal string ProjectUrl { get { return MingleCard.ProjectUrl; } set { MingleCard.ProjectUrl = value; } }
-        internal string Version { get { return MingleCard.Version; } set { MingleCard.Version = value; } }
-        internal int ProjectCardRank { get { return MingleCard.ProjectCardRank; } set { MingleCard.ProjectCardRank = value; } }
-        internal DateTime CreatedOn { get { return MingleCard.CreatedOn; } set { MingleCard.CreatedOn = value; } }
-        internal DateTime ModifiedOn { get { return MingleCard.ModifiedOn; } set { MingleCard.ModifiedOn = value; } }
-        internal string ModifiedByLogin { get { return MingleCard.ModifiedByLogin; } set { MingleCard.ModifiedByLogin = value; } }
-        internal string ModifiedByName { get { return MingleCard.ModifiedByName; } set { MingleCard.ModifiedByName = value; } }
-        internal string ModifiedByUrl { get { return MingleCard.ModifiedByUrl; } set { MingleCard.ModifiedByUrl = value; } }
-        internal string CreatedByLogin { get { return MingleCard.CreatedByLogin; } set { MingleCard.CreatedByLogin = value; } }
-        internal string CreatedByName { get { return MingleCard.CreatedByName; } set { MingleCard.CreatedByName = value; } }
-        internal string CreatedByUrl { get { return MingleCard.CreatedByUrl; } set { MingleCard.CreatedByUrl = value; } }
-        internal Dictionary<string, CardProperty> Properties
+        public int Number { get { return MingleCard.Number; } set { MingleCard.Number = value; } }
+        public string Name { get { return MingleCard.Name; } set { MingleCard.Name = value; } }
+        public int Id { get { return MingleCard.Id; } set { MingleCard.Id = value; } }
+        public string Url { get { return MingleCard.Url; } }
+        public string Description { get { return MingleCard.Description; } set { MingleCard.Description = value; } }
+        public string RenderedDescription { get { return MingleCard.RenderedDescription; } }
+        public string CardType { get { return MingleCard.Type; } set { MingleCard.Type = value; } }
+        public string CardTypeUrl { get { return MingleCard.CardTypeUrl; } set { MingleCard.CardTypeUrl = value; } }
+        public string ProjectName { get { return MingleCard.ProjectName; } set { MingleCard.ProjectName = value; } }
+        public string ProjectId { get { return MingleCard.ProjectId; } set { MingleCard.ProjectId = value; } }
+        public string ProjectUrl { get { return MingleCard.ProjectUrl; } set { MingleCard.ProjectUrl = value; } }
+        public string Version { get { return MingleCard.Version; } set { MingleCard.Version = value; } }
+        public int ProjectCardRank { get { return MingleCard.ProjectCardRank; } set { MingleCard.ProjectCardRank = value; } }
+        public DateTime CreatedOn { get { return MingleCard.CreatedOn; } set { MingleCard.CreatedOn = value; } }
+        public DateTime ModifiedOn { get { return MingleCard.ModifiedOn; } set { MingleCard.ModifiedOn = value; } }
+        public string ModifiedByLogin { get { return MingleCard.ModifiedByLogin; } set { MingleCard.ModifiedByLogin = value; } }
+        public string ModifiedByName { get { return MingleCard.ModifiedByName; } set { MingleCard.ModifiedByName = value; } }
+        public string ModifiedByUrl { get { return MingleCard.ModifiedByUrl; } set { MingleCard.ModifiedByUrl = value; } }
+        public string CreatedByLogin { get { return MingleCard.CreatedByLogin; } set { MingleCard.CreatedByLogin = value; } }
+        public string CreatedByName { get { return MingleCard.CreatedByName; } set { MingleCard.CreatedByName = value; } }
+        public string CreatedByUrl { get { return MingleCard.CreatedByUrl; } set { MingleCard.CreatedByUrl = value; } }
+        public Dictionary<string, CardProperty> Properties
         {
             get
             {
@@ -82,13 +82,12 @@ namespace ThoughtWorks.VisualStudio
                 return _propertiesCache;
             }
         }
-        internal IEnumerable<Transition> Transitions 
+        public IEnumerable<Transition> Transitions 
         { 
             get
             {
                 return Model.TransitionsCollection.Where(tr => tr.CardTypeName == MingleCard.Type).ToList();
             } 
-            set { }
         }
 
         /// <summary>
