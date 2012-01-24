@@ -84,10 +84,10 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Returns card of the type indicated by cardType
         /// </summary>
-        /// <param name="cardType">Card_type of cards to be returned</param>
+        /// <param name="cardTypeName">Card_type of cards to be returned</param>
         /// <param name="forceRead">Force cache to be filled. If false then data from the cache is returned.</param>
         /// <returns></returns>
-        CardsCollection GetCardsOfType(string cardType);
+        CardsCollection GetCardsOfType(string cardTypeName);
 
         /// <summary>
         /// Execute an MQL request and return results in a MingleCardCollection
@@ -234,23 +234,14 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Returns a CardsCollection collection of cards of type
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="cardTypeName"></param>
         /// <returns></returns>
-        public CardsCollection GetCardsOfType(string type)
+        public CardsCollection GetCardsOfType(string cardTypeName)
         {
             var cards = new CardsCollection(MingleProject, _model);
-            MingleProject.GetCardsOfType(type).ToList().ForEach(c => cards.Add(new Card(c, _model)));
+            MingleProject.GetCardsOfType(cardTypeName).ToList().ForEach(c => cards.Add(new Card(c, _model)));
             return cards;
         }
-
-        //public CardsCollection GetIndirectCardsByTypeName(string cardType, bool forceRead)
-        //{
-        //    var filters = new Collection<string>{"page=all"};
-        //    MingleProject.GetIndirectCardsByTypeName(cardType, forceRead).ToList().ForEach(c => filters.Add(new MingleFilter("Type", "is", c).FilterFormatString));
-        //    var cards = new CardsCollection(MingleProject, _model);
-        //    MingleProject.GetCards(filters).ToList().ForEach(c => cards.Add(new Card(c, _model)));
-        //    return cards;
-        //}
 
         /// <summary>
         /// Calls the execute_mql API and returns an XElement of results
