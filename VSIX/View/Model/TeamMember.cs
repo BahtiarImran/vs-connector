@@ -62,11 +62,11 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Login name of the team member
         /// </summary>
-        internal string Name { get { return _teamMember.UserName; } }
+        public string Name { get { return _teamMember.UserName; } }
         /// <summary>
         /// Login name of the team member
         /// </summary>
-        internal string Login { get { return _teamMember.UserLogin; } }
+        public string Login { get { return _teamMember.UserLogin; } }
         /// <summary>
         /// Indicates whether the team member has administrative privilges
         /// </summary>
