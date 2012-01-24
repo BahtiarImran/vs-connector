@@ -90,10 +90,18 @@ namespace ThoughtWorks.VisualStudio
         }
 
 }
-
+    /// <summary>
+    /// Describes a card's name and number
+    /// </summary>
     public class CardItem
     {
+        /// <summary>
+        /// Card name
+        /// </summary>
         public string Number { get; set; }
+        /// <summary>
+        /// Card number
+        /// </summary>
         public string Name { get; set; }
     }
 }
