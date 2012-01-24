@@ -40,17 +40,5 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         public string Name { get { return _cardType.Name; } }
 
-        /// <summary>
-        /// List of property definitions for the CardType
-        /// </summary>
-        public SortedList<string, CardProperty> PropertyDefinitions 
-        { 
-            get
-            {
-                var properties = new SortedList<string, CardProperty>();
-                //_cardType.PropertyDefinitions.ToList().ForEach(pd => properties.Add(pd.Key, new CardProperty(_model, pd.Value)));
-                return properties;
-            } 
-        }
     }
 }
