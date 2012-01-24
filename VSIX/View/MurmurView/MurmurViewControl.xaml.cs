@@ -27,12 +27,11 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public partial class MurmurViewControl : UserControl
     {
-        protected internal ViewModel Model { get; set; }
+        internal ViewModel Model { get; set; }
 
         /// <summary>
         /// Constructs a new MurmurViewControl
         /// </summary>
-        /// <param name="model">ViewModel object</param>
         public MurmurViewControl()
         {
             InitializeComponent();
@@ -53,7 +52,7 @@ namespace ThoughtWorks.VisualStudio
             }
         }
 
-        protected internal void Initialize(ViewModel model)
+        internal void Initialize(ViewModel model)
         {
             Model = model;
 
