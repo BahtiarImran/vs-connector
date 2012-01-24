@@ -15,7 +15,6 @@
 //
 
 using System.Collections.Generic;
-using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -24,18 +23,5 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public class TeamMemberDictionary : SortedList<string, TeamMember>
     {
-        private readonly IMingleProject _project;
-        private readonly ViewModel _model;
-
-        /// <summary>
-        /// Constructs a new Team collection for the view
-        /// </summary>
-        /// <param name="model"> </param>
-        /// <param name="project"></param>
-        public TeamMemberDictionary(ViewModel model, IMingleProject project)
-        {
-            _model = model;
-            _project = project;
-        }
     }
 }

@@ -194,7 +194,7 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                var team = new TeamMemberDictionary(_model, MingleProject);
+                var team = new TeamMemberDictionary();
                 MingleProject.GetTeam().ToList().ForEach(t => team.Add(t.Key, new TeamMember(_model, t.Value)));
                 return team;
             }
