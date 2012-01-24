@@ -501,7 +501,7 @@ namespace ThoughtWorks.VisualStudio
 			{
 				this.Cursor = Cursors.Wait;
 				teamTree.Items.Clear();
-				foreach (var m in Model.Team.Values)
+				foreach (var m in Model.TeamMemberDictionary.Values)
 					teamTree.Items.Add(m.Name);
 
 			}

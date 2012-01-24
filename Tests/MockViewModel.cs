@@ -73,9 +73,9 @@ namespace Tests
         /// <summary>
         /// List of TeamMember sorted by name
         /// </summary>
-        public SortedList<string, TeamMember> Team
+        public SortedList<string, TeamMember> TeamMemberDictionary
         {
-            get { return _model.Team; }
+            get { return _model.TeamMemberDictionary; }
         }
 
         /// <summary>
@@ -120,9 +120,9 @@ namespace Tests
         /// <summary>
         /// Colleciton of transitions for the project
         /// </summary>
-        public ObservableCollection<Transition> Transitions
+        public ObservableCollection<Transition> TransitionsCollection
         {
-            get { return _model.Transitions; }
+            get { return _model.TransitionsCollection; }
         }
 
         /// <summary>

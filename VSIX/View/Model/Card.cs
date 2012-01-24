@@ -86,7 +86,7 @@ namespace ThoughtWorks.VisualStudio
         { 
             get
             {
-                return Model.Transitions.Where(tr => tr.CardTypeName == MingleCard.Type).ToList();
+                return Model.TransitionsCollection.Where(tr => tr.CardTypeName == MingleCard.Type).ToList();
             } 
             set { }
         }

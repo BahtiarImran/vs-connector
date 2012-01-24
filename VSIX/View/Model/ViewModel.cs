@@ -121,7 +121,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Collection of project team members for data binding with XAML
         /// </summary>
-        public SortedList<string,TeamMember> Team
+        public SortedList<string,TeamMember> TeamMemberDictionary
         {
             get
             {
@@ -207,7 +207,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Collection of transitions for the project
         /// </summary>
-        public ObservableCollection<Transition> Transitions
+        public ObservableCollection<Transition> TransitionsCollection
         {
             get
             {

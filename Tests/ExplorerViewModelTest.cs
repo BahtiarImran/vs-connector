@@ -186,7 +186,7 @@ namespace Tests
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
-            var team = model.Team;
+            var team = model.TeamMemberDictionary;
             Assert.IsInstanceOfType(team, typeof(Team));
             Assert.IsInstanceOfType(team["mingleuser"], typeof(TeamMember));
             var actual = team.Count;
@@ -288,7 +288,7 @@ namespace Tests
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
-            var transitions = model.Transitions;
+            var transitions = model.TransitionsCollection;
             Assert.AreNotEqual(null, transitions);
             Assert.AreEqual(19, transitions.Count);
         }
@@ -301,7 +301,7 @@ namespace Tests
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             // Touch the Transitions property to populate the cache
-            var t = model.Transitions;
+            var t = model.TransitionsCollection;
             var transitions = model.GetOneCard(7).Transitions.ToList();
             Assert.AreNotEqual(null, transitions);
             Assert.AreEqual(11, transitions.Count());

@@ -567,7 +567,7 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         private bool UserIsProjectAdmin()
         {
-            return (_thisCard.Model.Team.ContainsKey(MingleSettings.Login) && (_thisCard.Model.Team[MingleSettings.Login] as TeamMember).IsAdmin);
+            return (_thisCard.Model.TeamMemberDictionary.ContainsKey(MingleSettings.Login) && (_thisCard.Model.TeamMemberDictionary[MingleSettings.Login] as TeamMember).IsAdmin);
         }
 
         /// <summary>
