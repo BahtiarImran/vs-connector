@@ -21,8 +21,19 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public class KeyValuePair
     {
+        /// <summary>
+        /// Key
+        /// </summary>
         public string Key { get; private set; }
+        /// <summary>
+        /// Value
+        /// </summary>
         public string Value { get; private set; }
+        /// <summary>
+        /// Constructs a new KeyValuePair
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         public KeyValuePair(string key, string value)
         {
             Key = key;
