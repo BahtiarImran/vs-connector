@@ -33,13 +33,22 @@ namespace ThoughtWorks.VisualStudio
         {
             _transition = transition;
         }
-
+        /// <summary>
+        /// Transition name
+        /// </summary>
         public string Name { get { return _transition.Name; } set { _transition.Name = value; } }
+        /// <summary>
+        /// Transition Id
+        /// </summary>
         public int Id { get { return _transition.Id; } set { _transition.Id = value; } }
-        public string Url { get { return _transition.Url; } set { _transition.Url = value; } }
+        /// <summary>
+        /// Does the transition require a comment
+        /// </summary>
         public bool RequireComment { get { return _transition.RequireComment; } set { _transition.RequireComment = value; } }
+        /// <summary>
+        /// Card type name
+        /// </summary>
         public string CardTypeName { get { return _transition.CardTypeName; } set { _transition.CardTypeName = value; } }
-        public string CardTypeUrl { get { return _transition.CardTypeUrl; } set { _transition.CardTypeUrl = value; } }
 
         /// <summary>
         /// Updates a card with this transition
