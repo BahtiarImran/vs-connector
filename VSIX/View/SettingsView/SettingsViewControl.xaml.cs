@@ -51,6 +51,8 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="e"></param>
         private void ButtonSaveClick(object sender, RoutedEventArgs e)
         {
+            if (mingleHostTextBox.Text.Substring(mingleHostTextBox.Text.Length - 1, 1).Equals("/"))
+                mingleHostTextBox.Text = mingleHostTextBox.Text.Substring(0, mingleHostTextBox.Text.Length - 1);
             MingleSettings.Host = mingleHostTextBox.Text;
             MingleSettings.Login = mingleUserTextBox.Text;
             MingleSettings.Password = minglePasswordBox.Password;
