@@ -23,9 +23,18 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public class CardBasicInfo
     {
-        internal string Number { get; private set; }
-        internal string Type { get; private set; }
-        internal string Name { get; private set; }
+        /// <summary>
+        /// Card number
+        /// </summary>
+        public string Number { get; private set; }
+        /// <summary>
+        /// Card type
+        /// </summary>
+        public string Type { get; private set; }
+        /// <summary>
+        /// Card name
+        /// </summary>
+        public string Name { get; private set; }
         /// <summary>
         /// Formatted card information
         /// </summary>
