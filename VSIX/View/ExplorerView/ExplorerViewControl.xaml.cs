@@ -59,15 +59,22 @@ namespace ThoughtWorks.VisualStudio
             catch (Exception ex)
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+                AlertUser(ex);
                 return;
             }
 
             comboProjects.SelectedValue = Model.ProjectId;
         }
 
+	    private static void AlertUser(Exception ex)
+	    {
+	        var msg = ex.InnerException.Data.Count > 0
+	                      ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
+	                      : ex.Message;
+	        MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);
+	    }
 
-		#region OnComboProjectsSelectionChanged
+	    #region OnComboProjectsSelectionChanged
 		private void OnProjectSelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			if (e.AddedItems.Count <= 0) return;
@@ -127,7 +134,7 @@ namespace ThoughtWorks.VisualStudio
                         catch (Exception ex)
                         {
                             TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                            MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+                            AlertUser(ex);
                         }
 
                         break;
@@ -143,7 +150,7 @@ namespace ThoughtWorks.VisualStudio
                         catch (Exception ex)
                         {
                             TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                            MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+                            AlertUser(ex);
                         }
                         finally
                         {
@@ -171,7 +178,7 @@ namespace ThoughtWorks.VisualStudio
                         catch (Exception ex)
                         {
                             TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                            MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+                            AlertUser(ex);
                         }
                         finally
                         {
@@ -328,8 +335,8 @@ namespace ThoughtWorks.VisualStudio
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-				MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
-			}
+                AlertUser(ex);
+            }
 			finally
 			{
 				this.Cursor = Cursors.Arrow;
@@ -363,8 +370,8 @@ namespace ThoughtWorks.VisualStudio
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-				MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
-				return;
+                AlertUser(ex);
+                return;
 			}
 			finally
 			{
