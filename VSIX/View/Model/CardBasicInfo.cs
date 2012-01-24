@@ -30,7 +30,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Card type
         /// </summary>
-        public string Type { get; private set; }
+        public string CardTypeName { get; private set; }
         /// <summary>
         /// Card name
         /// </summary>
@@ -40,7 +40,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         public string Formatted
         {
-            get { return string.Format(CultureInfo.InvariantCulture, "{0} - ({1}) {2}", Number, Type, Name); }
+            get { return string.Format(CultureInfo.InvariantCulture, "{0} - ({1}) {2}", Number, CardTypeName, Name); }
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace ThoughtWorks.VisualStudio
         public CardBasicInfo(int number, string type, string name)
         {
             Number = number.ToString(CultureInfo.InvariantCulture);
-            Type = type;
+            CardTypeName = type;
             Name = name;
         }
     }
