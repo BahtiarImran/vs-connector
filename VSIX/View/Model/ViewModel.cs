@@ -217,6 +217,9 @@ namespace ThoughtWorks.VisualStudio
             } 
         }
 
+        /// <summary>
+        /// Collection of murmurs
+        /// </summary>
         public ObservableCollection<Murmur> Murmurs
         {
             get
