@@ -52,6 +52,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Constructs a new TeamMember
         /// </summary>
+        /// <param name="model"> </param>
         /// <param name="teamMember"></param>
         internal TeamMember(ViewModel model, MingleProjectMember teamMember)
         {

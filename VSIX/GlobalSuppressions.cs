@@ -504,3 +504,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Login", Scope = "member", Target = "ThoughtWorks.VisualStudio.Card.#ModifiedByLogin")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Login", Scope = "member", Target = "ThoughtWorks.VisualStudio.MingleSettings.#Login")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "login", Scope = "member", Target = "ThoughtWorks.VisualStudio.MingleSettings.#Set(System.String,System.String,System.String)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Login", Scope = "member", Target = "ThoughtWorks.VisualStudio.TeamMember.#Login")]
