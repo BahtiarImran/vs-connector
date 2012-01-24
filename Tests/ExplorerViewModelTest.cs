@@ -187,7 +187,7 @@ namespace Tests
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var team = model.TeamMemberDictionary;
-            Assert.IsInstanceOfType(team, typeof(Team));
+            Assert.IsInstanceOfType(team, typeof(TeamMemberDictionary));
             Assert.IsInstanceOfType(team["mingleuser"], typeof(TeamMember));
             var actual = team.Count;
             const int expected = 3;
@@ -200,8 +200,8 @@ namespace Tests
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
-            var team = model.TeamAsManagedList;
-            Assert.IsInstanceOfType(team, typeof(Team));
+            var team = model.TeamMemberDictionaryAsManagedList;
+            Assert.IsInstanceOfType(team, typeof(TeamMemberDictionary));
             Assert.IsInstanceOfType(team["mingleuser"], typeof(TeamMember));
             var actual = team.Count;
             const int expected = 4;

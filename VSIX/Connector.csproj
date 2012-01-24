@@ -135,7 +135,7 @@
     <Compile Include="View\Model\KeyValuePair.cs" />
     <Compile Include="View\Model\PropertyValuesCollection.cs" />
     <Compile Include="View\Model\Secure.cs" />
-    <Compile Include="View\Model\Team.cs" />
+    <Compile Include="View\Model\TeamMemberDictionary.cs" />
     <Compile Include="View\Model\TeamMember.cs" />
     <Compile Include="View\Model\Transition.cs" />
     <Compile Include="View\Model\Transitions.cs" />

@@ -19,7 +19,10 @@ using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
-    public class Team : SortedList<string, TeamMember>
+    /// <summary>
+    /// Models a Team of users
+    /// </summary>
+    public class TeamMemberDictionary : SortedList<string, TeamMember>
     {
         private readonly IMingleProject _project;
         private readonly ViewModel _model;
@@ -27,8 +30,9 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Constructs a new Team collection for the view
         /// </summary>
+        /// <param name="model"> </param>
         /// <param name="project"></param>
-        public Team(ViewModel model, IMingleProject project)
+        public TeamMemberDictionary(ViewModel model, IMingleProject project)
         {
             _model = model;
             _project = project;

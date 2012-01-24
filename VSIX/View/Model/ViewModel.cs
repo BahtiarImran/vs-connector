@@ -31,8 +31,8 @@ namespace ThoughtWorks.VisualStudio
     {
         internal IMingleServer Mingle { get; set; }
         private Project _project;
-        private Team _teamCache;
-        private Team _teamMlCache;
+        private TeamMemberDictionary _teamMemberDictionaryCache;
+        private TeamMemberDictionary _teamMemberDictionaryMlCache;
         private Transitions _transitionsCache;
         private CardPropertiesDictionary _propertiesDictionaryCache;
         private CardTypesCollection _cardTypesCollectionCache;
@@ -125,23 +125,23 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _teamCache && _teamCache.Count > 0) return _teamCache;
-                _teamCache = Project().Team;
-                return _teamCache;
+                if (null != _teamMemberDictionaryCache && _teamMemberDictionaryCache.Count > 0) return _teamMemberDictionaryCache;
+                _teamMemberDictionaryCache = Project().TeamMemberDictionary;
+                return _teamMemberDictionaryCache;
             }
         }
 
         /// <summary>
         /// Collection of project team members for data binding with XAML (includes leading element called "item not set")
         /// </summary>
-        public SortedList<string, TeamMember> TeamAsManagedList
+        public SortedList<string, TeamMember> TeamMemberDictionaryAsManagedList
         {
             get
             {
-                if (null != _teamMlCache && _teamMlCache.Count > 0) return _teamMlCache;
-                _teamMlCache = Project().Team;
-                _teamMlCache.Add(Resources.ItemNotSet, new TeamMember(this, false));
-                return _teamMlCache;
+                if (null != _teamMemberDictionaryMlCache && _teamMemberDictionaryMlCache.Count > 0) return _teamMemberDictionaryMlCache;
+                _teamMemberDictionaryMlCache = Project().TeamMemberDictionary;
+                _teamMemberDictionaryMlCache.Add(Resources.ItemNotSet, new TeamMember(this, false));
+                return _teamMemberDictionaryMlCache;
             }
         }
         /// <summary>

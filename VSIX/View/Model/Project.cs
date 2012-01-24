@@ -53,7 +53,7 @@ namespace ThoughtWorks.VisualStudio
         /// Gets the team members for this project
         /// </summary>
         /// <returns></returns>
-        Team Team { get; }
+        TeamMemberDictionary TeamMemberDictionary { get; }
 
         /// <summary>
         /// Gets the property definitions for this project
@@ -190,11 +190,11 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Returns a Team collection
         /// </summary>
-        public Team Team
+        public TeamMemberDictionary TeamMemberDictionary
         {
             get
             {
-                var team = new Team(_model, MingleProject);
+                var team = new TeamMemberDictionary(_model, MingleProject);
                 MingleProject.GetTeam().ToList().ForEach(t => team.Add(t.Key, new TeamMember(_model, t.Value)));
                 return team;
             }

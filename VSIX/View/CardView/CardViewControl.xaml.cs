@@ -309,7 +309,7 @@ namespace ThoughtWorks.VisualStudio
 
             if (cardProperty.IsTeamValued)
             {
-                cb.ItemsSource = _thisCard.Model.TeamAsManagedList.Values;
+                cb.ItemsSource = _thisCard.Model.TeamMemberDictionaryAsManagedList.Values;
                 cb.DisplayMemberPath = "Name";
                 cb.SelectedValuePath = "Login";
             }
