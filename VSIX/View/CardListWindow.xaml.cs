@@ -31,11 +31,11 @@ namespace ThoughtWorks.VisualStudio
     public partial class CardListWindow
     {
         private readonly XElement _cardList;
-        public string SelectedCardName { get; private set; }
-        public string SelectedCardNumber { get; private set; }
-        public bool Cancelled = true;
+        internal string SelectedCardName { get; private set; }
+        internal string SelectedCardNumber { get; private set; }
+        internal bool Cancelled = true;
 
-        public CardListWindow(XElement cardList)
+        internal CardListWindow(XElement cardList)
         {
             _cardList = cardList;
             SelectedCardNumber = "0";
