@@ -18,11 +18,9 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 mc:Ignorable="d Anno"  x:Name="userControl"
-			 xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008" 
-			 x:Class="ThoughtWorks.VisualStudio.ExplorerViewControl" Initialized="UserControlInitialized">
-    <UserControl.Background>
-        <ImageBrush />
-    </UserControl.Background>
+			 xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008"
+             xmlns:mwt="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+             x:Class="ThoughtWorks.VisualStudio.ExplorerViewControl" Initialized="UserControlInitialized">
     <DockPanel x:Name="dockPanel" LastChildFill="True" >
 
 		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
@@ -36,37 +34,38 @@
 							Margin="2,2,0,2" FontSize="11" 
 							Height="20" Width="Auto" 
 							Click="ButtonClick" 
-							IsDefault="False" BorderThickness="0"
-                        ToolTip="Go to card" Content="&lt;Get Card" Background="Gainsboro" Padding="0">
+							IsDefault="False" BorderThickness="0" ToolTip="Go to card" 
+                        Content="&lt;Get Card" Padding="0" 
+                        Focusable="{Binding}">
                 </Button>
             </StackPanel>
 			<ComboBox Name="comboProjects" 
 						  Margin="2,2,0,2" 
 						  FontSize="11" 
 						  ToolTip="Select a project" 
-						  Height="20" SelectionChanged="OnProjectSelectionChanged" Width="Auto" Background="Gainsboro" BorderThickness="0" Opacity="1" />
+						  Height="20" SelectionChanged="OnProjectSelectionChanged" Width="Auto" BorderThickness="0" Opacity="1" />
 				<Button Name="buttonRefresh" 
 						Content="Refresh" 
 						Click="ButtonClick" 
 						ToolTip="Refresh Explorer from Mingle and Go" 
 						Margin="2,2,0,2"  
 						FontSize="11" 
-						Height="20" Background="Gainsboro" BorderThickness="0" Opacity="1" />
+						Height="20" BorderThickness="0" Opacity="1" />
 				<Button Name="buttonSettings" 
 						Content="Settings..." 
 						Click="ButtonClick" 
 						ToolTip="Specify Mingle host URL, user name, etc." 
 						Margin="2,2,0,2"  
 						FontSize="11" 
-						Height="20" Background="Gainsboro" BorderThickness="0" Opacity="1" />
+						Height="20" BorderThickness="0" Opacity="1" />
 				<StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="cardTypes" FontSize="11" Height="20" Margin="2,2,0,2" Background="Gainsboro" BorderThickness="0" Opacity="1"></ComboBox>
+                <ComboBox x:Name="cardTypes" FontSize="11" Height="20" Margin="2,2,0,2" BorderThickness="0" Opacity="1"></ComboBox>
                 <Button Name="buttonNewCard" 
 							ToolTip="Create a new card" Click="ButtonClick" 
 							Margin="2,2,0,2"  
 							FontSize="11" 
-							Height="20" Width="Auto" Content="&lt;New Card" Background="Gainsboro" BorderThickness="0" Opacity="1"></Button>
-                <Button Name="buttonOpenMurmurWindow" Click="ButtonClick" Margin="2,2,2,2" FontSize="11" Height="20" Width="Auto" Content="Murmurs" ToolTip="Open murmur window" Background="Gainsboro"></Button>
+							Height="20" Width="Auto" Content="&lt;New Card" BorderThickness="0" Opacity="1"></Button>
+                <Button Name="buttonOpenMurmurWindow" Click="ButtonClick" Margin="2,2,2,2" FontSize="11" Height="20" Width="Auto" Content="Murmurs" ToolTip="Open murmur window"></Button>
             </StackPanel>
 				<!--<Button Name="buttonFeedback" 
 						ToolTip="Send feedback" 
