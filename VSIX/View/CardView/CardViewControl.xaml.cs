@@ -103,7 +103,7 @@ namespace ThoughtWorks.VisualStudio
                         HorizontalAlignment = HorizontalAlignment.Left,
                         Margin = new Thickness(2, 2, 2, 2),
                         Height = 24,
-                        Background = _buttonBackground,
+                        //Background = _buttonBackground,
                         BorderThickness = _buttonBorderThickness
                     };
 

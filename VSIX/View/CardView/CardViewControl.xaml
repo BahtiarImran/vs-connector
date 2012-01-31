@@ -87,7 +87,7 @@
 							</TextBox>
 						</TabItem>
 						<TabItem x:Name="renderedTab" Header="Preview" GotFocus="OnRenderedDescriptionTabGotFocus">
-							<WebBrowser Name="descriptionBrowser"/>
+							<WebBrowser Name="descriptionBrowser" />
 						</TabItem>
 					</TabControl>
 						

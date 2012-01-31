@@ -34,7 +34,7 @@
             <StackPanel Orientation="Vertical" Name="cardTypes" Width="Auto" Grid.Row="1"
                         ToolTip="Choose one or more card types and click Search">
             </StackPanel>
-            <Button Name="buttonSearch" Grid.Row="2" Content="Search" Margin="4,4,4,4" Background="Gainsboro" Click="OnButtonSearchClick" />
+            <Button Name="buttonSearch" Grid.Row="2" Content="Search" Margin="4,4,4,4" Click="OnButtonSearchClick" />
             </Grid>
         </Grid>
         <ListBox x:Name="list" VerticalAlignment="Stretch" BorderThickness="0"
