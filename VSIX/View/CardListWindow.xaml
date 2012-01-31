@@ -28,13 +28,11 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <!--<RowDefinition Height="Auto"></RowDefinition>-->
                 </Grid.RowDefinitions>
             <Label Grid.Row="0" Content="Filter:" Margin="0,0,4,0"></Label>
             <StackPanel Orientation="Vertical" Name="cardTypes" Width="Auto" Grid.Row="1"
                         ToolTip="Choose one or more card types and click Search">
             </StackPanel>
-            <!--<Button Name="buttonSearch" Grid.Row="2" Content="Search" Margin="4,4,4,4" Click="OnButtonSearchClick" />-->
             </Grid>
         </Grid>
         <Grid Grid.Column="1" >
