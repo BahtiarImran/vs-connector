@@ -14,19 +14,32 @@
 // limitations under the License.
 //
 
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 
 namespace ThoughtWorks.VisualStudio
 {
     /// <summary>
     /// Models card_types for the view
     /// </summary>
-    public class CardTypesCollection : ObservableCollection<CardType>
+    [Serializable]
+    public class CardTypesDictionary : Dictionary<string,CardType>
     {
         /// <summary>
         /// Constructs a new card type
         /// </summary>
-        public CardTypesCollection()
+        public CardTypesDictionary()
+        {
+        }
+
+        /// <summary>
+        /// Serialization constructor
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected CardTypesDictionary(SerializationInfo info, StreamingContext context):base(info,context)
         {
         }
     }

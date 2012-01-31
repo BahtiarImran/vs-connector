@@ -46,7 +46,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// List of CardTypes
         /// </summary>
-        CardTypesCollection CardTypesCollection { get; }
+        CardTypesDictionary CardTypesDictionary { get; }
         /// <summary>
         /// List of property definitions
         /// </summary>

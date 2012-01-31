@@ -124,7 +124,8 @@
     <Compile Include="View\Model\CardProperty.cs" />
     <Compile Include="View\Model\CardsCollection.cs" />
     <Compile Include="View\Model\CardType.cs" />
-    <Compile Include="View\Model\CardTypesCollection.cs" />
+    <Compile Include="View\Model\CardListItem.cs" />
+    <Compile Include="View\Model\CardTypesDictionary.cs" />
     <Compile Include="View\Model\CardComment.cs" />
     <Compile Include="View\Model\Favorite.cs" />
     <Compile Include="View\Model\FavoritesDictionary.cs" />

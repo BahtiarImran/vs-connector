@@ -371,8 +371,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
-            var cards = _thisCard.Model.ListOfCards;
-            var w = new CardListWindow(cards);
+            var w = new CardListWindow(_thisCard.Model);
             w.ShowDialog();
 
             if (w.Cancelled || w.SelectedCardNumber == "0") return;

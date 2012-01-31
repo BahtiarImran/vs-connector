@@ -16,11 +16,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
-using System.Xml.Linq;
+using System.Windows.Controls;
 using ThoughtWorksCoreLib;
 
 namespace ThoughtWorks.VisualStudio
@@ -30,42 +30,33 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public partial class CardListWindow
     {
-        private readonly XElement _cardList;
         internal string SelectedCardName { get; private set; }
         internal string SelectedCardNumber { get; private set; }
         internal bool Cancelled = true;
+        private readonly ViewModel _model;
 
-        internal CardListWindow(XElement cardList)
+        internal CardListWindow(ViewModel model)
         {
-            _cardList = cardList;
             SelectedCardNumber = "0";
+            _model = model;
             InitializeComponent();
         }
 
         private void OnWindowIsInitialized(object sender, EventArgs e)
         {
-            Debug.Assert(_cardList != null,"CardListWindow._cardList has not been initialized.");
-            var cards = new SortedList<int, CardItem>();
             try
             {
-                _cardList.Elements("result").ToList().ForEach(c => cards.Add(int.Parse(c.Element("number").Value as string), 
-                    new CardItem { Number = c.Element("number").Value, Name = "(" + c.Element("type").Value + ") " + c.Element("name").Value }));
-
+                _model.CardTypesDictionary.Keys.ToList().ForEach(k => cardTypes.Children.Add(new CheckBox { Content = k }));
             }
             catch (Exception ex)
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                MessageBox.Show(
-                    string.Format("Encountered an error parsing the list of cards received from Mingle.\n\n{0}",
-                                  ex.Message));
+                AlertUser(ex);
             } 
             
-            this.list.DataContext = cards.Values;
-            this.list.ItemsSource = cards.Values;
-            this.list.SelectedValuePath = "Number";
         }
 
-        private void OnListSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void OnListSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (null == list.SelectedValue)
             {
@@ -74,7 +65,7 @@ namespace ThoughtWorks.VisualStudio
             }
 
             SelectedCardNumber = list.SelectedValue as string;
-            SelectedCardName = (list.SelectedItem as CardItem).Name;
+            SelectedCardName = (list.SelectedItem as CardListItem).Name;
 
         }
 
@@ -84,24 +75,43 @@ namespace ThoughtWorks.VisualStudio
             {
                 Cancelled = true;
             }
-
+            else
+            {
+                SelectedCardNumber = list.SelectedValue.ToString();
+            }
             Cancelled = false;
             Close();
         }
 
-}
-    /// <summary>
-    /// Describes a card's name and number
-    /// </summary>
-    public class CardItem
-    {
-        /// <summary>
-        /// Card name
-        /// </summary>
-        public string Number { get; set; }
-        /// <summary>
-        /// Card number
-        /// </summary>
-        public string Name { get; set; }
+        private void OnButtonSearchClick(object sender, RoutedEventArgs e)
+        {
+            var cards = new SortedList<int, CardListItem>();
+            var types = new Collection<string>();
+
+            foreach (var item in cardTypes.Children.Cast<CheckBox>().Where(item => Convert.ToBoolean(item.IsChecked)))
+                types.Add(item.Content.ToString());
+
+            try
+            {
+                _model.GetCardList(types).ToList().ForEach(c => cards.Add(c.Number, c));
+                this.list.DataContext = cards.Values;
+                this.list.ItemsSource = cards.Values;
+                this.list.SelectedValuePath = "Number";
+            }
+            catch (Exception ex)
+            {
+                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+                AlertUser(ex);
+            }
+        }
+
+        private static void AlertUser(Exception ex)
+        {
+            var msg = ex.InnerException.Data.Count > 0
+                          ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
+                          : ex.Message;
+            MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);
+        }
+
     }
 }

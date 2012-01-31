@@ -16,6 +16,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using ThoughtWorks.VisualStudio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -41,7 +42,7 @@ namespace Tests
         private static string _login;
         private static string _password;
         private static string _project;
-        private static string MINGLE_LOCAL_HOST = "http://localhost:8080";
+        private const string MINGLE_LOCAL_HOST = "http://localhost:8080";
         //private const string MINGLE_LOCAL_HOST = "http://fmtstdsol01.thoughtworks.com:8080";
         private const string MINGLE_INTEGRATION_USER = "mingleuser";
         private const string MINGLE_INTEGRATION_PASSWORD = "secret";
@@ -217,7 +218,7 @@ namespace Tests
         {
             var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
-            var target = model.CardTypesCollection;
+            var target = model.CardTypesDictionary;
             var actual = target.Count;
             const int expected = 7;
             Assert.AreEqual(expected, actual);
@@ -390,7 +391,14 @@ namespace Tests
             Assert.AreNotEqual(0, m.Count());
         }
 
-
+        [TestMethod]
+        public void TestCardList()
+        {
+            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            model.SelectProject("test");
+            var list = model.GetCardList(new Collection<string> {"Release", "Feature"});
+            Assert.AreEqual(13, list.Count());
+        }
     }
 }
 

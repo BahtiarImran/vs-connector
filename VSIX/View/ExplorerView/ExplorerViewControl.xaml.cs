@@ -465,10 +465,10 @@ namespace ThoughtWorks.VisualStudio
 		{
 			try
 			{
-				cardTypes.ItemsSource = Model.CardTypesCollection;
+				cardTypes.ItemsSource = Model.CardTypesDictionary;
 				cardTypes.DisplayMemberPath = "Name";
 				cardTypes.SelectedValuePath = "Name";
-				if (Model.CardTypesCollection.Count > 0)
+				if (Model.CardTypesDictionary.Count > 0)
 					cardTypes.SelectedIndex = 0;
 
 			}

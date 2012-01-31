@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Xml.Linq;
 using ThoughtWorksMingleLib;
 
@@ -35,7 +36,7 @@ namespace ThoughtWorks.VisualStudio
         private TeamMemberDictionary _teamMemberDictionaryMlCache;
         private TransitionsCollection _transitionsCollectionCache;
         private CardPropertiesDictionary _propertiesDictionaryCache;
-        private CardTypesCollection _cardTypesCollectionCache;
+        private CardTypesDictionary _cardTypesDictionaryCache;
         private ObservableCollection<Murmur> _murmursCache;
 
         #region Constructors
@@ -147,13 +148,13 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Card types
         /// </summary>
-        public CardTypesCollection CardTypesCollection
+        public CardTypesDictionary CardTypesDictionary
         {
             get
             {
-                if (null != _cardTypesCollectionCache && _cardTypesCollectionCache.Count > 0) return _cardTypesCollectionCache;
-                _cardTypesCollectionCache = Project().CardTypesCollection;
-                return _cardTypesCollectionCache;
+                if (null != _cardTypesDictionaryCache && _cardTypesDictionaryCache.Count > 0) return _cardTypesDictionaryCache;
+                _cardTypesDictionaryCache = Project().CardTypesDictionary;
+                return _cardTypesDictionaryCache;
             }
         }
 
@@ -308,6 +309,35 @@ namespace ThoughtWorks.VisualStudio
         public void SendMurmur(string murmur)
         {
             Project().SendMurmur(murmur);
+        }
+
+        /// <summary>
+        /// Given a list of card type names, card number/type/name list
+        /// </summary>
+        /// <param name="types"></param>
+        /// <returns></returns>
+        public IEnumerable<CardListItem> GetCardList(IEnumerable<string> types)
+        {
+            var mql = GetMqlFromCardTypeList(types);
+            var list = new List<CardListItem>();
+            _project.ExecMql(mql).Elements("result").ToList().ForEach(e => list.Add(new CardListItem
+                                                                                        {
+                                                                                            Number = int.Parse(e.Element("number").Value),
+                                                                                            Name = e.Element("name").Value,
+                                                                                            TypeName = e.Element("type").Value
+                                                                                        }));
+            return list;
+        }
+
+        private static string GetMqlFromCardTypeList(IEnumerable<string> types)
+        {
+            var mql = new StringBuilder("select number, type, name where ");
+            foreach (var t in types)
+            {
+                mql.Append(" type is " + t + " or");
+            }
+            mql.Remove(mql.Length-3, 3);
+            return mql.ToString();
         }
     }
 
