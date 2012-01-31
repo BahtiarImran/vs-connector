@@ -46,7 +46,7 @@ namespace ThoughtWorks.VisualStudio
         {
             try
             {
-                _model.CardTypesDictionary.Keys.ToList().ForEach(k => cardTypes.Children.Add(new CheckBox { Content = k }));
+                _model.CardTypesDictionary.Keys.ToList().ForEach(k => AddCheckBox(k));
             }
             catch (Exception ex)
             {
@@ -54,6 +54,19 @@ namespace ThoughtWorks.VisualStudio
                 AlertUser(ex);
             } 
             
+        }
+
+        private int AddCheckBox(string k)
+        {
+            var checkBox = new CheckBox {Content = k};
+            checkBox.Checked += OnCardTypeCheckBoxChecked;
+            checkBox.Unchecked += OnCardTypeCheckBoxChecked;
+            return cardTypes.Children.Add(checkBox);
+        }
+
+        private void OnCardTypeCheckBoxChecked(object sender, RoutedEventArgs e)
+        {
+            SearchForCards();
         }
 
         private void OnListSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -83,7 +96,7 @@ namespace ThoughtWorks.VisualStudio
             Close();
         }
 
-        private void OnButtonSearchClick(object sender, RoutedEventArgs e)
+        private void SearchForCards()
         {
             var cards = new SortedList<int, CardListItem>();
             var types = new Collection<string>();
@@ -93,6 +106,7 @@ namespace ThoughtWorks.VisualStudio
 
             try
             {
+                Cursor = System.Windows.Input.Cursors.Wait;
                 _model.GetCardList(types).ToList().ForEach(c => cards.Add(c.Number, c));
                 this.list.DataContext = cards.Values;
                 this.list.ItemsSource = cards.Values;
@@ -102,6 +116,10 @@ namespace ThoughtWorks.VisualStudio
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
                 AlertUser(ex);
+            }
+            finally
+            {
+                Cursor = System.Windows.Input.Cursors.Arrow;
             }
         }
 
