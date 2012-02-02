@@ -54,6 +54,7 @@ namespace ThoughtWorks.VisualStudio
             {
                 Model = new ViewModel();
                 Model.Initialize(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
+                Cursor = Cursors.Wait;
                 BindProjectList();
             }
             catch (Exception ex)
@@ -61,6 +62,10 @@ namespace ThoughtWorks.VisualStudio
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
                 AlertUser(ex);
                 return;
+            }
+            finally
+            {
+                Cursor = Cursors.Arrow;
             }
 
             comboProjects.SelectedValue = Model.ProjectId;
@@ -128,6 +133,7 @@ namespace ThoughtWorks.VisualStudio
                                 break;
 
                             Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
+                            Cursor = Cursors.Wait;
                             BindProjectList();
                             ClearTrees();
                         }
@@ -135,6 +141,10 @@ namespace ThoughtWorks.VisualStudio
                         {
                             TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
                             AlertUser(ex);
+                        }
+                        finally
+                        {
+                            Cursor = Cursors.Arrow;
                         }
 
                         break;
@@ -172,17 +182,12 @@ namespace ThoughtWorks.VisualStudio
                     {
                         try
                         {
-                            this.Cursor = Cursors.Wait;
                             ShowCardViewToolWindow(Model.CreateCard(cardTypes.SelectedValue.ToString(), "new card"));
                         }
                         catch (Exception ex)
                         {
                             TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
                             AlertUser(ex);
-                        }
-                        finally
-                        {
-                            this.Cursor = Cursors.Arrow;
                         }
 
                         break;
@@ -413,6 +418,7 @@ namespace ThoughtWorks.VisualStudio
 		{
 			try
 			{
+			    Cursor = Cursors.Wait;
 				BindProjectList();
 				BindExplorerTrees();
 				comboProjects.SelectedValue = Model.ProjectId;
@@ -422,7 +428,11 @@ namespace ThoughtWorks.VisualStudio
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
 				throw;
 			}
-		}
+		            finally
+			{
+			    Cursor = Cursors.Arrow;
+			}
+}
 
 		/// <summary>
 		/// Get list of projects
