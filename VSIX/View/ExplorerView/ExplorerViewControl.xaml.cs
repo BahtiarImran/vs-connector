@@ -465,7 +465,7 @@ namespace ThoughtWorks.VisualStudio
 		{
 			try
 			{
-				cardTypes.ItemsSource = Model.CardTypesDictionary;
+				cardTypes.ItemsSource = Model.CardTypesDictionary.Values;
 				cardTypes.DisplayMemberPath = "Name";
 				cardTypes.SelectedValuePath = "Name";
 				if (Model.CardTypesDictionary.Count > 0)
