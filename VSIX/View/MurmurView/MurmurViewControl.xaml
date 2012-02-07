@@ -4,8 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d"
-             Background="PapayaWhip">
-
+             >
+    <Control.Resources>
+        <Style x:Key="MurmurListBoxItem" TargetType="ListBoxItem">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Wheat"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+            </Style.Resources>
+        </Style>
+    </Control.Resources>
     <Grid Margin="8,4,0,8">
         <Grid.RowDefinitions>
             <RowDefinition Height="66"></RowDefinition>
@@ -30,16 +37,16 @@
 				Height="20" Click="OnClickButtonMurmur" BorderThickness="0" Opacity="1" TabIndex="2" />
         </Grid>
         <ListBox x:Name="murmursList" Grid.Row="1" BorderThickness="0" Margin="0,8,0,0" IsSynchronizedWithCurrentItem="True" 
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="White" ItemContainerStyle="{StaticResource MurmurListBoxItem}"
+                 >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding Path=Body}" TextWrapping="Wrap" Height="Auto"/>
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="{Binding Path=Name}" Foreground="DimGray" />
-                            <TextBlock Text="on"  Margin="6,0,6,0"   Foreground="DimGray"  />
-                            <TextBlock Text="{Binding Path=Date}"  Foreground="DimGray"  />
+                    <StackPanel Orientation="Vertical" Margin="0,3,0,3" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock Text="{Binding Path=Name}" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" />
+                            <TextBlock Text="{Binding Path=Date}"  Foreground="DimGray"  HorizontalAlignment="Right" Margin="12,0,0,0"/>
                         </StackPanel>
+                        <TextBlock Text="{Binding Path=Body}" TextWrapping="Wrap" Height="Auto" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
