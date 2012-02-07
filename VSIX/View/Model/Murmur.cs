@@ -36,15 +36,17 @@ namespace ThoughtWorks.VisualStudio
         /// Body of the murmur
         /// </summary>
         public string Body { get; private set; }
+
         /// <summary>
         /// Constructs a new murmur
         /// </summary>
+        /// <param name="jabber"> </param>
         /// <param name="name"></param>
         /// <param name="date"></param>
         /// <param name="body"></param>
-        public Murmur (string name, string date, string body)
+        public Murmur (string jabber, string name, string date, string body)
         {
-            Name = name;
+            Name = string.IsNullOrEmpty(name) ? jabber : name;
             Date = Convert.ToDateTime(date, CultureInfo.InvariantCulture).ToString(CultureInfo.InvariantCulture);
             Body = body;
         }

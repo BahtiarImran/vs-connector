@@ -318,7 +318,7 @@ namespace ThoughtWorks.VisualStudio
                 var murmurs = new List<Murmur>();
                 MingleProject.GetMurmurs().ToList().ForEach(
                     m =>
-                    murmurs.Add(new Murmur(m.Body, m.CreatedAt.ToString(CultureInfo.InvariantCulture), m.AuthorName)));
+                    murmurs.Add(new Murmur(m.JabberName, m.LoginName, m.CreatedAt.ToString(CultureInfo.InvariantCulture), m.Body)));
                 return murmurs;
             }
         }

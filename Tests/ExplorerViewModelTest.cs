@@ -389,6 +389,7 @@ namespace Tests
             var m = model.Murmurs;
             Assert.IsInstanceOfType(m, typeof(IEnumerable<Murmur>));
             Assert.AreNotEqual(0, m.Count());
+            m.ToList().ForEach(murmur => Assert.IsFalse(string.IsNullOrEmpty(murmur.Name)));
         }
 
         [TestMethod]
