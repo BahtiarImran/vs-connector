@@ -7,10 +7,11 @@
              
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
             <RowDefinition Height="66"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ListBox x:Name="murmursList" Grid.Row="0" BorderThickness="0" Margin="8,0,8,8" IsSynchronizedWithCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox x:Name="murmursList" Grid.Row="1" BorderThickness="0" Margin="8,0,8,8" IsSynchronizedWithCurrentItem="True" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -24,7 +25,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Grid Height="66" Grid.Row="1" VerticalAlignment="Bottom" Margin="8,0,0,8">
+        <Grid Height="66" Grid.Row="0" VerticalAlignment="Bottom" Margin="8,0,0,8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="80"></ColumnDefinition>
