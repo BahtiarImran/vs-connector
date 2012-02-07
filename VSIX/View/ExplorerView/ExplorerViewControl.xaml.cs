@@ -48,7 +48,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void UserControlInitialized(object sender, EventArgs e)
         {
-            CheckSettings();
+            if (!CheckSettings()) return;
 
             try
             {
@@ -300,17 +300,18 @@ namespace ThoughtWorks.VisualStudio
 		/// <summary>
 		/// Check settings and ask user to supply missing settings. 
 		/// </summary>
-		private static void CheckSettings()
+		private static bool CheckSettings()
 		{
 			if (!string.IsNullOrWhiteSpace(MingleSettings.Login) &&
 				!string.IsNullOrEmpty(MingleSettings.Password) &&
 				!string.IsNullOrWhiteSpace(MingleSettings.Host))
 			{
-				return;
+				return true;
 			}
 
 			var svc = new SettingsViewControl();
 			svc.ShowDialog();
+		    return Convert.ToBoolean(svc.DialogResult);
 		}
 
 		#region Tree click event handlers
