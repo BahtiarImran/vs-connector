@@ -3,14 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d">
-             
-    <Grid>
+             mc:Ignorable="d"
+             Background="PapayaWhip">
+
+    <Grid Margin="8,4,0,8">
         <Grid.RowDefinitions>
             <RowDefinition Height="66"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ListBox x:Name="murmursList" Grid.Row="1" BorderThickness="0" Margin="8,0,8,8" IsSynchronizedWithCurrentItem="True" 
+        <Grid Height="66" Grid.Row="0" VerticalAlignment="Bottom">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="murmurText" Grid.Column="0" HorizontalAlignment="Stretch"
+                                BorderThickness="2" BorderBrush="LightGray"
+                                Height="48"
+                                AcceptsReturn="True" AutoWordSelection="True" TextWrapping="WrapWithOverflow" TabIndex="1" />
+        <Button x:Name="buttonMurmur" 
+                VerticalAlignment="Top" 
+                Grid.Column="1"
+			    HorizontalAlignment="Center"
+                Margin="0,20"
+				Content="Murmur This" 
+				FontSize="11" 
+				Height="20" Click="OnClickButtonMurmur" BorderThickness="0" Opacity="1" TabIndex="2" />
+        </Grid>
+        <ListBox x:Name="murmursList" Grid.Row="1" BorderThickness="0" Margin="0,8,0,0" IsSynchronizedWithCurrentItem="True" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -25,21 +44,5 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Grid Height="66" Grid.Row="0" VerticalAlignment="Bottom" Margin="8,0,0,8">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <TextBox x:Name="murmurText" Grid.Column="0" HorizontalAlignment="Stretch"
-                                BorderThickness="2" BorderBrush="LightGray"
-                                Height="48"
-                                AcceptsReturn="False" AutoWordSelection="True" TextWrapping="WrapWithOverflow"
- 			                    />
-        <Button x:Name="buttonMurmur" VerticalAlignment="Top" Grid.Column="1"
-						    HorizontalAlignment="Center" Margin="0,8,0,0"
-						    Content="Murmur This" 
-						    FontSize="11" 
-						    Height="20" Click="OnClickButtonMurmur" Background="Gainsboro" BorderThickness="0" Opacity="1" IsDefault="True" />
-        </Grid>
     </Grid>
 </UserControl>
