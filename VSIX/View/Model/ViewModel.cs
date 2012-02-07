@@ -37,7 +37,6 @@ namespace ThoughtWorks.VisualStudio
         private TransitionsCollection _transitionsCollectionCache;
         private CardPropertiesDictionary _propertiesDictionaryCache;
         private CardTypesDictionary _cardTypesDictionaryCache;
-        private ObservableCollection<Murmur> _murmursCache;
 
         #region Constructors
         /// <summary>
@@ -225,9 +224,8 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                
-                _murmursCache = new ObservableCollection<Murmur>();
-                Project().Murmurs.ToList().ForEach(m => _murmursCache.Add(m));
+                var _murmursCache = new ObservableCollection<Murmur>();
+                Project().Murmurs.ToList().ForEach(_murmursCache.Add);
                 return _murmursCache;
             }
         }
