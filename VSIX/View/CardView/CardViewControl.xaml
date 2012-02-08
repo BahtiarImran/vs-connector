@@ -29,11 +29,12 @@
 		<Style x:Key="RoTextBox" TargetType="TextBox">
 			<Setter Property="Height" Value="23" />
 			<Setter Property="Width" Value="Auto"></Setter>
+			<Setter Property="MinWidth" Value="30"></Setter>
 			<Setter Property="IsReadOnly" Value="False" />
 			<Setter Property="VerticalContentAlignment" Value="Center"></Setter>
 			<Setter Property="Background" Value="PapayaWhip"></Setter>
 			<Setter Property="FontWeight" Value="Normal"></Setter>
-        </Style>
+		</Style>
 		<Style x:Key="PropertyStackPanel" TargetType="StackPanel" >
 			<Setter Property="Margin" Value="24,6,0,0" />
 			<Setter Property="Orientation" Value="Horizontal" />
@@ -43,8 +44,7 @@
 			<Setter Property="VerticalAlignment" Value="Center"></Setter> 
 			<Setter Property="Height" Value="23"></Setter>
 			<Setter Property="Background" Value="Wheat"></Setter>
-            <Setter Property="FontSize" Value="14"></Setter>
-        </Style>
+		</Style>
 		<Style x:Key="TabItemStyle" TargetType="TabItem">
 			<Setter Property="Background" Value="Tan"></Setter>
 			<Setter Property="FontWeight" Value="ExtraBlack"></Setter>
@@ -60,9 +60,9 @@
 
 		<WrapPanel x:Name="transitionButtons" Orientation="Horizontal" Background="Peru" DockPanel.Dock="Top" Margin="0,6,0,6" />
 
-		<!-- DETAILS TAB -->
-
 		<TabControl Name="tabs" Background="Wheat" BorderThickness="8" BorderBrush="Wheat">
+
+			<!-- DETAILS TAB -->
 
 			<TabItem x:Name="detailsTab" Header="Details" Style="{StaticResource TabItemStyle}">
 
@@ -120,7 +120,7 @@
 						</StackPanel>
 						<StackPanel Style="{StaticResource PropertyStackPanel}">
 							<Label Style="{StaticResource PropertyLabel}" Content="Rank:"></Label>
-							<TextBox x:Name="cardRank" Width="Auto" LostFocus="OnPropertyTextBoxLostFocus"></TextBox>
+							<TextBox x:Name="cardRank" Width="Auto" LostFocus="OnPropertyTextBoxLostFocus" MinWidth="30"></TextBox>
 						</StackPanel>
 						<StackPanel Style="{StaticResource PropertyStackPanel}">
 							<Label Style="{StaticResource PropertyLabel}" Content="Created On:"></Label>
@@ -158,6 +158,8 @@
 				</Grid>
 			</TabItem>
 
+			<!-- COMMENTS TAB -->
+
 			<TabItem Name="commentsTab" Header="Comments" Style="{StaticResource TabItemStyle}">
 				<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 					<Grid.RowDefinitions>
@@ -165,13 +167,13 @@
 						<RowDefinition></RowDefinition>
 						<RowDefinition></RowDefinition>
 					</Grid.RowDefinitions>
-                    <TextBox x:Name="comment" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="50" BorderThickness="1" FontWeight="Normal"></TextBox>
+					<TextBox x:Name="comment" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="50" BorderThickness="1" FontWeight="Normal"></TextBox>
 					<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,6,0,6">
 						<Button x:Name="saveComment" Content="Add Comment" Click="OnButtonSaveCommentClicked"></Button>
 						<CheckBox x:Name="murmurComment" Content="Murmur this comment" Margin="10,3,0,0" 
 								  ToolTip="Check this box to murmur this comment in addition to adding it to this card."></CheckBox>
 					</StackPanel>
-					<ListBox x:Name="commentsList"  Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0" FontWeight="Normal">
+					<ListBox x:Name="commentsList"  Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0" FontWeight="Normal" Background="Wheat">
 						<ListBox.ItemTemplate>
 							<DataTemplate>
 								<StackPanel Orientation="Vertical">
