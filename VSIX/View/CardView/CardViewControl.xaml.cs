@@ -611,7 +611,7 @@ namespace ThoughtWorks.VisualStudio
         {
             try
             {
-                _thisCard.Model.PostComment(_thisCard.Number, comment.Text);
+                _thisCard.Model.PostComment(_thisCard.Number, string.Format("#{0} {1}",_thisCard.Number, comment.Text));
                 if (Convert.ToBoolean(murmurComment.IsChecked))
                 {
                     _thisCard.Model.SendMurmur(comment.Text);
@@ -619,6 +619,7 @@ namespace ThoughtWorks.VisualStudio
 
                 }
                 commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);
+                comment.Text = string.Empty;
             }
             catch (Exception ex)
             {
