@@ -31,7 +31,7 @@
 	</Control.Resources>
 	<DockPanel x:Name="dockPanel" LastChildFill="True" >
 
-		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
+		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="Peru">
 			<StackPanel Orientation="Horizontal">
 				<TextBox x:Name="card" 
 							 Margin="4,2,2,2"  

@@ -34,7 +34,10 @@ namespace ThoughtWorks.VisualStudio
     public partial class CardViewControl
     {
         private Card _thisCard;
-        private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(Colors.Gainsboro );
+        private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(SystemColors.ControlColor);
+        private readonly SolidColorBrush _darkThemeBackground = Brushes.Wheat;
+        private readonly FontWeight _darkFontWeight = FontWeights.ExtraBlack;
+        private readonly FontWeight _normalFontWeight = FontWeights.Normal;
         private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
         internal Action RefreshMurmurs { get; set; }
 
@@ -101,9 +104,7 @@ namespace ThoughtWorks.VisualStudio
                     {
                         ToolTip = VisualStudio.Resources.ClickToMakeTransition,
                         HorizontalAlignment = HorizontalAlignment.Left,
-                        Margin = new Thickness(2, 2, 2, 2),
-                        Height = 24,
-                        //Background = _buttonBackground,
+                        Margin = new Thickness(4, 4, 4, 4),
                         BorderThickness = _buttonBorderThickness
                     };
 
@@ -200,7 +201,12 @@ namespace ThoughtWorks.VisualStudio
                 Tag = cardProperty
             };
 
-            var label = new Label { Content = cardProperty.Name };
+            var label = new Label
+                            {
+                                Content = cardProperty.Name,
+                                Background = _darkThemeBackground,
+                                FontWeight = FontWeights.ExtraBlack
+                            };
 
             // Make labels for hidden properties italic.
             if (cardProperty.Hidden) label.FontStyle = FontStyles.Italic;
@@ -244,7 +250,6 @@ namespace ThoughtWorks.VisualStudio
             }
 
             panel.IsEnabled = PropertyIsEditable(cardProperty);
-
             return panel;
         }
 
@@ -257,7 +262,8 @@ namespace ThoughtWorks.VisualStudio
                             Tag = cardProperty,
                             Width = 30,
                             Background = _buttonBackground,
-                            BorderThickness = _buttonBorderThickness
+                            BorderThickness = _buttonBorderThickness,
+
                         };
             return a;
         }
@@ -274,7 +280,8 @@ namespace ThoughtWorks.VisualStudio
                          {
                              MinWidth = 50,
                              Name = cardProperty.ColumnName,
-                             DataContext = cardProperty
+                             DataContext = cardProperty,
+                             FontWeight = _normalFontWeight
                          };
 
             var cardinfo = cardProperty.Value as string;
@@ -290,7 +297,7 @@ namespace ThoughtWorks.VisualStudio
                 tb.LostFocus += OnPropertyTextBoxLostFocus;
 
             if (cardProperty.IsTransitionOnly || cardProperty.IsFormula)
-                tb.Background = Brushes.LightGray;
+                tb.Background = Brushes.PapayaWhip;
 
             return tb;
         }
@@ -304,7 +311,8 @@ namespace ThoughtWorks.VisualStudio
                              Name = cardProperty.ColumnName,
                              DataContext = cardProperty,
                              Background = _buttonBackground,
-                             BorderThickness = _buttonBorderThickness
+                             BorderThickness = _buttonBorderThickness,
+                             FontWeight = _normalFontWeight
                          };
 
             if (cardProperty.IsTeamValued)
@@ -337,7 +345,8 @@ namespace ThoughtWorks.VisualStudio
                             Content = "X",
                             ToolTip = "Click to leave the value not set",
                             Tag = cardProperty,
-                            Width = 30
+                            Width = 30,
+                            FontWeight = FontWeights.Normal
                         };
 
             b.Click += OnButtonNotSetClick;
