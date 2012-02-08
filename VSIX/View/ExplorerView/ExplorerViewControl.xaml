@@ -19,17 +19,17 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 mc:Ignorable="d Anno"  x:Name="userControl"
 			 xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008"
-             xmlns:mwt="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
-             x:Class="ThoughtWorks.VisualStudio.ExplorerViewControl" Initialized="UserControlInitialized">
-    <Control.Resources>
-        <Style x:Key="TreeViewItemStyle" TargetType="TreeViewItem">
-            <Style.Resources>
-                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Wheat"/>
-                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
-            </Style.Resources>
-        </Style>
-    </Control.Resources>
-    <DockPanel x:Name="dockPanel" LastChildFill="True" >
+			 xmlns:mwt="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+			 x:Class="ThoughtWorks.VisualStudio.ExplorerViewControl" Initialized="UserControlInitialized">
+	<Control.Resources>
+		<Style x:Key="TreeViewItemStyle" TargetType="TreeViewItem">
+			<Style.Resources>
+				<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Wheat"/>
+				<SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+			</Style.Resources>
+		</Style>
+	</Control.Resources>
+	<DockPanel x:Name="dockPanel" LastChildFill="True" >
 
 		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
 			<StackPanel Orientation="Horizontal">
@@ -38,15 +38,15 @@
 							 FontSize="11" 
 							 Height="20" 
 							 Width="36" />
-                <Button Name="buttonGetCard" 
+				<Button Name="buttonGetCard" 
 							Margin="2,2,0,2" FontSize="11" 
 							Height="20" Width="Auto" 
 							Click="ButtonClick" 
 							IsDefault="False" BorderThickness="0" ToolTip="Go to card" 
-                        Content="&lt;Get Card" Padding="0" 
-                        Focusable="{Binding}">
-                </Button>
-            </StackPanel>
+						Content="&lt;Get Card" Padding="0" 
+						Focusable="{Binding}">
+				</Button>
+			</StackPanel>
 			<ComboBox Name="comboProjects" 
 						  Margin="2,2,0,2" 
 						  FontSize="11" 
@@ -67,14 +67,14 @@
 						FontSize="11" 
 						Height="20" BorderThickness="0" Opacity="1" />
 				<StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="cardTypes" FontSize="11" Height="20" Margin="2,2,0,2" BorderThickness="0" Opacity="1"></ComboBox>
-                <Button Name="buttonNewCard" 
+				<ComboBox x:Name="cardTypes" FontSize="11" Height="20" Margin="2,2,0,2" BorderThickness="0" Opacity="1"></ComboBox>
+				<Button Name="buttonNewCard" 
 							ToolTip="Create a new card" Click="ButtonClick" 
 							Margin="2,2,0,2"  
 							FontSize="11" 
 							Height="20" Width="Auto" Content="&lt;New Card" BorderThickness="0" Opacity="1"></Button>
-                <Button Name="buttonOpenMurmurWindow" Click="ButtonClick" Margin="2,2,2,2" FontSize="11" Height="20" Width="Auto" Content="Murmurs" ToolTip="Open murmur window"></Button>
-            </StackPanel>
+				<Button Name="buttonOpenMurmurWindow" Click="ButtonClick" Margin="2,2,2,2" FontSize="11" Height="20" Width="Auto" Content="Murmurs" ToolTip="Open murmur window"></Button>
+			</StackPanel>
 				<!--<Button Name="buttonFeedback" 
 						ToolTip="Send feedback" 
 						Content="Feedback..." 
@@ -87,12 +87,12 @@
 
 		<Grid x:Name="MingleExplorer" DockPanel.Dock="Top" Grid.Row="0">
 
-            <TreeView BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemContainerStyle="{StaticResource TreeViewItemStyle}">
-			    <TreeViewItem Header="Favorites (Card Lists)" IsExpanded="True" x:Name="favoritesTree" ></TreeViewItem>
+			<TreeView BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemContainerStyle="{StaticResource TreeViewItemStyle}">
+				<TreeViewItem Header="Favorites (Card Lists)" IsExpanded="True" x:Name="favoritesTree" ></TreeViewItem>
 				<!--<TreeViewItem Header="Pipelines" IsExpanded="False" x:Name="pipelinesTree"></TreeViewItem>-->
 				<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
 			</TreeView>
-            
-        </Grid>
+			
+		</Grid>
 	</DockPanel>
 </UserControl>
