@@ -381,12 +381,15 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
-            var w = new CardListWindow(_thisCard.Model);
+            var propertyName = (((sender as Button).Tag as TextBox).Tag as CardProperty).Name;
+
+            var w = new CardListWindow(_thisCard.Model, propertyName);
             w.ShowDialog();
 
             if (w.Cancelled || w.SelectedCardNumber == "0") return;
 
-            _thisCard.SetPropertyOrAttributValue((((sender as Button).Tag as TextBox).Tag as CardProperty).Name, w.SelectedCardNumber);
+            _thisCard.SetPropertyOrAttributValue(propertyName, w.SelectedCardNumber);
+
             try
             {
                 _thisCard.Update();

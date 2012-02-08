@@ -21,7 +21,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using ThoughtWorksCoreLib;
+using CheckBox = System.Windows.Controls.CheckBox;
+using MessageBox = System.Windows.MessageBox;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -34,11 +37,13 @@ namespace ThoughtWorks.VisualStudio
         internal string SelectedCardNumber { get; private set; }
         internal bool Cancelled = true;
         private readonly ViewModel _model;
+        private readonly string _propertyLabel;
 
-        internal CardListWindow(ViewModel model)
+        internal CardListWindow(ViewModel model, string propertyLabel)
         {
             SelectedCardNumber = "0";
             _model = model;
+            _propertyLabel = propertyLabel;
             InitializeComponent();
         }
 
@@ -61,12 +66,22 @@ namespace ThoughtWorks.VisualStudio
             var checkBox = new CheckBox {Content = k};
             checkBox.Checked += OnCardTypeCheckBoxChecked;
             checkBox.Unchecked += OnCardTypeCheckBoxChecked;
+            if (k.Equals(_propertyLabel)) checkBox.IsChecked = true;
+            SearchForCards();
             return cardTypes.Children.Add(checkBox);
         }
 
         private void OnCardTypeCheckBoxChecked(object sender, RoutedEventArgs e)
         {
-            SearchForCards();
+            try
+            {
+                Cursor = Cursors.Wait;
+                SearchForCards();
+            }
+            finally
+            {
+                Cursor = Cursors.Arrow;
+            }
         }
 
         private void OnListSelectionChanged(object sender, SelectionChangedEventArgs e)
