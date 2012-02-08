@@ -31,11 +31,11 @@ namespace ThoughtWorks.VisualStudio
 	/// </summary>
 	public partial class ExplorerViewControl
 	{
-        /// <summary>
-        /// View model
-        /// </summary>
+		/// <summary>
+		/// View model
+		/// </summary>
 		protected internal ViewModel Model { get; set; }
-	    private MurmurViewWindowPane _murmurs;
+		private MurmurViewWindowPane _murmurs;
 
 		/// <summary>
 		/// XAML form for navigating a Mingle/GO integrated environment 
@@ -43,43 +43,43 @@ namespace ThoughtWorks.VisualStudio
 		public ExplorerViewControl()
 		{
 			InitializeComponent();
-            favoritesTree.MouseDoubleClick += OnFavoritesTreeItemMouseDoubleClick;
-        }
+			favoritesTree.MouseDoubleClick += OnFavoritesTreeItemMouseDoubleClick;
+		}
 
-        private void UserControlInitialized(object sender, EventArgs e)
-        {
-            if (!CheckSettings()) return;
+		private void UserControlInitialized(object sender, EventArgs e)
+		{
+			if (!CheckSettings()) return;
 
-            try
-            {
-                Model = new ViewModel();
-                Model.Initialize(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
-                Cursor = Cursors.Wait;
-                BindProjectList();
-            }
-            catch (Exception ex)
-            {
-                TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                AlertUser(ex);
-                return;
-            }
-            finally
-            {
-                Cursor = Cursors.Arrow;
-            }
+			try
+			{
+				Model = new ViewModel();
+				Model.Initialize(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
+				Cursor = Cursors.Wait;
+				BindProjectList();
+			}
+			catch (Exception ex)
+			{
+				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+				AlertUser(ex);
+				return;
+			}
+			finally
+			{
+				Cursor = Cursors.Arrow;
+			}
 
-            comboProjects.SelectedValue = Model.ProjectId;
-        }
+			comboProjects.SelectedValue = Model.ProjectId;
+		}
 
-	    private static void AlertUser(Exception ex)
-	    {
-	        var msg = ex.InnerException.Data.Count > 0
-	                      ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
-	                      : ex.Message;
-	        MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);
-	    }
+		private static void AlertUser(Exception ex)
+		{
+			var msg = ex.InnerException.Data.Count > 0
+						  ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
+						  : ex.Message;
+			MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);
+		}
 
-	    #region OnComboProjectsSelectionChanged
+		#region OnComboProjectsSelectionChanged
 		private void OnProjectSelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			if (e.AddedItems.Count <= 0) return;
@@ -87,17 +87,17 @@ namespace ThoughtWorks.VisualStudio
 
 			try
 			{
-			    this.Cursor = Cursors.Wait;
+				this.Cursor = Cursors.Wait;
 
-			    if (Model.SelectProject(item))
-			    {
-			        BindCardTypes();
-			        BindExplorerTrees();
-                    if (null != _murmurs) _murmurs.Control.RefreshMurmurs();
-			    }
-			    else
-			    {
-			    }
+				if (Model.SelectProject(item))
+				{
+					BindCardTypes();
+					BindExplorerTrees();
+					if (null != _murmurs) _murmurs.Control.RefreshMurmurs();
+				}
+				else
+				{
+				}
 			}
 			catch (Exception ex)
 			{
@@ -123,122 +123,122 @@ namespace ThoughtWorks.VisualStudio
 		/// <param name="e"></param>
 		private void ButtonClick(object sender, RoutedEventArgs e)
 		{
-            switch (((Button)sender).Name)
-            {
-                case "buttonSettings":
-                    {
-                        try
-                        {
-                            if (!new SettingsViewControl().ShowDialog() == true)
-                                break;
+			switch (((Button)sender).Name)
+			{
+				case "buttonSettings":
+					{
+						try
+						{
+							if (!new SettingsViewControl().ShowDialog() == true)
+								break;
 
-                            Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
-                            Cursor = Cursors.Wait;
-                            BindProjectList();
-                            ClearTrees();
-                        }
-                        catch (Exception ex)
-                        {
-                            TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                            AlertUser(ex);
-                        }
-                        finally
-                        {
-                            Cursor = Cursors.Arrow;
-                        }
+							Model = new ViewModel(MingleSettings.Host, MingleSettings.Login, MingleSettings.Password);
+							Cursor = Cursors.Wait;
+							BindProjectList();
+							ClearTrees();
+						}
+						catch (Exception ex)
+						{
+							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+							AlertUser(ex);
+						}
+						finally
+						{
+							Cursor = Cursors.Arrow;
+						}
 
-                        break;
-                    }
+						break;
+					}
 
-                case "buttonRefresh":
-                    {
-                        try
-                        {
-                            this.Cursor = Cursors.Wait;
-                            BindAll();
-                        }
-                        catch (Exception ex)
-                        {
-                            TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                            AlertUser(ex);
-                        }
-                        finally
-                        {
-                            this.Cursor = Cursors.Arrow;
-                        }
+				case "buttonRefresh":
+					{
+						try
+						{
+							this.Cursor = Cursors.Wait;
+							BindAll();
+						}
+						catch (Exception ex)
+						{
+							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+							AlertUser(ex);
+						}
+						finally
+						{
+							this.Cursor = Cursors.Arrow;
+						}
 
-                        break;
-                    }
+						break;
+					}
 
-                case "buttonFeedback":
-                    {
-                        var feedback = new FeedbackViewControl();
-                        feedback.ShowDialog();
-                        feedback.Dispose();
-                        break;
-                    }
+				case "buttonFeedback":
+					{
+						var feedback = new FeedbackViewControl();
+						feedback.ShowDialog();
+						feedback.Dispose();
+						break;
+					}
 
-                case "buttonNewCard":
-                    {
-                        try
-                        {
-                            ShowCardViewToolWindow(Model.CreateCard(cardTypes.SelectedValue.ToString(), "new card"));
-                        }
-                        catch (Exception ex)
-                        {
-                            TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                            AlertUser(ex);
-                        }
+				case "buttonNewCard":
+					{
+						try
+						{
+							ShowCardViewToolWindow(Model.CreateCard(cardTypes.SelectedValue.ToString(), "new card"));
+						}
+						catch (Exception ex)
+						{
+							TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
+							AlertUser(ex);
+						}
 
-                        break;
-                    }
+						break;
+					}
 
-                case "buttonGetCard":
-                    {
-                        if (!string.IsNullOrEmpty(card.Text) && Convert.ToInt32(card.Text, CultureInfo.CurrentCulture) > 0)
-                            ShowCardViewToolWindow(Convert.ToInt32(card.Text, CultureInfo.CurrentCulture));
-                        break;
-                    }
+				case "buttonGetCard":
+					{
+						if (!string.IsNullOrEmpty(card.Text) && Convert.ToInt32(card.Text, CultureInfo.CurrentCulture) > 0)
+							ShowCardViewToolWindow(Convert.ToInt32(card.Text, CultureInfo.CurrentCulture));
+						break;
+					}
 
-                case "buttonOpenMurmurWindow":
-                    {
-                        _murmurs = ShowMurmurWindow();
-                        break;
-                    }
-            }
+				case "buttonOpenMurmurWindow":
+					{
+						_murmurs = ShowMurmurWindow();
+						break;
+					}
+			}
 		}
 
 		#endregion
 
 		#region Display one card
-        private MurmurViewWindowPane ShowMurmurWindow()
-        {
-            try
-            {
-                var window = Package.FindToolWindow(typeof(MurmurViewWindowPane), 0, true);
+		private MurmurViewWindowPane ShowMurmurWindow()
+		{
+			try
+			{
+				var window = Package.FindToolWindow(typeof(MurmurViewWindowPane), 0, true);
 
-                if ((null == window) || (null == window.Frame))
-                    throw new NotSupportedException(VisualStudio.Resources.CanNotCreateWindow);
+				if ((null == window) || (null == window.Frame))
+					throw new NotSupportedException(VisualStudio.Resources.CanNotCreateWindow);
 
-                (window as MurmurViewWindowPane).Initialize(Model);
+				(window as MurmurViewWindowPane).Initialize(Model);
 
-                var frame = (IVsWindowFrame)window.Frame;
+				var frame = (IVsWindowFrame)window.Frame;
 
-                ErrorHandler.ThrowOnFailure(frame.Show());
+				ErrorHandler.ThrowOnFailure(frame.Show());
 
-                return window as MurmurViewWindowPane;
-            }
-            catch (Exception e)
-            {
-                TraceLog.Exception(new StackFrame().GetMethod().Name, e);
-                MessageBox.Show(e.Message);
-            }
+				return window as MurmurViewWindowPane;
+			}
+			catch (Exception e)
+			{
+				TraceLog.Exception(new StackFrame().GetMethod().Name, e);
+				MessageBox.Show(e.Message);
+			}
 
-            return null;
+			return null;
 
-        }
+		}
 
-        private void ShowCardViewToolWindow(Card mingleCard)
+		private void ShowCardViewToolWindow(Card mingleCard)
 		{
 			try
 			{
@@ -262,11 +262,11 @@ namespace ThoughtWorks.VisualStudio
 			}
 		}
 
-        internal void RefreshMurmurs()
-        {
-            if (null == _murmurs) return;
-            _murmurs.Control.RefreshMurmurs();
-        }
+		internal void RefreshMurmurs()
+		{
+			if (null == _murmurs) return;
+			_murmurs.Control.RefreshMurmurs();
+		}
 
 		/// <summary>
 		/// Show the CardView window
@@ -311,7 +311,7 @@ namespace ThoughtWorks.VisualStudio
 
 			var svc = new SettingsViewControl();
 			svc.ShowDialog();
-		    return Convert.ToBoolean(svc.DialogResult);
+			return Convert.ToBoolean(svc.DialogResult);
 		}
 
 		#region Tree click event handlers
@@ -341,8 +341,8 @@ namespace ThoughtWorks.VisualStudio
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                AlertUser(ex);
-            }
+				AlertUser(ex);
+			}
 			finally
 			{
 				this.Cursor = Cursors.Arrow;
@@ -376,8 +376,8 @@ namespace ThoughtWorks.VisualStudio
 			catch (Exception ex)
 			{
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
-                AlertUser(ex);
-                return;
+				AlertUser(ex);
+				return;
 			}
 			finally
 			{
@@ -419,7 +419,7 @@ namespace ThoughtWorks.VisualStudio
 		{
 			try
 			{
-			    Cursor = Cursors.Wait;
+				Cursor = Cursors.Wait;
 				BindProjectList();
 				BindExplorerTrees();
 				comboProjects.SelectedValue = Model.ProjectId;
@@ -429,9 +429,9 @@ namespace ThoughtWorks.VisualStudio
 				TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
 				throw;
 			}
-		            finally
+					finally
 			{
-			    Cursor = Cursors.Arrow;
+				Cursor = Cursors.Arrow;
 			}
 }
 
