@@ -98,11 +98,18 @@ namespace ThoughtWorks.VisualStudio
 
         private void SearchForCards()
         {
+
             var cards = new SortedList<int, CardListItem>();
             var types = new Collection<string>();
 
             foreach (var item in cardTypes.Children.Cast<CheckBox>().Where(item => Convert.ToBoolean(item.IsChecked)))
                 types.Add(item.Content.ToString());
+
+            if (types.Count == 0)
+            {
+                list.ItemsSource = cards.Values;
+                return;
+            }
 
             try
             {

@@ -21,29 +21,31 @@
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="70"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <Grid  Margin="4,0,12,0">
+            <Grid  Margin="4,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Filter:" Margin="0,0,4,0"></Label>
+            <Label Grid.Row="0" Content="Filter:" Margin="0,0,4,0" FontSize="14" FontWeight="ExtraBlack"></Label>
             <StackPanel Orientation="Vertical" Name="cardTypes" Width="Auto" Grid.Row="1"
                         ToolTip="Choose one or more card types and click Search">
             </StackPanel>
             </Grid>
         </Grid>
-        <Grid Grid.Column="1" >
+        <GridSplitter Grid.Column="1" Background="Tan" Visibility="Visible" Width="6"/>
+        <Grid Grid.Column="2" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Double-click a card to choose:"  Background="WhiteSmoke"></Label>
-            <ListBox x:Name="list" VerticalAlignment="Stretch" Grid.Row="1" BorderThickness="0" Background="WhiteSmoke"
-                SelectionChanged="OnListSelectionChanged" MouseDoubleClick="OnListMouseDoubleClick"
-                ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <Label Grid.Row="0" Content="Double-click a card to choose:" FontWeight="ExtraBlack" Background="Wheat" FontSize="14"></Label>
+            <ListBox x:Name="list" VerticalAlignment="Stretch" Grid.Row="1" BorderThickness="0" Background="Wheat"
+                SelectionChanged="OnListSelectionChanged" MouseDoubleClick="OnListMouseDoubleClick" FontSize="12"
+                ScrollViewer.VerticalScrollBarVisibility="Auto" >
             <ListBox.ItemTemplate>
                 <DataTemplate x:Name="cardItemTemplate">
                     <StackPanel Orientation="Horizontal">
@@ -51,7 +53,7 @@
                         <TextBlock Text=" - (" />
                         <TextBlock Text="{Binding TypeName}" Margin="2" />
                         <TextBlock Text=") " />
-                        <TextBlock Text="{Binding Name}" Margin="2" />
+                        <TextBlock Text="{Binding Name}" Margin="2" TextWrapping="Wrap" Height="Auto"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
