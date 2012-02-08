@@ -33,7 +33,7 @@
 			<Setter Property="VerticalContentAlignment" Value="Center"></Setter>
 			<Setter Property="Background" Value="PapayaWhip"></Setter>
 			<Setter Property="FontWeight" Value="Normal"></Setter>
-		</Style>
+        </Style>
 		<Style x:Key="PropertyStackPanel" TargetType="StackPanel" >
 			<Setter Property="Margin" Value="24,6,0,0" />
 			<Setter Property="Orientation" Value="Horizontal" />
@@ -43,7 +43,8 @@
 			<Setter Property="VerticalAlignment" Value="Center"></Setter> 
 			<Setter Property="Height" Value="23"></Setter>
 			<Setter Property="Background" Value="Wheat"></Setter>
-		</Style>
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
 		<Style x:Key="TabItemStyle" TargetType="TabItem">
 			<Setter Property="Background" Value="Tan"></Setter>
 			<Setter Property="FontWeight" Value="ExtraBlack"></Setter>
@@ -164,13 +165,13 @@
 						<RowDefinition></RowDefinition>
 						<RowDefinition></RowDefinition>
 					</Grid.RowDefinitions>
-					<TextBox x:Name="comment" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="50" BorderThickness="1"></TextBox>
+                    <TextBox x:Name="comment" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="50" BorderThickness="1" FontWeight="Normal"></TextBox>
 					<StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,6,0,6">
 						<Button x:Name="saveComment" Content="Add Comment" Click="OnButtonSaveCommentClicked"></Button>
 						<CheckBox x:Name="murmurComment" Content="Murmur this comment" Margin="10,3,0,0" 
 								  ToolTip="Check this box to murmur this comment in addition to adding it to this card."></CheckBox>
 					</StackPanel>
-					<ListBox x:Name="commentsList"  Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0">
+					<ListBox x:Name="commentsList"  Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0" FontWeight="Normal">
 						<ListBox.ItemTemplate>
 							<DataTemplate>
 								<StackPanel Orientation="Vertical">
@@ -178,7 +179,7 @@
 									<TextBlock Text="{Binding Path=Comment}" />
 									<StackPanel Orientation="Horizontal">
 										<!-- user name and date of the comment are here -->
-										<TextBlock Text="{Binding Path=Name}"/>
+										<TextBlock Text="{Binding Path=Name}" FontWeight="ExtraBlack"/>
 										<TextBlock Text="on"  Margin="6,0,6,0" />
 										<TextBlock Text="{Binding Path=Date}"/>
 									</StackPanel>
