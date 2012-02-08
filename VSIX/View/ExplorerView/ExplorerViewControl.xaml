@@ -21,6 +21,14 @@
 			 xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008"
              xmlns:mwt="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
              x:Class="ThoughtWorks.VisualStudio.ExplorerViewControl" Initialized="UserControlInitialized">
+    <Control.Resources>
+        <Style x:Key="TreeViewItemStyle" TargetType="TreeViewItem">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Wheat"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+            </Style.Resources>
+        </Style>
+    </Control.Resources>
     <DockPanel x:Name="dockPanel" LastChildFill="True" >
 
 		<WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
@@ -78,9 +86,9 @@
 			</WrapPanel>
 
 		<Grid x:Name="MingleExplorer" DockPanel.Dock="Top" Grid.Row="0">
-            
-			<TreeView BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-			    <TreeViewItem Header="Favorites (Card Lists)" IsExpanded="True" x:Name="favoritesTree"></TreeViewItem>
+
+            <TreeView BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemContainerStyle="{StaticResource TreeViewItemStyle}">
+			    <TreeViewItem Header="Favorites (Card Lists)" IsExpanded="True" x:Name="favoritesTree" ></TreeViewItem>
 				<!--<TreeViewItem Header="Pipelines" IsExpanded="False" x:Name="pipelinesTree"></TreeViewItem>-->
 				<TreeViewItem Header="Team" IsExpanded="False" x:Name="teamTree"></TreeViewItem>
 			</TreeView>
