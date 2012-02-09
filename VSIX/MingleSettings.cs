@@ -98,51 +98,5 @@ namespace ThoughtWorks.VisualStudio
             Password = password;
         }
 
-        #region SecureString conversion
-
-        //        /// <summary>
-        ///// Converts String to SecureString
-        ///// </summary>
-        ///// <param name="text"></param>
-        ///// <returns></returns>
-        //private static SecureString ConvertStringToSecureString(string text)
-        //{
-        //    var ss = new SecureString();
-        //    foreach (var c in text.ToCharArray())
-        //    {
-        //        ss.AppendChar(c);
-        //    }
-        //    return ss;
-        //}
-
-        ///// <summary>
-        ///// Converts a SecureString to String
-        ///// </summary>
-        ///// <param name="secureString"></param>
-        ///// <returns>The password as a string or if the conversion fails then an empty string is returned.</returns>
-        //private static string ConvertSecureStringToString(SecureString secureString)
-        //{
-        //    if (null == secureString)
-        //    {
-        //        secureString = new SecureString();
-        //    }
-
-        //    var unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);
-        //    try
-        //    {
-        //        return Marshal.PtrToStringUni(unmanagedString);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return string.Empty;
-        //    }
-        //    finally
-        //    {
-        //        Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
-        //    }
-
-        //}
-
-        #endregion
     }
 }
