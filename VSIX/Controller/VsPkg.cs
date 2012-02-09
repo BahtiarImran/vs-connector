@@ -36,14 +36,14 @@ namespace ThoughtWorks.VisualStudio
     [ProvideToolWindow(typeof (CardSetViewWindowPane), Transient = true)]
     [ProvideToolWindow(typeof (CardViewWindowPane), Transient = true)]
     [ProvideToolWindow(typeof (ExplorerViewWindowPane))]
-    [ProvideToolWindow(typeof(MurmurViewWindowPane), Transient = true)]
+    [ProvideToolWindow(typeof (MurmurViewWindowPane), Transient = true)]
     [ProvideToolWindowVisibility(typeof (CardSetViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E3FCA72F-B3A4-406E-A4AA-1051594D2367")]
     [ProvideToolWindowVisibility(typeof (CardViewWindowPane), /*UICONTEXT_SolutionExists*/
         "59373D4C-3F6C-4031-AF08-D11D4CCFC45B")]
     [ProvideToolWindowVisibility(typeof (ExplorerViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E03D0A03-6B80-48D4-9A61-220CD2033698")]
-    [ProvideToolWindowVisibility(typeof(MurmurViewWindowPane), /*UICONTEXT_SolutionExists*/
+    [ProvideToolWindowVisibility(typeof (MurmurViewWindowPane), /*UICONTEXT_SolutionExists*/
         "E03D0A03-6B80-48D4-9A61-220CD2033698")]
     [ProvideMenuResource(1000, 1)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
@@ -92,7 +92,6 @@ namespace ThoughtWorks.VisualStudio
 
             var id = new CommandID(GuidsList.GuidTwVscCmdSet, PkgCmdId.MingleExplorer);
             DefineCommandHandler(ShowMingleExplorer, id);
-
         }
 
         /// <summary>
@@ -139,14 +138,15 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Creating the Explorer window pane");
-                var window = FindToolWindow(typeof (ExplorerViewWindowPane), 0, true);
+                ToolWindowPane window = FindToolWindow(typeof (ExplorerViewWindowPane), 0, true);
 
                 if ((null == window) || (null == window.Frame))
                     throw new NotSupportedException(Resources.CanNotCreateWindow);
 
-                TraceLog.WriteLine(new StackFrame().GetMethod().Name, "Handing the ViewModel to the ExplorerViewControl window");
+                TraceLog.WriteLine(new StackFrame().GetMethod().Name,
+                                   "Handing the ViewModel to the ExplorerViewControl window");
 
-                var frame = (IVsWindowFrame)window.Frame;
+                var frame = (IVsWindowFrame) window.Frame;
 
                 ErrorHandler.ThrowOnFailure(frame.Show());
             }
@@ -155,10 +155,8 @@ namespace ThoughtWorks.VisualStudio
                 TraceLog.Exception(new StackFrame().GetMethod().Name, e);
                 MessageBox.Show(e.Message, Resources.MingleExtensionTitle);
             }
-
         }
 
         #endregion
     }
-
 }
