@@ -25,7 +25,7 @@ namespace ThoughtWorks.VisualStudio
     /// <summary>
     /// Interaction logic for MurmurViewControl.xaml
     /// </summary>
-    public partial class MurmurViewControl : UserControl
+    public partial class MurmurViewControl
     {
         internal ViewModel Model { get; set; }
 
