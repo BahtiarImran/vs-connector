@@ -37,7 +37,7 @@ namespace ThoughtWorks.VisualStudio
         {
             if (string.IsNullOrEmpty(value)) throw new ArgumentNullException("value");
 
-            foreach (var c in value.ToCharArray())
+            foreach (char c in value.ToCharArray())
             {
                 _ss.AppendChar(c);
             }
@@ -52,7 +52,7 @@ namespace ThoughtWorks.VisualStudio
         /// <returns>Empty string if an exception is thrown publicly</returns>
         public static string GetStringFromSecureString(SecureString secureString)
         {
-            var unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);
+            IntPtr unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);
             try
             {
                 return Marshal.PtrToStringUni(unmanagedString);
@@ -76,7 +76,7 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        virtual protected void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             if (_disposed) return;
             if (disposing)
@@ -89,6 +89,5 @@ namespace ThoughtWorks.VisualStudio
             _ss = null;
             _disposed = true;
         }
-
     }
 }

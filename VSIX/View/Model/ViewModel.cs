@@ -24,7 +24,6 @@ using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
 {
-
     /// <summary>
     /// Supports the ExplorerViewControl window
     /// </summary>
@@ -39,6 +38,7 @@ namespace ThoughtWorks.VisualStudio
         private CardTypesDictionary _cardTypesDictionaryCache;
 
         #region Constructors
+
         /// <summary>
         /// Constructs a new ViewModel
         /// </summary>
@@ -62,7 +62,10 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Constructs a naked ViewModel
         /// </summary>
-        internal ViewModel() { } 
+        internal ViewModel()
+        {
+        }
+
         #endregion
 
         internal void Initialize(string host, string login, string password)
@@ -71,9 +74,11 @@ namespace ThoughtWorks.VisualStudio
         }
 
         #region Authentication Section
+
         internal string Host { get; set; }
         internal string Login { get; set; }
         internal string Password { get; set; }
+
         #endregion
 
         /// <summary>
@@ -84,7 +89,7 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 var projects = new SortedList<string, KeyValuePair>();
-                Mingle.GetProjectList().ToList().ForEach(p => projects.Add(p.Key, new KeyValuePair(p.Key,p.Value)));
+                Mingle.GetProjectList().ToList().ForEach(p => projects.Add(p.Key, new KeyValuePair(p.Key, p.Value)));
                 return projects;
             }
         }
@@ -106,14 +111,16 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Get the collection of Favorites
         /// </summary>
-        public FavoritesDictionary FavoritesDictionary 
-        { 
+        public FavoritesDictionary FavoritesDictionary
+        {
             get
             {
                 var favorites = new FavoritesDictionary();
-                new Project(MingleSettings.Project, this).GetFavoritesDictionary.ToList().              /* enumerates favorites from mingle */
-                    Where(f => string.CompareOrdinal(f.Value.FavoriteType, "CardListView") == 0).ToList().    /* selects only CardListView favorites */
-                    ForEach(f => favorites.Add(f.Key, f.Value));                                  /* populates the ViewModel cache */
+                new Project(MingleSettings.Project, this).GetFavoritesDictionary.ToList().
+                    /* enumerates favorites from mingle */
+                    Where(f => string.CompareOrdinal(f.Value.FavoriteType, "CardListView") == 0).ToList().
+                    /* selects only CardListView favorites */
+                    ForEach(f => favorites.Add(f.Key, f.Value)); /* populates the ViewModel cache */
                 return favorites;
             }
         }
@@ -121,11 +128,12 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Collection of project team members for data binding with XAML
         /// </summary>
-        public SortedList<string,TeamMember> TeamMemberDictionary
+        public SortedList<string, TeamMember> TeamMemberDictionary
         {
             get
             {
-                if (null != _teamMemberDictionaryCache && _teamMemberDictionaryCache.Count > 0) return _teamMemberDictionaryCache;
+                if (null != _teamMemberDictionaryCache && _teamMemberDictionaryCache.Count > 0)
+                    return _teamMemberDictionaryCache;
                 _teamMemberDictionaryCache = Project().TeamMemberDictionary;
                 return _teamMemberDictionaryCache;
             }
@@ -138,12 +146,14 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _teamMemberDictionaryMlCache && _teamMemberDictionaryMlCache.Count > 0) return _teamMemberDictionaryMlCache;
+                if (null != _teamMemberDictionaryMlCache && _teamMemberDictionaryMlCache.Count > 0)
+                    return _teamMemberDictionaryMlCache;
                 _teamMemberDictionaryMlCache = Project().TeamMemberDictionary;
                 _teamMemberDictionaryMlCache.Add(Resources.ItemNotSet, new TeamMember(this, false));
                 return _teamMemberDictionaryMlCache;
             }
         }
+
         /// <summary>
         /// Card types
         /// </summary>
@@ -151,7 +161,8 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _cardTypesDictionaryCache && _cardTypesDictionaryCache.Count > 0) return _cardTypesDictionaryCache;
+                if (null != _cardTypesDictionaryCache && _cardTypesDictionaryCache.Count > 0)
+                    return _cardTypesDictionaryCache;
                 _cardTypesDictionaryCache = Project().CardTypesDictionary;
                 return _cardTypesDictionaryCache;
             }
@@ -164,7 +175,8 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                if (null != _propertiesDictionaryCache && _propertiesDictionaryCache.Count > 0) return _propertiesDictionaryCache;
+                if (null != _propertiesDictionaryCache && _propertiesDictionaryCache.Count > 0)
+                    return _propertiesDictionaryCache;
                 _propertiesDictionaryCache = Project().PropertyDictionaryDefinitions;
                 return _propertiesDictionaryCache;
             }
@@ -173,7 +185,10 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Project id (not name)
         /// </summary>
-        public string ProjectId { get { return MingleSettings.Project; } }
+        public string ProjectId
+        {
+            get { return MingleSettings.Project; }
+        }
 
         /// <summary>
         /// Get collection of CardsCollection for a particular favorite
@@ -183,7 +198,10 @@ namespace ThoughtWorks.VisualStudio
         public SortedList<string, CardBasicInfo> GetCardsForFavorite(string view)
         {
             var cards = new SortedList<string, CardBasicInfo>();
-            Project().GetView(view).ToList().ForEach(c => cards.Add(string.Format(CultureInfo.InvariantCulture, "{0}{1}", c.CardType, c.Name), new CardBasicInfo(c.Number, c.CardType, c.Name)));
+            Project().GetView(view).ToList().ForEach(
+                c =>
+                cards.Add(string.Format(CultureInfo.InvariantCulture, "{0}{1}", c.CardType, c.Name),
+                          new CardBasicInfo(c.Number, c.CardType, c.Name)));
             return cards;
         }
 
@@ -194,7 +212,8 @@ namespace ThoughtWorks.VisualStudio
         /// <returns>Card object</returns>
         public Card GetOneCard(int cardNo)
         {
-            var cardStr = Mingle.Get(MingleSettings.Project, string.Format(CultureInfo.InvariantCulture, "/cards/{0}.xml", cardNo));
+            string cardStr = Mingle.Get(MingleSettings.Project,
+                                        string.Format(CultureInfo.InvariantCulture, "/cards/{0}.xml", cardNo));
             CurrentCardNumber = cardNo;
             CurrentCard = new Card(new MingleCard(cardStr, Project().MingleProject), this);
             return CurrentCard;
@@ -214,7 +233,7 @@ namespace ThoughtWorks.VisualStudio
                 if (null != _transitionsCollectionCache) return _transitionsCollectionCache;
                 _transitionsCollectionCache = Project().TransitionsCollection;
                 return _transitionsCollectionCache;
-            } 
+            }
         }
 
         /// <summary>
@@ -240,7 +259,6 @@ namespace ThoughtWorks.VisualStudio
         {
             var card = new Card(Project().MingleProject.CreateCard(type, name), this);
             return card;
-
         }
 
         /// <summary>
@@ -258,10 +276,7 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         public XElement ListOfCards
         {
-            get
-            {
-                return Project().ExecMql("SELECT type, name, number ORDER BY type,name ASC");
-            }
+            get { return Project().ExecMql("SELECT type, name, number ORDER BY type,name ASC"); }
         }
 
         /// <summary>
@@ -282,8 +297,9 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         public void PostComment(int number, string comment)
         {
-            var commentData = new Collection<string> { string.Format(CultureInfo.InvariantCulture, "comment[content]={0}", comment) };
-            var url = string.Format(CultureInfo.InvariantCulture, "/cards/{0}/comments.xml", number);
+            var commentData = new Collection<string>
+                                  {string.Format(CultureInfo.InvariantCulture, "comment[content]={0}", comment)};
+            string url = string.Format(CultureInfo.InvariantCulture, "/cards/{0}/comments.xml", number);
             Mingle.Post(ProjectId, url, commentData);
         }
 
@@ -294,10 +310,11 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         public IEnumerable<CardComment> GetCommentsForCard(int number)
         {
-            var url = string.Format(CultureInfo.InvariantCulture, "/cards/{0}/comments.xml", number);
+            string url = string.Format(CultureInfo.InvariantCulture, "/cards/{0}/comments.xml", number);
             var comments = new List<CardComment>();
             XElement.Parse(Mingle.Get(ProjectId, url)).Elements("comment").ToList().ForEach(c => comments.Add(
-                new CardComment(c.Element("content").Value, c.Element("created_by").Element("name").Value, c.Element("created_at").Value)));
+                new CardComment(c.Element("content").Value, c.Element("created_by").Element("name").Value,
+                                c.Element("created_at").Value)));
             return comments;
         }
 
@@ -317,13 +334,18 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         public IEnumerable<CardListItem> GetCardList(IEnumerable<string> types)
         {
-            var mql = GetMqlFromCardTypeList(types);
+            string mql = GetMqlFromCardTypeList(types);
             var list = new List<CardListItem>();
             _project.ExecMql(mql).Elements("result").ToList().ForEach(e => list.Add(new CardListItem
                                                                                         {
-                                                                                            Number = int.Parse(e.Element("number").Value),
-                                                                                            Name = e.Element("name").Value,
-                                                                                            TypeName = e.Element("type").Value
+                                                                                            Number =
+                                                                                                int.Parse(
+                                                                                                    e.Element("number").
+                                                                                                        Value),
+                                                                                            Name =
+                                                                                                e.Element("name").Value,
+                                                                                            TypeName =
+                                                                                                e.Element("type").Value
                                                                                         }));
             return list;
         }
@@ -331,13 +353,12 @@ namespace ThoughtWorks.VisualStudio
         private static string GetMqlFromCardTypeList(IEnumerable<string> types)
         {
             var mql = new StringBuilder("select number, type, name where ");
-            foreach (var t in types)
+            foreach (string t in types)
             {
                 mql.Append(" type is " + t + " or");
             }
-            mql.Remove(mql.Length-3, 3);
+            mql.Remove(mql.Length - 3, 3);
             return mql.ToString();
         }
     }
-
 }

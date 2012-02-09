@@ -37,7 +37,9 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Card type name
         /// </summary>
-        public string Name { get { return _cardType.Name; } }
-
+        public string Name
+        {
+            get { return _cardType.Name; }
+        }
     }
 }

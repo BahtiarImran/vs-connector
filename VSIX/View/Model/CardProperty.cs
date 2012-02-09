@@ -39,94 +39,172 @@ namespace ThoughtWorks.VisualStudio
             _property = property;
             Value = value;
         }
+
         /// <summary>
         /// List of card_type for this property
         /// </summary>
-        public IList<string> CardTypes { get { return _property.CardTypes.Keys; } }
+        public IList<string> CardTypes
+        {
+            get { return _property.CardTypes.Keys; }
+        }
+
         /// <summary>
         /// Mingle's url for the card describing this property
         /// </summary>
-        public string CardUrl { get { return _property.CardUrl; } }
+        public string CardUrl
+        {
+            get { return _property.CardUrl; }
+        }
+
         /// <summary>
         /// Mingle's "column_name" attribute
         /// </summary>
-        public string ColumnName { get { return _property.ColumnName; } }
+        public string ColumnName
+        {
+            get { return _property.ColumnName; }
+        }
+
         /// <summary>
         /// Mingle's "data_type" attribute
         /// </summary>
-        public string DataType { get { return _property.DataType; } }
+        public string DataType
+        {
+            get { return _property.DataType; }
+        }
+
         /// <summary>
         /// Mingle's "description" attribute
         /// </summary>
-        public string Description { get { return _property.Description; } }
+        public string Description
+        {
+            get { return _property.Description; }
+        }
+
         /// <summary>
         /// Mingle's "hidden" attribute
         /// </summary>
-        public bool Hidden { get { return _property.Hidden; } }
+        public bool Hidden
+        {
+            get { return _property.Hidden; }
+        }
+
         /// <summary>
         /// Mingle's "id" attribute
         /// </summary>
-        public int Id { get { return _property.Id; } }
+        public int Id
+        {
+            get { return _property.Id; }
+        }
+
         /// <summary>
         /// Property is a list of cards
         /// </summary>
-        public bool IsCardValued { get { return _property.IsCardValued; } }
+        public bool IsCardValued
+        {
+            get { return _property.IsCardValued; }
+        }
+
         /// <summary>
         /// Property is a foruma
         /// </summary>
-        public bool IsFormula { get { return _property.IsFormula; } }
+        public bool IsFormula
+        {
+            get { return _property.IsFormula; }
+        }
+
         /// <summary>
         /// Property is numeric
         /// </summary>
-        public bool IsNumeric { get { return _property.IsNumeric; } }
+        public bool IsNumeric
+        {
+            get { return _property.IsNumeric; }
+        }
+
         /// <summary>
         /// Indicates the property is a list of values in any manner
         /// </summary>
-        public bool IsSetValued { get { return _property.IsSetValued; } }
+        public bool IsSetValued
+        {
+            get { return _property.IsSetValued; }
+        }
+
         /// <summary>
         /// Indicates this property is a list of TeamMember
         /// </summary>
-        public bool IsTeamValued { get { return _property.IsTeamValued; } }
+        public bool IsTeamValued
+        {
+            get { return _property.IsTeamValued; }
+        }
+
         /// <summary>
         /// Indicates this property is set only by a transition execution
         /// </summary>
-        public bool IsTransitionOnly { get { return _property.IsTransitionOnly; } }
+        public bool IsTransitionOnly
+        {
+            get { return _property.IsTransitionOnly; }
+        }
+
         /// <summary>
         /// Indicates this property is a managed list in Mingle
         /// </summary>
         /// <remarks>The PropertyValueDetails has the list of values</remarks>
-        public bool IsManagedListOfScalars 
-        { 
+        public bool IsManagedListOfScalars
+        {
             get
             {
                 if (IsCardValued || IsTeamValued) return false;
                 return IsSetValued;
             }
         }
+
         /// <summary>
         /// Property name
         /// </summary>
-        public string Name { get { return _property.Name; } }
+        public string Name
+        {
+            get { return _property.Name; }
+        }
+
         /// <summary>
         /// Property position
         /// </summary>
-        public int Position { get { return _property.Position; } }
+        public int Position
+        {
+            get { return _property.Position; }
+        }
+
         /// <summary>
         /// Mingle's position attribute
         /// </summary>
-        public string ProjectId { get { return _property.ProjectId; } }
+        public string ProjectId
+        {
+            get { return _property.ProjectId; }
+        }
+
         /// <summary>
         /// List of values
         /// </summary>
-        public PropertyValuesCollection PropertyValueDetails { get { return new PropertyValuesCollection(_property.PropertyValueDetails); } }
+        public PropertyValuesCollection PropertyValueDetails
+        {
+            get { return new PropertyValuesCollection(_property.PropertyValueDetails); }
+        }
+
         /// <summary>
         /// Mingle's property_values_description
         /// </summary>
-        public string PropertyValuesDescription { get { return _property.PropertyValuesDescription; } }
+        public string PropertyValuesDescription
+        {
+            get { return _property.PropertyValuesDescription; }
+        }
+
         /// <summary>
         /// Mingle's Restricted attribute
         /// </summary>
-        public bool Restricted { get { return _property.Restricted; } }
+        public bool Restricted
+        {
+            get { return _property.Restricted; }
+        }
+
         /// <summary>
         /// Value of this property
         /// </summary>

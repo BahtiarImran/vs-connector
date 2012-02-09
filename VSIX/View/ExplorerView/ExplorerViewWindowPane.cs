@@ -64,9 +64,8 @@ namespace ThoughtWorks.VisualStudio
         public override void OnToolWindowCreated()
         {
             base.OnToolWindowCreated();
-            _control.Package = (TwVscCommandsPackage)Package;
+            _control.Package = (TwVscCommandsPackage) Package;
             Caption = Resources.ExplorerViewCaption;
         }
-
     }
 }

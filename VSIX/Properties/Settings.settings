@@ -1,5 +1,7 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ThoughtWorks.VisualStudio.Properties" GeneratedClassName="Settings">
+
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
+              GeneratedClassNamespace="ThoughtWorks.VisualStudio.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="MingleUser" Type="System.String" Scope="User">
@@ -21,7 +23,9 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="FeedbackEmailRecipients" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">support@thoughtworks.com</Value>
+      <Value Profile="(Default)">
+        support@thoughtworks.com
+      </Value>
     </Setting>
     <Setting Name="FeedbackAllowAttachment" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
@@ -33,7 +37,9 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Copyright" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Copyright (C) 2010,2011, 2012 ThoughtWorks, Inc.</Value>
+      <Value Profile="(Default)">
+        Copyright (C) 2010,2011, 2012 ThoughtWorks, Inc.
+      </Value>
     </Setting>
   </Settings>
 </SettingsFile>

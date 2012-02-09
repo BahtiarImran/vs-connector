@@ -15,9 +15,10 @@
 //
 
 using System;
+using System.Diagnostics;
 using System.Windows;
-using Cursors = System.Windows.Input.Cursors;
-using MouseEventArgs = System.Windows.Input.MouseEventArgs;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -38,7 +39,8 @@ namespace ThoughtWorks.VisualStudio
 
         private bool AllSettingsHaveData()
         {
-            return !string.IsNullOrEmpty(mingleHostTextBox.Text) && !string.IsNullOrEmpty(mingleUserTextBox.Text) && !string.IsNullOrEmpty(minglePasswordBox.Password);
+            return !string.IsNullOrEmpty(mingleHostTextBox.Text) && !string.IsNullOrEmpty(mingleUserTextBox.Text) &&
+                   !string.IsNullOrEmpty(minglePasswordBox.Password);
         }
 
         /// <summary>
@@ -93,7 +95,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnAnyTextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void OnAnyTextChanged(object sender, TextChangedEventArgs e)
         {
             FormIsDirty = true;
         }
@@ -119,7 +121,8 @@ namespace ThoughtWorks.VisualStudio
             if (string.IsNullOrWhiteSpace(mingleHostTextBox.Text)) mingleHostTextBox.Focus();
             FormIsDirty = false;
             CollapseMingleNotice();
-            if (string.IsNullOrWhiteSpace(minglePasswordBox.Password) && string.IsNullOrWhiteSpace(mingleUserTextBox.Text) && string.IsNullOrWhiteSpace(mingleHostTextBox.Text))
+            if (string.IsNullOrWhiteSpace(minglePasswordBox.Password) &&
+                string.IsNullOrWhiteSpace(mingleUserTextBox.Text) && string.IsNullOrWhiteSpace(mingleHostTextBox.Text))
                 ExpandMingleNotice();
         }
 
@@ -140,7 +143,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonMingleLinkClick(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.thoughtworks-studios.com/mingle-agile-project-management/try");
+            Process.Start("http://www.thoughtworks-studios.com/mingle-agile-project-management/try");
         }
     }
 }

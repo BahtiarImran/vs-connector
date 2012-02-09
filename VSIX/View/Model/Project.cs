@@ -137,7 +137,10 @@ namespace ThoughtWorks.VisualStudio
         private readonly IMingleProject _project;
         private readonly ViewModel _model;
 
-        internal IMingleProject MingleProject { get { return _project; } }
+        internal IMingleProject MingleProject
+        {
+            get { return _project; }
+        }
 
         /// <summary>
         /// Constructs a new Mingle Project object
@@ -150,6 +153,7 @@ namespace ThoughtWorks.VisualStudio
             _project = _mingle.GetProject(project);
             _model = model;
         }
+
         /// <summary>
         /// Wraps MingleProject.GetCards(filters)
         /// </summary>
@@ -161,6 +165,7 @@ namespace ThoughtWorks.VisualStudio
             _project.GetCards(filters).ToList().ForEach(c => cards.Add(new Card(c, _model)));
             return cards;
         }
+
         /// <summary>
         /// Returns CardTypes collection 
         /// </summary>
@@ -173,6 +178,7 @@ namespace ThoughtWorks.VisualStudio
                 return cardTypes;
             }
         }
+
         /// <summary>
         /// Returns a Transitions collection
         /// </summary>
@@ -183,9 +189,9 @@ namespace ThoughtWorks.VisualStudio
                 var transitions = new TransitionsCollection(MingleProject);
                 MingleProject.GetTransitions().ToList().ForEach(t => transitions.Add(new Transition(t.Value)));
                 return transitions;
-
             }
         }
+
         /// <summary>
         /// Returns a Team collection
         /// </summary>
@@ -198,6 +204,7 @@ namespace ThoughtWorks.VisualStudio
                 return team;
             }
         }
+
         /// <summary>
         /// Returns a CardPropertiesDictionary collection
         /// </summary>
@@ -211,6 +218,7 @@ namespace ThoughtWorks.VisualStudio
                 return cardProperties;
             }
         }
+
         /// <summary>
         /// Returns a Hashtable of CardProperty
         /// </summary>
@@ -220,6 +228,7 @@ namespace ThoughtWorks.VisualStudio
         {
             return MingleProject.GetCardValuedProperties(transitionOnly);
         }
+
         /// <summary>
         /// Returns the CardType name of a card identified by cardNumber
         /// </summary>
@@ -229,6 +238,7 @@ namespace ThoughtWorks.VisualStudio
         {
             return MingleProject.GetCardType(cardNumber);
         }
+
         /// <summary>
         /// Returns a CardsCollection collection of cards of type
         /// </summary>
@@ -250,6 +260,7 @@ namespace ThoughtWorks.VisualStudio
         {
             return MingleProject.ExecMql(mql);
         }
+
         /// <summary>
         /// Returns a CardsCollection collection for cards for view of name
         /// </summary>
@@ -271,7 +282,8 @@ namespace ThoughtWorks.VisualStudio
             get
             {
                 var favorites = new FavoritesDictionary();
-                MingleProject.GetFavorites().ToList().Where(f => string.CompareOrdinal(f.Value.FavoritedType, "CardListView") == 0).
+                MingleProject.GetFavorites().ToList().Where(
+                    f => string.CompareOrdinal(f.Value.FavoritedType, "CardListView") == 0).
                     ToList().ForEach(f => favorites.Add(f.Key, new Favorite(f.Value)));
                 return favorites;
             }
@@ -289,6 +301,7 @@ namespace ThoughtWorks.VisualStudio
         {
             return new Card(MingleProject.CreateCard(type, name), _model);
         }
+
         /// <summary>
         /// Id (not the name) of a Mingle project
         /// </summary>
@@ -317,7 +330,8 @@ namespace ThoughtWorks.VisualStudio
                 var murmurs = new List<Murmur>();
                 MingleProject.GetMurmurs().ToList().ForEach(
                     m =>
-                    murmurs.Add(new Murmur(m.JabberName, m.LoginName, m.CreatedAt.ToString(CultureInfo.InvariantCulture), m.Body)));
+                    murmurs.Add(new Murmur(m.JabberName, m.LoginName, m.CreatedAt.ToString(CultureInfo.InvariantCulture),
+                                           m.Body)));
                 return murmurs;
             }
         }

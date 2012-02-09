@@ -17,7 +17,6 @@
 using System;
 using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
 using ThoughtWorksCoreLib;
 
 namespace ThoughtWorks.VisualStudio
@@ -39,7 +38,6 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnClickButtonMurmur(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 Model.SendMurmur(murmurText.Text);
@@ -69,7 +67,6 @@ namespace ThoughtWorks.VisualStudio
             Model.SelectProject(MingleSettings.Project);
 
             RefreshMurmurs();
-
         }
 
         /// <summary>
@@ -101,6 +98,5 @@ namespace ThoughtWorks.VisualStudio
                 MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
             }
         }
-
     }
 }

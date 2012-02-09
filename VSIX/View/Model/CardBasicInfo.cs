@@ -27,14 +27,17 @@ namespace ThoughtWorks.VisualStudio
         /// Card number
         /// </summary>
         public string Number { get; private set; }
+
         /// <summary>
         /// Card type
         /// </summary>
         public string CardTypeName { get; private set; }
+
         /// <summary>
         /// Card name
         /// </summary>
         public string Name { get; private set; }
+
         /// <summary>
         /// Formatted card information
         /// </summary>

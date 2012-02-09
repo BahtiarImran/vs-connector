@@ -31,7 +31,7 @@ namespace ThoughtWorks.VisualStudio
         internal PropertyValuesCollection(IEnumerable<string> propertyValueDetails)
         {
             Add(Resources.ItemNotSet);
-            foreach(var p in propertyValueDetails) Add(p);
+            foreach (string p in propertyValueDetails) Add(p);
         }
     }
 }

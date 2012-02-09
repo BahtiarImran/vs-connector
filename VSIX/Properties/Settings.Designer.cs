@@ -94,7 +94,7 @@ namespace ThoughtWorks.VisualStudio.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("support@thoughtworks.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\n        support@thoughtworks.com\r\n      ")]
         public string FeedbackEmailRecipients {
             get {
                 return ((string)(this["FeedbackEmailRecipients"]));
@@ -136,7 +136,7 @@ namespace ThoughtWorks.VisualStudio.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Copyright (C) 2010,2011, 2012 ThoughtWorks, Inc.")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\n        Copyright (C) 2010,2011, 2012 ThoughtWorks, Inc.\r\n      ")]
         public string Copyright {
             get {
                 return ((string)(this["Copyright"]));

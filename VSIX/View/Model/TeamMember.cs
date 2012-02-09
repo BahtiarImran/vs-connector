@@ -23,7 +23,9 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public class TeamMember : IManagedListItem
     {
-        private const string NOT_SET_MEMBER = "<projects_member><user><name>xxxx</name><login>xxxx</login></user></projects_member>";
+        private const string NOT_SET_MEMBER =
+            "<projects_member><user><name>xxxx</name><login>xxxx</login></user></projects_member>";
+
         private readonly MingleProjectMember _teamMember;
         internal ViewModel Model { get; set; }
 
@@ -63,20 +65,30 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Login name of the team member
         /// </summary>
-        public string Name { get { return _teamMember.UserName; } }
+        public string Name
+        {
+            get { return _teamMember.UserName; }
+        }
+
         /// <summary>
         /// Login name of the team member
         /// </summary>
-        public string Login { get { return _teamMember.UserLogin; } }
+        public string Login
+        {
+            get { return _teamMember.UserLogin; }
+        }
+
         /// <summary>
         /// Indicates whether the team member has administrative privilges
         /// </summary>
-        internal bool IsAdmin { get { return _teamMember.ProjectAdmin; } }
+        internal bool IsAdmin
+        {
+            get { return _teamMember.ProjectAdmin; }
+        }
 
         /// <summary>
         /// Indicates that the Team Member is set
         /// </summary>
         public bool IsSet { get; private set; }
-
     }
 }

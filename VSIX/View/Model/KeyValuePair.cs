@@ -25,10 +25,12 @@ namespace ThoughtWorks.VisualStudio
         /// Key
         /// </summary>
         public string Key { get; private set; }
+
         /// <summary>
         /// Value
         /// </summary>
         public string Value { get; private set; }
+
         /// <summary>
         /// Constructs a new KeyValuePair
         /// </summary>

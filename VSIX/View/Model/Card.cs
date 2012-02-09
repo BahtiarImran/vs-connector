@@ -31,8 +31,9 @@ namespace ThoughtWorks.VisualStudio
         /// Base MingleCard object
         /// </summary>
         internal MingleCard MingleCard { get; private set; }
+
         internal ViewModel Model { get; set; }
-        private readonly Dictionary<string, CardProperty> _propertiesCache  = new Dictionary<string, CardProperty>();
+        private readonly Dictionary<string, CardProperty> _propertiesCache = new Dictionary<string, CardProperty>();
 
         /// <summary>
         /// Constructs a new Card
@@ -57,87 +58,190 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Card number
         /// </summary>
-        public int Number { get { return MingleCard.Number; } set { MingleCard.Number = value; } }
+        public int Number
+        {
+            get { return MingleCard.Number; }
+            set { MingleCard.Number = value; }
+        }
+
         /// <summary>
         /// Card name
         /// </summary>
-        public string Name { get { return MingleCard.Name; } set { MingleCard.Name = value; } }
+        public string Name
+        {
+            get { return MingleCard.Name; }
+            set { MingleCard.Name = value; }
+        }
+
         /// <summary>
         /// Card Id
         /// </summary>
-        public int Id { get { return MingleCard.Id; } set { MingleCard.Id = value; } }
+        public int Id
+        {
+            get { return MingleCard.Id; }
+            set { MingleCard.Id = value; }
+        }
+
         /// <summary>
         /// Card URL
         /// </summary>
-        public string Url { get { return MingleCard.Url; } }
+        public string Url
+        {
+            get { return MingleCard.Url; }
+        }
+
         /// <summary>
         /// Card description
         /// </summary>
-        public string Description { get { return MingleCard.Description; } set { MingleCard.Description = value; } }
+        public string Description
+        {
+            get { return MingleCard.Description; }
+            set { MingleCard.Description = value; }
+        }
+
         /// <summary>
         /// Card rendered descruption URL
         /// </summary>
-        public string RenderedDescription { get { return MingleCard.RenderedDescription; } }
+        public string RenderedDescription
+        {
+            get { return MingleCard.RenderedDescription; }
+        }
+
         /// <summary>
         /// Card type
         /// </summary>
-        public string CardType { get { return MingleCard.Type; } set { MingleCard.Type = value; } }
+        public string CardType
+        {
+            get { return MingleCard.Type; }
+            set { MingleCard.Type = value; }
+        }
+
         /// <summary>
         /// Card type URL
         /// </summary>
-        public string CardTypeUrl { get { return MingleCard.CardTypeUrl; } set { MingleCard.CardTypeUrl = value; } }
+        public string CardTypeUrl
+        {
+            get { return MingleCard.CardTypeUrl; }
+            set { MingleCard.CardTypeUrl = value; }
+        }
+
         /// <summary>
         /// Project name
         /// </summary>
-        public string ProjectName { get { return MingleCard.ProjectName; } set { MingleCard.ProjectName = value; } }
+        public string ProjectName
+        {
+            get { return MingleCard.ProjectName; }
+            set { MingleCard.ProjectName = value; }
+        }
+
         /// <summary>
         /// Project id
         /// </summary>
-        public string ProjectId { get { return MingleCard.ProjectId; } set { MingleCard.ProjectId = value; } }
+        public string ProjectId
+        {
+            get { return MingleCard.ProjectId; }
+            set { MingleCard.ProjectId = value; }
+        }
+
         /// <summary>
         /// Project URL
         /// </summary>
-        public string ProjectUrl { get { return MingleCard.ProjectUrl; } set { MingleCard.ProjectUrl = value; } }
+        public string ProjectUrl
+        {
+            get { return MingleCard.ProjectUrl; }
+            set { MingleCard.ProjectUrl = value; }
+        }
+
         /// <summary>
         /// Version of the card
         /// </summary>
-        public string Version { get { return MingleCard.Version; } set { MingleCard.Version = value; } }
+        public string Version
+        {
+            get { return MingleCard.Version; }
+            set { MingleCard.Version = value; }
+        }
+
         /// <summary>
         /// Card rank
         /// </summary>
-        public int ProjectCardRank { get { return MingleCard.ProjectCardRank; } set { MingleCard.ProjectCardRank = value; } }
+        public int ProjectCardRank
+        {
+            get { return MingleCard.ProjectCardRank; }
+            set { MingleCard.ProjectCardRank = value; }
+        }
+
         /// <summary>
         /// Date card was created
         /// </summary>
-        public DateTime CreatedOn { get { return MingleCard.CreatedOn; } set { MingleCard.CreatedOn = value; } }
+        public DateTime CreatedOn
+        {
+            get { return MingleCard.CreatedOn; }
+            set { MingleCard.CreatedOn = value; }
+        }
+
         /// <summary>
         /// Date card was lst changed
         /// </summary>
-        public DateTime ModifiedOn { get { return MingleCard.ModifiedOn; } set { MingleCard.ModifiedOn = value; } }
+        public DateTime ModifiedOn
+        {
+            get { return MingleCard.ModifiedOn; }
+            set { MingleCard.ModifiedOn = value; }
+        }
+
         /// <summary>
         /// Login id of the last modifier
         /// </summary>
-        public string ModifiedByLogin { get { return MingleCard.ModifiedByLogin; } set { MingleCard.ModifiedByLogin = value; } }
+        public string ModifiedByLogin
+        {
+            get { return MingleCard.ModifiedByLogin; }
+            set { MingleCard.ModifiedByLogin = value; }
+        }
+
         /// <summary>
         /// Name of the last modifier
         /// </summary>
-        public string ModifiedByName { get { return MingleCard.ModifiedByName; } set { MingleCard.ModifiedByName = value; } }
+        public string ModifiedByName
+        {
+            get { return MingleCard.ModifiedByName; }
+            set { MingleCard.ModifiedByName = value; }
+        }
+
         /// <summary>
         /// Users URL of the last modifier
         /// </summary>
-        public string ModifiedByUrl { get { return MingleCard.ModifiedByUrl; } set { MingleCard.ModifiedByUrl = value; } }
+        public string ModifiedByUrl
+        {
+            get { return MingleCard.ModifiedByUrl; }
+            set { MingleCard.ModifiedByUrl = value; }
+        }
+
         /// <summary>
         /// Login id of the creator
         /// </summary>
-        public string CreatedByLogin { get { return MingleCard.CreatedByLogin; } set { MingleCard.CreatedByLogin = value; } }
+        public string CreatedByLogin
+        {
+            get { return MingleCard.CreatedByLogin; }
+            set { MingleCard.CreatedByLogin = value; }
+        }
+
         /// <summary>
         /// Name of the creator
         /// </summary>
-        public string CreatedByName { get { return MingleCard.CreatedByName; } set { MingleCard.CreatedByName = value; } }
+        public string CreatedByName
+        {
+            get { return MingleCard.CreatedByName; }
+            set { MingleCard.CreatedByName = value; }
+        }
+
         /// <summary>
         /// Users URL of the creator
         /// </summary>
-        public string CreatedByUrl { get { return MingleCard.CreatedByUrl; } set { MingleCard.CreatedByUrl = value; } }
+        public string CreatedByUrl
+        {
+            get { return MingleCard.CreatedByUrl; }
+            set { MingleCard.CreatedByUrl = value; }
+        }
+
         /// <summary>
         /// List of properties of the card
         /// </summary>
@@ -147,19 +251,20 @@ namespace ThoughtWorks.VisualStudio
             {
                 if (_propertiesCache.Count > 0) return _propertiesCache;
                 MingleCard.CardProperties.ToList().ForEach(p => _propertiesCache.
-                                                                    Add(p.Key, new CardProperty(Model, p.Value.PropertyDefinition, p.Value.Value)));
+                                                                    Add(p.Key,
+                                                                        new CardProperty(Model,
+                                                                                         p.Value.PropertyDefinition,
+                                                                                         p.Value.Value)));
                 return _propertiesCache;
             }
         }
+
         /// <summary>
         /// List of transitions applicable to the card
         /// </summary>
-        public IEnumerable<Transition> Transitions 
-        { 
-            get
-            {
-                return Model.TransitionsCollection.Where(tr => tr.CardTypeName == MingleCard.Type).ToList();
-            } 
+        public IEnumerable<Transition> Transitions
+        {
+            get { return Model.TransitionsCollection.Where(tr => tr.CardTypeName == MingleCard.Type).ToList(); }
         }
 
         /// <summary>
@@ -179,8 +284,10 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="value"></param>
         internal void AddPropertyFilterToPostData(string name, string value)
         {
-            MingleCard.PostData.Add(String.Format(CultureInfo.InvariantCulture, "card[properties][][name]={0}", name).Trim());
-            MingleCard.PostData.Add(String.Format(CultureInfo.InvariantCulture, "card[properties][][value]={0}", value).Trim());
+            MingleCard.PostData.Add(
+                String.Format(CultureInfo.InvariantCulture, "card[properties][][name]={0}", name).Trim());
+            MingleCard.PostData.Add(
+                String.Format(CultureInfo.InvariantCulture, "card[properties][][value]={0}", value).Trim());
         }
 
         /// <summary>
@@ -199,7 +306,7 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         internal void SetPropertyOrAttributValue(string name, string value)
         {
-            var isProperty = Properties.ContainsKey(name);
+            bool isProperty = Properties.ContainsKey(name);
 
             switch (isProperty)
             {
@@ -211,7 +318,6 @@ namespace ThoughtWorks.VisualStudio
                     AddCardAttributeFilterToPostData(name, value);
                     break;
             }
-
         }
 
         /// <summary>

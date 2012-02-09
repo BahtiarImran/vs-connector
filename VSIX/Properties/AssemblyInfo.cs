@@ -53,6 +53,6 @@ using System.Runtime.InteropServices;
 //
 // 0.8.*.* denotes Alpha phase builds
 // 0.9.*.* denotes Beta phase builds
+
 [assembly: AssemblyVersion("0.9.0.*")]
 [assembly: InternalsVisibleTo("VsConnectorTests")]
-

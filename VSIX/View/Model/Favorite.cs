@@ -37,12 +37,17 @@ namespace ThoughtWorks.VisualStudio
         /// <summary>
         /// Name of the favorite or view
         /// </summary>
-        public string Name { get { return _favorite.Name; } }
+        public string Name
+        {
+            get { return _favorite.Name; }
+        }
 
         /// <summary>
         /// Type of Favorite
         /// </summary>
-        public string FavoriteType { get { return _favorite.FavoritedType; } }
-
+        public string FavoriteType
+        {
+            get { return _favorite.FavoritedType; }
+        }
     }
 }

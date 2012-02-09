@@ -25,10 +25,12 @@ namespace ThoughtWorks.VisualStudio
         /// Card name
         /// </summary>
         public int Number { get; set; }
+
         /// <summary>
         /// Card number
         /// </summary>
         public string Name { get; set; }
+
         /// <summary>
         /// Card type name
         /// </summary>

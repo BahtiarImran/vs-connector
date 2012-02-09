@@ -78,7 +78,7 @@ namespace ThoughtWorks.VisualStudio
         {
             if (!string.IsNullOrEmpty(comment.Text)) return;
 
-            var result = MessageBox.Show(_requiredAdmonition, Title, MessageBoxButton.YesNo,
+            MessageBoxResult result = MessageBox.Show(_requiredAdmonition, Title, MessageBoxButton.YesNo,
                                                       MessageBoxImage.Stop, MessageBoxResult.Yes);
 
             if (result == MessageBoxResult.No) return;

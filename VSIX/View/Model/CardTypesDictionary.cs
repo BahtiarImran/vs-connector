@@ -24,7 +24,7 @@ namespace ThoughtWorks.VisualStudio
     /// Models card_types for the view
     /// </summary>
     [Serializable]
-    public class CardTypesDictionary : Dictionary<string,CardType>
+    public class CardTypesDictionary : Dictionary<string, CardType>
     {
         /// <summary>
         /// Constructs a new card type
@@ -38,7 +38,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
-        protected CardTypesDictionary(SerializationInfo info, StreamingContext context):base(info,context)
+        protected CardTypesDictionary(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

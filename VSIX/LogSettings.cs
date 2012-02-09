@@ -2,6 +2,8 @@
 // Copyright Thoughtworks, Inc. 2011
 //
 
+using ThoughtWorks.VisualStudio.Properties;
+
 namespace ThoughtWorks.VisualStudio
 {
     /// <summary>
@@ -9,7 +11,7 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public static class LogSettings
     {
-        private static readonly Properties.Settings Settings = new Properties.Settings();
+        private static readonly Settings Settings = new Settings();
 
         /// <summary>
         /// Indicates whether trace logging is on or off
@@ -19,7 +21,7 @@ namespace ThoughtWorks.VisualStudio
             get { return Settings.Trace; }
             set
             {
-                Settings.Trace = value; 
+                Settings.Trace = value;
                 Settings.Save();
             }
         }
@@ -43,7 +45,7 @@ namespace ThoughtWorks.VisualStudio
             get { return Settings.TraceEntryExit; }
             set
             {
-                Settings.TraceEntryExit = value; 
+                Settings.TraceEntryExit = value;
                 Settings.Save();
             }
         }

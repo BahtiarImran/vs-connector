@@ -40,7 +40,6 @@ namespace ThoughtWorks.VisualStudio
         {
             InitializeComponent();
             _worker = new BackgroundWorker();
-            
         }
 
         private void OnButtonCancelClick(object sender, RoutedEventArgs e)
@@ -50,8 +49,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonSubmitClick(object sender, RoutedEventArgs e)
         {
-
-            Hashtable mapidata = new Hashtable();
+            var mapidata = new Hashtable();
 
             mapidata.Add("email", emailData);
             mapidata.Add("company", companyData);
@@ -64,11 +62,11 @@ namespace ThoughtWorks.VisualStudio
 
             // Run the default email client in a separate thread, freeing up
             // Visual Studio for the user.
-            
+
             //_worker.DoWork += delegate(object s, DoWorkEventArgs args)
             //                      {
             Hashtable data = mapidata; //(Hashtable)args.Argument;
-            Mapi mapi = new Mapi();
+            var mapi = new Mapi();
             foreach (string recipient in Settings.Default.FeedbackEmailRecipients.Split(','))
                 mapi.AddRecipientTo(recipient);
 
@@ -77,23 +75,26 @@ namespace ThoughtWorks.VisualStudio
 
             string feedbackType = string.Empty;
 
-            if ((bool)data["defect"]) feedbackType = VisualStudio.Resources.FeedbackTypeDefect;
-            else if ((bool)data["feature"]) feedbackType = VisualStudio.Resources.FeedbackTypeFeature;
+            if ((bool) data["defect"]) feedbackType = VisualStudio.Resources.FeedbackTypeDefect;
+            else if ((bool) data["feature"]) feedbackType = VisualStudio.Resources.FeedbackTypeFeature;
 
             string subjectLine = string.Format(CultureInfo.CurrentCulture, "TSVC {0} - {1} - {2} ({3})",
-                                                Assembly.GetExecutingAssembly().GetName().Version, feedbackType,
-                                                ((string)data["description"]).Substring(0,
-                                                                            ((string)data["description"]).Length > 50
-                                                                                ? 50
-                                                                                : ((string)data["description"]).Length),
-                                                companyData.Text);
+                                               Assembly.GetExecutingAssembly().GetName().Version, feedbackType,
+                                               ((string) data["description"]).Substring(0,
+                                                                                        ((string) data["description"]).
+                                                                                            Length > 50
+                                                                                            ? 50
+                                                                                            : ((string)
+                                                                                               data["description"]).
+                                                                                                  Length),
+                                               companyData.Text);
 
-            if (!string.IsNullOrEmpty((string)data["filepath"]))
+            if (!string.IsNullOrEmpty((string) data["filepath"]))
                 // Attach the log.
                 mapi.AddAttachment(TraceLog.FilePath);
 
-            mapi.SendMailPopup(subjectLine, (string)data["description"]);
-                                  //};
+            mapi.SendMailPopup(subjectLine, (string) data["description"]);
+            //};
 
             //_worker.RunWorkerAsync(mapidata);
 
@@ -102,10 +103,9 @@ namespace ThoughtWorks.VisualStudio
             descriptionData.Text = string.Empty;
             attachLog.IsChecked = true;
             Close();
-
         }
 
-        private void OnWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void OnWindowClosing(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(emailData.Text)
                 && string.IsNullOrWhiteSpace(companyData.Text)
@@ -114,13 +114,14 @@ namespace ThoughtWorks.VisualStudio
                 return;
             }
 
-            if (MessageBox.Show(VisualStudio.Resources.FeedbackDataUnsubmittedWarning, Title, MessageBoxButton.YesNo) == MessageBoxResult.No)
+            if (MessageBox.Show(VisualStudio.Resources.FeedbackDataUnsubmittedWarning, Title, MessageBoxButton.YesNo) ==
+                MessageBoxResult.No)
             {
                 e.Cancel = true;
             }
         }
 
-        private void OnWindowInitialized(object sender, System.EventArgs e)
+        private void OnWindowInitialized(object sender, EventArgs e)
         {
             Title = VisualStudio.Resources.FeedbackFormTitle;
             emailLabel.Text = VisualStudio.Resources.FeedbackFormEmailLabel;

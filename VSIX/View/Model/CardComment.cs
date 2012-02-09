@@ -28,14 +28,17 @@ namespace ThoughtWorks.VisualStudio
         /// Text of the comment
         /// </summary>
         public string Comment { get; private set; }
+
         /// <summary>
         /// Name of the commenter
         /// </summary>
         public string Name { get; private set; }
+
         /// <summary>
         /// Date of the comment
         /// </summary>
         public string Date { get; private set; }
+
         /// <summary>
         /// Constructs a new CardComment
         /// </summary>

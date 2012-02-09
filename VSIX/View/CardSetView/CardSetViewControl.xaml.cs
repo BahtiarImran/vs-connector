@@ -52,7 +52,7 @@ namespace ThoughtWorks.VisualStudio
         internal void Bind(MingleCardCollection cardCollection)
         {
             //Debug.Assert(null != cardCollection);
-            var me = new StackFrame().GetMethod().Name;
+            string me = new StackFrame().GetMethod().Name;
 
             _currentCardCollection = cardCollection;
 
@@ -65,12 +65,11 @@ namespace ThoughtWorks.VisualStudio
             dataGrid.Columns.Add(NewTextColumn(VisualStudio.Resources.CardRank, "Rank"));
 
             dataGrid.ItemsSource = cardCollection;
-           
+
             TraceLog.WriteLine(me, "CardSetView window grid has data: " + dataGrid.Items.Count + "cards.");
 
             if (dataGrid.Items.Count == 0)
                 MessageBox.Show(VisualStudio.Resources.CardSetIsEmpty);
-
         }
 
         #endregion
@@ -102,7 +101,6 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="e"></param>
         private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-
             if (e.RightButton == MouseButtonState.Pressed)
             {
                 return;
@@ -136,7 +134,8 @@ namespace ThoughtWorks.VisualStudio
                 if ((null == window) || (null == window.Frame))
                     throw new NotSupportedException(VisualStudio.Resources.CanNotCreateWindow);
 
-                window.Caption = VisualStudio.Resources.CardSetWindowTitle.Replace("%%project%%", _currentCardCollection.ProjectId);
+                window.Caption = VisualStudio.Resources.CardSetWindowTitle.Replace("%%project%%",
+                                                                                   _currentCardCollection.ProjectId);
                 //window.Bind(dataGrid.CurrentItem as MingleCard, _currentCardCollection);
 
                 var windowFrame = (IVsWindowFrame) window.Frame;

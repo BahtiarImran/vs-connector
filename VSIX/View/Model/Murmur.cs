@@ -28,10 +28,12 @@ namespace ThoughtWorks.VisualStudio
         /// Name fo the sender of the murmur
         /// </summary>
         public string Name { get; private set; }
+
         /// <summary>
         /// Date the murmur was sent
         /// </summary>
         public string Date { get; private set; }
+
         /// <summary>
         /// Body of the murmur
         /// </summary>
@@ -44,7 +46,7 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="name"></param>
         /// <param name="date"></param>
         /// <param name="body"></param>
-        public Murmur (string jabber, string name, string date, string body)
+        public Murmur(string jabber, string name, string date, string body)
         {
             Name = string.IsNullOrEmpty(name) ? jabber : name;
             Date = Convert.ToDateTime(date, CultureInfo.InvariantCulture).ToString(CultureInfo.InvariantCulture);
