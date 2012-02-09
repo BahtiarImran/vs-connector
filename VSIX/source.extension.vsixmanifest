@@ -4,7 +4,7 @@
   <Identifier Id="TwVsc">
     <Name>Mingle Extension for Visual Studio</Name>
     <Author>ThoughtWorks Studios</Author>
-    <Version>1.0.9</Version>
+    <Version>1.0.10</Version>
     <Description xml:space="preserve">Mingle Extension for Visual Studio lets you interact directly with Mingle from the IDE. Mingle is an Agile project management solution that offers unparalleled visibility into software initiatives and unprecedented collaboration among business and delivery teams. The only solution that’s truly Agile, Mingle lets teams work the way they work best, adapting as they evolve their processes, while its comprehensive project reporting provides the transparency needed to identify risk, make better decisions and quickly respond to changes.</Description>
     <Locale>1033</Locale>
     <MoreInfoUrl>http://visualstudiogallery.msdn.microsoft.com/c3128d58-8c2b-4104-894a-6554a30483b0</MoreInfoUrl>
