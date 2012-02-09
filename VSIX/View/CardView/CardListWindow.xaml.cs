@@ -97,7 +97,7 @@ namespace ThoughtWorks.VisualStudio
 
         }
 
-        private void OnListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void OnListMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (null == list.SelectedValue)
             {
@@ -128,11 +128,11 @@ namespace ThoughtWorks.VisualStudio
 
             try
             {
-                Cursor = System.Windows.Input.Cursors.Wait;
+                Cursor = Cursors.Wait;
                 _model.GetCardList(types).ToList().ForEach(c => cards.Add(c.Number, c));
-                this.list.DataContext = cards.Values;
-                this.list.ItemsSource = cards.Values;
-                this.list.SelectedValuePath = "Number";
+                list.DataContext = cards.Values;
+                list.ItemsSource = cards.Values;
+                list.SelectedValuePath = "Number";
             }
             catch (Exception ex)
             {
@@ -141,7 +141,7 @@ namespace ThoughtWorks.VisualStudio
             }
             finally
             {
-                Cursor = System.Windows.Input.Cursors.Arrow;
+                Cursor = Cursors.Arrow;
             }
         }
 

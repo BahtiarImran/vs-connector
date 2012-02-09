@@ -36,7 +36,6 @@ namespace ThoughtWorks.VisualStudio
         private Card _thisCard;
         private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(SystemColors.ControlColor);
         private readonly SolidColorBrush _darkThemeBackground = Brushes.Wheat;
-        private readonly FontWeight _darkFontWeight = FontWeights.ExtraBlack;
         private readonly FontWeight _normalFontWeight = FontWeights.Normal;
         private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
         internal Action RefreshMurmurs { get; set; }
@@ -213,7 +212,7 @@ namespace ThoughtWorks.VisualStudio
             if (cardProperty.Hidden) label.FontStyle = FontStyles.Italic;
             panel.Children.Add(label);
 
-            FrameworkElement uiElement = null;
+            FrameworkElement uiElement;
 
             switch (cardProperty.IsManagedListOfScalars)
             {
@@ -339,7 +338,7 @@ namespace ThoughtWorks.VisualStudio
             return cb;
         }
 
-        private static Button ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
+        private static void ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
         {
             var b = new Button
                         {
@@ -352,7 +351,6 @@ namespace ThoughtWorks.VisualStudio
 
             b.Click += OnButtonNotSetClick;
             b.Tag = control.Tag;
-            return b;
         }
 
         private void OnPropertyComboBoxSelectionChanged(object sender, RoutedEventArgs e)
@@ -521,8 +519,8 @@ namespace ThoughtWorks.VisualStudio
                 t.Update(_thisCard.Number);
 
                 // POST the Comment
-                var comment = string.Format(CultureInfo.InvariantCulture, "comment[content]={0}", collectComment.Comment);
-                _thisCard.Model.Mingle.Post(MingleSettings.Project, "/cards/" + _thisCard.Number + ".xml", new Collection<string> {comment});
+                var cardComment = string.Format(CultureInfo.InvariantCulture, "comment[content]={0}", collectComment.Comment);
+                _thisCard.Model.Mingle.Post(MingleSettings.Project, "/cards/" + _thisCard.Number + ".xml", new Collection<string> {cardComment});
 
                 // Murmur the comment?
                 var murmur = string.Format(CultureInfo.InvariantCulture, "murmur[body]={0}", collectComment.Comment);
@@ -579,7 +577,7 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         private bool UserIsProjectAdmin()
         {
-            return (_thisCard.Model.TeamMemberDictionary.ContainsKey(MingleSettings.Login) && (_thisCard.Model.TeamMemberDictionary[MingleSettings.Login] as TeamMember).IsAdmin);
+            return (_thisCard.Model.TeamMemberDictionary.ContainsKey(MingleSettings.Login) && _thisCard.Model.TeamMemberDictionary[MingleSettings.Login].IsAdmin);
         }
 
         /// <summary>
