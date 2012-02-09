@@ -114,7 +114,7 @@
     </Compile>
     <Compile Include="SendFileTo.cs" />
     <Compile Include="View\Model\Card.cs" />
-    <Compile Include="View\CardListWindow.xaml.cs">
+    <Compile Include="View\CardView\CardListWindow.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>CardListWindow.xaml</DependentUpon>
     </Compile>
@@ -290,7 +290,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\CardListWindow.xaml">
+    <Page Include="View\CardView\CardListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
