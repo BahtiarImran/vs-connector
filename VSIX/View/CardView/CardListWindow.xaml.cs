@@ -23,8 +23,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using ThoughtWorksCoreLib;
-using CheckBox = System.Windows.Controls.CheckBox;
-using MessageBox = System.Windows.MessageBox;
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -57,8 +55,7 @@ namespace ThoughtWorks.VisualStudio
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
                 AlertUser(ex);
-            } 
-            
+            }
         }
 
         private int AddCheckBox(string k)
@@ -94,7 +91,6 @@ namespace ThoughtWorks.VisualStudio
 
             SelectedCardNumber = list.SelectedValue as string;
             SelectedCardName = (list.SelectedItem as CardListItem).Name;
-
         }
 
         private void OnListMouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -113,11 +109,11 @@ namespace ThoughtWorks.VisualStudio
 
         private void SearchForCards()
         {
-
             var cards = new SortedList<int, CardListItem>();
             var types = new Collection<string>();
 
-            foreach (var item in cardTypes.Children.Cast<CheckBox>().Where(item => Convert.ToBoolean(item.IsChecked)))
+            foreach (
+                CheckBox item in cardTypes.Children.Cast<CheckBox>().Where(item => Convert.ToBoolean(item.IsChecked)))
                 types.Add(item.Content.ToString());
 
             if (types.Count == 0)
@@ -147,11 +143,10 @@ namespace ThoughtWorks.VisualStudio
 
         private static void AlertUser(Exception ex)
         {
-            var msg = ex.InnerException.Data.Count > 0
-                          ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
-                          : ex.Message;
+            string msg = ex.InnerException.Data.Count > 0
+                             ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
+                             : ex.Message;
             MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);
         }
-
     }
 }

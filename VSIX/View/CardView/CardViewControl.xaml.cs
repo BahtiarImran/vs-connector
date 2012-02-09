@@ -50,6 +50,7 @@ namespace ThoughtWorks.VisualStudio
         }
 
         #region Bind just one card (called by the ToolWindow when this window is created)
+
         /// <summary>
         /// Binds the fields of the control to data.
         /// </summary>
@@ -57,56 +58,60 @@ namespace ThoughtWorks.VisualStudio
         {
             _thisCard = card;
             Bind();
-        } 
+        }
+
         #endregion
 
         #region Bind everything to the WPF window
+
         /// <summary>
         /// Bind ViewModel to WPF 
         /// </summary>
         internal void Bind()
         {
             Cursor = Cursors.Wait;
-            var me = new StackFrame().GetMethod().Name;
-            var start = DateTime.Now;
+            string me = new StackFrame().GetMethod().Name;
+            DateTime start = DateTime.Now;
             BindManagedProperties();
-            var stop = DateTime.Now;
-            var elapsed = stop - start;
+            DateTime stop = DateTime.Now;
+            TimeSpan elapsed = stop - start;
             TraceLog.WriteLine(me,
-                               string.Format(CultureInfo.InvariantCulture, "Elapsed time BindManagedProperties(): {0}", elapsed));
+                               string.Format(CultureInfo.InvariantCulture, "Elapsed time BindManagedProperties(): {0}",
+                                             elapsed));
             start = DateTime.Now;
             BindPropertyElements();
             stop = DateTime.Now;
             elapsed = stop - start;
             TraceLog.WriteLine(me,
-                               string.Format(CultureInfo.InvariantCulture, "Elapsed time BindPropertyElements(): {0}", elapsed));
+                               string.Format(CultureInfo.InvariantCulture, "Elapsed time BindPropertyElements(): {0}",
+                                             elapsed));
             Cursor = Cursors.Arrow;
         }
+
         #endregion
 
         #region Bind managed properties
+
         /// <summary>
         /// Bind top-level Card properties to the form
         /// </summary>
         private void BindManagedProperties()
         {
-
             transitionButtons.Children.Clear();
 
             // Establish the transition toolbar
             if (null != _thisCard.Transitions)
             {
-                foreach (var t in _thisCard.Transitions)
+                foreach (Transition t in _thisCard.Transitions)
                 {
-
                     var button = new Button
-                    {
-                        ToolTip = VisualStudio.Resources.ClickToMakeTransition,
-                        HorizontalAlignment = HorizontalAlignment.Left,
-                        Margin = new Thickness(4, 4, 4, 4),
-                        Height = 24,
-                        BorderThickness = _buttonBorderThickness
-                    };
+                                     {
+                                         ToolTip = VisualStudio.Resources.ClickToMakeTransition,
+                                         HorizontalAlignment = HorizontalAlignment.Left,
+                                         Margin = new Thickness(4, 4, 4, 4),
+                                         Height = 24,
+                                         BorderThickness = _buttonBorderThickness
+                                     };
 
                     button.Click += OnTransitionButtonClick;
                     button.DataContext = t;
@@ -139,9 +144,11 @@ namespace ThoughtWorks.VisualStudio
             descriptionBrowser.Source = new Uri(_thisCard.RenderedDescription);
             commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);
         }
+
         #endregion
 
         #region Bind property elements
+
         /// <summary>
         /// Bind other properties to the form
         /// </summary>
@@ -150,7 +157,7 @@ namespace ThoughtWorks.VisualStudio
             visiblePropertiesPanel.Children.Clear();
             hiddenPropertiesPanel.Children.Clear();
 
-            foreach (var p in _thisCard.Properties.Values)
+            foreach (CardProperty p in _thisCard.Properties.Values)
             {
                 // Load the property
 
@@ -173,6 +180,7 @@ namespace ThoughtWorks.VisualStudio
         #endregion
 
         #region Bind Property
+
         /// <summary>
         /// Binds CardData.PropertyDefinitions list onto the Properties tab
         /// </summary>
@@ -191,15 +199,14 @@ namespace ThoughtWorks.VisualStudio
         /// </remarks>
         internal StackPanel BindProperty(CardProperty cardProperty)
         {
-
             // A StackPanel to hold the label and data controls for a single property. Each property gets one. 
             // The enclosing WrapPanel (see XAML source) handles automatic layout on resize events.
             var panel = new StackPanel
-            {
-                Orientation = Orientation.Horizontal,
-                Margin = new Thickness(6, 6, 0, 0),
-                Tag = cardProperty
-            };
+                            {
+                                Orientation = Orientation.Horizontal,
+                                Margin = new Thickness(6, 6, 0, 0),
+                                Tag = cardProperty
+                            };
 
             var label = new Label
                             {
@@ -232,7 +239,7 @@ namespace ThoughtWorks.VisualStudio
                         if (PropertyIsEditable(cardProperty) && cardProperty.IsCardValued)
                         {
                             // Add a 'click to choose' button
-                            var a = MakeChooseCardButton(cardProperty);
+                            Button a = MakeChooseCardButton(cardProperty);
                             a.Click += OnButtonChooseCardClick;
                             a.Tag = uiElement;
                             panel.Children.Add(a);
@@ -242,7 +249,7 @@ namespace ThoughtWorks.VisualStudio
                         break;
                     }
                 case true:
-                    { 
+                    {
                         uiElement = MakeComboBox(cardProperty);
                         panel.Children.Add(uiElement);
                         break;
@@ -263,19 +270,19 @@ namespace ThoughtWorks.VisualStudio
                             Width = 30,
                             Background = _buttonBackground,
                             BorderThickness = _buttonBorderThickness,
-
                         };
             return a;
         }
 
         private bool PropertyIsEditable(CardProperty property)
         {
-            return UserIsProjectAdmin() || !property.IsFormula && !property.IsTransitionOnly && !property.PropertyValuesDescription.Equals("Aggregate");
+            return UserIsProjectAdmin() ||
+                   !property.IsFormula && !property.IsTransitionOnly &&
+                   !property.PropertyValuesDescription.Equals("Aggregate");
         }
 
         private TextBox MakeTextBox(CardProperty cardProperty)
         {
-
             var tb = new TextBox
                          {
                              MinWidth = 50,
@@ -287,7 +294,7 @@ namespace ThoughtWorks.VisualStudio
             var cardinfo = cardProperty.Value as string;
             if (!string.IsNullOrEmpty(cardProperty.Value as string) && cardProperty.IsCardValued)
             {
-                var name = _thisCard.Model.GetOneCard(Convert.ToInt32(cardProperty.Value)).Name;
+                string name = _thisCard.Model.GetOneCard(Convert.ToInt32(cardProperty.Value)).Name;
                 cardinfo = string.Format("{0} - {1}", cardProperty.Value as string, name);
             }
             tb.Text = cardinfo;
@@ -326,7 +333,10 @@ namespace ThoughtWorks.VisualStudio
                 cb.ItemsSource = cardProperty.PropertyValueDetails;
             }
 
-            cb.SelectedValue = cardProperty.IsSetValued && !string.IsNullOrEmpty(cardProperty.Value as string) || (!cardProperty.IsManagedListOfScalars && !cardProperty.IsTeamValued) ? cardProperty.Value : VisualStudio.Resources.ItemNotSet;
+            cb.SelectedValue = cardProperty.IsSetValued && !string.IsNullOrEmpty(cardProperty.Value as string) ||
+                               (!cardProperty.IsManagedListOfScalars && !cardProperty.IsTeamValued)
+                                   ? cardProperty.Value
+                                   : VisualStudio.Resources.ItemNotSet;
 
             cb.Tag = cardProperty;
 
@@ -356,7 +366,7 @@ namespace ThoughtWorks.VisualStudio
         private void OnPropertyComboBoxSelectionChanged(object sender, RoutedEventArgs e)
         {
             if (!sender.GetType().Name.Equals("ComboBox")) return;
-            var me = new StackFrame().GetMethod().Name;
+            string me = new StackFrame().GetMethod().Name;
             var cb = sender as ComboBox;
             var property = cb.Tag as CardProperty;
             if (property.IsCardValued) return;
@@ -379,7 +389,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
-            var propertyName = (((sender as Button).Tag as TextBox).Tag as CardProperty).Name;
+            string propertyName = (((sender as Button).Tag as TextBox).Tag as CardProperty).Name;
 
             var w = new CardListWindow(_thisCard.Model, propertyName);
             w.ShowDialog();
@@ -391,7 +401,8 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 _thisCard.Update();
-                ((sender as Button).Tag as TextBox).Text = string.Format("{0} - {1}", w.SelectedCardNumber, w.SelectedCardName);
+                ((sender as Button).Tag as TextBox).Text = string.Format("{0} - {1}", w.SelectedCardNumber,
+                                                                         w.SelectedCardName);
             }
             catch (Exception ex)
             {
@@ -402,8 +413,8 @@ namespace ThoughtWorks.VisualStudio
 
         private static void OnButtonNotSetClick(object sender, RoutedEventArgs e)
         {
-            var box = ((sender as Button).Parent as StackPanel).Children[1];
-            switch(box.GetType().Name)
+            UIElement box = ((sender as Button).Parent as StackPanel).Children[1];
+            switch (box.GetType().Name)
             {
                 case "TextBox":
                     (box as TextBox).Text = string.Empty;
@@ -420,6 +431,7 @@ namespace ThoughtWorks.VisualStudio
         #endregion
 
         #region OnInitialized
+
         /// <summary>
         /// Fired after the window framework has initialized and before it is loaded and rendered.
         /// </summary>
@@ -429,9 +441,11 @@ namespace ThoughtWorks.VisualStudio
         {
             OnShowHiddenPropertiesClicked(null, null);
         }
+
         #endregion
 
         #region OnPropertyTextBoxLostFocus
+
         /// <summary>
         /// Calls MingleCard.Update() to update the card with contents of the text box.
         /// </summary>
@@ -440,7 +454,7 @@ namespace ThoughtWorks.VisualStudio
         private void OnPropertyTextBoxLostFocus(object sender, RoutedEventArgs e)
         {
             if (!Settings.Default.EnablePropertyUpdating) return;
-            var me = new StackFrame().GetMethod().Name;
+            string me = new StackFrame().GetMethod().Name;
             var tb = sender as TextBox;
             if (tb.Text == tb.Tag as string)
             {
@@ -452,7 +466,8 @@ namespace ThoughtWorks.VisualStudio
                 case "Card":
                     // The name of the field is "cardXXXXXX", so we strip the "card" prefix from the
                     // name of the TextBox.
-                    _thisCard.AddCardAttributeFilterToPostData(tb.Name.Replace("card", string.Empty).ToLowerInvariant(), tb.Text);
+                    _thisCard.AddCardAttributeFilterToPostData(
+                        tb.Name.Replace("card", string.Empty).ToLowerInvariant(), tb.Text);
                     break;
 
                 case "CardProperty":
@@ -480,9 +495,11 @@ namespace ThoughtWorks.VisualStudio
 
             e.Handled = true;
         }
+
         #endregion
 
         #region OnTransitionButtonClick
+
         /// <summary>
         /// Fired when the Transition button is clicked
         /// </summary>
@@ -519,12 +536,15 @@ namespace ThoughtWorks.VisualStudio
                 t.Update(_thisCard.Number);
 
                 // POST the Comment
-                var cardComment = string.Format(CultureInfo.InvariantCulture, "comment[content]={0}", collectComment.Comment);
-                _thisCard.Model.Mingle.Post(MingleSettings.Project, "/cards/" + _thisCard.Number + ".xml", new Collection<string> {cardComment});
+                string cardComment = string.Format(CultureInfo.InvariantCulture, "comment[content]={0}",
+                                                   collectComment.Comment);
+                _thisCard.Model.Mingle.Post(MingleSettings.Project, "/cards/" + _thisCard.Number + ".xml",
+                                            new Collection<string> {cardComment});
 
                 // Murmur the comment?
-                var murmur = string.Format(CultureInfo.InvariantCulture, "murmur[body]={0}", collectComment.Comment);
-                _thisCard.Model.Mingle.Post(MingleSettings.Project, "/cards/" + _thisCard.Number + ".xml", new Collection<string> { murmur });
+                string murmur = string.Format(CultureInfo.InvariantCulture, "murmur[body]={0}", collectComment.Comment);
+                _thisCard.Model.Mingle.Post(MingleSettings.Project, "/cards/" + _thisCard.Number + ".xml",
+                                            new Collection<string> {murmur});
             }
             catch (Exception ex)
             {
@@ -534,9 +554,11 @@ namespace ThoughtWorks.VisualStudio
                                               VisualStudio.Resources.TransitionEquals, t.Name, ex.Message));
             }
         }
+
         #endregion
 
         #region Rebind
+
         /// <summary>
         /// Rebinds the CardView to card indicated by _thisCard.Number
         /// </summary>
@@ -556,6 +578,7 @@ namespace ThoughtWorks.VisualStudio
         #endregion
 
         #region OnShowHiddenProperties
+
         /// <summary>
         /// Toggles Visibility for Card properties marked as "hidden" in Mingle.
         /// </summary>
@@ -569,6 +592,7 @@ namespace ThoughtWorks.VisualStudio
             if (showHiddenProperties.IsChecked == true)
                 hiddenPropertiesPanel.Visibility = Visibility.Visible;
         }
+
         #endregion
 
         /// <summary>
@@ -577,7 +601,8 @@ namespace ThoughtWorks.VisualStudio
         /// <returns></returns>
         private bool UserIsProjectAdmin()
         {
-            return (_thisCard.Model.TeamMemberDictionary.ContainsKey(MingleSettings.Login) && _thisCard.Model.TeamMemberDictionary[MingleSettings.Login].IsAdmin);
+            return (_thisCard.Model.TeamMemberDictionary.ContainsKey(MingleSettings.Login) &&
+                    _thisCard.Model.TeamMemberDictionary[MingleSettings.Login].IsAdmin);
         }
 
         /// <summary>
@@ -592,7 +617,8 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="e"></param>
         private void OnCardNameTextChanged(object sender, TextChangedEventArgs e)
         {
-            ToolPane.Caption = string.Format(CultureInfo.CurrentCulture, VisualStudio.Resources.CardWindowCaption, _thisCard.Number, cardName.Text);
+            ToolPane.Caption = string.Format(CultureInfo.CurrentCulture, VisualStudio.Resources.CardWindowCaption,
+                                             _thisCard.Number, cardName.Text);
         }
 
         /// <summary>
@@ -613,12 +639,11 @@ namespace ThoughtWorks.VisualStudio
         {
             try
             {
-                _thisCard.Model.PostComment(_thisCard.Number, string.Format("#{0} {1}",_thisCard.Number, comment.Text));
+                _thisCard.Model.PostComment(_thisCard.Number, string.Format("#{0} {1}", _thisCard.Number, comment.Text));
                 if (Convert.ToBoolean(murmurComment.IsChecked))
                 {
                     _thisCard.Model.SendMurmur(comment.Text);
                     RefreshMurmurs();
-
                 }
                 commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);
                 comment.Text = string.Empty;
@@ -630,5 +655,4 @@ namespace ThoughtWorks.VisualStudio
             }
         }
     }
-
 }

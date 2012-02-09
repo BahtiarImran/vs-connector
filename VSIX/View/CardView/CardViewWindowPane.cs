@@ -35,7 +35,6 @@ namespace ThoughtWorks.VisualStudio
     [Guid("E818D76B-46CE-42F4-AF85-DF1198A36C6D")]
     internal class CardViewWindowPane : ToolWindowPane
     {
-
         /// <summary>
         /// Standard constructor for the tool window.
         /// </summary>
@@ -60,7 +59,7 @@ namespace ThoughtWorks.VisualStudio
         {
             var window = (CardViewControl) base.Content;
 
-            Caption = string.Format(CultureInfo.CurrentCulture,Resources.CardWindowCaption, card.Number,
+            Caption = string.Format(CultureInfo.CurrentCulture, Resources.CardWindowCaption, card.Number,
                                     card.Name);
             window.Bind(card);
             window.RefreshMurmurs = refreshMurmurs;
@@ -74,7 +73,7 @@ namespace ThoughtWorks.VisualStudio
         public override void OnToolWindowCreated()
         {
             base.OnToolWindowCreated();
-            var window = (CardViewControl)base.Content;
+            var window = (CardViewControl) base.Content;
             window.ToolPane = this;
             // Set the text that will appear in the title bar of the tool window.
             // Note that because we need access to the package for localization,
