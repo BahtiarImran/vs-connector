@@ -25,8 +25,8 @@ namespace ThoughtWorks.VisualStudio
     internal static class GuidsList
     {
         // Now define the list of guids as public static members.
-        public static readonly Guid guidTwVscPackage = new Guid("{D00EB40D-F709-49C6-B43F-D7910D730883}");
-        public static readonly Guid guidTwVscCmdSet = new Guid("{927BC402-45CF-43E5-BD57-B3A2A5B4D343}");
-        public static readonly Guid guidOutputWindowFrame = new Guid("{09CD66EE-C3A1-4C58-BD78-AF51833FFD44}");
+        public static readonly Guid GuidTwVscPackage = new Guid("{D00EB40D-F709-49C6-B43F-D7910D730883}");
+        public static readonly Guid GuidTwVscCmdSet = new Guid("{927BC402-45CF-43E5-BD57-B3A2A5B4D343}");
+        public static readonly Guid GuidOutputWindowFrame = new Guid("{09CD66EE-C3A1-4C58-BD78-AF51833FFD44}");
     }
 }

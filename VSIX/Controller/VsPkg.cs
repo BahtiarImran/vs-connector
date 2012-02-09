@@ -90,7 +90,7 @@ namespace ThoughtWorks.VisualStudio
             //var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.CardListWindow);
             //DefineCommandHandler(ShowListOfCards, id);
 
-            var id = new CommandID(GuidsList.guidTwVscCmdSet, PkgCmdId.MingleExplorer);
+            var id = new CommandID(GuidsList.GuidTwVscCmdSet, PkgCmdId.MingleExplorer);
             DefineCommandHandler(ShowMingleExplorer, id);
 
         }
