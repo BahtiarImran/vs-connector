@@ -1,9 +1,18 @@
 ﻿//
-// Copyright © ThoughtWorks Studios 2011
+// Copyright © 2010, 2011 ThoughtWorks, Inc.
 //
-using System;
-using System.Runtime.InteropServices;
-using System.Security;
+// Licensed under the Apache License, Version 2.0 (the "License"); 
+// you may not use this file except in compliance with the License. 
+// You may obtain a copy of the License at:
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software 
+// distributed under the License is distributed on an "AS IS" BASIS, 
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+// See the License for the specific language governing permissions and 
+// limitations under the License.
+//
 
 namespace ThoughtWorks.VisualStudio
 {
@@ -91,48 +100,48 @@ namespace ThoughtWorks.VisualStudio
 		}
 
 		#region SecureString conversion
-        //        /// <summary>
-        ///// Converts String to SecureString
-        ///// </summary>
-        ///// <param name="text"></param>
-        ///// <returns></returns>
-        //private static SecureString ConvertStringToSecureString(string text)
-        //{
-        //    var ss = new SecureString();
-        //    foreach (var c in text.ToCharArray())
-        //    {
-        //        ss.AppendChar(c);
-        //    }
-        //    return ss;
-        //}
+		//        /// <summary>
+		///// Converts String to SecureString
+		///// </summary>
+		///// <param name="text"></param>
+		///// <returns></returns>
+		//private static SecureString ConvertStringToSecureString(string text)
+		//{
+		//    var ss = new SecureString();
+		//    foreach (var c in text.ToCharArray())
+		//    {
+		//        ss.AppendChar(c);
+		//    }
+		//    return ss;
+		//}
 
-        ///// <summary>
-        ///// Converts a SecureString to String
-        ///// </summary>
-        ///// <param name="secureString"></param>
-        ///// <returns>The password as a string or if the conversion fails then an empty string is returned.</returns>
-        //private static string ConvertSecureStringToString(SecureString secureString)
-        //{
-        //    if (null == secureString)
-        //    {
-        //        secureString = new SecureString();
-        //    }
+		///// <summary>
+		///// Converts a SecureString to String
+		///// </summary>
+		///// <param name="secureString"></param>
+		///// <returns>The password as a string or if the conversion fails then an empty string is returned.</returns>
+		//private static string ConvertSecureStringToString(SecureString secureString)
+		//{
+		//    if (null == secureString)
+		//    {
+		//        secureString = new SecureString();
+		//    }
 
-        //    var unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);
-        //    try
-        //    {
-        //        return Marshal.PtrToStringUni(unmanagedString);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return string.Empty;
-        //    }
-        //    finally
-        //    {
-        //        Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
-        //    }
+		//    var unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureString);
+		//    try
+		//    {
+		//        return Marshal.PtrToStringUni(unmanagedString);
+		//    }
+		//    catch (Exception)
+		//    {
+		//        return string.Empty;
+		//    }
+		//    finally
+		//    {
+		//        Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+		//    }
  
-        //}
+		//}
 		#endregion
 	}
 }
