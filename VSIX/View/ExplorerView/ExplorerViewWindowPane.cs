@@ -34,7 +34,7 @@ namespace ThoughtWorks.VisualStudio
     [Guid("E889901A-32B0-41DB-AFE8-0CA1FA860A58")]
     internal class ExplorerViewWindowPane : ToolWindowPane
     {
-        private ExplorerViewControl _control;
+        private readonly ExplorerViewControl _control;
 
         /// <summary>
         /// Standard constructor for the tool window.

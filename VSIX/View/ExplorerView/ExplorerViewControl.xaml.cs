@@ -87,25 +87,23 @@ namespace ThoughtWorks.VisualStudio
 
 			try
 			{
-				this.Cursor = Cursors.Wait;
+			    Cursor = Cursors.Wait;
 
-				if (Model.SelectProject(item))
-				{
-					BindCardTypes();
-					BindExplorerTrees();
-					if (null != _murmurs) _murmurs.Control.RefreshMurmurs();
-				}
-				else
-				{
-				}
-			}
+			    if (!Model.SelectProject(item)) return;
+			
+                BindCardTypes();
+			    BindExplorerTrees();
+			    
+                if (null != _murmurs) _murmurs.Control.RefreshMurmurs();
+
+            }
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
 			}
 			finally
 			{
-				this.Cursor = Cursors.Arrow;
+				Cursor = Cursors.Arrow;
 			}
 		} 
 		#endregion
@@ -154,7 +152,7 @@ namespace ThoughtWorks.VisualStudio
 					{
 						try
 						{
-							this.Cursor = Cursors.Wait;
+							Cursor = Cursors.Wait;
 							BindAll();
 						}
 						catch (Exception ex)
@@ -164,7 +162,7 @@ namespace ThoughtWorks.VisualStudio
 						}
 						finally
 						{
-							this.Cursor = Cursors.Arrow;
+							Cursor = Cursors.Arrow;
 						}
 
 						break;
@@ -327,9 +325,9 @@ namespace ThoughtWorks.VisualStudio
 		{
 			try
 			{
-				this.Cursor = Cursors.Wait;
+				Cursor = Cursors.Wait;
 				string itemValue;
-				TreeViewItem item = null;
+				TreeViewItem item;
 				GetTreeItemContainerAndValue(sender as TreeViewItem, out item, out itemValue);
 				if (null == item) return;
 				if (string.IsNullOrEmpty(itemValue)) return;
@@ -345,7 +343,7 @@ namespace ThoughtWorks.VisualStudio
 			}
 			finally
 			{
-				this.Cursor = Cursors.Arrow;
+				Cursor = Cursors.Arrow;
 			}
 		}
 
@@ -365,9 +363,9 @@ namespace ThoughtWorks.VisualStudio
 
 			try
 			{
-				this.Cursor = Cursors.Wait;
+				Cursor = Cursors.Wait;
 				if (!sender.GetType().Name.Equals("TreeViewItem")) return;
-				TreeViewItem itemContainer = null;
+				TreeViewItem itemContainer;
 				GetTreeItemContainerAndValue(sender as TreeViewItem, out itemContainer, out itemValue);
 				if (null == itemContainer) return;
 				if (string.IsNullOrEmpty(itemValue)) return;
@@ -381,7 +379,7 @@ namespace ThoughtWorks.VisualStudio
 			}
 			finally
 			{
-				this.Cursor = Cursors.Arrow;
+				Cursor = Cursors.Arrow;
 			}
 
 			var cardNo = int.Parse(itemValue.Split('-')[0]);
@@ -497,7 +495,7 @@ namespace ThoughtWorks.VisualStudio
 		{
 			try
 			{
-				this.Cursor = Cursors.Wait;
+				Cursor = Cursors.Wait;
 				favoritesTree.ItemsSource = null;
 				favoritesTree.Items.Clear();
 				favoritesTree.ItemsSource = Model.FavoritesDictionary.Keys;
@@ -509,7 +507,7 @@ namespace ThoughtWorks.VisualStudio
 			}
 			finally
 			{
-				this.Cursor = Cursors.Arrow;
+				Cursor = Cursors.Arrow;
 			}
 		}
 
@@ -520,7 +518,7 @@ namespace ThoughtWorks.VisualStudio
 		{
 			try
 			{
-				this.Cursor = Cursors.Wait;
+				Cursor = Cursors.Wait;
 				teamTree.Items.Clear();
 				foreach (var m in Model.TeamMemberDictionary.Values)
 					teamTree.Items.Add(m.Name);
@@ -533,7 +531,7 @@ namespace ThoughtWorks.VisualStudio
 			}
 			finally
 			{
-				this.Cursor = Cursors.Arrow;
+				Cursor = Cursors.Arrow;
 			}
 		}
 		
