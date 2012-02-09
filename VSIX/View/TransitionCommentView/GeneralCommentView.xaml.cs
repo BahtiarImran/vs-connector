@@ -71,14 +71,14 @@ namespace ThoughtWorks.VisualStudio
         ///</summary>
         public bool Murmur
         {
-            get { return murmur.IsChecked != null ? murmur.IsChecked.Value : false; }
+            get { return murmur.IsChecked != null && murmur.IsChecked.Value; }
         }
 
         private void OnWindowClosing(object sender, CancelEventArgs e)
         {
             if (!string.IsNullOrEmpty(comment.Text)) return;
 
-            MessageBoxResult result = MessageBox.Show(_requiredAdmonition, Title, MessageBoxButton.YesNo,
+            var result = MessageBox.Show(_requiredAdmonition, Title, MessageBoxButton.YesNo,
                                                       MessageBoxImage.Stop, MessageBoxResult.Yes);
 
             if (result == MessageBoxResult.No) return;
