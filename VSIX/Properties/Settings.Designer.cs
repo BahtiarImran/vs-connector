@@ -136,7 +136,7 @@ namespace ThoughtWorks.VisualStudio.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Copyright (C) 2010,2011 ThoughtWorks, Inc.")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Copyright (C) 2010,2011, 2012 ThoughtWorks, Inc.")]
         public string Copyright {
             get {
                 return ((string)(this["Copyright"]));

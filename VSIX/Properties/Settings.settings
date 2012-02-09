@@ -33,7 +33,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Copyright" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Copyright (C) 2010,2011 ThoughtWorks, Inc.</Value>
+      <Value Profile="(Default)">Copyright (C) 2010,2011, 2012 ThoughtWorks, Inc.</Value>
     </Setting>
   </Settings>
 </SettingsFile>
