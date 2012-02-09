@@ -28,12 +28,7 @@
 		Width="600" 
 		WindowStyle="None">
 	<Window.Resources>
-		<Style TargetType="TabItem">
-			<Setter Property="Background" Value="#9BFFEFD5"></Setter>
-			<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-			<Setter Property="VerticalAlignment" Value="Stretch"></Setter>
-		</Style>
-		<Style TargetType="TextBox">
+	  <Style TargetType="TextBox">
 			<Setter Property="FontSize" Value="14"></Setter>
 			<Setter Property="VerticalAlignment" Value="Center"></Setter>
 			<Setter Property="HorizontalAlignment" Value="Left"></Setter>
