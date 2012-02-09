@@ -37,6 +37,11 @@ namespace ThoughtWorks.VisualStudio
         private readonly ViewModel _model;
         private readonly string _propertyLabel;
 
+        /// <summary>
+        /// Constructs a new CardListWindow
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="propertyLabel"></param>
         internal CardListWindow(ViewModel model, string propertyLabel)
         {
             SelectedCardNumber = "0";
@@ -45,6 +50,11 @@ namespace ThoughtWorks.VisualStudio
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Invoked after the window is intitialized 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnWindowIsInitialized(object sender, EventArgs e)
         {
             try
@@ -58,6 +68,11 @@ namespace ThoughtWorks.VisualStudio
             }
         }
 
+        /// <summary>
+        /// Add a check box to the UI
+        /// </summary>
+        /// <param name="k"></param>
+        /// <returns></returns>
         private int AddCheckBox(string k)
         {
             var checkBox = new CheckBox {Content = k};
@@ -68,6 +83,11 @@ namespace ThoughtWorks.VisualStudio
             return cardTypes.Children.Add(checkBox);
         }
 
+        /// <summary>
+        /// Event handler invoked when the user checks a check box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnCardTypeCheckBoxChecked(object sender, RoutedEventArgs e)
         {
             try
@@ -81,6 +101,11 @@ namespace ThoughtWorks.VisualStudio
             }
         }
 
+        /// <summary>
+        /// Event handler invoked when an item in the list is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnListSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (null == list.SelectedValue)
@@ -93,20 +118,27 @@ namespace ThoughtWorks.VisualStudio
             SelectedCardName = (list.SelectedItem as CardListItem).Name;
         }
 
+        /// <summary>
+        /// Event handler invoked when an item in the list is committed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnListMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (null == list.SelectedValue)
             {
-                Cancelled = true;
+                return;
             }
-            else
-            {
-                SelectedCardNumber = list.SelectedValue.ToString();
-            }
+
+            SelectedCardNumber = list.SelectedValue.ToString();
             Cancelled = false;
             Close();
+
         }
 
+        /// <summary>
+        /// Search for cards matching the list-indicated criteria
+        /// </summary>
         private void SearchForCards()
         {
             var cards = new SortedList<int, CardListItem>();
@@ -141,6 +173,10 @@ namespace ThoughtWorks.VisualStudio
             }
         }
 
+        /// <summary>
+        /// Display a message to the user
+        /// </summary>
+        /// <param name="ex"></param>
         private static void AlertUser(Exception ex)
         {
             string msg = ex.InnerException.Data.Count > 0
