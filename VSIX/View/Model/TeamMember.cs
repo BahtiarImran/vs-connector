@@ -23,7 +23,7 @@ namespace ThoughtWorks.VisualStudio
     /// </summary>
     public class TeamMember : IManagedListItem
     {
-        private const string _notSetMember = "<projects_member><user><name>xxxx</name><login>xxxx</login></user></projects_member>";
+        private const string NOT_SET_MEMBER = "<projects_member><user><name>xxxx</name><login>xxxx</login></user></projects_member>";
         private readonly MingleProjectMember _teamMember;
         internal ViewModel Model { get; set; }
 
@@ -46,7 +46,7 @@ namespace ThoughtWorks.VisualStudio
         {
             Model = model;
             IsSet = set;
-            _teamMember = new MingleProjectMember(_notSetMember.Replace("xxxx", Resources.ItemNotSet));
+            _teamMember = new MingleProjectMember(NOT_SET_MEMBER.Replace("xxxx", Resources.ItemNotSet));
         }
 
         /// <summary>

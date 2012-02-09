@@ -224,9 +224,9 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                var _murmursCache = new ObservableCollection<Murmur>();
-                Project().Murmurs.ToList().ForEach(_murmursCache.Add);
-                return _murmursCache;
+                var murmursCache = new ObservableCollection<Murmur>();
+                Project().Murmurs.ToList().ForEach(murmursCache.Add);
+                return murmursCache;
             }
         }
 

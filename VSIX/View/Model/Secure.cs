@@ -83,7 +83,7 @@ namespace ThoughtWorks.VisualStudio
             {
                 if (_ss != null)
                     _ss.Dispose();
-                Console.WriteLine(VisualStudio.Resources.SettingsViewControl_Dispose_Object_disposed_);
+                Console.WriteLine(Resources.SettingsViewControl_Dispose_Object_disposed_);
             }
 
             _ss = null;
