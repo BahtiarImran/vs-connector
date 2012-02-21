@@ -1,0 +1,15 @@
+// New File/Add New Item Open button drop-down menu
+#define IDG_VS_OPENDROPDOWN_MENU        0x0235
+
+// Context Menu Identifiers, created by Visual Studio Shell
+#define IDM_VS_CTXT_RESULTSLIST       0x0411
+
+// Common Item Node context menu
+#define IDM_VS_CTXT_ITEMNODE          0x0430
+
+// Folder Node context menu
+#define IDM_VS_CTXT_FOLDERNODE        0x0431
+
+// Error list context menus
+#define IDG_VS_ERRORLIST_WARNINGGROUP   0x01D8
+#define IDG_VS_ERRORLIST_MESSAGEGROUP   0x01D9

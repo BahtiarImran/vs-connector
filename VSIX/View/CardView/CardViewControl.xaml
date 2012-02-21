@@ -55,7 +55,7 @@
 
     <!-- Row of transition buttons -->
 
-    <WrapPanel x:Name="transitionButtons" Orientation="Horizontal" Background="Peru" DockPanel.Dock="Top"
+    <WrapPanel x:Name="transitionButtons" Orientation="Horizontal" Background="DarkOrange" DockPanel.Dock="Top"
                Margin="0,6,0,6" />
 
     <TabControl Name="tabs" Background="Wheat" BorderThickness="8" BorderBrush="Wheat">

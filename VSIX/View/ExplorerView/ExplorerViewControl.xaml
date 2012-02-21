@@ -29,7 +29,7 @@
   </Control.Resources>
   <DockPanel x:Name="dockPanel" LastChildFill="True">
 
-    <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="Peru">
+    <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="DarkOrange">
       <StackPanel Orientation="Horizontal">
         <TextBox x:Name="card" Margin="4,2,2,2" FontSize="11" Height="20" Width="36" />
         <Button Name="buttonGetCard" Margin="2,2,0,2" FontSize="11" Height="20" Width="Auto" Click="ButtonClick"
