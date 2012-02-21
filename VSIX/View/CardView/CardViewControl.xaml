@@ -53,16 +53,16 @@
 
   <DockPanel VerticalAlignment="Top">
 
-	<StackPanel Background="DarkOrange" Height="4" Orientation="Horizontal" HorizontalAlignment="Stretch"/>
-
 	<!-- Row of transition buttons -->
 
-	<WrapPanel x:Name="transitionButtons" Orientation="Horizontal" Background="DarkOrange" DockPanel.Dock="Top"
-			   Margin="0,0,0,6" />
-
-        <StackPanel Background="DarkOrange" Height="4" Orientation="Horizontal" HorizontalAlignment="Stretch"/>
-
-        <TabControl Name="tabs" Background="Wheat" BorderThickness="8" BorderBrush="Wheat">
+        <Grid Background="DarkOrange" DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="6"></RowDefinition>
+            </Grid.RowDefinitions>
+            <WrapPanel x:Name="transitionButtons" Grid.Row="0" Orientation="Horizontal" Background="DarkOrange" />
+        </Grid>
+        <TabControl Name="tabs" Background="Wheat" BorderThickness="8" BorderBrush="Wheat" Margin="0,10,0,0">
 
 	  <!-- DETAILS TAB -->
 
