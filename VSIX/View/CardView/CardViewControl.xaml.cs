@@ -108,7 +108,7 @@ namespace ThoughtWorks.VisualStudio
                                      {
                                          ToolTip = VisualStudio.Resources.ClickToMakeTransition,
                                          HorizontalAlignment = HorizontalAlignment.Left,
-                                         Margin = new Thickness(4, 4, 4, 4),
+                                         Margin = new Thickness(4, 4, 4, 0),
                                          Height = 24,
                                          BorderThickness = _buttonBorderThickness
                                      };

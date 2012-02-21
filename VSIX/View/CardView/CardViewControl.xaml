@@ -14,177 +14,181 @@
    limitations under the License.
 -->
 <UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-             x:Class="ThoughtWorks.VisualStudio.CardViewControl" FontSize="11" x:Name="CardViewControlXaml"
-             Initialized="OnInitialized" Background="Wheat">
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+			 x:Class="ThoughtWorks.VisualStudio.CardViewControl" FontSize="11" x:Name="CardViewControlXaml"
+			 Initialized="OnInitialized" Background="Wheat">
 	
   <!-- Static resources must precede any reference to them in the XAML source. -->	
   <UserControl.Resources>
-    <!-- Defines a basic TextBox. This style is extended for specific uses -->
-    <!-- for read-only textboxes, varying width, etc. -->
-    <Style x:Key="RoTextBox" TargetType="TextBox">
-      <Setter Property="Height" Value="23" />
-      <Setter Property="Width" Value="Auto"></Setter>
-      <Setter Property="MinWidth" Value="30"></Setter>
-      <Setter Property="IsReadOnly" Value="False" />
-      <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-      <Setter Property="Background" Value="PapayaWhip"></Setter>
-      <Setter Property="FontWeight" Value="Normal"></Setter>
-    </Style>
-    <Style x:Key="PropertyStackPanel" TargetType="StackPanel">
-      <Setter Property="Margin" Value="24,6,0,0" />
-      <Setter Property="Orientation" Value="Horizontal" />
-      <Setter Property="Background" Value="Wheat"></Setter>
-    </Style>
-    <Style x:Key="PropertyLabel" TargetType="Label">
-      <Setter Property="VerticalAlignment" Value="Center"></Setter>
-      <Setter Property="Height" Value="23"></Setter>
-      <Setter Property="Background" Value="Wheat"></Setter>
-    </Style>
-    <Style x:Key="TabItemStyle" TargetType="TabItem">
-      <Setter Property="Background" Value="Tan"></Setter>
-      <Setter Property="FontWeight" Value="ExtraBlack"></Setter>
-    </Style>
-    <Style x:Key="NormalTextBoxStyle" TargetType="TextBox">
-      <Setter Property="FontWeight" Value="Normal"></Setter>
-    </Style>
+	<!-- Defines a basic TextBox. This style is extended for specific uses -->
+	<!-- for read-only textboxes, varying width, etc. -->
+	<Style x:Key="RoTextBox" TargetType="TextBox">
+	  <Setter Property="Height" Value="23" />
+	  <Setter Property="Width" Value="Auto"></Setter>
+	  <Setter Property="MinWidth" Value="30"></Setter>
+	  <Setter Property="IsReadOnly" Value="False" />
+	  <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+	  <Setter Property="Background" Value="PapayaWhip"></Setter>
+	  <Setter Property="FontWeight" Value="Normal"></Setter>
+	</Style>
+	<Style x:Key="PropertyStackPanel" TargetType="StackPanel">
+	  <Setter Property="Margin" Value="24,6,0,0" />
+	  <Setter Property="Orientation" Value="Horizontal" />
+	  <Setter Property="Background" Value="Wheat"></Setter>
+	</Style>
+	<Style x:Key="PropertyLabel" TargetType="Label">
+	  <Setter Property="VerticalAlignment" Value="Center"></Setter>
+	  <Setter Property="Height" Value="23"></Setter>
+	  <Setter Property="Background" Value="Wheat"></Setter>
+	</Style>
+	<Style x:Key="TabItemStyle" TargetType="TabItem">
+	  <Setter Property="Background" Value="Tan"></Setter>
+	  <Setter Property="FontWeight" Value="ExtraBlack"></Setter>
+	</Style>
+	<Style x:Key="NormalTextBoxStyle" TargetType="TextBox">
+	  <Setter Property="FontWeight" Value="Normal"></Setter>
+	</Style>
   </UserControl.Resources>
 
   <DockPanel VerticalAlignment="Top">
 
-    <!-- Row of transition buttons -->
+	<StackPanel Background="DarkOrange" Height="4" Orientation="Horizontal" HorizontalAlignment="Stretch"/>
 
-    <WrapPanel x:Name="transitionButtons" Orientation="Horizontal" Background="DarkOrange" DockPanel.Dock="Top"
-               Margin="0,6,0,6" />
+	<!-- Row of transition buttons -->
 
-    <TabControl Name="tabs" Background="Wheat" BorderThickness="8" BorderBrush="Wheat">
+	<WrapPanel x:Name="transitionButtons" Orientation="Horizontal" Background="DarkOrange" DockPanel.Dock="Top"
+			   Margin="0,0,0,6" />
 
-      <!-- DETAILS TAB -->
+        <StackPanel Background="DarkOrange" Height="4" Orientation="Horizontal" HorizontalAlignment="Stretch"/>
 
-      <TabItem x:Name="detailsTab" Header="Details" Style="{StaticResource TabItemStyle}">
+        <TabControl Name="tabs" Background="Wheat" BorderThickness="8" BorderBrush="Wheat">
 
-        <Grid x:Name="grid">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition />
-            <RowDefinition Height="Auto" />
-          </Grid.RowDefinitions>
+	  <!-- DETAILS TAB -->
 
-          <!-- Grid Row 0 Card Name -->
+	  <TabItem x:Name="detailsTab" Header="Details" Style="{StaticResource TabItemStyle}">
+
+		<Grid x:Name="grid">
+		  <Grid.RowDefinitions>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition />
+			<RowDefinition Height="Auto" />
+		  </Grid.RowDefinitions>
+
+		  <!-- Grid Row 0 Card Name -->
 						
-          <TextBox x:Name="cardName" Grid.Row="0" Style="{StaticResource NormalTextBoxStyle}"
-                   LostFocus="OnPropertyTextBoxLostFocus" TextChanged="OnCardNameTextChanged" GotFocus="OnCardNameGotFocus"
-                   AutoWordSelection="True" HorizontalScrollBarVisibility="Hidden" TabIndex="1" Margin="6,6,6,6" Height="23"
-                   VerticalAlignment="Top"></TextBox>
+		  <TextBox x:Name="cardName" Grid.Row="0" Style="{StaticResource NormalTextBoxStyle}"
+				   LostFocus="OnPropertyTextBoxLostFocus" TextChanged="OnCardNameTextChanged" GotFocus="OnCardNameGotFocus"
+				   AutoWordSelection="True" HorizontalScrollBarVisibility="Hidden" TabIndex="1" Margin="6,6,6,6" Height="23"
+				   VerticalAlignment="Top"></TextBox>
 
-          <!-- Grid Row 1 Card Description/Preview Tabs -->
+		  <!-- Grid Row 1 Card Description/Preview Tabs -->
 
-          <TabControl Grid.Row="1" Name="dsecriptionTab" VerticalAlignment="Top" VerticalContentAlignment="Stretch">
-            <TabItem x:Name="markupTab" Header="Decription" VerticalContentAlignment="Stretch"
-                     Style="{StaticResource TabItemStyle}">
-              <TextBox x:Name="cardDescription" LostFocus="OnPropertyTextBoxLostFocus"
-                       Style="{StaticResource NormalTextBoxStyle}" VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch"
-                       TextWrapping="Wrap" AcceptsReturn="True" AutoWordSelection="True" TabIndex="2" MinHeight="100"></TextBox>
-            </TabItem>
-            <TabItem x:Name="renderedTab" Header="Preview" GotFocus="OnRenderedDescriptionTabGotFocus"
-                     Style="{StaticResource TabItemStyle}">
-              <WebBrowser Name="descriptionBrowser" />
-            </TabItem>
-          </TabControl>
+		  <TabControl Grid.Row="1" Name="dsecriptionTab" VerticalAlignment="Top" VerticalContentAlignment="Stretch">
+			<TabItem x:Name="markupTab" Header="Decription" VerticalContentAlignment="Stretch"
+					 Style="{StaticResource TabItemStyle}">
+			  <TextBox x:Name="cardDescription" LostFocus="OnPropertyTextBoxLostFocus"
+					   Style="{StaticResource NormalTextBoxStyle}" VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch"
+					   TextWrapping="Wrap" AcceptsReturn="True" AutoWordSelection="True" TabIndex="2" MinHeight="100"></TextBox>
+			</TabItem>
+			<TabItem x:Name="renderedTab" Header="Preview" GotFocus="OnRenderedDescriptionTabGotFocus"
+					 Style="{StaticResource TabItemStyle}">
+			  <WebBrowser Name="descriptionBrowser" />
+			</TabItem>
+		  </TabControl>
 						
-          <!-- Grid Row 2 Managed Attributes -->
+		  <!-- Grid Row 2 Managed Attributes -->
 
-          <WrapPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch">
-            <StackPanel Style="{StaticResource PropertyStackPanel}">
-              <Label Style="{StaticResource PropertyLabel}" Content="Type:"></Label>
-              <TextBox x:Name="cardType" Style="{StaticResource RoTextBox}"></TextBox>
-            </StackPanel>
-            <StackPanel Style="{StaticResource PropertyStackPanel}">
-              <Label Content="Project Name:"></Label>
-              <TextBox x:Name="cardProjectName" Style="{StaticResource RoTextBox}"></TextBox>
-            </StackPanel>
-            <StackPanel Style="{StaticResource PropertyStackPanel}">
-              <Label Style="{StaticResource PropertyLabel}" Content="Version:"></Label>
-              <TextBox x:Name="cardVersion" Style="{StaticResource RoTextBox}"></TextBox>
-            </StackPanel>
-            <StackPanel Style="{StaticResource PropertyStackPanel}">
-              <Label Style="{StaticResource PropertyLabel}" Content="Rank:"></Label>
-              <TextBox x:Name="cardRank" Width="Auto" LostFocus="OnPropertyTextBoxLostFocus" MinWidth="30"></TextBox>
-            </StackPanel>
-            <StackPanel Style="{StaticResource PropertyStackPanel}">
-              <Label Style="{StaticResource PropertyLabel}" Content="Created On:"></Label>
-              <TextBox x:Name="cardCreatedOn" Style="{StaticResource RoTextBox}"></TextBox>
-            </StackPanel>
-            <StackPanel Style="{StaticResource PropertyStackPanel}">
-              <Label Style="{StaticResource PropertyLabel}" Content="Created By:"></Label>
-              <TextBox x:Name="cardCreatedBy" Style="{StaticResource RoTextBox}"></TextBox>
-            </StackPanel>
-            <StackPanel Style="{StaticResource PropertyStackPanel}">
-              <Label Style="{StaticResource PropertyLabel}" Content="Modified On:"></Label>
-              <TextBox x:Name="cardModifiedOn" Style="{StaticResource RoTextBox}"></TextBox>
-            </StackPanel>
-            <StackPanel Style="{StaticResource PropertyStackPanel}">
-              <Label Style="{StaticResource PropertyLabel}" Content="Modified By:"></Label>
-              <TextBox x:Name="cardModifiedBy" Style="{StaticResource RoTextBox}"></TextBox>
-            </StackPanel>
-          </WrapPanel>
-        </Grid>
+		  <WrapPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Stretch">
+			<StackPanel Style="{StaticResource PropertyStackPanel}">
+			  <Label Style="{StaticResource PropertyLabel}" Content="Type:"></Label>
+			  <TextBox x:Name="cardType" Style="{StaticResource RoTextBox}"></TextBox>
+			</StackPanel>
+			<StackPanel Style="{StaticResource PropertyStackPanel}">
+			  <Label Content="Project Name:"></Label>
+			  <TextBox x:Name="cardProjectName" Style="{StaticResource RoTextBox}"></TextBox>
+			</StackPanel>
+			<StackPanel Style="{StaticResource PropertyStackPanel}">
+			  <Label Style="{StaticResource PropertyLabel}" Content="Version:"></Label>
+			  <TextBox x:Name="cardVersion" Style="{StaticResource RoTextBox}"></TextBox>
+			</StackPanel>
+			<StackPanel Style="{StaticResource PropertyStackPanel}">
+			  <Label Style="{StaticResource PropertyLabel}" Content="Rank:"></Label>
+			  <TextBox x:Name="cardRank" Width="Auto" LostFocus="OnPropertyTextBoxLostFocus" MinWidth="30"></TextBox>
+			</StackPanel>
+			<StackPanel Style="{StaticResource PropertyStackPanel}">
+			  <Label Style="{StaticResource PropertyLabel}" Content="Created On:"></Label>
+			  <TextBox x:Name="cardCreatedOn" Style="{StaticResource RoTextBox}"></TextBox>
+			</StackPanel>
+			<StackPanel Style="{StaticResource PropertyStackPanel}">
+			  <Label Style="{StaticResource PropertyLabel}" Content="Created By:"></Label>
+			  <TextBox x:Name="cardCreatedBy" Style="{StaticResource RoTextBox}"></TextBox>
+			</StackPanel>
+			<StackPanel Style="{StaticResource PropertyStackPanel}">
+			  <Label Style="{StaticResource PropertyLabel}" Content="Modified On:"></Label>
+			  <TextBox x:Name="cardModifiedOn" Style="{StaticResource RoTextBox}"></TextBox>
+			</StackPanel>
+			<StackPanel Style="{StaticResource PropertyStackPanel}">
+			  <Label Style="{StaticResource PropertyLabel}" Content="Modified By:"></Label>
+			  <TextBox x:Name="cardModifiedBy" Style="{StaticResource RoTextBox}"></TextBox>
+			</StackPanel>
+		  </WrapPanel>
+		</Grid>
 
-      </TabItem>
+	  </TabItem>
 
-      <!-- USER-PROPERTIES TAB -->
+	  <!-- USER-PROPERTIES TAB -->
 
-      <TabItem Name="propertiesTab" Header="Properties" Style="{StaticResource TabItemStyle}">
-        <Grid Background="Wheat">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-          </Grid.RowDefinitions>
-          <CheckBox x:Name="showHiddenProperties" Margin="6,8,0,6" Grid.Row="0" Content="Show Hidden Properties"
-                    Click="OnShowHiddenPropertiesClicked"></CheckBox>
-          <WrapPanel x:Name="visiblePropertiesPanel" Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,6"></WrapPanel>
-          <WrapPanel x:Name="hiddenPropertiesPanel" Orientation="Horizontal" Margin="0,0,0,6" Grid.Row="2" />
-        </Grid>
-      </TabItem>
+	  <TabItem Name="propertiesTab" Header="Properties" Style="{StaticResource TabItemStyle}">
+		<Grid Background="Wheat">
+		  <Grid.RowDefinitions>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+		  </Grid.RowDefinitions>
+		  <CheckBox x:Name="showHiddenProperties" Margin="6,8,0,6" Grid.Row="0" Content="Show Hidden Properties"
+					Click="OnShowHiddenPropertiesClicked"></CheckBox>
+		  <WrapPanel x:Name="visiblePropertiesPanel" Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,6"></WrapPanel>
+		  <WrapPanel x:Name="hiddenPropertiesPanel" Orientation="Horizontal" Margin="0,0,0,6" Grid.Row="2" />
+		</Grid>
+	  </TabItem>
 
-      <!-- COMMENTS TAB -->
+	  <!-- COMMENTS TAB -->
 
-      <TabItem Name="commentsTab" Header="Comments" Style="{StaticResource TabItemStyle}">
-        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-          <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-          </Grid.RowDefinitions>
-          <TextBox x:Name="comment" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                   MinHeight="50" BorderThickness="1" FontWeight="Normal"></TextBox>
-          <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,6,0,6">
-            <Button x:Name="saveComment" Content="Add Comment" Click="OnButtonSaveCommentClicked"></Button>
-            <CheckBox x:Name="murmurComment" Content="Murmur this comment" Margin="10,3,0,0"
-                      ToolTip="Check this box to murmur this comment in addition to adding it to this card."></CheckBox>
-          </StackPanel>
-          <ListBox x:Name="commentsList" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                   BorderThickness="0" FontWeight="Normal" Background="Wheat">
-            <ListBox.ItemTemplate>
-              <DataTemplate>
-                <StackPanel Orientation="Vertical">
-                  <!-- The comment text is here -->
-                  <TextBlock Text="{Binding Path=Comment}" />
-                  <StackPanel Orientation="Horizontal">
-                    <!-- user name and date of the comment are here -->
-                    <TextBlock Text="{Binding Path=Name}" FontWeight="ExtraBlack" />
-                    <TextBlock Text="on" Margin="6,0,6,0" />
-                    <TextBlock Text="{Binding Path=Date}" />
-                  </StackPanel>
-                </StackPanel>
-              </DataTemplate>
-            </ListBox.ItemTemplate>
-          </ListBox>
-        </Grid>
-      </TabItem>
+	  <TabItem Name="commentsTab" Header="Comments" Style="{StaticResource TabItemStyle}">
+		<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+		  <Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+		  </Grid.RowDefinitions>
+		  <TextBox x:Name="comment" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+				   MinHeight="50" BorderThickness="1" FontWeight="Normal"></TextBox>
+		  <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,6,0,6">
+			<Button x:Name="saveComment" Content="Add Comment" Click="OnButtonSaveCommentClicked"></Button>
+			<CheckBox x:Name="murmurComment" Content="Murmur this comment" Margin="10,3,0,0"
+					  ToolTip="Check this box to murmur this comment in addition to adding it to this card."></CheckBox>
+		  </StackPanel>
+		  <ListBox x:Name="commentsList" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+				   BorderThickness="0" FontWeight="Normal" Background="Wheat">
+			<ListBox.ItemTemplate>
+			  <DataTemplate>
+				<StackPanel Orientation="Vertical">
+				  <!-- The comment text is here -->
+				  <TextBlock Text="{Binding Path=Comment}" />
+				  <StackPanel Orientation="Horizontal">
+					<!-- user name and date of the comment are here -->
+					<TextBlock Text="{Binding Path=Name}" FontWeight="ExtraBlack" />
+					<TextBlock Text="on" Margin="6,0,6,0" />
+					<TextBlock Text="{Binding Path=Date}" />
+				  </StackPanel>
+				</StackPanel>
+			  </DataTemplate>
+			</ListBox.ItemTemplate>
+		  </ListBox>
+		</Grid>
+	  </TabItem>
 
-    </TabControl>
+	</TabControl>
   </DockPanel>
 </UserControl>
