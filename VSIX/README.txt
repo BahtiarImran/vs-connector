@@ -25,3 +25,5 @@ http://shfb.codeplex.com/
 Install these programs and open the tw.shfbproj file to build. Output goes into a compiler-generated Help directory. 
 The build produces both an HTML web site and a binary .chm file compatible with the Microsoft Help reader.
 
+Readme.
+
