@@ -15,7 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		rakefile = rakefile
 		test.bat = test.bat
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-		unittests.bat = unittests.bat
 		vsc.vsmdi = vsc.vsmdi
 	EndProjectSection
 EndProject
@@ -23,13 +22,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://107.22.185.110:8080/tfs/solutions
 		SccProjectUniqueName0 = Tests\\Tests.csproj
 		SccProjectName0 = Tests
 		SccLocalPath0 = Tests
 		SccLocalPath1 = .
+		SccProjectUniqueName2 = VSIX\\Connector.csproj
+		SccProjectName2 = VSIX
+		SccLocalPath2 = VSIX
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = vsc.vsmdi
