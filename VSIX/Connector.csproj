@@ -234,9 +234,6 @@
     <Content Include="Resources\icon_transition.png" />
     <Content Include="Resources\icon_transition_arrow.png" />
     <Content Include="Resources\logo_mingle_icon.png" />
-    <Content Include="{1AC7734D-53DF-40D4-9B7A-32B47253B712}.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="License.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
