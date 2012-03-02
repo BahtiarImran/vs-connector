@@ -40,6 +40,13 @@ namespace ThoughtWorks.VisualStudio
             Value = value;
         }
 
+        public CardProperty(ViewModel model, MinglePropertyDefinition property)
+        {
+            Model = model;
+            _property = property;
+            Value = string.Empty;
+        }
+
         /// <summary>
         /// List of card_type for this property
         /// </summary>

@@ -14,12 +14,19 @@
 // limitations under the License.
 //
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Xml.Linq;
+using ThoughtWorks.VisualStudio.Properties;
+using ThoughtWorksCoreLib;
 using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
@@ -36,6 +43,10 @@ namespace ThoughtWorks.VisualStudio
         private TransitionsCollection _transitionsCollectionCache;
         private CardPropertiesDictionary _propertiesDictionaryCache;
         private CardTypesDictionary _cardTypesDictionaryCache;
+        private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(SystemColors.ControlColor);
+        private readonly SolidColorBrush _darkThemeBackground = Brushes.Wheat;
+        private readonly FontWeight _normalFontWeight = FontWeights.Normal;
+        private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
 
         #region Constructors
 
@@ -360,5 +371,185 @@ namespace ThoughtWorks.VisualStudio
             mql.Remove(mql.Length - 3, 3);
             return mql.ToString();
         }
+
+        internal StackPanel InnerPanel(CardProperty cardProperty, Card thisCard, 
+            RoutedEventHandler onButtonChooseCardClick, RoutedEventHandler onPropertyTextBoxLostFocus, 
+            SelectionChangedEventHandler onPropertyComboBoxSelectionChanged, RoutedEventHandler onButtonNotSetClick)
+        {
+            // A StackPanel to hold the label and data controls for a single property. Each property gets one. 
+            // The enclosing WrapPanel (see XAML source) handles automatic layout on resize events.
+            var panel = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(6, 6, 0, 0),
+                Tag = cardProperty
+            };
+
+            var label = new Label
+            {
+                Content = cardProperty.Name,
+                Background = _darkThemeBackground,
+                FontWeight = FontWeights.ExtraBlack
+            };
+
+            // Make labels for hidden properties italic.
+            if (cardProperty.Hidden) label.FontStyle = FontStyles.Italic;
+            panel.Children.Add(label);
+
+            FrameworkElement uiElement;
+
+            switch (cardProperty.IsManagedListOfScalars)
+            {
+                case false:
+                    {
+                        if (cardProperty.IsTeamValued)
+                        {
+                            uiElement = MakeComboBox(cardProperty);
+                            if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)
+                                (uiElement as ComboBox).SelectionChanged += onPropertyComboBoxSelectionChanged;
+
+                            panel.Children.Add(uiElement);
+                            break;
+                        }
+
+                        uiElement = MakeTextBox(cardProperty, thisCard);
+                        if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)
+                        {
+                            uiElement.LostFocus += onPropertyTextBoxLostFocus;
+                        }
+
+                        panel.Children.Add(uiElement);
+
+                        if (PropertyIsEditable(cardProperty) && cardProperty.IsCardValued)
+                        {
+                            // Add a 'click to choose' button
+                            Button a = MakeChooseCardButton(cardProperty);
+                            a.Click += onButtonChooseCardClick;
+                            a.Tag = uiElement;
+                            a.Click += onButtonNotSetClick;
+                            panel.Children.Add(a);
+                            ValueNotSetButton(cardProperty, panel);
+                        }
+
+                        break;
+                    }
+                case true:
+                    {
+                        uiElement = MakeComboBox(cardProperty);
+                        panel.Children.Add(uiElement);
+                        break;
+                    }
+            }
+
+
+
+            return panel;
+        }
+        private Button MakeChooseCardButton(CardProperty cardProperty)
+        {
+            var a = new Button
+            {
+                Content = "...",
+                ToolTip = "Click to choose a card",
+                Tag = cardProperty,
+                Width = 30,
+                Background = _buttonBackground,
+                BorderThickness = _buttonBorderThickness,
+            };
+            return a;
+        }
+
+        private bool PropertyIsEditable(CardProperty property)
+        {
+            return UserIsProjectAdmin() ||
+                   !property.IsFormula && !property.IsTransitionOnly &&
+                   !property.PropertyValuesDescription.Equals("Aggregate");
+        }
+
+        private TextBox MakeTextBox(CardProperty cardProperty, Card thisCard)
+        {
+            var tb = new TextBox
+            {
+                MinWidth = 50,
+                Name = cardProperty.ColumnName,
+                DataContext = cardProperty,
+                FontWeight = _normalFontWeight
+            };
+
+            var cardinfo = cardProperty.Value as string;
+            if (!string.IsNullOrEmpty(cardProperty.Value as string) && cardProperty.IsCardValued)
+            {
+                string name = thisCard.Model.GetOneCard(Convert.ToInt32(cardProperty.Value)).Name;
+                cardinfo = string.Format("{0} - {1}", cardProperty.Value as string, name);
+            }
+            tb.Text = cardinfo;
+            tb.Tag = cardProperty;
+
+            if (cardProperty.IsTransitionOnly || cardProperty.IsFormula)
+                tb.Background = Brushes.PapayaWhip;
+
+            return tb;
+        }
+
+        private ComboBox MakeComboBox(CardProperty cardProperty)
+        {
+            var cb = new ComboBox
+            {
+                IsEnabled = !cardProperty.IsTransitionOnly,
+                MinWidth = 50,
+                Name = cardProperty.ColumnName,
+                DataContext = cardProperty,
+                Background = _buttonBackground,
+                BorderThickness = _buttonBorderThickness,
+                FontWeight = _normalFontWeight
+            };
+
+            if (cardProperty.IsTeamValued)
+            {
+                cb.ItemsSource = TeamMemberDictionaryAsManagedList.Values;
+                cb.DisplayMemberPath = "Name";
+                cb.SelectedValuePath = "Login";
+            }
+            else
+            {
+                cb.ItemsSource = cardProperty.PropertyValueDetails;
+            }
+
+            cb.SelectedValue = cardProperty.IsSetValued && !string.IsNullOrEmpty(cardProperty.Value as string) ||
+                               (!cardProperty.IsManagedListOfScalars && !cardProperty.IsTeamValued)
+                                   ? cardProperty.Value
+                                   : Resources.ItemNotSet;
+
+            cb.Tag = cardProperty;
+
+            cb.IsEnabled = PropertyIsEditable(cardProperty);
+
+            return cb;
+        }
+
+        private static void ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
+        {
+            var b = new Button
+            {
+                Content = "X",
+                ToolTip = "Click to leave the value not set",
+                Tag = cardProperty,
+                Width = 30,
+                FontWeight = FontWeights.Normal
+            };
+
+            b.Tag = control.Tag;
+        }
+
+        /// <summary>
+        /// returns true/false whether the user is an admin on the project
+        /// </summary>
+        /// <returns></returns>
+        private bool UserIsProjectAdmin()
+        {
+            return (TeamMemberDictionary.ContainsKey(MingleSettings.Login) &&
+                    TeamMemberDictionary[MingleSettings.Login].IsAdmin);
+        }
+
     }
 }

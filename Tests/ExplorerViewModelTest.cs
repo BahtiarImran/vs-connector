@@ -400,6 +400,15 @@ namespace Tests
             var list = model.GetCardList(new Collection<string> {"Release", "Feature"});
             Assert.AreEqual(13, list.Count());
         }
+
+        [TestMethod]
+        public void TestTransitionDataDependencies()
+        {
+            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            model.SelectProject("test");
+            //var transition = model.GetOneCard(61).Transitions
+            //var stackFrame = model.GetStackPanelOfTransitionDependencies(transition);
+        }
     }
 }
 

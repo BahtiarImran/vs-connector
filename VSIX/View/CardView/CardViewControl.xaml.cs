@@ -161,7 +161,7 @@ namespace ThoughtWorks.VisualStudio
             {
                 // Load the property
 
-                UIElement element = BindProperty(p);
+                UIElement element = InnerPanel(p);
 
                 switch (p.Hidden)
                 {
@@ -197,170 +197,10 @@ namespace ThoughtWorks.VisualStudio
         /// The propertiesPanel is a horizontal WrapPanel element so that the 
         /// StackPanel members wrap automatically flowing from left to right.
         /// </remarks>
-        internal StackPanel BindProperty(CardProperty cardProperty)
+        internal StackPanel InnerPanel(CardProperty cardProperty)
         {
-            // A StackPanel to hold the label and data controls for a single property. Each property gets one. 
-            // The enclosing WrapPanel (see XAML source) handles automatic layout on resize events.
-            var panel = new StackPanel
-                            {
-                                Orientation = Orientation.Horizontal,
-                                Margin = new Thickness(6, 6, 0, 0),
-                                Tag = cardProperty
-                            };
-
-            var label = new Label
-                            {
-                                Content = cardProperty.Name,
-                                Background = _darkThemeBackground,
-                                FontWeight = FontWeights.ExtraBlack
-                            };
-
-            // Make labels for hidden properties italic.
-            if (cardProperty.Hidden) label.FontStyle = FontStyles.Italic;
-            panel.Children.Add(label);
-
-            FrameworkElement uiElement;
-
-            switch (cardProperty.IsManagedListOfScalars)
-            {
-                case false:
-                    {
-                        if (cardProperty.IsTeamValued)
-                        {
-                            uiElement = MakeComboBox(cardProperty);
-                            panel.Children.Add(uiElement);
-                            break;
-                        }
-
-                        uiElement = MakeTextBox(cardProperty);
-
-                        panel.Children.Add(uiElement);
-
-                        if (PropertyIsEditable(cardProperty) && cardProperty.IsCardValued)
-                        {
-                            // Add a 'click to choose' button
-                            Button a = MakeChooseCardButton(cardProperty);
-                            a.Click += OnButtonChooseCardClick;
-                            a.Tag = uiElement;
-                            panel.Children.Add(a);
-                            ValueNotSetButton(cardProperty, panel);
-                        }
-
-                        break;
-                    }
-                case true:
-                    {
-                        uiElement = MakeComboBox(cardProperty);
-                        panel.Children.Add(uiElement);
-                        break;
-                    }
-            }
-
-            panel.IsEnabled = PropertyIsEditable(cardProperty);
-            return panel;
-        }
-
-        private Button MakeChooseCardButton(CardProperty cardProperty)
-        {
-            var a = new Button
-                        {
-                            Content = "...",
-                            ToolTip = "Click to choose a card",
-                            Tag = cardProperty,
-                            Width = 30,
-                            Background = _buttonBackground,
-                            BorderThickness = _buttonBorderThickness,
-                        };
-            return a;
-        }
-
-        private bool PropertyIsEditable(CardProperty property)
-        {
-            return UserIsProjectAdmin() ||
-                   !property.IsFormula && !property.IsTransitionOnly &&
-                   !property.PropertyValuesDescription.Equals("Aggregate");
-        }
-
-        private TextBox MakeTextBox(CardProperty cardProperty)
-        {
-            var tb = new TextBox
-                         {
-                             MinWidth = 50,
-                             Name = cardProperty.ColumnName,
-                             DataContext = cardProperty,
-                             FontWeight = _normalFontWeight
-                         };
-
-            var cardinfo = cardProperty.Value as string;
-            if (!string.IsNullOrEmpty(cardProperty.Value as string) && cardProperty.IsCardValued)
-            {
-                string name = _thisCard.Model.GetOneCard(Convert.ToInt32(cardProperty.Value)).Name;
-                cardinfo = string.Format("{0} - {1}", cardProperty.Value as string, name);
-            }
-            tb.Text = cardinfo;
-            tb.Tag = cardProperty;
-
-            if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)
-                tb.LostFocus += OnPropertyTextBoxLostFocus;
-
-            if (cardProperty.IsTransitionOnly || cardProperty.IsFormula)
-                tb.Background = Brushes.PapayaWhip;
-
-            return tb;
-        }
-
-        private ComboBox MakeComboBox(CardProperty cardProperty)
-        {
-            var cb = new ComboBox
-                         {
-                             IsEnabled = !cardProperty.IsTransitionOnly,
-                             MinWidth = 50,
-                             Name = cardProperty.ColumnName,
-                             DataContext = cardProperty,
-                             Background = _buttonBackground,
-                             BorderThickness = _buttonBorderThickness,
-                             FontWeight = _normalFontWeight
-                         };
-
-            if (cardProperty.IsTeamValued)
-            {
-                cb.ItemsSource = _thisCard.Model.TeamMemberDictionaryAsManagedList.Values;
-                cb.DisplayMemberPath = "Name";
-                cb.SelectedValuePath = "Login";
-            }
-            else
-            {
-                cb.ItemsSource = cardProperty.PropertyValueDetails;
-            }
-
-            cb.SelectedValue = cardProperty.IsSetValued && !string.IsNullOrEmpty(cardProperty.Value as string) ||
-                               (!cardProperty.IsManagedListOfScalars && !cardProperty.IsTeamValued)
-                                   ? cardProperty.Value
-                                   : VisualStudio.Resources.ItemNotSet;
-
-            cb.Tag = cardProperty;
-
-            if (!cardProperty.IsTransitionOnly && !cardProperty.IsFormula)
-                cb.SelectionChanged += OnPropertyComboBoxSelectionChanged;
-
-            cb.IsEnabled = PropertyIsEditable(cardProperty);
-
-            return cb;
-        }
-
-        private static void ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
-        {
-            var b = new Button
-                        {
-                            Content = "X",
-                            ToolTip = "Click to leave the value not set",
-                            Tag = cardProperty,
-                            Width = 30,
-                            FontWeight = FontWeights.Normal
-                        };
-
-            b.Click += OnButtonNotSetClick;
-            b.Tag = control.Tag;
+            return _thisCard.Model.InnerPanel(cardProperty, _thisCard, OnButtonChooseCardClick, OnPropertyTextBoxLostFocus, 
+                OnPropertyComboBoxSelectionChanged, OnButtonNotSetClick);
         }
 
         private void OnPropertyComboBoxSelectionChanged(object sender, RoutedEventArgs e)
@@ -453,8 +293,9 @@ namespace ThoughtWorks.VisualStudio
         /// <param name="e"></param>
         private void OnPropertyTextBoxLostFocus(object sender, RoutedEventArgs e)
         {
-            if (!Settings.Default.EnablePropertyUpdating) return;
+            e.Source = _thisCard;
             string me = new StackFrame().GetMethod().Name;
+
             var tb = sender as TextBox;
             if (tb.Text == tb.Tag as string)
             {
@@ -476,7 +317,6 @@ namespace ThoughtWorks.VisualStudio
                     _thisCard.AddPropertyFilterToPostData((tb.DataContext as CardProperty).Name, tb.Text);
                     break;
             }
-
             try
             {
                 if (!string.IsNullOrEmpty(cardName.Text))
@@ -594,16 +434,6 @@ namespace ThoughtWorks.VisualStudio
         }
 
         #endregion
-
-        /// <summary>
-        /// returns true/false whether the user is an admin on the project
-        /// </summary>
-        /// <returns></returns>
-        private bool UserIsProjectAdmin()
-        {
-            return (_thisCard.Model.TeamMemberDictionary.ContainsKey(MingleSettings.Login) &&
-                    _thisCard.Model.TeamMemberDictionary[MingleSettings.Login].IsAdmin);
-        }
 
         /// <summary>
         /// The ToolWindowPain
