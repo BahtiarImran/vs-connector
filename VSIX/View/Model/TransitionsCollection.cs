@@ -26,14 +26,17 @@ namespace ThoughtWorks.VisualStudio
     public class TransitionsCollection : ObservableCollection<Transition>
     {
         private readonly IMingleProject _project;
+        private readonly ViewModel _model;
 
         /// <summary>
         /// Constructs a new Transitions collection
         /// </summary>
+        /// <param name="model"> </param>
         /// <param name="project"></param>
-        public TransitionsCollection(IMingleProject project)
+        public TransitionsCollection(ViewModel model, IMingleProject project)
         {
             _project = project;
+            _model = model;
         }
 
         /// <summary>
@@ -42,7 +45,7 @@ namespace ThoughtWorks.VisualStudio
         public void Refresh()
         {
             Clear();
-            _project.GetTransitions().ToList().ForEach(t => Add(new Transition(t.Value)));
+            _project.GetTransitions().ToList().ForEach(t => Add(new Transition(_model, t.Value)));
         }
     }
 }

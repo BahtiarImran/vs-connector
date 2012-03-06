@@ -186,8 +186,8 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                var transitions = new TransitionsCollection(MingleProject);
-                MingleProject.GetTransitions().ToList().ForEach(t => transitions.Add(new Transition(t.Value)));
+                var transitions = new TransitionsCollection(_model, MingleProject);
+                MingleProject.GetTransitions().ToList().ForEach(t => transitions.Add(new Transition(_model, t.Value)));
                 return transitions;
             }
         }

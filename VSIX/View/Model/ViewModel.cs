@@ -479,8 +479,8 @@ namespace ThoughtWorks.VisualStudio
             var cardinfo = cardProperty.Value as string;
             if (!string.IsNullOrEmpty(cardProperty.Value as string) && cardProperty.IsCardValued)
             {
-                string name = thisCard.Model.GetOneCard(Convert.ToInt32(cardProperty.Value)).Name;
-                cardinfo = string.Format("{0} - {1}", cardProperty.Value as string, name);
+                string name = thisCard.Model.GetOneCard(Convert.ToInt32(cardProperty.Value, CultureInfo.InvariantCulture)).Name;
+                cardinfo = string.Format(CultureInfo.InvariantCulture, "{0} - {1}", cardProperty.Value as string, name);
             }
             tb.Text = cardinfo;
             tb.Tag = cardProperty;

@@ -40,6 +40,11 @@ namespace ThoughtWorks.VisualStudio
             Value = value;
         }
 
+        /// <summary>
+        /// Constructs a new CardProperty
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="property"></param>
         public CardProperty(ViewModel model, MinglePropertyDefinition property)
         {
             Model = model;

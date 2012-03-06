@@ -14,6 +14,8 @@
 // limitations under the License.
 //
 
+using System.Collections.Generic;
+using System.Linq;
 using ThoughtWorksMingleLib;
 
 namespace ThoughtWorks.VisualStudio
@@ -24,14 +26,17 @@ namespace ThoughtWorks.VisualStudio
     public class Transition
     {
         private readonly MingleTransition _transition;
+        private readonly ViewModel _model;
 
         /// <summary>
         /// Constructs a new Transition
         /// </summary>
+        /// <param name="model"> </param>
         /// <param name="transition"></param>
-        public Transition(MingleTransition transition)
+        public Transition(ViewModel model, MingleTransition transition)
         {
             _transition = transition;
+            _model = model;
         }
 
         /// <summary>
@@ -77,6 +82,17 @@ namespace ThoughtWorks.VisualStudio
         public void Update(int number)
         {
             _transition.Update(number);
+        }
+
+        /// <summary>
+        /// Returns a list of CardProperty that are required to execute this transition.
+        /// </summary>
+        public IEnumerable<CardProperty> RequireUserInput
+        {
+            get
+            {
+                return _transition.RequiredUserInput.Select(p => new CardProperty(_model, p)).ToList();
+            }
         }
     }
 }
