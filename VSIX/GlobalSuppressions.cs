@@ -780,3 +780,4 @@ using System.Diagnostics.CodeAnalysis;
         Target =
             "ThoughtWorks.VisualStudio.ViewModel.#GetCardList(System.Collections.Generic.IEnumerable`1<System.String>)")
 ]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Windows.Controls.TextBox.set_Text(System.String)", Scope = "member", Target = "ThoughtWorks.VisualStudio.ViewModel.#MakeTextBox(ThoughtWorks.VisualStudio.CardProperty,ThoughtWorks.VisualStudio.Card)")]

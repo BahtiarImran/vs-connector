@@ -78,7 +78,7 @@ namespace ThoughtWorks.VisualStudio
 
         private static void AlertUser(Exception ex)
         {
-            string msg = ex.InnerException.Data.Count > 0
+            string msg = null != ex.InnerException && ex.InnerException.Data.Count > 0
                              ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
                              : ex.Message;
             MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);

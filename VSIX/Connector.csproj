@@ -93,14 +93,6 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.28216, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\ThoughtWorksCoreLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.14246, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\ThoughtWorksMingleLib.dll</HintPath>
-    </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -324,7 +316,16 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Mingle.NET\ThoughtWorksCoreLib\ThoughtWorksCoreLib.csproj">
+      <Project>{CCAB46BA-7559-4630-845C-8BFA38AEC2F0}</Project>
+      <Name>ThoughtWorksCoreLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Mingle.NET\ThoughtWorksMingleLib\ThoughtWorksMingleLib.csproj">
+      <Project>{85CFE559-DFB3-4CC0-BBA3-4E5B5A9634B5}</Project>
+      <Name>ThoughtWorksMingleLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <!--
     To specify a different registry root to register your package, uncomment the TargetRegistryRoot
