@@ -42,7 +42,7 @@ namespace Tests
         private static string _login;
         private static string _password;
         private static string _project;
-        private const string MINGLE_LOCAL_HOST = "http://localhost:8080";
+        private const string MINGLE_LOCAL_HOST = "http://127.0.0.1:8080";
         //private const string MINGLE_LOCAL_HOST = "http://fmtstdsol01.thoughtworks.com:8080";
         private const string MINGLE_INTEGRATION_USER = "mingleuser";
         private const string MINGLE_INTEGRATION_PASSWORD = "secret";
@@ -245,7 +245,7 @@ namespace Tests
             var later = DateTime.Now;
             var span = later.Subtract(earlier);
             Assert.AreEqual(5, cardList.Count);
-            if (span.Seconds > 1) Assert.Fail("GetCardsForFavorite is too slow: " + span.Duration());
+            if (span.Seconds > 10) Assert.Fail("GetCardsForFavorite is too slow: " + span.Duration());
         }
 
         //[TestMethod]

@@ -206,13 +206,12 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="view"></param>
         /// <returns></returns>
-        public SortedList<string, CardBasicInfo> GetCardsForFavorite(string view)
+        public SortedList<int, CardBasicInfo> GetCardsForFavorite(string view)
         {
-            var cards = new SortedList<string, CardBasicInfo>();
+            var cards = new SortedList<int, CardBasicInfo>();
             Project().GetView(view).ToList().ForEach(
                 c =>
-                cards.Add(string.Format(CultureInfo.InvariantCulture, "{0}{1}", c.CardType, c.Name),
-                          new CardBasicInfo(c.Number, c.CardType, c.Name)));
+                cards.Add(c.Number, new CardBasicInfo(c.Number, c.CardType, c.Name)));
             return cards;
         }
 
@@ -426,9 +425,10 @@ namespace ThoughtWorks.VisualStudio
                             Button a = MakeChooseCardButton(cardProperty);
                             a.Click += onButtonChooseCardClick;
                             a.Tag = uiElement;
-                            a.Click += onButtonNotSetClick;
                             panel.Children.Add(a);
-                            ValueNotSetButton(cardProperty, panel);
+                            var b = ValueNotSetButton(cardProperty, panel);
+                            b.Click += onButtonNotSetClick;
+                            panel.Children.Add(b);
                         }
 
                         break;
@@ -527,7 +527,7 @@ namespace ThoughtWorks.VisualStudio
             return cb;
         }
 
-        private static void ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
+        private static Button ValueNotSetButton(CardProperty cardProperty, FrameworkElement control)
         {
             var b = new Button
             {
@@ -539,6 +539,7 @@ namespace ThoughtWorks.VisualStudio
             };
 
             b.Tag = control.Tag;
+            return b;
         }
 
         /// <summary>

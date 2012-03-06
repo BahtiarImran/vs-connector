@@ -102,7 +102,7 @@ namespace Tests
             get { return _model.ProjectId; }
         }
 
-        public SortedList<string, CardBasicInfo> GetCardsForFavorite(string view)
+        public SortedList<int, CardBasicInfo> GetCardsForFavorite(string view)
         {
             return _model.GetCardsForFavorite(view);
         }

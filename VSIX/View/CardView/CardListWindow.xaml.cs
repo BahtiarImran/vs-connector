@@ -102,38 +102,13 @@ namespace ThoughtWorks.VisualStudio
         }
 
         /// <summary>
-        /// Event handler invoked when an item in the list is selected
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnListSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (null == list.SelectedValue)
-            {
-                Cancelled = true;
-                Close();
-            }
-
-            SelectedCardNumber = list.SelectedValue as string;
-            SelectedCardName = (list.SelectedItem as CardListItem).Name;
-        }
-
-        /// <summary>
         /// Event handler invoked when an item in the list is committed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnListMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (null == list.SelectedValue)
-            {
-                return;
-            }
-
-            SelectedCardNumber = list.SelectedValue.ToString();
-            Cancelled = false;
             Close();
-
         }
 
         /// <summary>
@@ -146,7 +121,7 @@ namespace ThoughtWorks.VisualStudio
 
             foreach (
                 CheckBox item in cardTypes.Children.Cast<CheckBox>().Where(item => Convert.ToBoolean(item.IsChecked)))
-                types.Add(item.Content.ToString());
+                types.Add(string.Format("\"{0}\"",item.Content.ToString()));
 
             if (types.Count == 0)
             {
@@ -184,5 +159,21 @@ namespace ThoughtWorks.VisualStudio
                              : ex.Message;
             MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);
         }
+
+        private void OnWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Cancelled = false;
+
+            if (null == list.SelectedValue)
+            {
+                Cancelled = true;
+                return;
+            }
+
+            SelectedCardNumber = list.SelectedValue.ToString();
+            SelectedCardName = (list.SelectedItem as CardListItem).Name;
+
+        }
+
     }
 }

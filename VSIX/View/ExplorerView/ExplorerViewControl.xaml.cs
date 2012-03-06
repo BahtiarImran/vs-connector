@@ -345,7 +345,7 @@ namespace ThoughtWorks.VisualStudio
                 if (string.IsNullOrEmpty(itemValue)) return;
                 item.Items.Clear();
                 item.MouseDoubleClick += OnFavoritesTreeCardDoubleClick;
-                foreach (KeyValuePair<string, CardBasicInfo> c in Model.GetCardsForFavorite(itemValue))
+                foreach (KeyValuePair<int, CardBasicInfo> c in Model.GetCardsForFavorite(itemValue))
                     item.Items.Add(c.Value.Formatted);
             }
             catch (Exception ex)

@@ -67,7 +67,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="view"></param>
         /// <returns></returns>
-        SortedList<string, CardBasicInfo> GetCardsForFavorite(string view);
+        SortedList<int, CardBasicInfo> GetCardsForFavorite(string view);
 
         /// <summary>
         /// Returns a Card
