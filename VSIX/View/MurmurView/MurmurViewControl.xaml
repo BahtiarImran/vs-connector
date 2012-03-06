@@ -16,7 +16,7 @@
       <RowDefinition Height="66"></RowDefinition>
       <RowDefinition></RowDefinition>
     </Grid.RowDefinitions>
-    <Grid Height="66" Grid.Row="0" VerticalAlignment="Bottom" Background="Peru">
+    <Grid Height="66" Grid.Row="0" VerticalAlignment="Bottom" Background="DarkOrange">
       <Grid.ColumnDefinitions>
         <ColumnDefinition></ColumnDefinition>
         <ColumnDefinition Width="80"></ColumnDefinition>
