@@ -44,7 +44,7 @@ namespace ThoughtWorks.VisualStudio
         private CardPropertiesDictionary _propertiesDictionaryCache;
         private CardTypesDictionary _cardTypesDictionaryCache;
         private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(SystemColors.ControlColor);
-        private readonly SolidColorBrush _darkThemeBackground = Brushes.Wheat;
+        private readonly SolidColorBrush _darkThemeBackground = Brushes.Beige;
         private readonly FontWeight _normalFontWeight = FontWeights.Normal;
         private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
 
@@ -206,12 +206,16 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="view"></param>
         /// <returns></returns>
-        public SortedList<int, CardBasicInfo> GetCardsForFavorite(string view)
+        /// <remarks>
+        /// This list is sorted using a concatenated string of 
+        /// (card type name + card name + card number) as the key.
+        /// </remarks>
+        public SortedList<string, CardBasicInfo> GetCardsForFavorite(string view)
         {
-            var cards = new SortedList<int, CardBasicInfo>();
+            var cards = new SortedList<string, CardBasicInfo>();
             Project().GetView(view).ToList().ForEach(
                 c =>
-                cards.Add(c.Number, new CardBasicInfo(c.Number, c.CardType, c.Name)));
+                cards.Add(string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", c.CardType, c.Name, c.Number), new CardBasicInfo(c.Number, c.CardType, c.Name)));
             return cards;
         }
 
@@ -486,7 +490,7 @@ namespace ThoughtWorks.VisualStudio
             tb.Tag = cardProperty;
 
             if (cardProperty.IsTransitionOnly || cardProperty.IsFormula)
-                tb.Background = Brushes.PapayaWhip;
+                tb.Background = _darkThemeBackground;
 
             return tb;
         }

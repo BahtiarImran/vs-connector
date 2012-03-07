@@ -35,7 +35,7 @@ namespace ThoughtWorks.VisualStudio
     {
         private Card _thisCard;
         private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(SystemColors.ControlColor);
-        private readonly SolidColorBrush _darkThemeBackground = Brushes.Wheat;
+        private readonly SolidColorBrush _darkThemeBackground = Brushes.Beige;
         private readonly FontWeight _normalFontWeight = FontWeights.Normal;
         private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
         internal Action RefreshMurmurs { get; set; }
@@ -469,10 +469,10 @@ namespace ThoughtWorks.VisualStudio
         {
             try
             {
-                _thisCard.Model.PostComment(_thisCard.Number, string.Format("#{0} {1}", _thisCard.Number, comment.Text));
+                _thisCard.Model.PostComment(_thisCard.Number, comment.Text);
                 if (Convert.ToBoolean(murmurComment.IsChecked))
                 {
-                    _thisCard.Model.SendMurmur(comment.Text);
+                    _thisCard.Model.SendMurmur(string.Format("#{0} {1}", _thisCard.Number, comment.Text));
                     RefreshMurmurs();
                 }
                 commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);

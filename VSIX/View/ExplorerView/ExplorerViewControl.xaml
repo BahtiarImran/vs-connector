@@ -22,8 +22,8 @@
   <Control.Resources>
     <Style x:Key="TreeViewItemStyle" TargetType="TreeViewItem">
       <Style.Resources>
-        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Wheat" />
-        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="DimGray" />
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="White" />
       </Style.Resources>
     </Style>
   </Control.Resources>

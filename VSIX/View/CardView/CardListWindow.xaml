@@ -30,20 +30,20 @@
           <RowDefinition Height="Auto"></RowDefinition>
           <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Filter:" Margin="0,0,4,0" FontSize="14" FontWeight="ExtraBlack"></Label>
+        <Label Grid.Row="0" Content="Filter:" Margin="0,0,4,0" FontSize="14" ></Label>
         <StackPanel Orientation="Vertical" Name="cardTypes" Width="Auto" Grid.Row="1"
                     ToolTip="Choose one or more card types and click Search"></StackPanel>
       </Grid>
     </Grid>
-    <GridSplitter Grid.Column="1" Background="Tan" Visibility="Visible" Width="6" />
+    <GridSplitter Grid.Column="1" Background="DimGray" Visibility="Visible" Width="4" />
     <Grid Grid.Column="2">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"></RowDefinition>
         <RowDefinition></RowDefinition>
       </Grid.RowDefinitions>
-      <Label Grid.Row="0" Content="Double-click a card to choose:" FontWeight="ExtraBlack" Background="Wheat"
+      <Label Grid.Row="0" Content="Double-click a card to choose:" Background="Beige"
              FontSize="14"></Label>
-      <ListBox x:Name="list" VerticalAlignment="Stretch" Grid.Row="1" BorderThickness="0" Background="Wheat"
+      <ListBox x:Name="list" VerticalAlignment="Stretch" Grid.Row="1" BorderThickness="0" Background="Beige"
                MouseDoubleClick="OnListMouseDoubleClick" FontSize="12"
                ScrollViewer.VerticalScrollBarVisibility="Auto">
         <ListBox.ItemTemplate>

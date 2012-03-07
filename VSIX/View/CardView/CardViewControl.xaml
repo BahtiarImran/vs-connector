@@ -17,7 +17,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 			 x:Class="ThoughtWorks.VisualStudio.CardViewControl" FontSize="11" x:Name="CardViewControlXaml"
-			 Initialized="OnInitialized" Background="Wheat">
+			 Initialized="OnInitialized" Background="Beige">
 	
   <!-- Static resources must precede any reference to them in the XAML source. -->	
   <UserControl.Resources>
@@ -29,22 +29,22 @@
 	  <Setter Property="MinWidth" Value="30"></Setter>
 	  <Setter Property="IsReadOnly" Value="False" />
 	  <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-	  <Setter Property="Background" Value="PapayaWhip"></Setter>
+	  <Setter Property="Background" Value="Beige"></Setter>
 	  <Setter Property="FontWeight" Value="Normal"></Setter>
 	</Style>
 	<Style x:Key="PropertyStackPanel" TargetType="StackPanel">
 	  <Setter Property="Margin" Value="24,6,0,0" />
 	  <Setter Property="Orientation" Value="Horizontal" />
-	  <Setter Property="Background" Value="Wheat"></Setter>
+	  <Setter Property="Background" Value="Beige"></Setter>
 	</Style>
 	<Style x:Key="PropertyLabel" TargetType="Label">
 	  <Setter Property="VerticalAlignment" Value="Center"></Setter>
 	  <Setter Property="Height" Value="23"></Setter>
-	  <Setter Property="Background" Value="Wheat"></Setter>
+	  <Setter Property="Background" Value="Beige"></Setter>
 	</Style>
 	<Style x:Key="TabItemStyle" TargetType="TabItem">
-	  <Setter Property="Background" Value="Tan"></Setter>
-	  <Setter Property="FontWeight" Value="ExtraBlack"></Setter>
+      <!--<Setter Property="Background" Value="DimGray"></Setter>
+      <Setter Property="Foreground" Value="White"></Setter>-->
 	</Style>
 	<Style x:Key="NormalTextBoxStyle" TargetType="TextBox">
 	  <Setter Property="FontWeight" Value="Normal"></Setter>
@@ -62,7 +62,7 @@
             </Grid.RowDefinitions>
             <WrapPanel x:Name="transitionButtons" Grid.Row="0" Orientation="Horizontal" Background="DarkOrange" />
         </Grid>
-        <TabControl Name="tabs" Background="Wheat" BorderThickness="8" BorderBrush="Wheat" Margin="0,10,0,0">
+        <TabControl Name="tabs" Background="Beige" BorderThickness="8" BorderBrush="Beige" Margin="0,10,0,0">
 
 	  <!-- DETAILS TAB -->
 
@@ -140,7 +140,7 @@
 	  <!-- USER-PROPERTIES TAB -->
 
 	  <TabItem Name="propertiesTab" Header="Properties" Style="{StaticResource TabItemStyle}">
-		<Grid Background="Wheat">
+		<Grid Background="Beige">
 		  <Grid.RowDefinitions>
 			<RowDefinition Height="Auto"></RowDefinition>
 			<RowDefinition Height="Auto"></RowDefinition>
@@ -170,7 +170,7 @@
 					  ToolTip="Check this box to murmur this comment in addition to adding it to this card."></CheckBox>
 		  </StackPanel>
 		  <ListBox x:Name="commentsList" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-				   BorderThickness="0" FontWeight="Normal" Background="Wheat">
+				   BorderThickness="0" FontWeight="Normal" Background="Beige">
 			<ListBox.ItemTemplate>
 			  <DataTemplate>
 				<StackPanel Orientation="Vertical">
