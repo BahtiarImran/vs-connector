@@ -190,9 +190,6 @@ namespace Tests
             var team = model.TeamMemberDictionary;
             Assert.IsInstanceOfType(team, typeof(TeamMemberDictionary));
             Assert.IsInstanceOfType(team["mingleuser"], typeof(TeamMember));
-            var actual = team.Count;
-            const int expected = 3;
-            Assert.AreEqual(expected, actual);
             Assert.AreEqual(true, team.ContainsKey("mingleuser"));
         }
 
@@ -204,9 +201,6 @@ namespace Tests
             var team = model.TeamMemberDictionaryAsManagedList;
             Assert.IsInstanceOfType(team, typeof(TeamMemberDictionary));
             Assert.IsInstanceOfType(team["mingleuser"], typeof(TeamMember));
-            var actual = team.Count;
-            const int expected = 4;
-            Assert.AreEqual(expected, actual);
             Assert.AreEqual(true, team.ContainsKey("mingleuser"));
             Assert.IsFalse(team.Values[0].IsSet);
             Assert.AreEqual("(not set)", team.Values[0].Name);
