@@ -90,6 +90,7 @@ namespace ThoughtWorks.VisualStudio
         {
             try
             {
+                Cursor = System.Windows.Input.Cursors.Wait;
                 murmursList.DataContext = Model.Murmurs;
                 murmursList.ItemsSource = Model.Murmurs;
             }
@@ -97,6 +98,10 @@ namespace ThoughtWorks.VisualStudio
             {
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
                 MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
+            }
+            finally
+            {
+                Cursor = System.Windows.Input.Cursors.Arrow;
             }
         }
 
