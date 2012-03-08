@@ -342,7 +342,7 @@ namespace ThoughtWorks.VisualStudio
         }
 
         /// <summary>
-        /// Given a list of card type names, card number/type/name list
+        /// Given a list of card type names, return card number/type/name list
         /// </summary>
         /// <param name="types"></param>
         /// <returns></returns>
@@ -350,20 +350,23 @@ namespace ThoughtWorks.VisualStudio
         {
             string mql = GetMqlFromCardTypeList(types);
             var list = new List<CardListItem>();
-            _project.ExecMql(mql).Elements("result").ToList().ForEach(e => list.Add(new CardListItem
-                                                                                        {
-                                                                                            Number =
-                                                                                                int.Parse(
-                                                                                                    e.Element("number").
-                                                                                                        Value),
-                                                                                            Name =
-                                                                                                e.Element("name").Value,
-                                                                                            TypeName =
-                                                                                                e.Element("type").Value
-                                                                                        }));
+            _project.ExecMql(mql).
+                Elements("result").
+                ToList().
+                ForEach(e => list.Add(new CardListItem
+                                                {
+                                                    Number = int.Parse(e.Element("number").Value),
+                                                    Name = e.Element("name").Value,
+                                                    TypeName = e.Element("type").Value
+                                                }));
             return list;
         }
 
+        /// <summary>
+        /// Given a list of types, returns card number, type, name
+        /// </summary>
+        /// <param name="types"></param>
+        /// <returns></returns>
         private static string GetMqlFromCardTypeList(IEnumerable<string> types)
         {
             var mql = new StringBuilder("select number, type, name where ");
@@ -440,6 +443,7 @@ namespace ThoughtWorks.VisualStudio
                 case true:
                     {
                         uiElement = MakeComboBox(cardProperty);
+                        (uiElement as ComboBox).SelectionChanged += onPropertyComboBoxSelectionChanged;
                         panel.Children.Add(uiElement);
                         break;
                     }
