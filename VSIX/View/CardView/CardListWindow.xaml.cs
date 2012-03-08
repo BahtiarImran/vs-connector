@@ -121,7 +121,7 @@ namespace ThoughtWorks.VisualStudio
 
             foreach (
                 CheckBox item in cardTypes.Children.Cast<CheckBox>().Where(item => Convert.ToBoolean(item.IsChecked)))
-                types.Add(string.Format("\"{0}\"",item.Content.ToString()));
+                types.Add(string.Format("{0}",item.Content.ToString()));
 
             if (types.Count == 0)
             {
