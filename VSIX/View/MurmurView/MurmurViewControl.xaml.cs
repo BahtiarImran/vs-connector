@@ -16,6 +16,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Windows;
 using ThoughtWorksCoreLib;
 
@@ -97,6 +98,21 @@ namespace ThoughtWorks.VisualStudio
                 TraceLog.Exception(new StackFrame().GetMethod().Name, ex);
                 MessageBox.Show(ex.Message, VisualStudio.Resources.MingleExtensionTitle);
             }
+        }
+
+        private void OnRefreshMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            RefreshMurmurs();
+        }
+
+        private void OnRefreshMouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Cursor = System.Windows.Input.Cursors.Hand;
+        }
+
+        private void OnRefreshMouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Cursor = System.Windows.Input.Cursors.Arrow;
         }
     }
 }

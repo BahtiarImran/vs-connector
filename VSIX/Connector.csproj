@@ -231,6 +231,8 @@
     <None Include="Resources\icon-wiki-checkbox-unselected.gif" />
     <Content Include="Resources\Big Picture.png" />
     <Content Include="Resources\icon_murmur.png" />
+    <Resource Include="Resources\icon_refresh.png" />
+    <None Include="Resources\icon_refresh_hightlight.png" />
     <Content Include="Resources\icon_transition.png" />
     <Content Include="Resources\icon_transition_arrow.png" />
     <Content Include="Resources\logo_mingle_icon.png" />

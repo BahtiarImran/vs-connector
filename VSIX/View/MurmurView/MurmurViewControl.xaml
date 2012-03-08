@@ -15,7 +15,8 @@
     <Grid.RowDefinitions>
       <RowDefinition Height="66"></RowDefinition>
       <RowDefinition></RowDefinition>
-    </Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
     <Grid Height="66" Grid.Row="0" VerticalAlignment="Bottom" Background="DarkOrange">
       <Grid.ColumnDefinitions>
         <ColumnDefinition></ColumnDefinition>
@@ -28,7 +29,12 @@
               Content="Murmur This" FontSize="11" Height="20" Click="OnClickButtonMurmur" BorderThickness="0" Opacity="1"
               TabIndex="2" />
     </Grid>
-    <ListBox x:Name="murmursList" Grid.Row="1" BorderThickness="0" Margin="0,8,0,0" IsSynchronizedWithCurrentItem="True"
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        <ListBox x:Name="murmursList" Grid.Column="0" BorderThickness="0" Margin="0,8,0,0" IsSynchronizedWithCurrentItem="True"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="White"
              ItemContainerStyle="{StaticResource MurmurListBoxItem}">
       <ListBox.ItemTemplate>
@@ -43,5 +49,8 @@
         </DataTemplate>
       </ListBox.ItemTemplate>
     </ListBox>
-  </Grid>
+            <Image x:Name="RefreshButton" Grid.Column="1" Source="/ThoughtWorks.VisualStudio;component/Resources/icon_refresh.png" Margin="2,2,2,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseUp="OnRefreshMouseUp" MouseEnter="OnRefreshMouseEnter" MouseLeave="OnRefreshMouseLeave" ToolTip="Refresh">
+            </Image>
+        </Grid>
+    </Grid>
 </UserControl>
