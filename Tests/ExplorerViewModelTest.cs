@@ -42,7 +42,7 @@ namespace Tests
         private static string _login;
         private static string _password;
         private static string _project;
-        private const string MINGLE_LOCAL_HOST = "http://127.0.0.1:8080";
+        private static string _mingleHost = "http://127.0.0.1:8080";
         //private const string MINGLE_LOCAL_HOST = "http://fmtstdsol01.thoughtworks.com:8080";
         private const string MINGLE_INTEGRATION_USER = "mingleuser";
         private const string MINGLE_INTEGRATION_PASSWORD = "secret";
@@ -64,6 +64,8 @@ namespace Tests
             MingleSettings.Login = "mingleuser";
             MingleSettings.Password = "secret";
             MingleSettings.Project = "test";
+            _mingleHost = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("MINGLETARGET"))
+                ? Environment.GetEnvironmentVariable("MINGLETARGET") : "http://127.0.0.1:8080";
         }
         
         //Use ClassCleanup to run code after all tests in a class have run
@@ -94,7 +96,7 @@ namespace Tests
         [TestMethod]
         public void TestIsManagedListOfScalars()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.GetOneCard(120);
             var p = card.Properties["Story Status"];
@@ -108,7 +110,7 @@ namespace Tests
         [TestMethod]
         public void TestFavoritesRefresh()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             var actual = model.FavoritesDictionary.Count;
             const int expected = 10;
             Assert.AreEqual(expected, actual);
@@ -118,7 +120,7 @@ namespace Tests
         [TestMethod]
         public void TestGetProperties()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var p = model.PropertyDefinitions;
             Assert.IsInstanceOfType(p, typeof(Dictionary<string, CardProperty>));
@@ -130,7 +132,7 @@ namespace Tests
         public void TestGetPropertyScalarValue()
         {
             //var model = new ViewModel("card_property.xml");
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.GetOneCard(92);
             Assert.IsInstanceOfType(card, typeof(Card));
@@ -140,7 +142,7 @@ namespace Tests
         [TestMethod]
         public void TestGetCardProperties()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.GetOneCard(92);
             Assert.IsInstanceOfType(card, typeof(Card));
@@ -178,14 +180,14 @@ namespace Tests
         [TestMethod]
         public void TestProjectsRefresh()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             Assert.IsInstanceOfType(model.ProjectList.Values[0], typeof(KeyValuePair));
         }
 
         [TestMethod]
         public void TestTeamMembers()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var team = model.TeamMemberDictionary;
             Assert.IsInstanceOfType(team, typeof(TeamMemberDictionary));
@@ -196,7 +198,7 @@ namespace Tests
         [TestMethod]
         public void TestTeamMembersAsManagedList()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var team = model.TeamMemberDictionaryAsManagedList;
             Assert.IsInstanceOfType(team, typeof(TeamMemberDictionary));
@@ -210,7 +212,7 @@ namespace Tests
         [TestMethod]
         public void TestCardTypesRefresh()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var target = model.CardTypesDictionary;
             var actual = target.Count;
@@ -221,7 +223,7 @@ namespace Tests
         [TestMethod]
         public void TestPropertyDefinitionsRefresh()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var p = model.PropertyDefinitions;
             Assert.IsInstanceOfType(p, typeof(Dictionary<string, CardProperty>));
@@ -232,7 +234,7 @@ namespace Tests
         [TestMethod]
         public void TestGetCardsForFavorite()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var earlier = DateTime.Now;
             var cardList = model.GetCardsForFavorite("Risks");
@@ -272,7 +274,7 @@ namespace Tests
         [TestMethod]
         public void TestSelectProject()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             Assert.AreEqual(true, model.SelectProject("test"));
             Assert.AreEqual(false, model.SelectProject(""));
@@ -281,7 +283,7 @@ namespace Tests
         [TestMethod]
         public void TestRefreshTransitions()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var transitions = model.TransitionsCollection;
             Assert.AreNotEqual(null, transitions);
@@ -293,7 +295,7 @@ namespace Tests
         [DeploymentItem("Tests\\data\\projects.xml")]
         public void TestCardTransitions()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             // Touch the Transitions property to populate the cache
             var t = model.TransitionsCollection;
@@ -306,7 +308,7 @@ namespace Tests
         [DeploymentItem("Tests\\data\\projects.xml")]
         public void TestIntegrationCardUpdate()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.GetOneCard(120);
             Assert.IsInstanceOfType(card, typeof(Card));
@@ -321,7 +323,7 @@ namespace Tests
         [TestMethod]
         public void TestIntegrationCardCreate()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.CreateCard("Iteration", "test");
             Assert.IsInstanceOfType(card, typeof(Card));
@@ -330,7 +332,7 @@ namespace Tests
         [TestMethod]
         public void TestSetPropertyValue()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.GetOneCard(120);
             var p = card.Properties;
@@ -349,7 +351,7 @@ namespace Tests
         [TestMethod]
         public void TestCardValuedPropertyNotSet()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.GetOneCard(36);
             var p = card.Properties;
@@ -360,7 +362,7 @@ namespace Tests
         [TestMethod]
         public void TestGetOneCard()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var card = model.GetOneCard(120);
             Assert.AreEqual("This is a card for testing", card.Name);
@@ -369,7 +371,7 @@ namespace Tests
         [TestMethod]
         public void TestGetCardsOfType()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var count = model.GetCardsOfType("Feature").Count;
             Assert.AreEqual(10, count);
@@ -378,7 +380,7 @@ namespace Tests
         [TestMethod]
         public void TestGetMurmurs()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var m = model.Murmurs;
             Assert.IsInstanceOfType(m, typeof(IEnumerable<Murmur>));
@@ -389,7 +391,7 @@ namespace Tests
         [TestMethod]
         public void TestCardList()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             var list = model.GetCardList(new Collection<string> {"Release", "Feature"});
             Assert.AreEqual(13, list.Count());
@@ -398,7 +400,7 @@ namespace Tests
         [TestMethod]
         public void TestTransitionDataDependencies()
         {
-            var model = new ViewModel(MINGLE_LOCAL_HOST, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
+            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             //var transition = model.GetOneCard(61).Transitions
             //var stackFrame = model.GetStackPanelOfTransitionDependencies(transition);
