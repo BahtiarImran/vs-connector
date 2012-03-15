@@ -299,6 +299,13 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
+        internal static System.Drawing.Bitmap icon_add {
+            get {
+                object obj = ResourceManager.GetObject("icon_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap icon_add_child {
             get {
                 object obj = ResourceManager.GetObject("icon_add_child", resourceCulture);
@@ -320,9 +327,177 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
+        internal static System.Drawing.Bitmap icon_add_tag {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_tag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_tag_group {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_tag_group", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_transition {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_transition", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_tree {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_tree", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_user {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_variable {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_variable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_add_workflow_transition {
+            get {
+                object obj = ResourceManager.GetObject("icon_add_workflow_transition", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_all_items {
+            get {
+                object obj = ResourceManager.GetObject("icon_all_items", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_back {
+            get {
+                object obj = ResourceManager.GetObject("icon_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_cancel {
+            get {
+                object obj = ResourceManager.GetObject("icon_cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_card_copy_to {
+            get {
+                object obj = ResourceManager.GetObject("icon_card_copy_to", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_delete {
+            get {
+                object obj = ResourceManager.GetObject("icon_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_delete_transition {
+            get {
+                object obj = ResourceManager.GetObject("icon_delete_transition", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_disable_auto_enroll {
+            get {
+                object obj = ResourceManager.GetObject("icon_disable_auto_enroll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_edit {
+            get {
+                object obj = ResourceManager.GetObject("icon_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_edit_password {
+            get {
+                object obj = ResourceManager.GetObject("icon_edit_password", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_edit_transition {
+            get {
+                object obj = ResourceManager.GetObject("icon_edit_transition", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_edit_user {
+            get {
+                object obj = ResourceManager.GetObject("icon_edit_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_email {
+            get {
+                object obj = ResourceManager.GetObject("icon_email", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_email_conf_test {
+            get {
+                object obj = ResourceManager.GetObject("icon_email_conf_test", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap icon_email_disabled {
             get {
                 object obj = ResourceManager.GetObject("icon_email_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_enable_auto_enroll {
+            get {
+                object obj = ResourceManager.GetObject("icon_enable_auto_enroll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_export {
+            get {
+                object obj = ResourceManager.GetObject("icon_export", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_export1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_export1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_forward {
+            get {
+                object obj = ResourceManager.GetObject("icon_forward", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -334,9 +509,37 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
+        internal static System.Drawing.Bitmap icon_grid_on {
+            get {
+                object obj = ResourceManager.GetObject("icon_grid_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_help_new_window {
+            get {
+                object obj = ResourceManager.GetObject("icon_help_new_window", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap icon_help_unselected {
             get {
                 object obj = ResourceManager.GetObject("icon_help_unselected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_hide {
+            get {
+                object obj = ResourceManager.GetObject("icon_hide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_hide_hidden {
+            get {
+                object obj = ResourceManager.GetObject("icon_hide_hidden", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -355,6 +558,27 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
+        internal static System.Drawing.Bitmap icon_hierarchy_on {
+            get {
+                object obj = ResourceManager.GetObject("icon_hierarchy_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_import {
+            get {
+                object obj = ResourceManager.GetObject("icon_import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_import1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_import1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap icon_list_off {
             get {
                 object obj = ResourceManager.GetObject("icon_list_off", resourceCulture);
@@ -365,6 +589,55 @@ namespace ThoughtWorks.VisualStudio {
         internal static System.Drawing.Bitmap icon_list_off1 {
             get {
                 object obj = ResourceManager.GetObject("icon_list_off1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_list_on {
+            get {
+                object obj = ResourceManager.GetObject("icon_list_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_lock {
+            get {
+                object obj = ResourceManager.GetObject("icon_lock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_manage_users {
+            get {
+                object obj = ResourceManager.GetObject("icon_manage_users", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_preview {
+            get {
+                object obj = ResourceManager.GetObject("icon_preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_print {
+            get {
+                object obj = ResourceManager.GetObject("icon_print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_print_single_card {
+            get {
+                object obj = ResourceManager.GetObject("icon_print_single_card", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_project_import {
+            get {
+                object obj = ResourceManager.GetObject("icon_project_import", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -390,9 +663,79 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
+        internal static System.Drawing.Bitmap icon_reset_tab {
+            get {
+                object obj = ResourceManager.GetObject("icon_reset_tab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_revision_action {
+            get {
+                object obj = ResourceManager.GetObject("icon_revision_action", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_safe {
+            get {
+                object obj = ResourceManager.GetObject("icon_safe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_save {
+            get {
+                object obj = ResourceManager.GetObject("icon_save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_show_hidden {
+            get {
+                object obj = ResourceManager.GetObject("icon_show_hidden", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_show_latest {
+            get {
+                object obj = ResourceManager.GetObject("icon_show_latest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_source {
+            get {
+                object obj = ResourceManager.GetObject("icon_source", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap icon_tab_checkbox_unselected {
             get {
                 object obj = ResourceManager.GetObject("icon_tab_checkbox_unselected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_temp {
+            get {
+                object obj = ResourceManager.GetObject("icon_temp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_template {
+            get {
+                object obj = ResourceManager.GetObject("icon_template", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_transition {
+            get {
+                object obj = ResourceManager.GetObject("icon_transition", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -407,6 +750,34 @@ namespace ThoughtWorks.VisualStudio {
         internal static System.Drawing.Bitmap icon_tree_off {
             get {
                 object obj = ResourceManager.GetObject("icon_tree_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_tree_on {
+            get {
+                object obj = ResourceManager.GetObject("icon_tree_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_unlock {
+            get {
+                object obj = ResourceManager.GetObject("icon_unlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_up {
+            get {
+                object obj = ResourceManager.GetObject("icon_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap icon_update {
+            get {
+                object obj = ResourceManager.GetObject("icon_update", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -478,6 +849,15 @@ namespace ThoughtWorks.VisualStudio {
         internal static string NewCardDefaultName {
             get {
                 return ResourceManager.GetString("NewCardDefaultName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There do not seem to be any projects on this Mingle server..
+        /// </summary>
+        internal static string NoProjectsFound {
+            get {
+                return ResourceManager.GetString("NoProjectsFound", resourceCulture);
             }
         }
         
@@ -559,6 +939,13 @@ namespace ThoughtWorks.VisualStudio {
         internal static string SettingsViewControl_Dispose_Object_disposed_ {
             get {
                 return ResourceManager.GetString("SettingsViewControl_Dispose_Object_disposed_", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap spinner {
+            get {
+                object obj = ResourceManager.GetObject("spinner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -649,6 +1036,20 @@ namespace ThoughtWorks.VisualStudio {
         internal static string ViewNotUsableFromVisualStudio {
             get {
                 return ResourceManager.GetString("ViewNotUsableFromVisualStudio", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap wiki_checkbox_selected {
+            get {
+                object obj = ResourceManager.GetObject("wiki_checkbox_selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap wiki_checkbox_unselected {
+            get {
+                object obj = ResourceManager.GetObject("wiki_checkbox_unselected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

@@ -334,4 +334,175 @@
   <data name="icon_refresh_hightlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\icon_refresh_hightlight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NoProjectsFound" xml:space="preserve">
+    <value>There do not seem to be any projects on this Mingle server.</value>
+  </data>
+  <data name="icon_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_tag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-tag.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_tag_group" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-tag-group.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_transition" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-transition.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_tree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-tree.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-user.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_variable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-variable.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_add_workflow_transition" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-add-workflow-transition.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_all_items" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-all-items.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-back.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-cancel.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_card_copy_to" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-card-copy-to.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-delete.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_delete_transition" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-delete-transition.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_disable_auto_enroll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-disable-auto-enroll.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-edit.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_edit_password" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-edit-password.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_edit_transition" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-edit-transition.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_edit_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-edit-user.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_email" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-email.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_email_conf_test" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-email-conf-test.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_enable_auto_enroll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-enable-auto-enroll.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_export" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-export.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_export1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-export.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-forward.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_grid_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-grid-on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_help_new_window" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-help-new-window.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-hide.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_hide_hidden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-hide-hidden.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_hierarchy_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-hierarchy-on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-import.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_import1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-import.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_list_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-list-on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-lock.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_manage_users" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-manage-users.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-preview.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-print.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_print_single_card" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-print-single-card.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_project_import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-project-import.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_reset_tab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-reset-tab.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_revision_action" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-revision-action.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_safe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-safe.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-save.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_show_hidden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-show-hidden.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_show_latest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-show-latest.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_source" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-source.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_temp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-temp.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_template" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-template.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_transition" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-transition.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_tree_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-tree-on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_unlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-unlock.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-up.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-update.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spinner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spinner.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wiki_checkbox_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\wiki-checkbox-selected.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wiki_checkbox_unselected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\wiki-checkbox-unselected.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

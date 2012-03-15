@@ -455,6 +455,10 @@ namespace ThoughtWorks.VisualStudio
                 comboProjects.ItemsSource = Model.ProjectList.Values;
                 comboProjects.DisplayMemberPath = "Key";
                 comboProjects.SelectedValuePath = "Value";
+                if (Model.ProjectList.Values.Count == 0)
+                {
+                    throw new Exception(VisualStudio.Resources.NoProjectsFound);
+                }
             }
             catch (Exception ex)
             {
