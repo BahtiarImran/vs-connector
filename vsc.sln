@@ -6,7 +6,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11437074-0A5D-455F-9423-9036D6153647}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		build.bat = build.bat
 		DEMO BUILD TRIGGER.txt = DEMO BUILD TRIGGER.txt
 		init.bat = init.bat
 		Local.testsettings = Local.testsettings
@@ -24,11 +23,11 @@ Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://107.22.185.110:8080/tfs/solutions
-		SccProjectUniqueName0 = Tests\\Tests.csproj
-		SccProjectName0 = Tests
-		SccLocalPath0 = Tests
-		SccLocalPath1 = .
+		SccTeamFoundationServer = http://twstfs:8080/tfs/solutions
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Tests\\Tests.csproj
+		SccProjectName1 = Tests
+		SccLocalPath1 = Tests
 		SccProjectUniqueName2 = VSIX\\Connector.csproj
 		SccProjectName2 = VSIX
 		SccLocalPath2 = VSIX

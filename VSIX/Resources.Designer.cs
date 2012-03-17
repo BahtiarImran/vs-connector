@@ -488,13 +488,6 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
-        internal static System.Drawing.Bitmap icon_export1 {
-            get {
-                object obj = ResourceManager.GetObject("icon_export1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap icon_forward {
             get {
                 object obj = ResourceManager.GetObject("icon_forward", resourceCulture);
@@ -572,23 +565,9 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
-        internal static System.Drawing.Bitmap icon_import1 {
-            get {
-                object obj = ResourceManager.GetObject("icon_import1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap icon_list_off {
             get {
                 object obj = ResourceManager.GetObject("icon_list_off", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap icon_list_off1 {
-            get {
-                object obj = ResourceManager.GetObject("icon_list_off1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -708,13 +687,6 @@ namespace ThoughtWorks.VisualStudio {
         internal static System.Drawing.Bitmap icon_source {
             get {
                 object obj = ResourceManager.GetObject("icon_source", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap icon_tab_checkbox_unselected {
-            get {
-                object obj = ResourceManager.GetObject("icon_tab_checkbox_unselected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
