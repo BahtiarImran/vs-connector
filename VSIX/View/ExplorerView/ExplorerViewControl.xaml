@@ -32,30 +32,31 @@
         <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         -->
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="BorderBrush" Value="Gainsboro"/>
-            <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Microsoft_Windows_Themes:ButtonChrome x:Name="Chrome" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" RenderDefaulted="{TemplateBinding IsDefaulted}" RenderPressed="{TemplateBinding IsPressed}">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
-                    </Microsoft_Windows_Themes:ButtonChrome>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsKeyboardFocused" Value="true">
-                            <Setter Property="RenderDefaulted" TargetName="Chrome" Value="true"/>
-                        </Trigger>
-                        <Trigger Property="ToggleButton.IsChecked" Value="true">
-                            <Setter Property="RenderPressed" TargetName="Chrome" Value="true"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Foreground" Value="#ADADAD"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderBrush" Value="Gainsboro"/>
+        <Setter Property="Margin" Value="2,4,2,4" />
+        <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="{x:Type Button}">
+                <Microsoft_Windows_Themes:ButtonChrome x:Name="Chrome" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" RenderDefaulted="{TemplateBinding IsDefaulted}" RenderPressed="{TemplateBinding IsPressed}">
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                </Microsoft_Windows_Themes:ButtonChrome>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsKeyboardFocused" Value="true">
+                        <Setter Property="RenderDefaulted" TargetName="Chrome" Value="true"/>
+                    </Trigger>
+                    <Trigger Property="ToggleButton.IsChecked" Value="true">
+                        <Setter Property="RenderPressed" TargetName="Chrome" Value="true"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Foreground" Value="#ADADAD"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Setter.Value>
         </Setter>
     </Style>
     </Control.Resources>
@@ -64,25 +65,34 @@
 
     <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="Gainsboro">
       <StackPanel Orientation="Horizontal">
-                <ComboBox Name="comboProjects" FontSize="11" ToolTip="Select a project" Height="20" Padding="0" Background="Gainsboro" SelectionChanged="OnProjectSelectionChanged" Width="Auto" BorderThickness="0" Opacity="1" BorderBrush="Gainsboro" />
-                <Button Name="buttonRefresh" Click="ButtonClick" ToolTip="Refresh Explorer from Mingle and Go" FontSize="11" Height="20" Width="20" BorderThickness="0" Opacity="1" Style="{StaticResource PlainButtonStyle}">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/ThoughtWorks.VisualStudio;component/Resources/icon-update.gif" Stretch="UniformToFill" TileMode="None" />
-                    </Button.Background>
-                </Button>
-                <Button Name="buttonSettings" Click="ButtonClick" ToolTip="Mingle connection settings" FontSize="11" Height="20" BorderThickness="0" Opacity="1" Width="20" Focusable="False" Style="{StaticResource PlainButtonStyle}">
+                <StackPanel Orientation="Horizontal" Background="Gainsboro">
+                    <Button Name="buttonSettings" Click="ButtonClick" ToolTip="Mingle connection settings" FontSize="11" 
+                        Height="20" BorderThickness="0" Opacity="1" Width="20" Focusable="False" Margin="8,4,2,4"
+                        Style="{StaticResource PlainButtonStyle}">
                     <Button.Background>
                         <ImageBrush ImageSource="/ThoughtWorks.VisualStudio;component/Resources/icon-lock.gif" Stretch="UniformToFill" TileMode="None" />
                     </Button.Background>
                 </Button>
-                <Button Name="buttonOpenMurmurWindow" Click="ButtonClick" FontSize="11" Height="20" Width="20" ToolTip="Open murmur window" Style="{StaticResource PlainButtonStyle}">
+                <ComboBox Name="comboProjects" Margin="0,4,0,4" FontSize="11" ToolTip="Select a project" Height="24"
+                          Background="Gainsboro" SelectionChanged="OnProjectSelectionChanged" Width="Auto" 
+                          BorderThickness="0" Opacity="1" BorderBrush="Gainsboro" VerticalAlignment="Stretch" VerticalContentAlignment="Center" />
+                <Button Name="buttonRefresh" Click="ButtonClick" ToolTip="Refresh Explorer from Mingle" FontSize="11" 
+                        Height="20" Width="20" BorderThickness="0" Opacity="1" Style="{StaticResource PlainButtonStyle}"
+                        Margin="2,4,8,4">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ThoughtWorks.VisualStudio;component/Resources/icon-update.gif" Stretch="UniformToFill" TileMode="None" />
+                    </Button.Background>
+                </Button>
+                </StackPanel>
+                <Button Name="buttonOpenMurmurWindow" Click="ButtonClick" FontSize="11" Height="20" Width="20" 
+                        ToolTip="Open murmur window" Style="{StaticResource PlainButtonStyle}" Margin="4,4,4,4">
                     <Button.Background>
                         <ImageBrush ImageSource="/ThoughtWorks.VisualStudio;component/Resources/icon-list-on.png" Stretch="UniformToFill" TileMode="None" />
                     </Button.Background>
                 </Button>
-                <StackPanel Orientation="Horizontal" Background="Gray" >
-                    <TextBox x:Name="card" Margin="4,2,2,2" FontSize="11" Height="20" Width="35" />
-                    <Button Name="buttonGetCard" Margin="2,2,2,2" FontSize="11" Height="20" Width="20" Click="ButtonClick"
+                <StackPanel Orientation="Horizontal" Background="Gainsboro" >
+                    <TextBox x:Name="card" Margin="8,2,2,2" FontSize="11" Height="20" Width="35" VerticalContentAlignment="Center" />
+                    <Button Name="buttonGetCard" Margin="0,4,8,4" FontSize="11" Height="20" Width="20" Click="ButtonClick"
                             IsDefault="False" BorderThickness="0" ToolTip="Go to card"
                             Style="{StaticResource PlainButtonStyle}" Focusable="{Binding}">
                     <Button.Background>
@@ -90,13 +100,13 @@
                     </Button.Background>
                 </Button>
                 </StackPanel>
-                <StackPanel Width="4"></StackPanel>
                 </StackPanel>
-            <StackPanel Orientation="Horizontal" Background="Gray">
-                <ComboBox x:Name="cardTypes" FontSize="11" Height="20" Margin="2,2,0,2" BorderThickness="0" Opacity="1" Padding="0" Background="Gainsboro" BorderBrush="Gainsboro">
+            <StackPanel Orientation="Horizontal" Background="Gainsboro">
+                <ComboBox x:Name="cardTypes" FontSize="11" Height="24" Margin="8,4,0,4" BorderThickness="0" Opacity="1" 
+                          Background="Gainsboro" BorderBrush="Gainsboro" VerticalContentAlignment="Center">
         </ComboBox>
-        <Button Name="buttonNewCard" ToolTip="Create a new card" Click="ButtonClick" Margin="2,2,2,2" FontSize="11"
-                Height="20" Width="20" BorderThickness="0" Opacity="1"
+        <Button Name="buttonNewCard" ToolTip="Create a new card" Click="ButtonClick" FontSize="11"
+                Height="20" Width="20" BorderThickness="0" Opacity="1" Margin="2,4,8,4"
                 Style="{StaticResource PlainButtonStyle}">
                     <Button.Background>
                         <ImageBrush ImageSource="/ThoughtWorks.VisualStudio;component/Resources/icon-save.gif" Stretch="UniformToFill" TileMode="None" />

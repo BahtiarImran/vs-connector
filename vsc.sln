@@ -6,6 +6,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11437074-0A5D-455F-9423-9036D6153647}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		build.bat = build.bat
 		DEMO BUILD TRIGGER.txt = DEMO BUILD TRIGGER.txt
 		init.bat = init.bat
 		Local.testsettings = Local.testsettings
@@ -14,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		rakefile = rakefile
 		test.bat = test.bat
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		unittests.bat = unittests.bat
 		vsc.vsmdi = vsc.vsmdi
 	EndProjectSection
 EndProject
@@ -21,16 +23,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 2
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://twstfs:8080/tfs/solutions
-		SccLocalPath0 = .
+		SccTeamFoundationServer = http://107.22.185.110:8080/tfs/solutions
+		SccProjectUniqueName0 = VSIX\\Connector.csproj
+		SccProjectName0 = VSIX
+		SccAuxPath0 = http://107.22.185.110:8080/tfs/solutions
+		SccLocalPath0 = VSIX
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccProjectUniqueName1 = Tests\\Tests.csproj
 		SccProjectName1 = Tests
+		SccAuxPath1 = http://107.22.185.110:8080/tfs/solutions
 		SccLocalPath1 = Tests
-		SccProjectUniqueName2 = VSIX\\Connector.csproj
-		SccProjectName2 = VSIX
-		SccLocalPath2 = VSIX
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = vsc.vsmdi
