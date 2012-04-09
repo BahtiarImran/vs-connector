@@ -38,6 +38,8 @@ namespace ThoughtWorks.VisualStudio
         private readonly SolidColorBrush _darkThemeBackground = Brushes.Beige;
         private readonly FontWeight _normalFontWeight = FontWeights.Normal;
         private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
+        private readonly Thickness _buttonPanelMargin = new Thickness(4,6,4,0);
+        private readonly int _buttonHeight = 24;
         internal Action RefreshMurmurs { get; set; }
 
         /// <summary>
@@ -102,21 +104,27 @@ namespace ThoughtWorks.VisualStudio
             // Establish the transition toolbar
             if (null != _thisCard.Transitions)
             {
-                foreach (Transition t in _thisCard.Transitions)
+                foreach (var t in _thisCard.Transitions)
                 {
+                    var buttonPanel = new StackPanel
+                                          {
+                                              Orientation = Orientation.Horizontal,
+                                              Margin = _buttonPanelMargin,
+                                              Height = _buttonHeight
+                                          };
                     var button = new Button
                                      {
                                          ToolTip = VisualStudio.Resources.ClickToMakeTransition,
                                          HorizontalAlignment = HorizontalAlignment.Left,
-                                         Margin = new Thickness(4, 6, 4, 0),
-                                         Height = 24,
+                                         Height = _buttonHeight,
                                          BorderThickness = _buttonBorderThickness
                                      };
 
                     button.Click += OnTransitionButtonClick;
                     button.DataContext = t;
                     button.SetBinding(ContentProperty, "Name");
-                    transitionButtons.Children.Add(button);
+                    buttonPanel.Children.Add(button);
+                    transitionButtons.Children.Add(buttonPanel);
                 }
             }
 
