@@ -43,7 +43,7 @@ namespace ThoughtWorks.VisualStudio
         private TransitionsCollection _transitionsCollectionCache;
         private CardPropertiesDictionary _propertiesDictionaryCache;
         private CardTypesDictionary _cardTypesDictionaryCache;
-        private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(SystemColors.ControlColor);
+        private readonly Brush _buttonBackground = Brushes.Gainsboro;
         private readonly SolidColorBrush _darkThemeBackground = Brushes.Beige;
         private readonly FontWeight _normalFontWeight = FontWeights.Normal;
         private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
@@ -463,6 +463,7 @@ namespace ThoughtWorks.VisualStudio
                 Width = 30,
                 Background = _buttonBackground,
                 BorderThickness = _buttonBorderThickness,
+                Style = Application.Current.Resources["PlainButtonStyle"] as Style
             };
             return a;
         }
@@ -543,7 +544,9 @@ namespace ThoughtWorks.VisualStudio
                 ToolTip = "Click to leave the value not set",
                 Tag = cardProperty,
                 Width = 30,
-                FontWeight = FontWeights.Normal
+                FontWeight = FontWeights.Normal,
+                Background = Brushes.Gainsboro,
+                Style = Application.Current.Resources["PlainButtonStyle"] as Style
             };
 
             b.Tag = control.Tag;

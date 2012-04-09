@@ -195,7 +195,8 @@
           <TextBox x:Name="comment" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                    MinHeight="50" BorderThickness="1" FontWeight="Normal"></TextBox>
           <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,6,0,6">
-            <Button x:Name="saveComment" Content="Add Comment" Click="OnButtonSaveCommentClicked"></Button>
+            <Button x:Name="saveComment" Content="Add Comment" Click="OnButtonSaveCommentClicked" 
+                    Style="{StaticResource PlainButtonStyle}" Background="Gainsboro"></Button>
             <CheckBox x:Name="murmurComment" Content="Murmur this comment" Margin="10,3,0,0"
                       ToolTip="Check this box to murmur this comment in addition to adding it to this card."></CheckBox>
           </StackPanel>
