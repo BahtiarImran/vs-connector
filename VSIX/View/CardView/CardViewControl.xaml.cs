@@ -22,6 +22,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Microsoft.VisualStudio.Shell;
 using ThoughtWorks.VisualStudio.Properties;
 using ThoughtWorksCoreLib;
@@ -35,9 +36,9 @@ namespace ThoughtWorks.VisualStudio
     {
         private Card _thisCard;
         private readonly Brush BUTTON_BACKROUND = Brushes.Gainsboro;
-        private readonly Thickness BUTTON_BORDER_THICKNESS = new Thickness(0, 0, 0, 0);
-        private readonly Thickness BUTTON_PANEL_MARGIN = new Thickness(4,6,4,0);
+        private readonly Thickness BUTTON_MARGIN = new Thickness(4,6,4,0);
         private const int BUTTON_HEIGHT = 24;
+        private const string TRANSITION_ICON = @"/ThoughtWorks.VisualStudio;component/Resources/icon-transition.gif";
         
         internal Action RefreshMurmurs { get; set; }
 
@@ -105,28 +106,35 @@ namespace ThoughtWorks.VisualStudio
             {
                 foreach (var t in _thisCard.Transitions)
                 {
-                    var buttonPanel = new StackPanel
-                                          {
-                                              Orientation = Orientation.Horizontal,
-                                              Margin = BUTTON_PANEL_MARGIN,
-                                              Height = BUTTON_HEIGHT
-                                          };
-
+                    // transition button
                     var button = new Button
                                      {
                                          ToolTip = VisualStudio.Resources.ClickToMakeTransition,
-                                         HorizontalAlignment = HorizontalAlignment.Left,
-                                         Height = BUTTON_HEIGHT,
                                          Background = BUTTON_BACKROUND,
-                                         BorderThickness = BUTTON_BORDER_THICKNESS,
+                                         Margin = BUTTON_MARGIN,
                                          Style = Application.Current.Resources["PlainButtonStyle"] as Style
                                      };
 
+                    // Text block for the transition nomenclature
+                    var text = new TextBlock { Height = BUTTON_HEIGHT, Text = t.Name, Margin = new Thickness(3, 0, 0, 0), VerticalAlignment = VerticalAlignment.Center };
+
+                    var buttonPanel = new StackPanel
+                                          {
+                                              Orientation = Orientation.Horizontal, 
+                                              Height = BUTTON_HEIGHT,
+                                              HorizontalAlignment = HorizontalAlignment.Left,
+                                              VerticalAlignment = VerticalAlignment.Center
+                                          };
+
+                    // align icon and text horizontally
+                    buttonPanel.Children.Add(new Image { Source = new BitmapImage(new Uri(TRANSITION_ICON, UriKind.Relative)), Height=20, Width = 20 });
+                    buttonPanel.Children.Add(text);
+
+                    // finalize the button
+                    button.Content = buttonPanel;
                     button.Click += OnTransitionButtonClick;
-                    button.DataContext = t;
-                    button.SetBinding(ContentProperty, "Name");
-                    buttonPanel.Children.Add(button);
-                    transitionButtons.Children.Add(buttonPanel);
+                    button.Style = Application.Current.Resources["PlainButtonStyle"] as Style;
+                    transitionButtons.Children.Add(button);
                 }
             }
 
