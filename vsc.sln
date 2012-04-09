@@ -25,15 +25,15 @@ Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 2
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://107.22.185.110:8080/tfs/solutions
+		SccTeamFoundationServer = http://twstfs:8080/tfs/solutions
 		SccProjectUniqueName0 = VSIX\\Connector.csproj
 		SccProjectName0 = VSIX
-		SccAuxPath0 = http://107.22.185.110:8080/tfs/solutions
+		SccAuxPath0 = http://twstfs:8080/tfs/solutions
 		SccLocalPath0 = VSIX
 		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccProjectUniqueName1 = Tests\\Tests.csproj
 		SccProjectName1 = Tests
-		SccAuxPath1 = http://107.22.185.110:8080/tfs/solutions
+		SccAuxPath1 = http://twstfs:8080/tfs/solutions
 		SccLocalPath1 = Tests
 		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
