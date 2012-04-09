@@ -34,12 +34,11 @@ namespace ThoughtWorks.VisualStudio
     public partial class CardViewControl
     {
         private Card _thisCard;
-        private readonly SolidColorBrush _buttonBackground = new SolidColorBrush(SystemColors.ControlColor);
-        private readonly SolidColorBrush _darkThemeBackground = Brushes.Beige;
-        private readonly FontWeight _normalFontWeight = FontWeights.Normal;
-        private readonly Thickness _buttonBorderThickness = new Thickness(0, 0, 0, 0);
-        private readonly Thickness _buttonPanelMargin = new Thickness(4,6,4,0);
-        private readonly int _buttonHeight = 24;
+        private readonly Brush BUTTON_BACKROUND = Brushes.Gainsboro;
+        private readonly Thickness BUTTON_BORDER_THICKNESS = new Thickness(0, 0, 0, 0);
+        private readonly Thickness BUTTON_PANEL_MARGIN = new Thickness(4,6,4,0);
+        private const int BUTTON_HEIGHT = 24;
+        
         internal Action RefreshMurmurs { get; set; }
 
         /// <summary>
@@ -109,15 +108,18 @@ namespace ThoughtWorks.VisualStudio
                     var buttonPanel = new StackPanel
                                           {
                                               Orientation = Orientation.Horizontal,
-                                              Margin = _buttonPanelMargin,
-                                              Height = _buttonHeight
+                                              Margin = BUTTON_PANEL_MARGIN,
+                                              Height = BUTTON_HEIGHT
                                           };
+
                     var button = new Button
                                      {
                                          ToolTip = VisualStudio.Resources.ClickToMakeTransition,
                                          HorizontalAlignment = HorizontalAlignment.Left,
-                                         Height = _buttonHeight,
-                                         BorderThickness = _buttonBorderThickness
+                                         Height = BUTTON_HEIGHT,
+                                         Background = BUTTON_BACKROUND,
+                                         BorderThickness = BUTTON_BORDER_THICKNESS,
+                                         Style = Application.Current.Resources["PlainButtonStyle"] as Style
                                      };
 
                     button.Click += OnTransitionButtonClick;
