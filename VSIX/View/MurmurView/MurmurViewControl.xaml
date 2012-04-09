@@ -60,7 +60,7 @@
                TextWrapping="WrapWithOverflow" TabIndex="1" />
             <Button x:Name="buttonMurmur" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Center" Margin="0,20"
               FontSize="11" Height="20" Click="OnClickButtonMurmur" BorderThickness="0" Opacity="1" Width="20" Style="{StaticResource PlainButtonStyle}"
-              TabIndex="2" >
+              TabIndex="2" ToolTip="Send murmur to Mingle">
                 <Button.Background>
                     <ImageBrush ImageSource="/ThoughtWorks.VisualStudio;component/Resources/icon-email.gif" Stretch="UniformToFill" TileMode="None" />
                 </Button.Background>
@@ -86,7 +86,8 @@
         </DataTemplate>
       </ListBox.ItemTemplate>
     </ListBox>
-            <Image x:Name="RefreshButton" Grid.Column="1" Source="/ThoughtWorks.VisualStudio;component/Resources/icon-update.gif" Margin="2,2,2,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseUp="OnRefreshMouseUp" MouseEnter="OnRefreshMouseEnter" MouseLeave="OnRefreshMouseLeave" ToolTip="Refresh">
+            <Image x:Name="RefreshButton" Grid.Column="1" Source="/ThoughtWorks.VisualStudio;component/Resources/icon-update.gif" Margin="2,2,2,0" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                   MouseUp="OnRefreshMouseUp" MouseEnter="OnRefreshMouseEnter" MouseLeave="OnRefreshMouseLeave" ToolTip="Refresh murmurs">
             </Image>
         </Grid>
     </Grid>
