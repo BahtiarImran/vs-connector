@@ -24,7 +24,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.VisualStudio.Shell;
-using ThoughtWorks.VisualStudio.Properties;
 using ThoughtWorksCoreLib;
 
 namespace ThoughtWorks.VisualStudio
@@ -112,7 +111,8 @@ namespace ThoughtWorks.VisualStudio
                                          ToolTip = VisualStudio.Resources.ClickToMakeTransition,
                                          Background = BUTTON_BACKROUND,
                                          Margin = BUTTON_MARGIN,
-                                         Style = Application.Current.Resources["PlainButtonStyle"] as Style
+                                         Style = Application.Current.Resources["PlainButtonStyle"] as Style,
+                                         DataContext = t
                                      };
 
                     // Text block for the transition nomenclature
