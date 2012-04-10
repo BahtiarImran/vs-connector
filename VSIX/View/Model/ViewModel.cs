@@ -38,6 +38,7 @@ namespace ThoughtWorks.VisualStudio
     {
         internal IMingleServer Mingle { get; set; }
         private Project _project;
+        private SortedList<string, KeyValuePair> _projectList = new SortedList<string, KeyValuePair>(); 
         private TeamMemberDictionary _teamMemberDictionaryCache;
         private TeamMemberDictionary _teamMemberDictionaryMlCache;
         private TransitionsCollection _transitionsCollectionCache;
@@ -99,10 +100,18 @@ namespace ThoughtWorks.VisualStudio
         {
             get
             {
-                var projects = new SortedList<string, KeyValuePair>();
-                Mingle.GetProjectList().ToList().ForEach(p => projects.Add(p.Key, new KeyValuePair(p.Key, p.Value)));
-                return projects;
+                if (_projectList.Count > 0) return _projectList;
+                Mingle.GetProjectList().ToList().ForEach(p => _projectList.Add(p.Key, new KeyValuePair(p.Key, p.Value)));
+                return _projectList;
             }
+        }
+
+        /// <summary>
+        /// Clear the project list
+        /// </summary>
+        public void ClearProjectList()
+        {
+            _projectList = new SortedList<string, KeyValuePair>();
         }
 
         /// <summary>

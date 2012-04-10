@@ -126,7 +126,7 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonClick(object sender, RoutedEventArgs e)
+        private void OnButtonClick(object sender, RoutedEventArgs e)
         {
             switch (((Button) sender).Name)
             {
@@ -430,6 +430,7 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 Cursor = Cursors.Wait;
+                Model.ClearProjectList();
                 BindProjectList();
                 BindExplorerTrees();
                 comboProjects.SelectedValue = Model.ProjectId;
