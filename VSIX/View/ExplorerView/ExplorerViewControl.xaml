@@ -28,10 +28,6 @@
       </Style.Resources>
     </Style>
     <Style x:Key="PlainButtonStyle" TargetType="{x:Type Button}">
-        <!--<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
-        <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-        -->
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -64,7 +60,6 @@
     <DockPanel x:Name="dockPanel" LastChildFill="True">
 
     <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="Gainsboro">
-      <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" Background="Gainsboro">
                     <Button Name="buttonSettings" Click="ButtonClick" ToolTip="Mingle connection settings" FontSize="11" 
                         Height="20" BorderThickness="0" Opacity="1" Width="20" Focusable="False" Margin="8,4,2,4"
@@ -98,9 +93,9 @@
                     <Button.Background>
                         <ImageBrush ImageSource="/ThoughtWorks.VisualStudio;component/Resources/icon-show-latest.gif" Stretch="UniformToFill" TileMode="None" />
                     </Button.Background>
-                </Button>
+                    </Button>
                 </StackPanel>
-                </StackPanel>
+        
             <StackPanel Orientation="Horizontal" Background="Gainsboro">
                 <ComboBox x:Name="cardTypes" FontSize="11" Height="24" Margin="8,4,0,4" BorderThickness="0" Opacity="1" 
                           Background="Gainsboro" BorderBrush="Gainsboro" VerticalContentAlignment="Center">
