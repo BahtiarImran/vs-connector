@@ -481,6 +481,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnRenderedDescriptionTabGotFocus(object sender, RoutedEventArgs e)
         {
+            descriptionBrowser.Source = new Uri(_thisCard.RenderedDescription);
         }
 
         private void OnButtonSaveCommentClicked(object sender, RoutedEventArgs e)
