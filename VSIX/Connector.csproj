@@ -189,9 +189,6 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Big Picture.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Controller\mingle.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -202,12 +199,6 @@
     <Content Include="logo_mingle_icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="mingle.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="mingleexplorer.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="new_card_view.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
