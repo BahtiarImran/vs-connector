@@ -1,5 +1,5 @@
 ﻿//
-// Copyright © 2010, 2011 ThoughtWorks, Inc.
+// Copyright © 2012 ThoughtWorks, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); 
 // you may not use this file except in compliance with the License. 
@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ThoughtWorks, Inc.")]
 [assembly: AssemblyProduct("ThoughtWorks Visual Studio Connector")]
-[assembly: AssemblyCopyright("Copyright © 2010, 2011 ThoughtWorks, Inc.")]
+[assembly: AssemblyCopyright("Copyright © 2012 ThoughtWorks, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
