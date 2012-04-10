@@ -169,7 +169,6 @@
     <Compile Include="View\ExplorerView\ExplorerViewWindowPane.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\Exceptions\PropertyNullException.cs" />
     <Compile Include="View\MurmurView\MurmurViewControl.xaml.cs">
       <DependentUpon>MurmurViewControl.xaml</DependentUpon>
     </Compile>
