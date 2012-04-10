@@ -770,6 +770,13 @@ namespace ThoughtWorks.VisualStudio {
             }
         }
         
+        internal static System.Drawing.Bitmap logo_mingle_icon {
+            get {
+                object obj = ResourceManager.GetObject("logo_mingle_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to The &quot;Name&quot; field may not be blank or empty..
         /// </summary>
@@ -812,6 +819,13 @@ namespace ThoughtWorks.VisualStudio {
         internal static string MurmurWindowTitle {
             get {
                 return ResourceManager.GetString("MurmurWindowTitle", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap new_card_view {
+            get {
+                object obj = ResourceManager.GetObject("new_card_view", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

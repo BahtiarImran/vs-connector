@@ -183,7 +183,6 @@
   <ItemGroup>
     <Content Include="Big Picture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Controller\mingle.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -202,7 +201,15 @@
     <Content Include="mingleexplorer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="new_card_view.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="README.txt" />
+    <Content Include="Resources\new_card_view.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Resource Include="Resources\spinner.gif" />
     <Resource Include="Resources\wiki-checkbox-selected.gif" />
     <Resource Include="Resources\wiki-checkbox-unselected.gif" />
@@ -223,7 +230,10 @@
     <Resource Include="Resources\icon-tree-disabled.gif" />
     <Resource Include="Resources\icon-tree-off.gif" />
     <Resource Include="Resources\icon-wiki-checkbox-unselected.gif" />
-    <Content Include="Resources\Big Picture.png" />
+    <Content Include="Resources\Big Picture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Resource Include="Resources\icon-disable-auto-enroll.gif" />
     <Resource Include="Resources\icon-edit.gif" />
     <Resource Include="Resources\icon-edit-password.gif" />
@@ -282,7 +292,10 @@
     <Resource Include="Resources\icon_refresh_hightlight.png" />
     <Resource Include="Resources\icon_transition.png" />
     <Resource Include="Resources\icon_transition_arrow.png" />
-    <Resource Include="Resources\logo_mingle_icon.png" />
+    <Content Include="Resources\logo_mingle_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="License.rtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

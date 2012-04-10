@@ -10,7 +10,7 @@
     <MoreInfoUrl>http://visualstudiogallery.msdn.microsoft.com/c3128d58-8c2b-4104-894a-6554a30483b0</MoreInfoUrl>
     <License>License.rtf</License>
     <Icon>logo_mingle_icon.png</Icon>
-    <PreviewImage>Big Picture.png</PreviewImage>
+    <PreviewImage>new_card_view.png</PreviewImage>
     <InstalledByMsi>false</InstalledByMsi>
     <SupportedProducts>
       <VisualStudio Version="10.0">
