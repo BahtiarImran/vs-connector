@@ -143,7 +143,7 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonMingleLinkClick(object sender, RoutedEventArgs e)
         {
-            Process.Start("http://www.thoughtworks-studios.com/mingle-agile-project-management/try&referrer=70150000000JiAw");
+            Process.Start("http://www.thoughtworks-studios.com/mingle-agile-project-management/try?referrer=70150000000JiAw");
         }
     }
 }
