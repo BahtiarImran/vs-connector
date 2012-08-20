@@ -29,4 +29,5 @@ testimpactdata.sdf
 *.pdb
 DEMO BUILD TRIGGER.txt
 BuildProcessTemplates/
+lib/
 
