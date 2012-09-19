@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="ThoughtWorks.VisualStudio.MurmurViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+             mc:Ignorable="d">
+  <Control.Resources>
+    <Style x:Key="MurmurListBoxItem" TargetType="ListBoxItem">
+      <Style.Resources>
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Wheat" />
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+      </Style.Resources>
+    </Style>
+    <Style x:Key="PlainButtonStyle" TargetType="{x:Type Button}">
+        <!--<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+    <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    -->
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderBrush" Value="Gainsboro"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Microsoft_Windows_Themes:ButtonChrome x:Name="Chrome" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" RenderDefaulted="{TemplateBinding IsDefaulted}" RenderPressed="{TemplateBinding IsPressed}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+                    </Microsoft_Windows_Themes:ButtonChrome>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="RenderDefaulted" TargetName="Chrome" Value="true"/>
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="true">
+                            <Setter Property="RenderPressed" TargetName="Chrome" Value="true"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="#ADADAD"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    </Control.Resources>
+  <Grid Margin="0,0,0,6">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="66"></RowDefinition>
+      <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+    <Grid Height="66" Grid.Row="0" VerticalAlignment="Bottom" Background="Gainsboro">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition></ColumnDefinition>
+        <ColumnDefinition Width="24"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <TextBox x:Name="murmurText" Grid.Column="0" HorizontalAlignment="Stretch" BorderThickness="2"
+               BorderBrush="LightGray" Height="48" Margin="6,0,0,0" AcceptsReturn="True" AutoWordSelection="True"
+               TextWrapping="WrapWithOverflow" TabIndex="1" />
+            <Button x:Name="buttonMurmur" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Center" Margin="0,20"
+              FontSize="11" Height="20" Click="OnClickButtonMurmur" BorderThickness="0" Opacity="1" Width="20" Style="{StaticResource PlainButtonStyle}"
+              TabIndex="2" ToolTip="Send murmur to Mingle">
+                <Button.Background>
+                    <ImageBrush ImageSource="/ThoughtWorks.VisualStudio;component/Resources/icon-email.gif" Stretch="UniformToFill" TileMode="None" />
+                </Button.Background>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        <ListBox x:Name="murmursList" Grid.Column="0" BorderThickness="0" Margin="0,8,0,0" IsSynchronizedWithCurrentItem="True"
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="White"
+             ItemContainerStyle="{StaticResource MurmurListBoxItem}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Vertical" Margin="4,3,0,3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+              <TextBlock Text="{Binding Path=Name}" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" />
+              <TextBlock Text="{Binding Path=Date}" Foreground="DimGray" HorizontalAlignment="Right" Margin="12,0,0,0" />
+            </StackPanel>
+            <TextBlock Text="{Binding Path=Body}" TextWrapping="Wrap" Height="Auto" Margin="0,0,6,0" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+            <Image x:Name="RefreshButton" Grid.Column="1" Source="/ThoughtWorks.VisualStudio;component/Resources/icon-update.gif" Margin="2,2,2,0" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                   MouseUp="OnRefreshMouseUp" MouseEnter="OnRefreshMouseEnter" MouseLeave="OnRefreshMouseLeave" ToolTip="Refresh murmurs">
+            </Image>
+        </Grid>
+    </Grid>
+</UserControl>

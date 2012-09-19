@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{58922993-9830-4A40-B462-0326342F69ED}</ProjectGuid>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ThoughtWorks.VisualStudio</RootNamespace>
+    <AssemblyName>ThoughtWorks.VisualStudio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\build\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\build\ThoughtWorks.VisualStudio.XML</DocumentationFile>
+    <CopyVsixExtensionFiles>False</CopyVsixExtensionFiles>
+    <CreateVsixContainer>True</CreateVsixContainer>
+    <DeployExtension>True</DeployExtension>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\build\</OutputPath>
+    <DefineConstants>DEBUG;CODE_ANALYSIS;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\build\ThoughtWorks.VisualStudio.XML</DocumentationFile>
+    <CreateVsixContainer>True</CreateVsixContainer>
+    <DeployExtension>False</DeployExtension>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Synchronization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Modeling.SDK.Integration.Shell.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop" />
+    <Reference Include="Microsoft.VisualStudio.Shell.10.0">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.22650, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\ThoughtWorksCoreLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.22650, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\ThoughtWorksMingleLib.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LogSettings.cs" />
+    <Compile Include="MingleSettings.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SendFileTo.cs" />
+    <Compile Include="View\Model\Card.cs" />
+    <Compile Include="View\CardView\CardListWindow.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CardListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Model\CardBasicInfo.cs" />
+    <Compile Include="View\Model\CardPropertiesDictionary.cs" />
+    <Compile Include="View\Model\CardProperty.cs" />
+    <Compile Include="View\Model\CardsCollection.cs" />
+    <Compile Include="View\Model\CardType.cs" />
+    <Compile Include="View\Model\CardListItem.cs" />
+    <Compile Include="View\Model\CardTypesDictionary.cs" />
+    <Compile Include="View\Model\CardComment.cs" />
+    <Compile Include="View\Model\Favorite.cs" />
+    <Compile Include="View\Model\FavoritesDictionary.cs" />
+    <Compile Include="View\Model\IManagedListItem.cs" />
+    <Compile Include="View\Model\IViewModel.cs" />
+    <Compile Include="View\Model\Murmur.cs" />
+    <Compile Include="View\Model\Project.cs" />
+    <Compile Include="View\Model\KeyValuePair.cs" />
+    <Compile Include="View\Model\PropertyValuesCollection.cs" />
+    <Compile Include="View\Model\Secure.cs" />
+    <Compile Include="View\Model\TeamMemberDictionary.cs" />
+    <Compile Include="View\Model\TeamMember.cs" />
+    <Compile Include="View\Model\Transition.cs" />
+    <Compile Include="View\Model\TransitionsCollection.cs" />
+    <Compile Include="View\Model\ViewModel.cs" />
+    <Compile Include="View\FeedbackView\FeedbackViewControl.xaml.cs">
+      <DependentUpon>FeedbackViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\CardSetView\CardSetViewWindowPane.cs" />
+    <Compile Include="View\CardView\CardViewControl.xaml.cs">
+      <DependentUpon>CardViewControl.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Controller\Guids.cs" />
+    <Compile Include="Controller\PkgCmdId.cs" />
+    <Compile Include="View\CardSetView\CardSetViewControl.xaml.cs">
+      <DependentUpon>CardSetViewControl.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="View\CardView\CardViewWindowPane.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\ExplorerView\ExplorerViewControl.xaml.cs">
+      <DependentUpon>ExplorerViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExplorerView\ExplorerViewWindowPane.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\MurmurView\MurmurViewControl.xaml.cs">
+      <DependentUpon>MurmurViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MurmurView\MurmurViewWindowPane.cs" />
+    <Compile Include="View\SettingsView\SettingsViewControl.xaml.cs">
+      <DependentUpon>SettingsViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\VsPkg.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\TransitionCommentView\GeneralCommentView.xaml.cs">
+      <DependentUpon>GeneralCommentView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <VSCTCompile Include="Controller\PkgCmd.vsct">
+      <ResourceName>1000</ResourceName>
+      <SubType>Designer</SubType>
+    </VSCTCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controller\mingle.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Controller\VsPkg.pkgdef">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="logo_mingle_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="new_card_view.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="README.txt" />
+    <Content Include="Resources\new_card_view.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Resource Include="Resources\spinner.gif" />
+    <Resource Include="Resources\wiki-checkbox-selected.gif" />
+    <Resource Include="Resources\wiki-checkbox-unselected.gif" />
+    <Resource Include="Resources\grid.png" />
+    <Resource Include="Resources\icon-action.png" />
+    <Resource Include="Resources\icon-add-child.gif" />
+    <Resource Include="Resources\icon-add-in-next-line.gif" />
+    <Resource Include="Resources\icon-add-medium.gif" />
+    <Resource Include="Resources\icon-email-disabled.gif" />
+    <Resource Include="Resources\icon-grid-off.gif" />
+    <Resource Include="Resources\icon-help-unselected.png" />
+    <Resource Include="Resources\icon-hierarchy-disabled.gif" />
+    <Resource Include="Resources\icon-hierarchy-off.gif" />
+    <Resource Include="Resources\icon-list-off.gif" />
+    <Resource Include="Resources\icon-list-off.png" />
+    <Resource Include="Resources\icon-quick-add-unselected.gif" />
+    <Resource Include="Resources\icon-tab-checkbox-unselected.gif" />
+    <Resource Include="Resources\icon-tree-disabled.gif" />
+    <Resource Include="Resources\icon-tree-off.gif" />
+    <Resource Include="Resources\icon-wiki-checkbox-unselected.gif" />
+    <Content Include="Resources\Big Picture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Resource Include="Resources\icon-disable-auto-enroll.gif" />
+    <Resource Include="Resources\icon-edit.gif" />
+    <Resource Include="Resources\icon-edit-password.gif" />
+    <Resource Include="Resources\icon-edit-transition.gif" />
+    <Resource Include="Resources\icon-edit-user.gif" />
+    <Resource Include="Resources\icon-email.gif" />
+    <Resource Include="Resources\icon-email-conf-test.gif" />
+    <Resource Include="Resources\icon-enable-auto-enroll.gif" />
+    <Resource Include="Resources\icon-export.gif" />
+    <Resource Include="Resources\icon-export.png" />
+    <Resource Include="Resources\icon-forward.gif" />
+    <Resource Include="Resources\icon-grid-on.png" />
+    <Resource Include="Resources\icon-help-new-window.png" />
+    <Resource Include="Resources\icon-hide.gif" />
+    <Resource Include="Resources\icon-hide-hidden.gif" />
+    <Resource Include="Resources\icon-hierarchy-on.png" />
+    <Resource Include="Resources\icon-import.gif" />
+    <Resource Include="Resources\icon-import.png" />
+    <Resource Include="Resources\icon-list-on.png" />
+    <Resource Include="Resources\icon-lock.gif" />
+    <Resource Include="Resources\icon-manage-users.gif" />
+    <Resource Include="Resources\icon-preview.gif" />
+    <Resource Include="Resources\icon-print.gif" />
+    <Resource Include="Resources\icon-print-single-card.gif" />
+    <Resource Include="Resources\icon-project-import.gif" />
+    <Resource Include="Resources\icon-reset-tab.gif" />
+    <Resource Include="Resources\icon-revision-action.gif" />
+    <Resource Include="Resources\icon-safe.gif" />
+    <Resource Include="Resources\icon-save.gif" />
+    <Resource Include="Resources\icon-show-hidden.gif" />
+    <Resource Include="Resources\icon-show-latest.gif" />
+    <Resource Include="Resources\icon-source.gif" />
+    <Resource Include="Resources\icon-temp.gif" />
+    <Resource Include="Resources\icon-template.gif" />
+    <Resource Include="Resources\icon-transition.gif" />
+    <Resource Include="Resources\icon-tree-on.png" />
+    <Resource Include="Resources\icon-unlock.gif" />
+    <Resource Include="Resources\icon-up.gif" />
+    <Resource Include="Resources\icon-update.gif" />
+    <Resource Include="Resources\icon-delete.gif" />
+    <Resource Include="Resources\icon-delete-transition.gif" />
+    <Resource Include="Resources\icon-card-copy-to.gif" />
+    <Resource Include="Resources\icon-add.gif" />
+    <Resource Include="Resources\icon-add-tag.gif" />
+    <Resource Include="Resources\icon-add-tag-group.gif" />
+    <Resource Include="Resources\icon-add-transition.gif" />
+    <Resource Include="Resources\icon-add-tree.gif" />
+    <Resource Include="Resources\icon-add-user.gif" />
+    <Resource Include="Resources\icon-add-variable.gif" />
+    <Resource Include="Resources\icon-add-workflow-transition.gif" />
+    <Resource Include="Resources\icon-all-items.gif" />
+    <Resource Include="Resources\icon-back.gif" />
+    <Resource Include="Resources\icon-cancel.gif" />
+    <Resource Include="Resources\icon_murmur.png" />
+    <Resource Include="Resources\icon_refresh.png" />
+    <Resource Include="Resources\icon_refresh_hightlight.png" />
+    <Resource Include="Resources\icon_transition.png" />
+    <Resource Include="Resources\icon_transition_arrow.png" />
+    <Content Include="Resources\logo_mingle_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="License.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <MergeWithCTO>true</MergeWithCTO>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="vsc.eap" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\CardView\CardListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CardView\CardViewControl.xaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CardSetView\CardSetViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ExplorerView\ExplorerViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FeedbackView\FeedbackViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MurmurView\MurmurViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SettingsView\SettingsViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TransitionCommentView\GeneralCommentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <!--
+    To specify a different registry root to register your package, uncomment the TargetRegistryRoot
+    tag and specify a registry root in it.
+    <TargetRegistryRoot></TargetRegistryRoot>
+    -->
+    <RegisterOutputPackage>true</RegisterOutputPackage>
+    <RegisterWithCodebase>true</RegisterWithCodebase>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" Condition="false" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
