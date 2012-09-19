@@ -15,8 +15,8 @@
    See the License for the specific language governing permissions and 
    limitations under the License.
    -->
-  <Extern href="stdidcmd.h" />
-  <Extern href="vsshlids.h"/>
+  <Extern href="..\vssdk\inc\stdidcmd.h" />
+  <Extern href="..\vssdk\inc\vsshlids.h"/>
 
   <Commands package="guidTwVscPackage">
     <Buttons>
