@@ -79,7 +79,7 @@ namespace ThoughtWorks.VisualStudio
         private static void AlertUser(Exception ex)
         {
             string msg = null != ex.InnerException && ex.InnerException.Data.Count > 0
-                             ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
+                             ? string.Format(CultureInfo.CurrentCulture,"{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
                              : ex.Message;
             MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);
         }
@@ -320,7 +320,7 @@ namespace ThoughtWorks.VisualStudio
 
             var svc = new SettingsViewControl();
             svc.ShowDialog();
-            return Convert.ToBoolean(svc.DialogResult);
+            return Convert.ToBoolean(svc.DialogResult,CultureInfo.InvariantCulture);
         }
 
         #region Tree click event handlers
@@ -393,7 +393,7 @@ namespace ThoughtWorks.VisualStudio
                 Cursor = Cursors.Arrow;
             }
 
-            int cardNo = int.Parse(itemValue.Split('-')[0]);
+            int cardNo = int.Parse(itemValue.Split('-')[0],CultureInfo.CurrentCulture);
             ShowCardViewToolWindow(cardNo);
         }
 

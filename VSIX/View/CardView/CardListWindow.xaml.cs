@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -120,8 +121,8 @@ namespace ThoughtWorks.VisualStudio
             var types = new Collection<string>();
 
             foreach (
-                CheckBox item in cardTypes.Children.Cast<CheckBox>().Where(item => Convert.ToBoolean(item.IsChecked)))
-                types.Add(string.Format("{0}",item.Content.ToString()));
+                CheckBox item in cardTypes.Children.Cast<CheckBox>().Where(item => Convert.ToBoolean(item.IsChecked,CultureInfo.CurrentCulture)))
+                types.Add(string.Format(CultureInfo.CurrentCulture,"{0}",item.Content.ToString()));
 
             if (types.Count == 0)
             {
@@ -155,7 +156,7 @@ namespace ThoughtWorks.VisualStudio
         private static void AlertUser(Exception ex)
         {
             string msg = ex.InnerException.Data.Count > 0
-                             ? string.Format("{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
+                             ? string.Format(CultureInfo.CurrentCulture,"{0}\n\n\r{1}", ex.Message, ex.InnerException.Data["url"])
                              : ex.Message;
             MessageBox.Show(msg, VisualStudio.Resources.MingleExtensionTitle);
         }

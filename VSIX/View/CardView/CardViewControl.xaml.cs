@@ -77,14 +77,14 @@ namespace ThoughtWorks.VisualStudio
             DateTime stop = DateTime.Now;
             TimeSpan elapsed = stop - start;
             TraceLog.WriteLine(me,
-                               string.Format(CultureInfo.InvariantCulture, "Elapsed time BindManagedProperties(): {0}",
+                               string.Format(CultureInfo.InvariantCulture, "Elapsed time Bind(): {0}",
                                              elapsed));
             start = DateTime.Now;
             BindPropertyElements();
             stop = DateTime.Now;
             elapsed = stop - start;
             TraceLog.WriteLine(me,
-                               string.Format(CultureInfo.InvariantCulture, "Elapsed time BindPropertyElements(): {0}",
+                               string.Format(CultureInfo.InvariantCulture, "Elapsed time Bind(): {0}",
                                              elapsed));
             Cursor = Cursors.Arrow;
         }
@@ -247,7 +247,8 @@ namespace ThoughtWorks.VisualStudio
 
         private void OnButtonChooseCardClick(object sender, RoutedEventArgs e)
         {
-            string propertyName = (((sender as Button).Tag as TextBox).Tag as CardProperty).Name;
+            var theSender = sender as Button;
+            string propertyName = ((theSender.Tag as TextBox).Tag as CardProperty).Name;
 
             var w = new CardListWindow(_thisCard.Model, propertyName);
             w.ShowDialog();
@@ -259,7 +260,7 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 _thisCard.Update();
-                ((sender as Button).Tag as TextBox).Text = string.Format("{0} - {1}", w.SelectedCardNumber,
+                (theSender.Tag as TextBox).Text = string.Format(CultureInfo.InvariantCulture, "{0} - {1}", w.SelectedCardNumber,
                                                                          w.SelectedCardName);
             }
             catch (Exception ex)
@@ -271,13 +272,14 @@ namespace ThoughtWorks.VisualStudio
 
         private static void OnButtonNotSetClick(object sender, RoutedEventArgs e)
         {
-            UIElement box = ((sender as Button).Parent as StackPanel).Children[1];
+            var theSender = sender as Button;
+            UIElement box = (theSender.Parent as StackPanel).Children[1];
             switch (box.GetType().Name)
             {
                 case "TextBox":
                     (box as TextBox).Text = string.Empty;
                     box.Focus();
-                    (sender as Button).Focus();
+                    theSender.Focus();
                     break;
 
                 case "ComboBox":
@@ -326,7 +328,7 @@ namespace ThoughtWorks.VisualStudio
                     // The name of the field is "cardXXXXXX", so we strip the "card" prefix from the
                     // name of the TextBox.
                     _thisCard.AddCardAttributeFilterToPostData(
-                        tb.Name.Replace("card", string.Empty).ToLowerInvariant(), tb.Text);
+                        tb.Name.Replace("card", string.Empty).ToUpperInvariant(), tb.Text);
                     break;
 
                 case "CardProperty":
@@ -489,9 +491,9 @@ namespace ThoughtWorks.VisualStudio
             try
             {
                 _thisCard.Model.PostComment(_thisCard.Number, comment.Text);
-                if (Convert.ToBoolean(murmurComment.IsChecked))
+                if (Convert.ToBoolean(murmurComment.IsChecked,CultureInfo.InvariantCulture))
                 {
-                    _thisCard.Model.SendMurmur(string.Format("#{0} {1}", _thisCard.Number, comment.Text));
+                    _thisCard.Model.SendMurmur(string.Format(CultureInfo.CurrentUICulture,"#{0} {1}", _thisCard.Number, comment.Text));
                     RefreshMurmurs();
                 }
                 commentsList.ItemsSource = _thisCard.Model.GetCommentsForCard(_thisCard.Number);

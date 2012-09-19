@@ -15,6 +15,7 @@
 //
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -64,8 +65,9 @@ namespace Tests
             MingleSettings.Login = "mingleuser";
             MingleSettings.Password = "secret";
             MingleSettings.Project = "test";
-            _mingleHost = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("MINGLETARGET"))
-                ? Environment.GetEnvironmentVariable("MINGLETARGET") : "http://127.0.0.1:8080";
+            _mingleHost = string.IsNullOrEmpty(Environment.GetEnvironmentVariable("MINGLETARGET")) ?
+                "http://127.0.0.1:8080" : Environment.GetEnvironmentVariable("MINGLETARGET");
+
         }
         
         //Use ClassCleanup to run code after all tests in a class have run
@@ -79,18 +81,6 @@ namespace Tests
             MingleSettings.Project = _project;
         }
         
-        //Use TestInitialize to run code before running each test
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //Use TestCleanup to run code after each test has run
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
         #endregion
 
         [TestMethod]
