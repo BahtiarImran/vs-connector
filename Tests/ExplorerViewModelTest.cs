@@ -64,7 +64,7 @@ namespace Tests
             MingleSettings.Host = "myhost";
             MingleSettings.Login = "mingleuser";
             MingleSettings.Password = "secret";
-            MingleSettings.Project = "vs-connector-test";
+            MingleSettings.Project = "test";
             _mingleHost = string.IsNullOrEmpty(Environment.GetEnvironmentVariable("MINGLETARGET")) ?
                 "http://127.0.0.1:8080" : Environment.GetEnvironmentVariable("MINGLETARGET");
 
