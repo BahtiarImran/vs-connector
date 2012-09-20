@@ -193,6 +193,9 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
+    <VSCTCompile Include="Controller\Headers.vsct">
+      <SubType>Designer</SubType>
+    </VSCTCompile>
     <Content Include="Controller\mingle.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

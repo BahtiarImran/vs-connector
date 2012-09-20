@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-   <!-- 
+
+  <!-- 
    Copyright 2011 ThoughtWorks, Inc.
   
    Licensed under the Apache License, Version 2.0 (the "License"); 
@@ -15,11 +16,13 @@
    See the License for the specific language governing permissions and 
    limitations under the License.
    -->
-  <Extern href="stdidcmd.h" />
-  <Extern href="vsshlids.h"/>
+
+  <Include href="Headers.vsct"/>
 
   <Commands package="guidTwVscPackage">
+
     <Buttons>
+
       <Button guid="guidTwVscCmdSet" id="cmdidTwExplorerCommand" priority="0x104" type="Button">
         <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWSEXPLORERS"/>
         <Icon guid="guidMingleExplorerCommandBmp" id="bmpMingleLogo"/>
@@ -27,22 +30,19 @@
           <ButtonText>Mingle Explorer</ButtonText>
         </Strings>
       </Button>
-      <!--<Button guid="guidTwVscCmdSet" id="cmdidTwMurmursCommand" priority="0x105" type="Button">
-        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWSEXPLORERS"/>
-        <Icon guid="guidMingleExplorerCommandBmp" id="bmpMingleLogo"/>
-        <Strings>
-          <ButtonText>Mingle Murmurs</ButtonText>
-        </Strings>
-      </Button>-->
+
     </Buttons>
 
     <Bitmaps>
       <Bitmap guid="guidMingleExplorerCommandBmp" href="mingle.ico"/>
     </Bitmaps>
+  
   </Commands>
 
   <Symbols>
+    
     <GuidSymbol name="guidTwVscPackage" value="{D00EB40D-F709-49C6-B43F-D7910D730883}" />
+    
     <GuidSymbol name="guidTwVscCmdSet" value="{927BC402-45CF-43E5-BD57-B3A2A5B4D343}">
       <IDSymbol name="cmdidTwExplorerCommand" value="0x2001"/>
       <IDSymbol name="cmdidTwMurmursCommand" value="0x2002"/>
@@ -51,5 +51,6 @@
     <GuidSymbol name="guidMingleExplorerCommandBmp" value="{C9E4E92C-34DD-4F0F-9B93-2D620E067858}">
       <IDSymbol name="bmpMingleLogo" value="1" />
     </GuidSymbol>
+    
   </Symbols>
 </CommandTable>
