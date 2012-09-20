@@ -22,11 +22,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("ThoughtWorks Visual Studio Connector")]
-[assembly: AssemblyDescription("Supports context-relevant use of Thoughtwrks products within Visual Studio.")]
+[assembly: AssemblyTitle("Mingle Extension for Visual Studio")]
+[assembly: AssemblyDescription("Supports context-relevant use of Mingle within Visual Studio.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ThoughtWorks, Inc.")]
-[assembly: AssemblyProduct("ThoughtWorks Visual Studio Connector")]
+[assembly: AssemblyProduct("Mingle Extension for Visual Studio")]
 [assembly: AssemblyCopyright("Copyright © 2012 ThoughtWorks, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -54,5 +54,5 @@ using System.Runtime.InteropServices;
 // 0.8.*.* denotes Alpha phase builds
 // 0.9.*.* denotes Beta phase builds
 
-[assembly: AssemblyVersion("0.9.0.*")]
+[assembly: AssemblyVersion("1.1.0.*")]
 [assembly: InternalsVisibleTo("VsConnectorTests")]

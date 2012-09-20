@@ -1,20 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connector", "VSIX\Connector.2012.csproj", "{58922993-9830-4A40-B462-0326342F69ED}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connector.2012", "VSIX\Connector.2012.csproj", "{58922993-9830-4A40-B462-0326342F69ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11437074-0A5D-455F-9423-9036D6153647}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		build.bat = build.bat
 		init.bat = init.bat
 		Local.testsettings = Local.testsettings
 		tools\MSBuild-to-NUnit.xslt = tools\MSBuild-to-NUnit.xslt
 		tools\msxsl.exe = tools\msxsl.exe
-		rakefile = rakefile
-		test.bat = test.bat
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-		unittests.bat = unittests.bat
+		vsc.2012.sln.proj = vsc.2012.sln.proj
 		vsc.proj = vsc.proj
 		vsc.vsmdi = vsc.vsmdi
 	EndProjectSection
