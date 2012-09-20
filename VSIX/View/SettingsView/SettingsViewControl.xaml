@@ -1,5 +1,5 @@
 ﻿<!--
-   Copyright 2011 ThoughtWorks, Inc.
+   Copyright 2011,2012 ThoughtWorks, Inc.
 
    Licensed under the Apache License, Version 2.0 (the "License"); 
    you may not use this file except in compliance with the License. 
@@ -37,7 +37,6 @@
     </Style>
   </Window.Resources>
 
-  <Grid Background="BurlyWood">
     <Grid Margin="12,12,12,12" Background="PapayaWhip">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="130"></ColumnDefinition>
@@ -57,7 +56,7 @@
       <Label Grid.Column="0" Grid.Row="1" Content="Mingle Host" Style="{StaticResource {x:Type Label}}"
              Name="MingleHostLabel" />
       <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource {x:Type TextBox}}" Name="mingleHostTextBox"
-               TabIndex="1" TextChanged="OnAnyTextChanged" Width="422" />
+               TabIndex="1" TextChanged="OnAnyTextChanged" Width="412" Margin="0,12,0,0" />
       <Label Grid.Row="2" Grid.Column="0" Content="Mingle User" Style="{StaticResource {x:Type Label}}"
              Name="MingleUserLabel" />
       <TextBox Grid.Row="2" Grid.Column="1" TabIndex="2" Style="{StaticResource {x:Type TextBox}}"
@@ -71,7 +70,7 @@
         <Button HorizontalAlignment="Center" IsDefault="False" Click="ButtonSaveClick" Content="Continue" FontSize="16"
                 Name="buttonSave" MouseEnter="OnButtonSaveMouseEnter" MouseLeave="OnButtonSaveMouseLeave" TabIndex="4" Width="80"
                 BorderThickness="3" FontWeight="SemiBold" />
-        <Button Click="OnButtonCloseClick" Content="Skip" FontSize="16" HorizontalAlignment="Center" IsCancel="True"
+        <Button Click="OnButtonCloseClick" Content="Cancel" FontSize="16" HorizontalAlignment="Center" IsCancel="True"
                 Margin="12,0,0,0" MouseEnter="OnButtonSaveMouseEnter" MouseLeave="OnButtonSaveMouseLeave" Name="buttonClose"
                 TabIndex="5" Width="80" BorderThickness="3" FontWeight="SemiBold" />
       </StackPanel>
@@ -82,5 +81,4 @@
               Grid.ColumnSpan="2" Grid.Row="6" HorizontalAlignment="Center" Name="mingleLink" TabIndex="6" BorderThickness="3"
               Width="150" Foreground="#FFFF5E00" />
     </Grid>
-  </Grid>
 </Window>
