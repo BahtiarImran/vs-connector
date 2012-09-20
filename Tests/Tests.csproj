@@ -98,12 +98,6 @@
     <Compile Include="Mocks.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VSIX\Connector.csproj">
-      <Project>{58922993-9830-4A40-B462-0326342F69ED}</Project>
-      <Name>Connector</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Shadow Include="Test References\ThoughtWorks.VisualStudio.accessor" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +113,15 @@
     <Content Include="data\property_definitions.xml" />
     <Content Include="data\team.xml" />
     <Content Include="data\transitions.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\test.mingle" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VSIX\Connector.2012.csproj">
+      <Project>{58922993-9830-4a40-b462-0326342f69ed}</Project>
+      <Name>Connector.2012</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
