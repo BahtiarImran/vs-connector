@@ -203,16 +203,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <VSCTCompile Include="Controller\PkgCmd.vsct">
-      <ResourceName>1000</ResourceName>
-      <SubType>Designer</SubType>
-    </VSCTCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Controller\Headers.vsct" />
+    <Content Include="Controller\Headers.2012.vsct" />
     <Content Include="Controller\mingle.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Controller\PkgCmd.2012.vsct" />
     <Content Include="Controller\VsPkg.pkgdef">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
