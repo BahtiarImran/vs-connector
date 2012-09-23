@@ -74,6 +74,10 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="ThoughtWorks.VisualStudio.2012, Version=1.1.0.10373, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\build\ThoughtWorks.VisualStudio.2012.dll</HintPath>
+    </Reference>
     <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.27002, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\build\ThoughtWorksCoreLib.dll</HintPath>
@@ -116,12 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\test.mingle" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VSIX\Connector.2012.csproj">
-      <Project>{58922993-9830-4a40-b462-0326342f69ed}</Project>
-      <Name>Connector.2012</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
