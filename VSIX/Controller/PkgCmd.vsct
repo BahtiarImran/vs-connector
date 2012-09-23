@@ -19,7 +19,7 @@ limitations under the License.
 
 -->
 
-  <Include href="Headers.vsct"/>
+  <Include href="Headers.2012.vsct"/>
 
   <Commands package="guidTwVscPackage">
 
