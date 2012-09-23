@@ -11,8 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		tools\MSBuild-to-NUnit.xslt = tools\MSBuild-to-NUnit.xslt
 		tools\msxsl.exe = tools\msxsl.exe
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-		vsc.2012.sln.proj = vsc.2012.sln.proj
-		vsc.proj = vsc.proj
+		vsc.2012.proj = vsc.2012.proj
 		vsc.vsmdi = vsc.vsmdi
 	EndProjectSection
 EndProject
