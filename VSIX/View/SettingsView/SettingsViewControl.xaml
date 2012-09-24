@@ -20,7 +20,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
         Title="Mintle Extension for Visual Studio - Settings" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         FontSize="11" ShowInTaskbar="True" Initialized="OnWindowInitialized" SizeToContent="Height" Width="600"
-        WindowStyle="None">
+        WindowStyle="None" Background="PapayaWhip">
   <Window.Resources>
     <Style TargetType="TextBox">
       <Setter Property="FontSize" Value="14"></Setter>
@@ -37,7 +37,7 @@
     </Style>
   </Window.Resources>
 
-    <Grid Margin="12,12,12,12" Background="PapayaWhip">
+    <Grid Margin="0,12,10,12" Background="PapayaWhip" Height="413" HorizontalAlignment="Right" Width="580">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="130"></ColumnDefinition>
         <ColumnDefinition></ColumnDefinition>
