@@ -53,15 +53,14 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.16878, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.25110, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\ThoughtWorksCoreLib.dll</HintPath>
+      <HintPath>..\packages\MingleNET.1.5\lib\ThoughtWorksCoreLib.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.16878, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.25111, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\ThoughtWorksMingleLib.dll</HintPath>
+      <HintPath>..\packages\MingleNET.1.5\lib\ThoughtWorksMingleLib.dll</HintPath>
     </Reference>
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -87,9 +86,18 @@
     <Content Include="data\property_definitions.xml" />
     <Content Include="data\team.xml" />
     <Content Include="data\transitions.xml" />
+    <Content Include="Mingle.NET Help\HelpLibraryManagerLauncher.exe" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\test.mingle" />
+    <None Include="Mingle.NET Help\documentation.shfb.log" />
+    <None Include="Mingle.NET Help\HelpContentSetup.msha" />
+    <None Include="Mingle.NET Help\Install_MingleApiHelp.NET.bat" />
+    <None Include="Mingle.NET Help\MingleApiHelp.NET.chm" />
+    <None Include="Mingle.NET Help\MingleApiHelp.NET.msha" />
+    <None Include="Mingle.NET Help\MingleApiHelp.NET.mshc" />
+    <None Include="Mingle.NET Help\Remove_MingleApiHelp.NET.bat" />
+    <None Include="packages.config" />
     <Shadow Include="Test References\ThoughtWorks.VisualStudio.2012.accessor" />
   </ItemGroup>
   <ItemGroup>
