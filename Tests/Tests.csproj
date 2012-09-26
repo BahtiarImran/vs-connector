@@ -74,13 +74,13 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.27002, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.25110, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\build\ThoughtWorksCoreLib.dll</HintPath>
+      <HintPath>..\packages\MingleNET.1.5\lib\ThoughtWorksCoreLib.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.27003, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.25111, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\build\ThoughtWorksMingleLib.dll</HintPath>
+      <HintPath>..\packages\MingleNET.1.5\lib\ThoughtWorksMingleLib.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\test.mingle" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VSIX\Connector.csproj">
