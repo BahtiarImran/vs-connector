@@ -1,0 +1,20 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mingle API for .NET</title>
+</head>
+<body class="vendor-book">
+    <div class="details">
+        <span class="vendor">ThoughtWorks Studios</span>
+        <span class="locale">en-us</span>
+        <span class="product">Mingle API for .NET</span>
+        <span class="name">Mingle API for .NET</span>
+    </div>
+    <div class="package-list">
+        <div class="package">
+            <!-- NOTE: The "name" span value cannot contain any periods! -->
+            <span class="name">MingleApiHelp_NET</span>
+            <a class="current-link" href="MingleApiHelp.NET.mshc">MingleApiHelp.NET.mshc</a>
+        </div>
+    </div>
+</body>
+</html>
