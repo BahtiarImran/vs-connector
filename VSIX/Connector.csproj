@@ -97,13 +97,11 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.25110, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MingleNET.1.5\lib\ThoughtWorksCoreLib.dll</HintPath>
+    <Reference Include="ThoughtWorksCoreLib">
+      <HintPath>..\packages\MingleNET.1.5.1\lib\net40\ThoughtWorksCoreLib.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.25111, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MingleNET.1.5\lib\ThoughtWorksMingleLib.dll</HintPath>
+    <Reference Include="ThoughtWorksMingleLib">
+      <HintPath>..\packages\MingleNET.1.5.1\lib\net40\ThoughtWorksMingleLib.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
