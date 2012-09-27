@@ -36,6 +36,8 @@
     </SccProvider>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -98,10 +100,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="ThoughtWorksCoreLib">
-      <HintPath>..\packages\MingleNET.1.5.1\lib\net40\ThoughtWorksCoreLib.dll</HintPath>
+      <HintPath>..\packages\MingleNET.1.5.2\lib\net40\ThoughtWorksCoreLib.dll</HintPath>
     </Reference>
     <Reference Include="ThoughtWorksMingleLib">
-      <HintPath>..\packages\MingleNET.1.5.1\lib\net40\ThoughtWorksMingleLib.dll</HintPath>
+      <HintPath>..\packages\MingleNET.1.5.2\lib\net40\ThoughtWorksMingleLib.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
@@ -418,6 +420,7 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
