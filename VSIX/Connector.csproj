@@ -99,11 +99,13 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.19161, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MingleNET.1.5.15\lib\net40\ThoughtWorksCoreLib.dll</HintPath>
+    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.15257, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MingleNET\ThoughtWorksCoreLib.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.19161, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MingleNET.1.5.15\lib\net40\ThoughtWorksMingleLib.dll</HintPath>
+    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.15257, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MingleNET\ThoughtWorksMingleLib.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
@@ -306,7 +308,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
