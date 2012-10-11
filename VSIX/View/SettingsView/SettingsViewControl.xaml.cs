@@ -122,24 +122,13 @@ namespace ThoughtWorks.VisualStudio
             mingleHostTextBox.Text = MingleSettings.Host;
             if (string.IsNullOrWhiteSpace(mingleHostTextBox.Text)) mingleHostTextBox.Focus();
             FormIsDirty = false;
-            CollapseMingleNotice();
             if (string.IsNullOrWhiteSpace(minglePasswordBox.Password) &&
                 string.IsNullOrWhiteSpace(mingleUserTextBox.Text) && string.IsNullOrWhiteSpace(mingleHostTextBox.Text))
                 ExpandMingleNotice();
         }
 
-        private void CollapseMingleNotice()
-        {
-            mingleIntro.Visibility = Visibility.Collapsed;
-            mingleNotice.Visibility = Visibility.Collapsed;
-            mingleLink.Visibility = Visibility.Collapsed;
-        }
-
         private void ExpandMingleNotice()
         {
-            mingleIntro.Visibility = Visibility.Visible;
-            mingleNotice.Visibility = Visibility.Visible;
-            mingleLink.Visibility = Visibility.Visible;
             mingleHostTextBox.Focus();
         }
 
