@@ -76,11 +76,11 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.15257, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.25122, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MingleNET\ThoughtWorksCoreLib.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.15257, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.25122, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MingleNET\ThoughtWorksMingleLib.dll</HintPath>
     </Reference>
