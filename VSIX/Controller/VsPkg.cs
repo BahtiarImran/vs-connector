@@ -48,7 +48,7 @@ namespace ThoughtWorks.VisualStudio
     [ProvideMenuResource(1000, 1)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("Mingle Extension for Visual Studio", "Context-relevant connections to Mingle.",
-        "1.0.1")]
+        "1.1.1")]
     [Guid("D00EB40D-F709-49C6-B43F-D7910D730883")]
     public sealed class TwVscCommandsPackage : Package
     {
