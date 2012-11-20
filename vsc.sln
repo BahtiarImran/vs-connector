@@ -6,15 +6,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11437074-0A5D-455F-9423-9036D6153647}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		build.bat = build.bat
-		init.bat = init.bat
+		build.cmd = build.cmd
 		Local.testsettings = Local.testsettings
 		tools\MSBuild-to-NUnit.xslt = tools\MSBuild-to-NUnit.xslt
 		tools\msxsl.exe = tools\msxsl.exe
-		rakefile = rakefile
-		test.bat = test.bat
+		packages.cmd = packages.cmd
+		test.cmd = test.cmd
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-		vsc.proj = vsc.proj
 		vsc.vsmdi = vsc.vsmdi
 	EndProjectSection
 EndProject
@@ -28,6 +26,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AD3BA1
 	EndProjectSection
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://mdrichter.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = VSIX\\Connector.csproj
+		SccProjectName1 = VSIX
+		SccLocalPath1 = VSIX
+		SccProjectUniqueName2 = Tests\\Tests.csproj
+		SccProjectName2 = Tests
+		SccLocalPath2 = Tests
+	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = vsc.vsmdi
 	EndGlobalSection
