@@ -72,7 +72,6 @@
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0" />
-    <Reference Include="Microsoft.VisualStudio.TextManager.Interop" />
     <Reference Include="Microsoft.VisualStudio.Shell.10.0">
       <Private>false</Private>
     </Reference>
@@ -98,7 +97,7 @@
     <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.10638, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\MingleNET\_update\MingleNET\lib\net40\ThoughtWorksCoreLib.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.10639, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksMingleLib">
       <HintPath>..\MingleNET\_update\MingleNET\lib\net40\ThoughtWorksMingleLib.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationProvider" />
@@ -302,6 +301,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -415,7 +415,6 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

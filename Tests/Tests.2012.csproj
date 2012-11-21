@@ -55,13 +55,13 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.25110, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksCoreLib, Version=1.0.0.23996, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MingleNET.1.5.18\lib\net40\ThoughtWorksCoreLib.dll</HintPath>
+      <HintPath>..\MingleNET\_update\MingleNET\lib\net40\ThoughtWorksCoreLib.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.25111, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ThoughtWorksMingleLib, Version=1.0.0.23996, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MingleNET.1.5.18\lib\net40\ThoughtWorksMingleLib.dll</HintPath>
+      <HintPath>..\MingleNET\_update\MingleNET\lib\net40\ThoughtWorksMingleLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
