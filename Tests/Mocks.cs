@@ -178,7 +178,7 @@ namespace Mocks
             throw new NotImplementedException();
         }
 
-        public void SendMurmur(string murmur)
+        public MingleMurmur SendMurmur(string murmur)
         {
             throw new NotImplementedException();
         }
