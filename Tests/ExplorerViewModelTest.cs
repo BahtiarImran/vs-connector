@@ -273,16 +273,6 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestRefreshTransitions()
-        {
-            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
-            model.SelectProject("test");
-            var transitions = model.TransitionsCollection;
-            Assert.AreNotEqual(null, transitions);
-            Assert.AreEqual(19, transitions.Count);
-        }
-        
-        [TestMethod]
         [DeploymentItem("Tests\\data\\card_transit.xml")]
         [DeploymentItem("Tests\\data\\projects.xml")]
         public void TestCardTransitions()
@@ -290,26 +280,9 @@ namespace Tests
             var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
             // Touch the Transitions property to populate the cache
-            var t = model.TransitionsCollection;
             var transitions = model.GetOneCard(7).Transitions.ToList();
             Assert.AreNotEqual(null, transitions);
             Assert.AreEqual(11, transitions.Count());
-        }
-
-        [TestMethod]
-        [DeploymentItem("Tests\\data\\projects.xml")]
-        public void TestIntegrationCardUpdate()
-        {
-            var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
-            model.SelectProject("test");
-            var card = model.GetOneCard(120);
-            Assert.IsInstanceOfType(card, typeof(Card));
-            card.AddCardAttributeFilterToPostData("name", "Integration test is running");
-            card.Update();
-            Assert.AreEqual("Integration test is running", card.Name);
-            card.AddCardAttributeFilterToPostData("name", "This is a card for testing");
-            card.Update();
-            Assert.AreEqual("This is a card for testing", card.Name);
         }
 
         [TestMethod]

@@ -266,7 +266,12 @@ namespace ThoughtWorks.VisualStudio
         /// </summary>
         public IEnumerable<Transition> Transitions
         {
-            get { return Model.TransitionsCollection.Where(tr => tr.CardTypeName == MingleCard.Type).ToList(); }
+            get
+            {
+                var transitions = new List<Transition>();
+                MingleCard.Transitions.ToList().ForEach(t => transitions.Add(new Transition(Model, t.Value)));
+                return transitions;
+            }
         }
 
         /// <summary>

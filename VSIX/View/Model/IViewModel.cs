@@ -79,11 +79,6 @@ namespace ThoughtWorks.VisualStudio
         Card GetOneCard(int cardNo);
 
         /// <summary>
-        /// Colleciton of transitions for the project
-        /// </summary>
-        ObservableCollection<Transition> TransitionsCollection { get; }
-
-        /// <summary>
         /// Crates a new card
         /// </summary>
         /// <param name="type">Card type</param>

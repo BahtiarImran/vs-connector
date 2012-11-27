@@ -330,7 +330,7 @@ namespace ThoughtWorks.VisualStudio
                     // The name of the field is "cardXXXXXX", so we strip the "card" prefix from the
                     // name of the TextBox.
                     _thisCard.AddCardAttributeFilterToPostData(
-                        tb.Name.Replace("card", string.Empty).ToUpperInvariant(), tb.Text);
+                        tb.Name.Replace("card", string.Empty).ToLowerInvariant(), tb.Text);
                     break;
 
                 case "CardProperty":

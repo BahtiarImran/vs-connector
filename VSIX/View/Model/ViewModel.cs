@@ -249,19 +249,6 @@ namespace ThoughtWorks.VisualStudio
         internal int CurrentCardNumber { get; set; }
 
         /// <summary>
-        /// Collection of transitions for the project
-        /// </summary>
-        public ObservableCollection<Transition> TransitionsCollection
-        {
-            get
-            {
-                if (null != _transitionsCollectionCache) return _transitionsCollectionCache;
-                _transitionsCollectionCache = Project().TransitionsCollection;
-                return _transitionsCollectionCache;
-            }
-        }
-
-        /// <summary>
         /// Collection of murmurs
         /// </summary>
         public ObservableCollection<Murmur> Murmurs

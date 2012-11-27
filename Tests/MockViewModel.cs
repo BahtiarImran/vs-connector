@@ -120,14 +120,6 @@ namespace Tests
         }
 
         /// <summary>
-        /// Colleciton of transitions for the project
-        /// </summary>
-        public ObservableCollection<Transition> TransitionsCollection
-        {
-            get { return _model.TransitionsCollection; }
-        }
-
-        /// <summary>
         /// Crates a new card
         /// </summary>
         /// <param name="type">Card type</param>
