@@ -81,7 +81,7 @@ namespace Tests
             Assert.AreEqual(19, new MingleServer(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD).GetProject("test").Transitions.Count);
             var model = new ViewModel(_mingleHost, MINGLE_INTEGRATION_USER, MINGLE_INTEGRATION_PASSWORD);
             model.SelectProject("test");
-            Assert.AreEqual(11, model.GetOneCard(126).Transitions.Count());
+            Assert.AreEqual(1, model.GetOneCard(126).Transitions.Count());
         }
 
         [TestMethod()]

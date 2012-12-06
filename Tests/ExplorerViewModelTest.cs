@@ -282,7 +282,7 @@ namespace Tests
             // Touch the Transitions property to populate the cache
             var transitions = model.GetOneCard(7).Transitions.ToList();
             Assert.AreNotEqual(null, transitions);
-            Assert.AreEqual(11, transitions.Count());
+            Assert.AreEqual(3, transitions.Count());
         }
 
         [TestMethod]

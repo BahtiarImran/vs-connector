@@ -19,18 +19,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4FA2CCF2-F7AB-4293-BC2A-632DED551DB3}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://mdrichter.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = VSIX\\Connector.csproj
-		SccProjectName1 = VSIX
-		SccLocalPath1 = VSIX
-		SccProjectUniqueName2 = Tests\\Tests.csproj
-		SccProjectName2 = Tests
-		SccLocalPath2 = Tests
-	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = vsc.vsmdi
 	EndGlobalSection

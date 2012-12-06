@@ -6,4 +6,6 @@ ECHO Test run completed.
 ECHO Beginning test result transformation to XUnit.
 tools\msxsl build\tests\testresults.trx tools\MSBuild-to-NUnit.xslt -o build/tests/testresults.trx.xml
 ECHO Test result transformation to XUnit completed.
-ECHO Test pass ended.
+ECHO Check for failed tests and tell Go
+tools\inspecttrx build\tests\testresults.trx
+
