@@ -1,5 +1,5 @@
 ﻿//
-// Copyright Thoughtworks, Inc. 2011
+// Copyright © 2010, 2011,2012, 2013 ThoughtWorks, Inc.
 //
 
 using ThoughtWorks.VisualStudio.Properties;

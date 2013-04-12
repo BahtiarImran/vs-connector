@@ -1,5 +1,5 @@
 //
-// Copyright © 2010, 2011 ThoughtWorks, Inc.
+// Copyright © 2010, 2011,2012, 2013 ThoughtWorks, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); 
 // you may not use this file except in compliance with the License. 
@@ -48,7 +48,7 @@ namespace ThoughtWorks.VisualStudio
     [ProvideMenuResource(1000, 1)]
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("Mingle Extension for Visual Studio", "Context-relevant connections to Mingle.",
-        "1.1.1")]
+        "1.1.6")]
     [Guid("D00EB40D-F709-49C6-B43F-D7910D730883")]
     public sealed class TwVscCommandsPackage : Package
     {

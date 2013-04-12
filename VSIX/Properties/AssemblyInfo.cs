@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ThoughtWorks, Inc.")]
 [assembly: AssemblyProduct("Mingle Extension for Visual Studio")]
-[assembly: AssemblyCopyright("Copyright © 2012 ThoughtWorks, Inc.")]
+[assembly: AssemblyCopyright("Copyright © 2012,2013 ThoughtWorks, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -54,6 +54,6 @@ using System.Runtime.InteropServices;
 // 0.8.*.* denotes Alpha phase builds
 // 0.9.*.* denotes Beta phase builds
 
-[assembly: AssemblyVersion("1.1.0.*")]
+[assembly: AssemblyVersion("1.1.6.*")]
 [assembly: InternalsVisibleTo("VsConnectorTests")]
 [assembly: InternalsVisibleTo("VsConnectorTests.2012")]
